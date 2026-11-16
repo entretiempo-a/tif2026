@@ -38,6 +38,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .tile::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 70% at var(--gx,65%) var(--gy,75%),rgba(255,255,255,.42),transparent 70%);transition:opacity .5s,transform .8s var(--ease)}
 .tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:var(--op,right bottom);transform-origin:var(--to,70% 80%);transition:transform .7s var(--spring);pointer-events:none}
 .tile span{position:absolute;left:max(8px,calc(var(--W)*15/1280));top:max(8px,calc(var(--W)*15/1280));z-index:2;transition:transform .5s var(--ease)}
+.tile span:not(.arrow){opacity:var(--lab,0)}
 .tile .arrow{left:auto;right:max(8px,calc(var(--W)*15/1280));opacity:0;transform:translate(-8px,8px);transition:.4s var(--ease);font-family:'Figtree';font-weight:500}
 .grid.ready .tile{transition:filter .4s,box-shadow .4s,transform .25s ease-out}
 .grid.ready .tile:hover img,.grid.ready .tile:focus-visible img{transform:scale(1.09) rotate(-3deg)}
@@ -350,7 +351,7 @@ footer{background:var(--n01);color:#effaff;height:417px;position:relative}
 @keyframes spin{to{transform:rotate(360deg)}}
 @keyframes hop{50%{transform:translateY(-5px)}}
 .sign{position:absolute;left:0;right:0;bottom:60px;display:flex;justify-content:space-between;align-items:center;width:min(996px,calc(100% - var(--side)*2 - 16px));margin-inline:auto}
-.sign .logo{font-size:35px;gap:.3em}.sign .logo span{animation:none}
+.sign .sign-logo{width:284px;flex:none;color:var(--n10)}
 .sign small{font-size:14px;line-height:16px}
 
 
@@ -475,7 +476,9 @@ footer{background:var(--n01);color:#effaff;height:417px;position:relative}
 .sg-esc .es-steps{justify-content:center}
 
 /* variables de color */
-.sg-var-head{padding:70px 0 0}
+.sg-vc,.sg-gris{--sec:120px}
+.sg-vc{padding:var(--sec) 0 0}
+.sg-var-head{padding:0}
 .sg-var-head .body p+p{margin-top:20px}
 .pin.full .stick.vcs{display:block;align-items:initial}
 .vc-body{padding-top:56px}
@@ -493,7 +496,7 @@ footer{background:var(--n01);color:#effaff;height:417px;position:relative}
 .vc-hint{text-align:center;margin-top:20px;font-size:14px;opacity:.55}
 
 /* escala de grises: tres tonos que se dan vuelta */
-.sg-gris{padding:40px 0 100px}
+.sg-gris{padding:var(--sec) 0 var(--sec)}
 .pin.free{height:auto}.pin.free .stick{position:static;height:auto;display:block;overflow:visible}
 .pin.free .stick.vcs{padding-bottom:0}
 .sg-usos .pin.free .stick{padding:90px 0 100px}
@@ -781,7 +784,7 @@ footer{background:var(--n01);color:#effaff;height:417px;position:relative}
       </span>
       Volver arriba
     </button>
-    <div class="sign"><div class="logo"><span><i>ENTRE</i></span><span><b>TIEMPO</b></span></div><small>Una identidad, múltiples experiencias.</small></div>
+    <div class="sign"><i class="mk sign-logo" role="img" aria-label="Entre tiempo" style="--m:var(--k-et);--ar:8.1"></i><small>Una identidad, múltiples experiencias.</small></div>
   </footer>
   </div>
 </main>
@@ -875,10 +878,10 @@ footer{background:var(--n01);color:#effaff;height:417px;position:relative}
         <p class="body">Nuestra voz mantiene su personalidad, pero el tono se adapta a cada situación. Podemos despertar curiosidad, acompañar una decisión, comunicar información importante o invitar a reflexionar. Lo esencial es conservar siempre la claridad, la cercanía y el respeto.</p>
       </div>
       <div class="tono-stack" id="tonoStack">
-        <div class="tono" style="--o:0px;--c:#f69999;--k:1"><div class="tl"><b>Campañas y afiches</b>Intrigante y provocador</div><div class="tr">Buscamos llamar la atención mediante frases breves, preguntas y dobles sentidos relacionados con el tiempo y los recorridos.<em>Ejemplo de Desvío: ”Tu día no tiene un solo camino.”</em></div></div>
-        <div class="tono" style="--o:32px;--c:#79dbff"><div class="tl"><b>Experiencias interactivas</b>Dinámico y lúdico</div><div class="tr">Utilizamos consignas simples, mensajes de acción y expresiones que acompañan el ritmo de la experiencia.<em>Ejemplo de Apuro: ”Armá tu día, sin vueltas.”</em></div></div>
-        <div class="tono" style="--o:60px;--c:#a599f0"><div class="tl"><b>Interfaces y navegación</b>Claro y funcional</div><div class="tr">Priorizamos la comprensión inmediata. Cada mensaje ayuda a saber dónde estamos, qué pasa y cuál es el próximo paso.<em>Ejemplo de Movida: ”Salí en 5 min.”</em></div></div>
-        <div class="tono" style="--o:88px;--c:#79dbff;--tx:#004687"><div class="tl"><b>Cierres y reflexiones</b>Cercano y sensible</div><div class="tr">Invitamos a pensar sobre lo vivido, reconociendo las distintas experiencias sin establecer una única conclusión.<em>Ejemplo de Apuro: ”Terminó tu día. Cada decisión cuenta.”</em></div></div>
+        <div class="tono" style="--o:0px;--c:#796fe4;--tx:#fff;--k:1"><div class="tl"><b>Campañas y afiches</b>Intrigante y provocador</div><div class="tr">Buscamos llamar la atención mediante frases breves, preguntas y dobles sentidos relacionados con el tiempo y los recorridos.<em>Ejemplo de Desvío: ”Tu día no tiene un solo camino.”</em></div></div>
+        <div class="tono" style="--o:32px;--c:#57bef9"><div class="tl"><b>Experiencias interactivas</b>Dinámico y lúdico</div><div class="tr">Utilizamos consignas simples, mensajes de acción y expresiones que acompañan el ritmo de la experiencia.<em>Ejemplo de Apuro: ”Armá tu día, sin vueltas.”</em></div></div>
+        <div class="tono" style="--o:60px;--c:#eb4d3d;--tx:#fff"><div class="tl"><b>Interfaces y navegación</b>Claro y funcional</div><div class="tr">Priorizamos la comprensión inmediata. Cada mensaje ayuda a saber dónde estamos, qué pasa y cuál es el próximo paso.<em>Ejemplo de Movida: ”Salí en 5 min.”</em></div></div>
+        <div class="tono" style="--o:88px;--c:#f8e54c"><div class="tl"><b>Cierres y reflexiones</b>Cercano y sensible</div><div class="tr">Invitamos a pensar sobre lo vivido, reconociendo las distintas experiencias sin establecer una única conclusión.<em>Ejemplo de Apuro: ”Terminó tu día. Cada decisión cuenta.”</em></div></div>
       </div>
     </div></div></div>
   </section>
@@ -919,7 +922,7 @@ footer{background:var(--n01);color:#effaff;height:417px;position:relative}
       </span>
       Volver arriba
     </button>
-    <div class="sign"><div class="logo"><span><i>ENTRE</i></span><span><b>TIEMPO</b></span></div><small>Una identidad, múltiples experiencias.</small></div>
+    <div class="sign"><i class="mk sign-logo" role="img" aria-label="Entre tiempo" style="--m:var(--k-et);--ar:8.1"></i><small>Una identidad, múltiples experiencias.</small></div>
   </footer>
   </div>
 </main>
@@ -1076,7 +1079,7 @@ footer{background:var(--n01);color:#effaff;height:417px;position:relative}
   <!-- escala de grises: tres tonos que se dan vuelta -->
   <section class="sg-gris" id="grises" data-tone="l" data-label="Escala de grises">
     <div class="wrap">
-      <div class="two"><h2 class="sm" data-r="up">Escala<br>de grises</h2>
+      <div class="two"><h2 data-r="up">Escala<br>de grises</h2>
         <div class="body" data-r="up" style="--d:.1s"><p>Cuando el color no está disponible, el logo se adapta a una <b>escala de grises que mantiene su contraste y legibilidad.</b></p><p>Cada tono tiene su versión sobre fondo claro y su versión invertida.</p></div></div>
       <div class="gs" id="gs">
         <button class="gt" style="--bg:#f2f3f4;--fg:#2d2e30"><span class="gi"><span class="gf"><small>100%</small><i></i></span><span class="gf bk"><small>100%</small><i></i></span></span></button>
@@ -1150,7 +1153,7 @@ footer{background:var(--n01);color:#effaff;height:417px;position:relative}
       </span>
       Volver arriba
     </button>
-    <div class="sign"><div class="logo"><span><i>ENTRE</i></span><span><b>TIEMPO</b></span></div><small>Una identidad, múltiples experiencias.</small></div>
+    <div class="sign"><i class="mk sign-logo" role="img" aria-label="Entre tiempo" style="--m:var(--k-et);--ar:8.1"></i><small>Una identidad, múltiples experiencias.</small></div>
   </footer>
   </div>
 </main>
@@ -1193,6 +1196,7 @@ function frame(){
   intro.style.borderRadius=24+(1-s)*60+'px';
   intro.style.pointerEvents=s<.3?'none':'';
   intro.style.display=mobile?'none':'';
+  grid.style.setProperty('--lab',clamp((p-.3)/.45).toFixed(3));
   grid.classList.toggle('ready',p>.97);
 }
 addEventListener('scroll',()=>requestAnimationFrame(()=>{frame();pageScroll()}),{passive:true});
