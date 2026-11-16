@@ -509,7 +509,8 @@ footer{background:var(--n01);color:#effaff;height:417px;position:relative}
 .sp-r{position:relative;height:280px}
 .sp-r svg{width:100%;height:100%;display:block;overflow:visible}
 .sp-r .ly{opacity:0;transition:opacity .55s}
-.sp-r[data-s="0"] .lg,.sp-r[data-s="1"] .lg,.sp-r[data-s="0"] .la,.sp-r[data-s="1"] .lb,.sp-r[data-s="2"] .lc{opacity:1}
+.sp-r[data-s="0"] .lg,.sp-r[data-s="1"] .lg,.sp-r[data-s="0"] .la,.sp-r[data-s="1"] .lb{opacity:1}
+.sp{position:relative}.sp-w{position:absolute;left:0;top:50%;width:100%;transform:translateY(-50%);opacity:0;pointer-events:none;transition:opacity .55s}.sp[data-s="2"] .sp-w{opacity:1}.sp[data-s="2"] .vr-l,.sp[data-s="2"] .sp-r{opacity:0;transition:opacity .35s}
 
 /* colaboraciones */
 .sg-col{padding:100px 0 90px}
@@ -540,10 +541,10 @@ footer{background:var(--n01);color:#effaff;height:417px;position:relative}
 .us-card{position:relative;display:block;width:100%;aspect-ratio:560/260;border-radius:26px;overflow:hidden;background:#2d2e30;box-shadow:0 6px 18px rgba(0,0,0,.22);cursor:pointer;outline:0}
 .us-bad,.us-ok{position:absolute;inset:0;transition:opacity .35s}
 .us-bad svg,.us-ok svg{width:100%;height:100%;display:block}
-.us-bad{animation:tiembla .4s linear infinite;box-shadow:inset 0 0 0 4px rgba(224,58,58,.9)}
+.us-bad{box-shadow:inset 0 0 0 0 rgba(224,58,58,0)}.us-card:hover .us-bad{animation:tiembla .4s linear infinite;box-shadow:inset 0 0 0 4px rgba(224,58,58,.9)}
 .us-bad svg{position:absolute;inset:0}
 .us-ok{opacity:0}.us-ok b{position:absolute;right:18px;bottom:14px;background:#d1f842;color:var(--n01);border-radius:999px;padding:6px 16px;font-size:14px}
-.us-card.ok .us-bad{opacity:0;animation:none}.us-card.ok .us-ok{opacity:1}
+.us-card.ok .us-bad,.us-card.ok:hover .us-bad{opacity:0;animation:none}.us-card.ok .us-ok{opacity:1}
 .us-x{position:absolute;right:16px;top:12px;width:46px;height:46px;border-radius:50%;background:#d92d2d;color:#fff;display:grid;place-items:center;font-size:22px;font-weight:700;pointer-events:none;transition:opacity .3s}
 .us-x.pop{animation:sello .55s var(--spring)}
 .us-card.ok .us-x{opacity:0}
@@ -551,7 +552,7 @@ footer{background:var(--n01);color:#effaff;height:417px;position:relative}
 .us-th{display:flex;justify-content:center;gap:8px;flex-wrap:wrap}
 .us-th button{width:34px;height:34px;border-radius:50%;border:1.343px solid var(--n01);font-size:12px;font-weight:600;transition:background .25s,color .25s,transform .3s var(--spring),border-color .25s}
 .us-th button:hover{transform:translateY(-3px)}
-.us-th button.on{background:#d92d2d;border-color:#d92d2d;color:#fff;animation:tiembla .4s linear infinite}
+.us-th button.on{background:#d92d2d;border-color:#d92d2d;color:#fff}
 
 /* guía de estilos en tramos */
 .c-guia .stick .wrap{width:min(964px,calc(100% - var(--side)*2 - 48px))}
@@ -1095,6 +1096,7 @@ footer{background:var(--n01);color:#effaff;height:417px;position:relative}
             <g class="ly lc" id="spMini"></g>
           </svg>
         </div>
+        <svg class="sp-w" id="spW" viewBox="0 0 1485 413" role="img" aria-label="Aplicaciones del espacio de seguridad"><rect width="1485" height="413" fill="#ecedee"/><g transform="translate(0 0)"><rect x=".5" y=".5" width="266" height="74" fill="none" stroke="#c3c8c9"/><path d="M0 25.5H267M0 49.5H267M25.5 0V75M241.5 0V75" stroke="#9ee0ab" stroke-width=".7" opacity=".8" fill="none"/><g fill="#c9ebd0" opacity=".95"><rect width="25.5" height="25.5"/><rect x="241.5" width="25.5" height="25.5"/><rect y="49.5" width="25.5" height="25.5"/><rect x="241.5" y="49.5" width="25.5" height="25.5"/></g><use href="#sy-et" x="25.5" y="24.5" width="216" height="26.2" fill="#2d2e30"/></g><g transform="translate(609 0)"><rect x=".5" y=".5" width="266" height="74" fill="none" stroke="#c3c8c9"/><path d="M0 25.5H267M0 49.5H267M25.5 0V75M241.5 0V75" stroke="#9ee0ab" stroke-width=".7" opacity=".8" fill="none"/><g fill="#c9ebd0" opacity=".95"><rect width="25.5" height="25.5"/><rect x="241.5" width="25.5" height="25.5"/><rect y="49.5" width="25.5" height="25.5"/><rect x="241.5" y="49.5" width="25.5" height="25.5"/></g><use href="#sy-et" x="25.5" y="24.5" width="216" height="26.2" fill="#2d2e30"/></g><g transform="translate(1218 0)"><rect x=".5" y=".5" width="266" height="74" fill="none" stroke="#c3c8c9"/><path d="M0 25.5H267M0 49.5H267M25.5 0V75M241.5 0V75" stroke="#9ee0ab" stroke-width=".7" opacity=".8" fill="none"/><g fill="#c9ebd0" opacity=".95"><rect width="25.5" height="25.5"/><rect x="241.5" width="25.5" height="25.5"/><rect y="49.5" width="25.5" height="25.5"/><rect x="241.5" y="49.5" width="25.5" height="25.5"/></g><use href="#sy-et" x="25.5" y="24.5" width="216" height="26.2" fill="#2d2e30"/></g><g transform="translate(0 338)"><rect x=".5" y=".5" width="266" height="74" fill="none" stroke="#c3c8c9"/><path d="M0 25.5H267M0 49.5H267M25.5 0V75M241.5 0V75" stroke="#9ee0ab" stroke-width=".7" opacity=".8" fill="none"/><g fill="#c9ebd0" opacity=".95"><rect width="25.5" height="25.5"/><rect x="241.5" width="25.5" height="25.5"/><rect y="49.5" width="25.5" height="25.5"/><rect x="241.5" y="49.5" width="25.5" height="25.5"/></g><use href="#sy-et" x="25.5" y="24.5" width="216" height="26.2" fill="#2d2e30"/></g><g transform="translate(609 338)"><rect x=".5" y=".5" width="266" height="74" fill="none" stroke="#c3c8c9"/><path d="M0 25.5H267M0 49.5H267M25.5 0V75M241.5 0V75" stroke="#9ee0ab" stroke-width=".7" opacity=".8" fill="none"/><g fill="#c9ebd0" opacity=".95"><rect width="25.5" height="25.5"/><rect x="241.5" width="25.5" height="25.5"/><rect y="49.5" width="25.5" height="25.5"/><rect x="241.5" y="49.5" width="25.5" height="25.5"/></g><use href="#sy-et" x="25.5" y="24.5" width="216" height="26.2" fill="#2d2e30"/></g><g transform="translate(1218 338)"><rect x=".5" y=".5" width="266" height="74" fill="none" stroke="#c3c8c9"/><path d="M0 25.5H267M0 49.5H267M25.5 0V75M241.5 0V75" stroke="#9ee0ab" stroke-width=".7" opacity=".8" fill="none"/><g fill="#c9ebd0" opacity=".95"><rect width="25.5" height="25.5"/><rect x="241.5" width="25.5" height="25.5"/><rect y="49.5" width="25.5" height="25.5"/><rect x="241.5" y="49.5" width="25.5" height="25.5"/></g><use href="#sy-et" x="25.5" y="24.5" width="216" height="26.2" fill="#2d2e30"/></g></svg>
       </div>
       <div class="steps vr-steps" id="spSteps"><button>Unidad de medida</button><button>Área de protección</button><button>En uso</button></div>
     </div></div></div>
@@ -1397,9 +1399,9 @@ const spL=$$('#spL .vr-t'), spS=steps('#spSteps','#spPin'), spR=$('#spR');let sp
   [[20,36],[199,36],[379,36],[20,150],[199,150],[379,150]].forEach(([x,y])=>{
     s+=`<g><rect x="${x}" y="${y}" width="${bw}" height="${bh}" fill="#e7ebec" stroke="#9ee0ab"/><g fill="#bfe9c9"><rect x="${x}" y="${y}" width="${X}" height="${X}"/><rect x="${x+bw-X}" y="${y}" width="${X}" height="${X}"/><rect x="${x}" y="${y+bh-X}" width="${X}" height="${X}"/><rect x="${x+bw-X}" y="${y+bh-X}" width="${X}" height="${X}"/></g><use href="#sy-et" x="${x+X}" y="${y+X}" width="${w}" height="${h}" fill="#2d2e30"/></g>`});
   $('#spMini').innerHTML=s})();
-pin('#spPin',t=>{const i=Math.min(2,Math.floor(clamp(t/.98)*3));if(i===spI)return;spI=i;stack(spL,i);spS.forEach((b,j)=>b.classList.toggle('on',j===i));spR.dataset.s=i});
+pin('#spPin',t=>{const i=Math.min(2,Math.floor(clamp(t/.98)*3));if(i===spI)return;spI=i;stack(spL,i);spS.forEach((b,j)=>b.classList.toggle('on',j===i));spR.dataset.s=i;spR.parentNode.dataset.s=i});
 
-/* usos incorrectos: doce ejemplos, uno por tramo, tiemblan hasta que los tocás */
+/* usos incorrectos: doce ejemplos, uno por tramo; tiemblan al pasar el mouse */
 const ETP=[...$('#sy-et').querySelectorAll('path')].map(p=>p.getAttribute('d'));
 const ENT=[0,3,5,9,1], TIE=[4,6,2,7,8,10];
 const U=(a,x=82,y=106)=>`<use href="#sy-et" x="${x}" y="${y}" width="396" height="48" ${a}/>`;
