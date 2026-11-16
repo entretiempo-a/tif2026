@@ -35,7 +35,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .tile{position:relative;display:block;text-align:left;border-radius:10px;overflow:hidden;min-height:0;background:var(--c);will-change:transform;
   font-family:'Epilogue',sans-serif;font-weight:700;font-size:clamp(13px,1.72vw,22px);line-height:1;letter-spacing:-.017em;color:var(--t);text-decoration:none}
 .tile::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 70% at var(--gx,65%) var(--gy,75%),rgba(255,255,255,.42),transparent 70%);transition:opacity .5s,transform .8s var(--ease)}
-.tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:var(--op,right bottom);transform-origin:var(--to,70% 80%);transition:transform .7s var(--spring);pointer-events:none}
+.tile img{position:absolute;left:0;right:0;bottom:0;top:calc(var(--ln,1)*1em + clamp(10px,1.25vw,16px) + 8px);width:100%;height:auto;-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 18px);mask-image:linear-gradient(to bottom,transparent 0,#000 18px);object-fit:cover;object-position:var(--op,right bottom);transform-origin:var(--to,70% 80%);transition:transform .7s var(--spring);pointer-events:none}
 .tile span{position:absolute;left:clamp(10px,1.25vw,16px);top:clamp(10px,1.25vw,16px);z-index:2;transition:transform .5s var(--ease)}
 .tile .arrow{left:auto;right:clamp(10px,1.25vw,16px);opacity:0;transform:translate(-8px,8px);transition:.4s var(--ease);font-family:'Figtree';font-weight:500}
 .grid.ready .tile{transition:filter .4s,box-shadow .4s,transform .25s ease-out}
@@ -59,7 +59,9 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .logo span{display:inline-block;animation:rise .9s var(--ease) both}
 .intro p{font-size:clamp(13px,1.4vw,18px);opacity:.85;animation:fade 1s .5s both}
 .intro .hint{margin-top:clamp(8px,3vh,30px);font-size:13px;letter-spacing:.08em;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:10px;opacity:.7;animation:fade 1s .9s both}
-.hint i{width:1px;height:34px;background:currentColor;transform-origin:top;animation:line 1.8s ease-in-out infinite}
+.intro-logo{width:min(78%,640px);color:var(--n10);animation:rise .9s var(--ease) both}
+.hint .arr{display:block;animation:flecha 1.6s ease-in-out infinite}
+@keyframes flecha{0%{transform:translateY(-6px);opacity:0}30%{opacity:1}70%{transform:translateY(8px);opacity:1}100%{transform:translateY(12px);opacity:0}}
 @keyframes line{0%{transform:scaleY(0)}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
 @keyframes rise{from{transform:translateY(60%);opacity:0}}
 @keyframes fade{from{opacity:0}}
@@ -93,7 +95,7 @@ body.inpage #chrome{display:block}
 .mv-row.b{top:26px;height:170px;padding-top:11px;background:var(--n10);z-index:2;transform:translateY(calc((1 - var(--t))*200px));opacity:calc(var(--t)*5)}
 .mv-row.b::before{content:"";position:absolute;left:3px;right:0;top:0;height:5px;border-radius:3px;background:var(--naranja);transform:scaleX(var(--t));transform-origin:left}
 .mv-card{background:var(--n01);border-radius:20px;height:144px;display:flex;align-items:center;padding:0 61px;font-family:'Epilogue';font-weight:600;font-size:24px;line-height:32px;letter-spacing:-.02em;color:var(--n10);box-shadow:0 4px 2px rgba(0,0,0,.25)}
-.mv-row[data-k=mision] .mv-card{color:#b0e9fe}
+.mv-row[data-k=mision] .mv-card{color:#fff}
 
 /* principios: cambian con el scroll */
 .rail-vp{min-width:0;clip-path:inset(-30px -100vw -30px -6px)}
@@ -211,11 +213,15 @@ h2{font-family:'Epilogue';font-weight:700;font-size:48px;line-height:56px;letter
 .side .prog{position:absolute;right:0;top:0;width:1px;height:100%;background:currentColor;transform-origin:top;transform:scaleY(var(--p,0))}
 .side span{position:absolute;left:50%;writing-mode:vertical-rl;rotate:180deg;translate:-50% 0;font-size:16px;letter-spacing:-.01em;white-space:nowrap;color:#fbfdff;transition:color .4s}
 .side span.dk{color:#2d2e30}
-.side .lbl{top:23px}.side .cr{bottom:23px}
+.side .lbl{display:none}.side .cr{bottom:23px}
 .side .lbl em{font-style:normal;display:inline-block;transition:opacity .3s,transform .3s}
 .side .lbl em.out{opacity:0;transform:translateY(-8px)}
 .burger{position:fixed;left:0;top:50%;translate:0 -50%;width:var(--side);height:var(--side);background:var(--n10);z-index:41;display:grid;place-items:center;box-shadow:0 2px 12px rgba(0,0,0,.18);transition:background .3s}
 .burger i{display:block;width:30px;height:3px;background:var(--n01);margin:6px 0;border-radius:2px;transition:transform .4s var(--spring),width .3s}
+.burger .bg{display:block;transition:opacity .25s,transform .35s var(--spring)}
+.burger .iso{position:absolute;left:50%;top:50%;width:36px;aspect-ratio:1.33;translate:-50% -50%;background:var(--n01);-webkit-mask:var(--k-iso) center/contain no-repeat;mask:var(--k-iso) center/contain no-repeat;opacity:0;scale:.6;transition:opacity .25s,scale .4s var(--spring)}
+.burger:hover .bg,.burger:focus-visible .bg{opacity:0;transform:scale(.6)}
+.burger:hover .iso,.burger:focus-visible .iso{opacity:1;scale:1}
 .burger:hover i:nth-child(1){transform:translateX(4px)}
 .burger:hover i:nth-child(3){transform:translateX(-4px)}
 .burger:hover i:nth-child(2){width:22px}
@@ -373,7 +379,7 @@ footer{background:var(--n01);color:#effaff;height:417px;position:relative}
   .mv-card{padding:0 24px;font-size:19px;line-height:26px}
   .pills{grid-template-columns:1fr;row-gap:34px;justify-items:center}.val{width:min(270px,100%)}
   .phones{gap:6px;margin-inline:0}.phones figcaption{font-size:11px;padding:6px 9px}
-  .side span{font-size:12px}.burger i{width:22px}
+  .side span{font-size:12px}.burger i{width:22px}.burger .iso{width:30px}
   .grid{flex-direction:column;overflow:auto}.col{flex:none}.tile{min-height:120px}
   .sign{flex-direction:column;gap:10px;bottom:28px}
 }
@@ -396,7 +402,7 @@ footer{background:var(--n01);color:#effaff;height:417px;position:relative}
 .hero.sg .blob.c{background:#009838;opacity:.55}
 .hero.sg .blob.d{background:#2aa7d6;opacity:.22}
 .sg-frase .pin.full .stick{background:#009838}
-.sg-frase .lit{width:990px;max-width:100%;text-align:center;font-family:'Epilogue';font-weight:700;font-size:48px;line-height:56px;letter-spacing:-.05em;--off:#35ae61;--on:#b9f0c9}
+.sg-frase .lit{width:990px;max-width:100%;text-align:center;font-family:'Epilogue';font-weight:700;font-size:48px;line-height:56px;letter-spacing:-.05em;--off:#7ee0a0;--on:#fff}
 .gr-link{color:#00a63c;text-decoration:underline;text-underline-offset:3px}
 
 /* logos de a uno */
@@ -468,8 +474,8 @@ footer{background:var(--n01);color:#effaff;height:417px;position:relative}
 .sg-esc .es-steps{justify-content:center}
 
 /* variables de color */
-.sg-var-head{background:#009838;color:#fff;padding:36px 0 40px}
-.sg-var-head h2{color:#fff}.sg-var-head .body p+p{margin-top:20px}
+.sg-var-head{padding:70px 0 0}
+.sg-var-head .body p+p{margin-top:20px}
 .pin.full .stick.vcs{display:block;align-items:initial}
 .vc-body{padding-top:56px}
 .vc-row{display:flex;justify-content:space-between;align-items:center}
@@ -486,7 +492,11 @@ footer{background:var(--n01);color:#effaff;height:417px;position:relative}
 .vc-hint{text-align:center;margin-top:20px;font-size:14px;opacity:.55}
 
 /* escala de grises: tres tonos que se dan vuelta */
-.sg-gris{padding:70px 0 100px}
+.sg-gris{padding:40px 0 100px}
+.pin.free{height:auto}.pin.free .stick{position:static;height:auto;display:block;overflow:visible}
+.pin.free .stick.vcs{padding-bottom:0}
+.sg-usos .pin.free .stick{padding:90px 0 100px}
+#spL .chip{display:none}
 .sg-gris h2.sm{font-size:32px;line-height:34px;letter-spacing:-.03em}
 .gs{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:56px}
 .gt{position:relative;height:160px;perspective:900px;cursor:pointer;opacity:0;transform:translateY(40px);transition:opacity .7s var(--ease),transform .9s var(--spring)}
@@ -594,27 +604,27 @@ footer{background:var(--n01);color:#effaff;height:417px;position:relative}
   <div class="h-stage">
     <nav class="grid" id="grid" aria-label="Secciones del brandbook">
       <div class="col">
-        <a class="tile" href="#sobre" data-go="sobre" style="flex:173;--c:#ffa95e;--t:#dc6700;--gx:70%;--gy:60%"><img src="assets/tile-sobre.png" alt=""><span>Sobre<br>Entre tiempo</span><span class="arrow">↗</span></a>
-        <a class="tile" href="#signos" data-go="signos" style="flex:264;--c:#009838;--t:#004e13;--gx:50%;--gy:95%;--op:center bottom"><img src="assets/tile-signos.png" alt=""><span>Signos<br>marcarios</span><span class="arrow">↗</span></a>
-        <a class="tile" href="#" style="flex:267;--c:#d1f842;--t:#8a8e00;--gx:45%;--gy:70%;--op:center bottom"><img src="assets/tile-design-system.png" alt=""><span>Design<br>system</span><span class="arrow">↗</span></a>
+        <a class="tile" href="#sobre" data-go="sobre" style="--ln:2;flex:173;--c:#ffa95e;--t:#dc6700;--gx:70%;--gy:60%"><img src="assets/tile-sobre.png" alt=""><span>Sobre<br>Entre tiempo</span><span class="arrow">↗</span></a>
+        <a class="tile" href="#signos" data-go="signos" style="--ln:2;flex:264;--c:#009838;--t:#004e13;--gx:50%;--gy:95%;--op:center bottom"><img src="assets/tile-signos.png" alt=""><span>Signos<br>marcarios</span><span class="arrow">↗</span></a>
+        <a class="tile" href="#" style="--ln:2;flex:267;--c:#d1f842;--t:#8a8e00;--gx:45%;--gy:70%;--op:center bottom"><img src="assets/tile-design-system.png" alt=""><span>Design<br>system</span><span class="arrow">↗</span></a>
       </div>
       <div class="col">
         <div class="row" style="flex:267">
-          <a class="tile" href="#comunicamos" data-go="comunicamos" style="--c:#79dbff;--t:#0082cb;--gx:40%;--gy:60%;--op:left bottom;--to:30% 70%"><img src="assets/tile-comunicamos.png" alt=""><span>Cómo nos<br>comunicamos</span></a>
+          <a class="tile" href="#comunicamos" data-go="comunicamos" style="--ln:2;--c:#79dbff;--t:#0082cb;--gx:40%;--gy:60%;--op:left bottom;--to:30% 70%"><img src="assets/tile-comunicamos.png" alt=""><span>Cómo nos<br>comunicamos</span></a>
           <a class="tile" href="#" style="--c:#ffd400;--t:#937a01;--gx:60%;--gy:60%"><img src="assets/tile-tipografias.png" alt=""><span>Tipografías</span></a>
         </div>
-        <a class="tile" href="#" style="flex:170;--c:#7b6fec;--t:#484189;--gx:70%;--gy:30%;--op:right top;--to:70% 30%"><img src="assets/tile-elementos.png" alt=""><span>Elementos<br>gráficos</span><span class="arrow">↗</span></a>
+        <a class="tile" href="#" style="--ln:2;flex:170;--c:#7b6fec;--t:#484189;--gx:70%;--gy:30%;--op:right top;--to:70% 30%"><img src="assets/tile-elementos.png" alt=""><span>Elementos<br>gráficos</span><span class="arrow">↗</span></a>
         <a class="tile" href="#" style="flex:267;--c:#ee7071;--t:#c30014;--gx:55%;--gy:75%;--op:center bottom"><img src="assets/tile-evento.png" alt=""><span>Evento</span><span class="arrow">↗</span></a>
       </div>
       <div class="col">
-        <a class="tile" href="#" style="flex:267;--c:#48c569;--t:#006719;--gx:65%;--gy:75%"><img src="assets/tile-paletas.png" alt=""><span>Paletas<br>cromáticas</span><span class="arrow">↗</span></a>
+        <a class="tile" href="#" style="--ln:2;flex:267;--c:#48c569;--t:#006719;--gx:65%;--gy:75%"><img src="assets/tile-paletas.png" alt=""><span>Paletas<br>cromáticas</span><span class="arrow">↗</span></a>
         <a class="tile" href="#" style="flex:451;--c:#0082cb;--t:#013a6f;--gx:60%;--gy:85%;--op:right center;--to:60% 60%"><img src="assets/tile-motion.png" alt=""><span>Motion y sonidos</span><span class="arrow">↗</span></a>
       </div>
     </nav>
     <div class="intro" id="intro" role="button" tabindex="0" aria-label="Explorar el brandbook">
-      <div class="logo"><span><i>ENTRE</i></span><span style="animation-delay:.12s"><b>TIEMPO</b></span></div>
+      <i class="mk intro-logo" role="img" aria-label="Entre tiempo" style="--m:var(--k-et);--ar:8.1"></i>
       <p>Una identidad, múltiples experiencias.</p>
-      <div class="hint">Deslizá para explorar<i></i></div>
+      <div class="hint">Deslizá para explorar<svg class="arr" width="22" height="30" viewBox="0 0 22 30" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 2v22"/><path d="M3.5 17.5 11 25l7.5-7.5"/></svg></div>
     </div>
   </div>
 </main>
@@ -689,12 +699,11 @@ footer{background:var(--n01);color:#effaff;height:417px;position:relative}
   </section>
 
   <section class="s-principios" id="principios" data-tone="l" data-label="Principios">
-    <div class="pin" id="prPin" style="--h:262px;--len:1500px;--top:28vh"><div class="stick">
+    <div class="pin full" id="prPin" style="--len:1500px"><div class="stick">
     <div class="wrap princ">
       <div>
         <h2>Principios</h2>
         <p class="body">Nuestros principios guían la manera en que pensamos, diseñamos y desarrollamos cada proyecto. Son la base de nuestras decisiones creativas y nos permiten construir experiencias coherentes, accesibles y significativas, manteniendo una identidad compartida sin perder la esencia de cada propuesta.</p>
-        <div class="pr-dots" id="prDots"><i></i><i></i><i></i><i></i><i></i><i></i></div>
       </div>
       <div class="rail-vp"><div class="rail" id="rail">
         <article class="card"><header><i>01</i>Mirar más allá de lo evidente</header><p class="body">Nos interesa descubrir aquello que suele pasar desapercibido en la vida cotidiana. Cuestionamos lo habitual y buscamos nuevas perspectivas para comprender cómo vivimos el tiempo, los recorridos y las experiencias.</p></article>
@@ -922,9 +931,9 @@ footer{background:var(--n01);color:#effaff;height:417px;position:relative}
     <div class="stage">
       <h1 class="title"><span class="ln"><span><b class="ch">S</b><b class="ch">i</b><b class="ch">g</b><b class="ch">n</b><b class="ch">o</b><b class="ch">s</b></span></span><span class="ln"><span><b class="ch">m</b><b class="ch">a</b><b class="ch">r</b><b class="ch">c</b><b class="ch">a</b><b class="ch">r</b><b class="ch">i</b><b class="ch">o</b><b class="ch">s</b></span></span></h1>
       <a class="pill" href="#" data-to="logos" style="--x:37.2%;--y:20.8%;--r:9.5deg;--d:.5s;--f:5.5s;--k:18px">Construcciones</a>
-      <a class="pill" href="#" data-to="espacios" style="--x:15.4%;--y:41.6%;--r:-8deg;--d:.6s;--f:7s;--k:-14px">Espacios seguros</a>
-      <a class="pill" href="#" data-to="variables" style="--x:65%;--y:42%;--r:8deg;--d:.7s;--f:6.3s;--k:24px">Variante de color</a>
-      <a class="pill" href="#" data-to="usos" style="--x:34.2%;--y:60.3%;--r:-3.7deg;--d:.8s;--f:5s;--k:-20px">Guía y usos incorrectos</a>
+      <a class="pill" href="#" data-to="espacios" style="--x:17%;--y:37%;--r:-8deg;--d:.6s;--f:7s;--k:-14px">Espacios seguros</a>
+      <a class="pill" href="#" data-to="variables" style="--x:76%;--y:24%;--r:8deg;--d:.7s;--f:6.3s;--k:24px">Variante de color</a>
+      <a class="pill" href="#" data-to="usos" style="--x:35%;--y:67%;--r:-3.7deg;--d:.8s;--f:5s;--k:-20px">Guía y usos incorrectos</a>
       <p class="sub">Una identidad que se transforma,<br>pero siempre se reconoce.</p>
     </div>
   </header>
@@ -943,7 +952,7 @@ footer{background:var(--n01);color:#effaff;height:417px;position:relative}
       <div class="wrap">
         <div class="two">
           <h2>Logos</h2>
-          <p class="body">Nuestra familia de logos parte de la tipografía <b class="gr-link">Arciform Sans Regular</b>, con formas geométricas y terminaciones redondeadas. <b>Cada uno incorpora modificaciones propias que reflejan su personalidad,</b> manteniendo una identidad visual compartida.</p>
+          <p class="body">Nuestra familia de logos parte de la tipografía <a class="gr-link" href="https://www.dafontfree.io/download/arciform/" target="_blank" rel="noopener">Arciform Sans Regular</a>, con formas geométricas y terminaciones redondeadas. <b>Cada uno incorpora modificaciones propias que reflejan su personalidad,</b> manteniendo una identidad visual compartida.</p>
         </div>
         <div class="lg">
           <div class="lg-box" id="lgBox">
@@ -1042,7 +1051,7 @@ footer{background:var(--n01);color:#effaff;height:417px;position:relative}
 
   <!-- variables de color: un logo y un color por tramo -->
   <section class="sg-vc" id="variables" data-tone="l" data-label="Variables de color">
-    <div class="pin full" id="vcPin" style="--len:3000px"><div class="stick vcs">
+    <div class="pin free" id="vcPin"><div class="stick vcs">
       <div class="sg-var-head"><div class="wrap two"><h2>Variables<br>de color</h2>
         <div class="body"><p>Permiten <b>adaptar nuestra identidad a diferentes fondos y aplicaciones,</b> manteniendo siempre el contraste, la legibilidad y el reconocimiento de la marca.</p><p><b>Cada combinación respeta la paleta cromática de Entre tiempo,</b> garantizando una comunicación visual clara y consistente.</p></div></div></div>
       <div class="wrap vc-body">
@@ -1058,7 +1067,7 @@ footer{background:var(--n01);color:#effaff;height:417px;position:relative}
         <div class="vc-dots" id="vcDots">
           <button class="on" style="--c:#ff3b30" aria-label="Rojo"></button><button style="--c:#ffd400" aria-label="Amarillo"></button><button style="--c:#d1f842" aria-label="Lima"></button><button style="--c:#48c569" aria-label="Verde"></button><button style="--c:#00b5ff" aria-label="Celeste"></button><button style="--c:#7b6fec" aria-label="Violeta"></button>
         </div>
-        <p class="vc-hint">Scrolleá o elegí vos un logo y un color.</p>
+        <p class="vc-hint">Elegí un logo y un color.</p>
       </div>
     </div></div>
   </section>
@@ -1120,7 +1129,7 @@ footer{background:var(--n01);color:#effaff;height:417px;position:relative}
 
   <!-- usos incorrectos: un ejemplo por tramo -->
   <section class="sg-usos" id="usos" data-tone="l" data-label="Usos incorrectos">
-    <div class="pin full" id="usPin" style="--len:2600px"><div class="stick"><div class="wrap">
+    <div class="pin free" id="usPin"><div class="stick"><div class="wrap">
       <div class="two"><h2>Usos<br>incorrectos</h2>
         <div class="body"><p>Para mantener una identidad coherente y reconocible, el logo debe respetar sus proporciones, formas y colores originales.</p><p><b>Estas son las modificaciones que debemos evitar.</b></p></div></div>
       <div class="us">
@@ -1147,7 +1156,7 @@ footer{background:var(--n01);color:#effaff;height:417px;position:relative}
 
 <div id="chrome">
   <aside class="side" aria-hidden="true"><i class="prog"></i><span class="lbl"><b id="lblBase" style="font-weight:400">Sobre Entre tiempo</b><em id="lbl"></em></span><span class="cr">© Copyright 2026</span></aside>
-  <button class="burger" id="burger" aria-label="Volver al menú de secciones"><span><i></i><i></i><i></i></span></button>
+  <button class="burger" id="burger" aria-label="Volver al menú de secciones"><span class="bg"><i></i><i></i><i></i></span><b class="iso" aria-hidden="true"></b></button>
 </div>
 <div id="wipe"></div>
 <div id="toast" role="status"></div>
@@ -1387,8 +1396,7 @@ function vcLogo(i){vcB.forEach((x,j)=>x.classList.toggle('on',j===i));vcI.forEac
 function vcCol(d){vcD.forEach(x=>x.classList.toggle('on',x===d));vcBig.style.setProperty('--vc',d.style.getPropertyValue('--c'))}
 vcB.forEach((b,i)=>b.addEventListener('click',()=>vcLogo(i)));
 vcD.forEach(d=>d.addEventListener('click',e=>{vcCol(d);burst(e.clientX,e.clientY,8)}));
-pin('#vcPin',t=>{const n=vcB.length*vcD.length,k=Math.min(n-1,Math.floor(clamp(t/.98)*n));if(k===vcSt)return;vcSt=k;
-  vcLogo(Math.floor(k/vcD.length));vcCol(vcD[(k+Math.floor(k/vcD.length)*2)%vcD.length])});
+vcLogo(0);vcCol(vcD[0]);
 
 /* escala de grises: un toque da vuelta el tono */
 $$('#gs .gt').forEach(g=>g.addEventListener('click',()=>g.classList.toggle('inv')));
@@ -1423,12 +1431,12 @@ const BAD=[
  ['No colocar elementos dentro del logo.',()=>BG()+U('fill="#fff"')+`<circle cx="186" cy="130" r="17" fill="#ff3b30"/><path d="M296 108l7 14 15 2-11 11 3 15-14-8-14 8 3-15-11-11 15-2z" fill="#ffd400"/><circle cx="392" cy="132" r="12" fill="#00b5ff"/>`]
 ];
 const usCard=$('#usCard'), usBad=$('#usBad'), usC=$('#usC'), usN=$('#usN'), usX=$('#usX'), usH=$('#usH'), usTh=$('#usTh');let usI=-1;
-BAD.forEach((b,i)=>{const t=document.createElement('button');t.textContent=i+1;t.setAttribute('aria-label','Ejemplo '+(i+1));t.addEventListener('click',()=>goPin('#usPin',i,BAD.length));usTh.appendChild(t)});
+BAD.forEach((b,i)=>{const t=document.createElement('button');t.textContent=i+1;t.setAttribute('aria-label','Ejemplo '+(i+1));t.addEventListener('click',()=>usShow(i));usTh.appendChild(t)});
 function usShow(i){usI=i;usCard.classList.remove('ok');usH.textContent='Tocá la tarjeta para ver cómo va.';
   usBad.innerHTML=`<svg viewBox="0 0 560 260">${BAD[i][1]()}</svg>`;usC.textContent=BAD[i][0];usN.innerHTML=String(i+1).padStart(2,'0')+'<small>/12</small>';
   $$('button',usTh).forEach((b,j)=>b.classList.toggle('on',j===i));usX.classList.remove('pop');void usX.offsetWidth;usX.classList.add('pop')}
 usCard.addEventListener('click',()=>{const k=usCard.classList.toggle('ok');usH.textContent=k?'Así se ve bien. Tocá de nuevo para volver.':'Tocá la tarjeta para ver cómo va.';if(k){const r=usCard.getBoundingClientRect();burst(r.left+r.width/2,r.top+r.height/2,10)}});
-pin('#usPin',t=>{const i=Math.min(BAD.length-1,Math.floor(clamp(t/.98)*BAD.length));if(i!==usI)usShow(i)});
+usShow(0);
 
 /* botones de descarga todavía sin carpeta */
 $$('[data-say]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();say(a.dataset.say)}));
