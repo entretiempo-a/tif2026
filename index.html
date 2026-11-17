@@ -1134,6 +1134,114 @@ footer{background:var(--n01);color:#effaff;height:417px;position:relative}
 
 .hero.el .blob{translate:calc(var(--mx,0)*var(--k,20px)) calc(var(--my,0)*var(--k,20px) + var(--hb,0)*34vh);opacity:calc(var(--bo,.8)*(1 - var(--hb,0)*.65))}
 .hero.el .pill:nth-of-type(3){animation:none}
+
+/* destellos como en el Figma */
+.dest-panel{container-type:inline-size;width:calc(100% - var(--side)/var(--z,1));margin:70px 0 0 calc(var(--side)/var(--z,1));height:auto;aspect-ratio:1220/573;background:#effaff}
+.dest-panel::before{z-index:0}
+.dst-b{position:absolute;border-radius:50%;pointer-events:none}
+.dst-1{left:16.15%;top:-10.1%;width:78.28%;aspect-ratio:1;background:radial-gradient(circle closest-side,#67e8f9 0,rgba(239,250,255,0) 62%)}
+.dst-2{left:0;top:-56.5%;width:84.43%;aspect-ratio:1;background:radial-gradient(circle closest-side,#ccf901 0,rgba(237,250,255,0) 58%)}
+.dst-3{left:62.3%;top:18.7%;width:84.43%;aspect-ratio:1;background:radial-gradient(circle closest-side,#8a38f5 0,rgba(237,250,255,0) 78%)}
+.dpx{position:absolute;z-index:2;background:center/contain no-repeat;rotate:var(--r,0deg);translate:var(--dx,0px) var(--dy,0px);animation:dpf 6s ease-in-out infinite alternate;cursor:grab;touch-action:none;user-select:none;-webkit-user-drag:none;filter:drop-shadow(0 8px 10px rgba(40,40,80,.18))}
+.dpx.sh,.dpx.cf{filter:none}
+.dpx:nth-child(odd){animation-delay:-2.6s}
+.dpx.drag{cursor:grabbing;z-index:5;animation-play-state:paused}
+@keyframes dpf{from{transform:translateY(-5px)}to{transform:translateY(6px)}}
+.dest-pill{pointer-events:none;left:24.59%;top:44.68%;translate:none;width:51.07%;height:13.96%;display:grid;place-items:center;padding:0;font-family:'Epilogue',sans-serif;font-weight:500;font-size:2.197cqw;line-height:1.2;letter-spacing:-.022em;background:linear-gradient(rgba(34,37,46,.86),rgba(34,37,46,.86)) padding-box,linear-gradient(100deg,#f58c4c 0%,#f2d24a 45%,#e9f24a 100%) border-box;border:.25cqw solid transparent;border-radius:99px}
+/* sí / no: la luz respira y el texto se levanta, el "no" sigue vibrando */
+.si.ok .si-v h4,.si.ok .si-v p{transition:transform .5s var(--spring)}
+.si.ok .si-v:hover .glow{scale:1.35}
+.si.ok .si-v:hover h4{transform:translateY(-4px) scale(1.04)}
+.si.ok .si-v:hover p{transform:translateY(-2px)}
+.glow{transition:scale .6s var(--ease)}
+/* carrusel más chico */
+.car{height:600px}
+.car-in{transform:scale(.72);transform-origin:50% 0}
+/* cómo se construyen los personajes: libres, se abren al tocar */
+.el-pers{padding:20px 0 120px}
+.slid{display:grid;grid-template-columns:repeat(4,224px);justify-content:space-between;gap:22px;height:auto;margin-top:44px}
+.slid.go{height:auto}
+.sl-c{position:relative;display:block;height:195px;flex:none;padding:0;background:none;box-shadow:none;border-radius:20px;perspective:900px;cursor:pointer;text-align:left;transition:none}
+.sl-c.on{flex:none}
+.sl-f,.sl-b{position:absolute;inset:0;border-radius:18px;padding:18px;-webkit-backface-visibility:hidden;backface-visibility:hidden;transition:transform .7s var(--ease),box-shadow .3s}
+.sl-f{background:#2d2e30;color:#fbfdff;box-shadow:0 4px 6px rgba(0,0,0,.25)}
+.sl-b{background:var(--b);color:#2d2e30;transform:rotateY(-180deg);box-shadow:0 4px 6px rgba(0,0,0,.2)}
+.sl-c.on .sl-f{transform:rotateY(180deg)}
+.sl-c.on .sl-b{transform:rotateY(0)}
+.sl-c:hover .sl-f,.sl-c:focus-visible .sl-f{box-shadow:0 10px 16px rgba(0,0,0,.28)}
+.sl-f small{display:inline-block;font-size:12px;background:var(--b);color:#2d2e30;padding:1px 12px;border-radius:99px;font-weight:600}
+.sl-f h4{position:absolute;left:18px;right:12px;bottom:18px;font-family:'Epilogue';font-weight:600;font-size:22px;line-height:24px;letter-spacing:-.03em}
+.sl-b small{display:inline-block;font-size:12px;border:1px solid #2d2e30;padding:1px 12px;border-radius:99px}
+.sl-b h4{position:absolute;left:18px;right:12px;top:92px;font-family:'Epilogue';font-weight:600;font-size:16px;letter-spacing:-.02em}
+.sl-b p{position:absolute;left:18px;right:14px;top:118px;font-size:14px;line-height:17px}
+/* narrativos y mascotas: solo se mueven un poquito */
+.nfc{perspective:none;width:176px;height:215px;cursor:default}
+.nfc img{display:block;width:100%;height:100%;object-fit:contain;transition:transform .5s var(--spring)}
+.nfc:hover img{transform:translateY(-5px) rotate(-1deg)}
+.flips{grid-template-columns:repeat(5,176px);justify-content:center;gap:8.5px;margin:36px 0 0;padding:0}
+.masc{grid-template-columns:repeat(3,1fr);padding:0 90px;justify-items:center}
+.masc img{height:170px;transition:transform .5s var(--spring)}
+.masc img:hover{transform:translateY(-5px) rotate(-1deg)}
+.movi img{transition:transform .5s var(--spring)}
+.movi img:hover{transform:translateY(-5px) rotate(-1deg)}
+@media (max-width:560px){
+  .slid{grid-template-columns:1fr 1fr;gap:14px}.flips{grid-template-columns:repeat(2,1fr)}.masc{padding:0}
+  .car{height:520px}.car-in{transform:scale(.5)}
+}
+
+/* ═════════ Signos: logos, versiones, escalas, grises y usos (scroll libre) ═════════ */
+.sg-logos{padding:130px 0 120px}
+.sg-ver{padding:110px 0 120px}
+.sg-esc{padding:130px 0 120px}
+.sg-usos{padding:130px 0 150px}
+.lgl{display:flex;flex-direction:column;gap:65px;margin-top:70px}
+.lgl-r{display:grid;grid-template-columns:474px 1fr;column-gap:63px;align-items:center}
+.lgl-box{height:93px;background:var(--n01);border-radius:20px;display:grid;place-items:center;color:#fff;transition:transform .5s var(--spring)}
+.lgl-box .mk{color:#fff}
+.lgl-r:hover .lgl-box{transform:translateY(-3px) rotate(-.4deg)}
+.lgl-r .body{max-width:424px}
+.lgl-r .body b{font-weight:600}
+.lg-bar{margin-top:46px}
+.sg-ver .vr{margin-top:60px;align-items:flex-start}
+.vr-w{position:relative}
+.vr-w .vr-r{height:245px}
+.vr-w .vr-steps{margin:18px 0 0;justify-content:flex-end}
+.vr-steps button{background:#fff}
+.vr-steps button.on{background:var(--n01);color:var(--n10)}
+.es3{display:grid;grid-template-columns:276px 1fr;grid-template-rows:245px 245px;gap:18px;margin-top:60px}
+.es3-c{display:flex;align-items:center;justify-content:space-around;background:#fff;border-radius:22px;box-shadow:0 3px 4px rgba(0,0,0,.28);padding:28px}
+.es3-c.a{grid-row:1/3;flex-direction:column;justify-content:space-around;padding:40px 20px}
+.es3-c.b{grid-column:2;grid-row:1}.es3-c.c{grid-column:2;grid-row:2}
+.es3 .es-i{font-size:16px;line-height:20px}
+.es3 .es-i span{display:block}
+.try2{margin-top:60px;background:var(--n01);color:#fff;border-radius:6px;padding:22px 20px 16px}
+.try2 .body{font-size:15px;line-height:19px}
+.try2 .body b{font-weight:600}
+.try2 .try-stage{height:120px;margin-top:6px}
+.try2 #tryLogo,.try2 #tryLogo.small{color:#fff}
+.try2 .try-msg{position:static;text-align:center;font-size:14px;opacity:.9;margin-top:2px}
+.try2 #tryRange{-webkit-appearance:none;appearance:none;width:100%;height:12px;border-radius:99px;margin-top:18px;background:linear-gradient(90deg,#fff var(--p,0%),rgba(255,255,255,.28) var(--p,0%));outline:0;cursor:pointer;accent-color:#fff}
+.try2 #tryRange::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:#fff;box-shadow:0 0 0 3px var(--n01)}
+.try2 #tryRange::-moz-range-thumb{width:18px;height:18px;border:0;border-radius:50%;background:#fff;box-shadow:0 0 0 3px var(--n01)}
+.try2 .try-scale{display:flex;justify-content:space-between;font-size:11px;opacity:.75;margin-top:8px}
+.sg-gris{padding:360px 0 130px}
+.gs2{display:grid;grid-template-columns:1fr 1fr;gap:26px 16px;margin-top:64px}
+.g2{position:relative;height:93px;border-radius:20px;background:var(--bg);color:var(--fg);box-shadow:0 3px 4px rgba(0,0,0,.28);text-align:left;cursor:pointer;transition:transform .35s var(--spring),box-shadow .3s}
+.g2:hover,.g2:focus-visible{transform:translateY(-3px) rotate(-.35deg);box-shadow:0 8px 14px rgba(0,0,0,.28);outline:0}
+.g2 small{position:absolute;left:40px;top:11px;font-size:10px;font-weight:600}
+.g2 i{position:absolute;left:40px;right:40px;top:28px;bottom:14px;background:currentColor;-webkit-mask:var(--k-et) center/contain no-repeat;mask:var(--k-et) center/contain no-repeat}
+.usg{display:grid;grid-template-columns:repeat(3,1fr);gap:50px 18px;margin-top:60px}
+.uc2{margin:0}
+.uc2-c{position:relative;height:178px;border-radius:20px;background:var(--bg);box-shadow:0 3px 4px rgba(0,0,0,.28);overflow:hidden;cursor:default}
+.uc2-c svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+.uc2-c::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(to top right,transparent calc(50% - .6px),rgba(60,62,66,.65) 50%,transparent calc(50% + .6px)),linear-gradient(to bottom right,transparent calc(50% - .6px),rgba(60,62,66,.65) 50%,transparent calc(50% + .6px))}
+.uc2:hover .uc2-c{animation:tiembla .4s linear infinite}
+.uc2 figcaption{font-size:14px;line-height:17px;margin-top:12px}
+@media (max-width:560px){
+  .lgl-r{grid-template-columns:1fr;row-gap:16px}.lgl-box{height:80px}.lgl-box .mk{--w:78%!important}
+  .vr-w .vr-steps{position:static;margin-top:12px}.es3{grid-template-columns:1fr;grid-template-rows:auto}.es3-c.a,.es3-c.b,.es3-c.c{grid-column:1;grid-row:auto}.es3-c{flex-direction:column;gap:20px}
+  .gs2{grid-template-columns:1fr}.usg{grid-template-columns:1fr}.sg-gris{padding-top:200px}
+}
 </style>
 </head>
 <body>
@@ -1487,53 +1595,42 @@ footer{background:var(--n01);color:#effaff;height:417px;position:relative}
 
   <!-- logos: de a uno -->
   <section class="sg-logos" id="logos" data-tone="l" data-label="Logos">
-    <div class="pin full" id="lgPin" style="--len:1900px"><div class="stick">
-      <div class="wrap">
-        <div class="two">
-          <h2>Logos</h2>
-          <p class="body">Nuestra familia de logos parte de la tipografía <a class="gr-link" href="https://www.dafontfree.io/download/arciform/" target="_blank" rel="noopener">Arciform Sans Regular</a>, con formas geométricas y terminaciones redondeadas. <b>Cada uno incorpora modificaciones propias que reflejan su personalidad,</b> manteniendo una identidad visual compartida.</p>
-        </div>
-        <div class="lg">
-          <div class="lg-box" id="lgBox">
-            <i class="lg-logo" style="--m:var(--k-et);--ar:8.1"></i>
-            <i class="lg-logo" style="--m:var(--k-movida)"></i>
-            <i class="lg-logo" style="--m:var(--k-apuro)"></i>
-            <i class="lg-logo" style="--m:var(--k-desvio)"></i>
-          </div>
-          <div class="lg-txts" id="lgTxts">
-            <p class="body"><span>Es la <b>marca que reúne todas las experiencias del proyecto.</b> Su logotipo utiliza formas simples y redondeadas que transmiten cercanía y <b>funcionan como punto de unión entre las distintas propuestas.</b></span></p>
-            <p class="body"><span>Identifica la aplicación que ayuda a organizar recorridos y actividades cotidianas. <b>Sus inclinaciones y remates aportan dinamismo,</b> reforzando el concepto de movimiento.</span></p>
-            <p class="body"><span>Representa una experiencia interactiva que pone a prueba la organización del tiempo. <b>Sus remates redondeados y la apertura de la O aportan dinamismo y personalidad.</b></span></p>
-            <p class="body"><span>Identifica el festival que invita a salir de la rutina y explorar nuevas experiencias. La <b>diagonal de la D rompe con la estructura tradicional y refuerza la idea de cambiar</b> de recorrido.</span></p>
-          </div>
-        </div>
-        <div class="lg-bar">
-          <a class="btn-dl" href="#" data-say="El link a la carpeta de Drive con los logos todavía no está cargado">Descargar logos <i><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4v8M5.5 9 9 12.5 12.5 9"/></svg></i></a>
-          <div class="steps" id="lgSteps"><button>Entre tiempo</button><button>Movida</button><button>Apuro</button><button>Desvío</button></div>
-        </div>
+    <div class="wrap">
+      <div class="two">
+        <h2 data-r="up">Logos</h2>
+        <p class="body" data-r="up" style="--d:.1s">Nuestra familia de logos parte de la tipografía <a class="gr-link" href="https://www.dafontfree.io/download/arciform/" target="_blank" rel="noopener">Arciform Sans Regular</a>, con formas geométricas y terminaciones redondeadas. <b>Cada uno incorpora modificaciones propias que reflejan su personalidad,</b> manteniendo una identidad visual compartida.</p>
       </div>
-    </div></div>
+      <div class="lgl">
+        <div class="lgl-r" data-r="up"><div class="lgl-box"><i class="mk" style="--m:var(--k-et);--ar:8.1;--w:400px"></i></div><p class="body">Es la <b>marca que reúne todas las experiencias del proyecto.</b> Su logotipo utiliza formas simples y redondeadas que transmiten cercanía y <b>funcionan como punto de unión entre las distintas propuestas.</b></p></div>
+        <div class="lgl-r" data-r="up"><div class="lgl-box"><i class="mk" style="--m:var(--k-movida);--ar:5.77;--w:276px"></i></div><p class="body">Identifica la aplicación que ayuda a organizar recorridos y actividades cotidianas. <b>Sus inclinaciones y remates aportan dinamismo,</b> reforzando el concepto de movimiento.</p></div>
+        <div class="lgl-r" data-r="up"><div class="lgl-box"><i class="mk" style="--m:var(--k-apuro);--ar:4.24;--w:208px"></i></div><p class="body">Representa una experiencia interactiva que pone a prueba la organización del tiempo. <b>Sus remates redondeados y la apertura de la O aportan dinamismo y personalidad.</b></p></div>
+        <div class="lgl-r" data-r="up"><div class="lgl-box"><i class="mk" style="--m:var(--k-desvio);--ar:5.87;--w:276px"></i></div><p class="body">Identifica el festival que invita a salir de la rutina y explorar nuevas experiencias. La <b>diagonal de la D rompe con la estructura tradicional y refuerza la idea de cambiar</b> de recorrido.</p></div>
+      </div>
+      <div class="lg-bar" data-r="up">
+        <a class="btn-dl" href="#" data-say="El link a la carpeta de Drive con los logos todavía no está cargado">Descargar logos <i><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4v8M5.5 9 9 12.5 12.5 9"/></svg></i></a>
+      </div>
+    </div>
   </section>
 
   <!-- tres versiones: el marco queda fijo y cambia el contenido -->
   <section class="sg-ver" id="versiones" data-tone="l" data-label="Nuestras 3 versiones">
-    <div class="pin full" id="vrPin" style="--len:1500px"><div class="stick">
-      <div class="wrap">
-        <div class="two">
-          <h2>Nuestras 3<br>versiones</h2>
-          <div class="body"><p>Nuestro logo <b>se adapta a distintos formatos y espacios a través de tres versiones.</b></p><p>Cada una mantiene la esencia de Entre tiempo, garantizando una identidad reconocible y coherente en todas sus aplicaciones.</p></div>
-        </div>
-        <div class="vr">
-          <div class="vr-l" id="vrL">
-            <div class="vr-t"><span class="chip">Versión A</span><h3>Logo tipográfico<br>horizontal</h3><p class="body">Su disposición horizontal <b>permite una lectura clara del nombre y resulta ideal para espacios amplios</b> donde puede mostrarse completo.</p></div>
-            <div class="vr-t"><span class="chip">Versión B</span><h3>Logo tipográfico<br>vertical</h3><p class="body">Su composición en dos líneas <b>permite adaptar el logo a formatos más compactos,</b> manteniendo una lectura clara y el protagonismo del nombre.</p></div>
-            <div class="vr-t"><span class="chip">Versión C</span><h3>Isologo</h3><p class="body">Es la representación más sintética de nuestra identidad. Su forma compacta <b>permite reconocer a Entre tiempo en espacios reducidos, íconos y aplicaciones.</b></p></div>
-          </div>
-          <div class="vr-r" id="vrR"><img src="assets/ver-h.png" alt="Logo horizontal con medidas"><img src="assets/ver-v.png" alt="Logo vertical con medidas"><img src="assets/ver-i.png" alt="Isologo con medidas"></div>
-        </div>
-        <div class="steps vr-steps" id="vrSteps"><button>Horizontal</button><button>Vertical</button><button>Isólogo</button></div>
+    <div class="wrap">
+      <div class="two">
+        <h2 data-r="up">Nuestras 3<br>versiones</h2>
+        <div class="body" data-r="up" style="--d:.1s"><p>Nuestro logo <b>se adapta a distintos formatos y espacios a través de tres versiones.</b></p><p>Cada una mantiene la esencia de Entre tiempo, garantizando una identidad reconocible y coherente en todas sus aplicaciones.</p></div>
       </div>
-    </div></div>
+      <div class="vr">
+        <div class="vr-l" id="vrL">
+          <div class="vr-t on"><span class="chip">Versión A</span><h3>Logo tipográfico<br>horizontal</h3><p class="body">Su disposición horizontal <b>permite una lectura clara del nombre y resulta ideal para espacios amplios</b> donde puede mostrarse completo.</p></div>
+          <div class="vr-t"><span class="chip">Versión B</span><h3>Logo tipográfico<br>vertical</h3><p class="body">Su composición en dos líneas <b>permite adaptar el logo a formatos más compactos,</b> manteniendo una lectura clara y el protagonismo del nombre.</p></div>
+          <div class="vr-t"><span class="chip">Versión C</span><h3>Isologo</h3><p class="body">Es la representación más sintética de nuestra identidad. Su forma compacta <b>permite reconocer a Entre tiempo en espacios reducidos, íconos y aplicaciones.</b></p></div>
+        </div>
+        <div class="vr-w">
+          <div class="vr-r" id="vrR"><img class="on" src="assets/ver-h.png" alt="Logo horizontal con medidas"><img src="assets/ver-v.png" alt="Logo vertical con medidas"><img src="assets/ver-i.png" alt="Isologo con medidas"></div>
+          <div class="steps vr-steps" id="vrSteps"><button class="on">Horizontal</button><button>Vertical</button><button>Isólogo</button></div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- submarcas: los logos pasan en horizontal, la caja verde queda -->
@@ -1561,31 +1658,31 @@ footer{background:var(--n01);color:#effaff;height:417px;position:relative}
 
   <!-- escalas: un tramo por versión -->
   <section class="sg-esc" id="escalas" data-tone="l" data-label="Escalas">
-    <div class="pin full" id="esPin" style="--len:2000px"><div class="stick"><div class="wrap">
-      <div class="two"><h2>Escalas</h2>
-        <p class="body">El signo de Entre tiempo <b>está pensado para adaptarse a distintos formatos y soportes, manteniendo siempre su legibilidad y presencia visual.</b> Definir escalas claras garantiza que el signo conserve su fuerza y reconocimiento, sin importar el tamaño o el medio en el que se use.</p></div>
-      <div class="es" id="es">
-        <div class="es-c on">
+    <div class="wrap">
+      <div class="two"><h2 data-r="up">Escalas</h2>
+        <p class="body" data-r="up" style="--d:.1s">El signo de Entre tiempo <b>está pensado para adaptarse a distintos formatos y soportes, manteniendo siempre su legibilidad y presencia visual.</b> Definir escalas claras garantiza que el signo conserve su fuerza y reconocimiento, sin importar el tamaño o el medio en el que se use.</p></div>
+      <div class="es3">
+        <div class="es3-c a" data-r="up">
           <div class="es-i"><i class="mk" style="--m:var(--k-et);--ar:8.25;--w:150px"></i><u class="rule" style="--w:150px"></u><b>150px</b><span>Digital</span></div>
-          <div class="es-i"><i class="mk" style="--m:var(--k-et);--ar:8.25;--w:152px"></i><u class="rule" style="--w:152px"></u><b>40mm</b><span>Impreso</span></div>
+          <div class="es-i"><i class="mk" style="--m:var(--k-et);--ar:8.25;--w:150px"></i><u class="rule" style="--w:150px"></u><b>40mm</b><span>impreso</span></div>
         </div>
-        <div class="es-c">
+        <div class="es3-c b" data-r="up" style="--d:.08s">
           <div class="es-i"><i class="mk" style="--m:var(--k-vert);--ar:1.684;--w:134px"></i><u class="rule" style="--w:150px"></u><b>150px</b><span>Digital</span></div>
-          <div class="es-i"><i class="mk" style="--m:var(--k-vert);--ar:1.684;--w:134px"></i><u class="rule" style="--w:150px"></u><b>40mm</b><span>Impreso</span></div>
+          <div class="es-i"><i class="mk" style="--m:var(--k-vert);--ar:1.684;--w:134px"></i><u class="rule" style="--w:150px"></u><b>40mm</b><span>impreso</span></div>
         </div>
-        <div class="es-c">
+        <div class="es3-c c" data-r="up" style="--d:.16s">
           <div class="es-i"><i class="mk" style="--m:var(--k-iso);--ar:1.33;--w:120px"></i><u class="rule" style="--w:150px"></u><b>150px</b><span>Digital</span></div>
-          <div class="es-i"><i class="mk" style="--m:var(--k-iso);--ar:1.33;--w:120px"></i><u class="rule" style="--w:150px"></u><b>40mm</b><span>Impreso</span></div>
-        </div>
-        <div class="es-c es-try">
-          <p class="body"><b>Probalo vos:</b> arrastrá para achicar o agrandar el logo y mirá hasta dónde se lee bien.</p>
-          <div class="try-stage"><i class="mk" id="tryLogo"></i><span class="try-msg" id="tryMsg"></span></div>
-          <input type="range" id="tryRange" min="30" max="420" value="240" aria-label="Tamaño del logo">
-          <div class="try-scale"><span>30px</span><span class="min">mín. 150px</span><span>420px</span></div>
+          <div class="es-i"><i class="mk" style="--m:var(--k-iso);--ar:1.33;--w:120px"></i><u class="rule" style="--w:150px"></u><b>40mm</b><span>impreso</span></div>
         </div>
       </div>
-      <div class="steps es-steps" id="esSteps"><button>Horizontal</button><button>Vertical</button><button>Isólogo</button><button>Probalo</button></div>
-    </div></div></div>
+      <div class="try2" data-r="up">
+        <p class="body"><b>Probalo vos:</b> arrastrá para achicar o agrandar el logo y mirá hasta dónde se lee bien.</p>
+        <div class="try-stage"><i class="mk" id="tryLogo"></i></div>
+        <p class="try-msg" id="tryMsg"></p>
+        <input type="range" id="tryRange" min="30" max="420" value="30" aria-label="Tamaño del logo">
+        <div class="try-scale"><span>30px</span><span class="min">mín. 150px</span><span>420px</span></div>
+      </div>
+    </div>
   </section>
 
   <!-- variables de color: un logo y un color por tramo -->
@@ -1616,12 +1713,15 @@ footer{background:var(--n01);color:#effaff;height:417px;position:relative}
     <div class="wrap">
       <div class="two"><h2 data-r="up">Escala<br>de grises</h2>
         <div class="body" data-r="up" style="--d:.1s"><p>Cuando el color no está disponible, el logo se adapta a una <b>escala de grises que mantiene su contraste y legibilidad.</b></p><p>Cada tono tiene su versión sobre fondo claro y su versión invertida.</p></div></div>
-      <div class="gs" id="gs">
-        <button class="gt" style="--bg:#f2f3f4;--fg:#2d2e30"><span class="gi"><span class="gf"><small>100%</small><i></i></span><span class="gf bk"><small>100%</small><i></i></span></span></button>
-        <button class="gt" style="--bg:#f2f3f4;--fg:#58595b"><span class="gi"><span class="gf"><small>80%</small><i></i></span><span class="gf bk"><small>80%</small><i></i></span></span></button>
-        <button class="gt" style="--bg:#f2f3f4;--fg:#848587"><span class="gi"><span class="gf"><small>60%</small><i></i></span><span class="gf bk"><small>60%</small><i></i></span></span></button>
+      <div class="gs2" id="gs">
+        <button class="g2 lt" data-copy-gray="#2D2E30" style="--bg:#f2f3f4;--fg:#2d2e30" aria-label="Copiar gris 100% #2D2E30"><small>100%</small><i></i></button>
+        <button class="g2 dk" data-copy-gray="#848587" style="--bg:#848587;--fg:#fff" aria-label="Copiar gris 60% #848587"><small>60%</small><i></i></button>
+        <button class="g2 lt" data-copy-gray="#58595B" style="--bg:#f2f3f4;--fg:#58595b" aria-label="Copiar gris 80% #58595B"><small>80%</small><i></i></button>
+        <button class="g2 dk" data-copy-gray="#58595B" style="--bg:#58595b;--fg:#fff" aria-label="Copiar gris 80% #58595B"><small>80%</small><i></i></button>
+        <button class="g2 lt" data-copy-gray="#848587" style="--bg:#f2f3f4;--fg:#848587" aria-label="Copiar gris 60% #848587"><small>60%</small><i></i></button>
+        <button class="g2 dk" data-copy-gray="#2D2E30" style="--bg:#2d2e30;--fg:#fff" aria-label="Copiar gris 100% #2D2E30"><small>100%</small><i></i></button>
       </div>
-      <p class="gs-hint">Tocá un tono para darlo vuelta.</p>
+      <p class="gs-hint">Tocá un tono para copiar su código.</p>
     </div>
   </section>
 
@@ -1668,15 +1768,11 @@ footer{background:var(--n01);color:#effaff;height:417px;position:relative}
 
   <!-- usos incorrectos: un ejemplo por tramo -->
   <section class="sg-usos" id="usos" data-tone="l" data-label="Usos incorrectos">
-    <div class="pin free" id="usPin"><div class="stick"><div class="wrap">
-      <div class="two"><h2>Usos<br>incorrectos</h2>
-        <div class="body"><p>Para mantener una identidad coherente y reconocible, el logo debe respetar sus proporciones, formas y colores originales.</p><p><b>Estas son las modificaciones que debemos evitar.</b></p></div></div>
-      <div class="us">
-        <div class="us-l"><span class="us-n" id="usN"></span><p class="us-c" id="usC"></p><p class="us-h" id="usH">Tocá la tarjeta para ver cómo va.</p></div>
-        <button class="us-card" id="usCard" aria-label="Ver el uso correcto"><span class="us-bad" id="usBad"></span><span class="us-ok"><svg viewBox="0 0 560 260"><rect width="560" height="260" fill="#2d2e30"/><use href="#sy-et" x="82" y="106" width="396" height="48" fill="#fff"/></svg><b>✓ Así sí</b></span><span class="us-x" id="usX">✕</span></button>
-      </div>
-      <div class="us-th" id="usTh"></div>
-    </div></div></div>
+    <div class="wrap">
+      <div class="two"><h2 data-r="up">Usos<br>incorrectos</h2>
+        <div class="body" data-r="up" style="--d:.1s"><p>Para mantener una identidad coherente y reconocible, el logo debe respetar sus proporciones, formas y colores originales.</p><p><b>Estas son las modificaciones que debemos evitar.</b></p></div></div>
+      <div class="usg" id="usg"></div>
+    </div>
   </section>
 
 
@@ -1962,17 +2058,22 @@ footer{background:var(--n01);color:#effaff;height:417px;position:relative}
       <h2 data-r="up">Destellos</h2>
       <p class="body" data-r="up" style="--d:.1s">Los destellos funcionan como <b>luces de apoyo</b> dentro del sistema visual. Se aplican detrás de textos, objetos inflables o personajes para remarcar el foco, <b>dar profundidad</b> y reforzar la atmósfera gráfica. No actúan como elemento principal, sino como un <b>recurso de énfasis y acompañamiento.</b></p>
     </div>
-    <div class="dest-panel" id="destPanel">
-      <i class="dp dp1" style="background-image:url(assets/el/i-mensajes.webp)"></i>
-      <i class="dp dp2" style="background-image:url(assets/el/i-confeti.webp)"></i>
-      <i class="dp dp3" style="background-image:url(assets/el/i-fiesta.webp)"></i>
-      <i class="dp dp4" style="background-image:url(assets/el/i-estrella.webp)"></i>
-      <i class="dp dp5" style="background-image:url(assets/el/i-llaves.webp)"></i>
-      <i class="dp dp6" style="background-image:url(assets/el/i-mancuernas.webp)"></i>
-      <i class="dp dp7" style="background-image:url(assets/el/i-silla-de-ruedas.webp)"></i>
-      <i class="dp dp8" style="background-image:url(assets/el/i-mascara.webp)"></i>
-      <i class="shard sh1 a"></i><i class="shard sh1 b"></i><i class="shard sh2 a"></i><i class="shard sh2 b"></i>
-      <i class="cfi k1"></i><i class="cfi k2"></i><i class="cfi k3"></i><i class="cfi k4"></i><i class="cfi k5"></i><i class="cfi k6"></i>
+    <div class="dest-panel" id="destPanel"><i class="dst-b dst-1"></i><i class="dst-b dst-2"></i><i class="dst-b dst-3"></i>
+      <i class="dpx" style="left:24.754%;top:-6.632%;width:17.049%;height:36.300%;--r:0deg;background-image:url(assets/el/i-mensajes.webp)"></i>
+      <i class="dpx" style="left:13.279%;top:6.283%;width:11.967%;height:23.211%;--r:0deg;background-image:url(assets/el/i-confeti.webp)"></i>
+      <i class="dpx" style="left:54.262%;top:5.410%;width:15.902%;height:31.065%;--r:0deg;background-image:url(assets/el/i-fiesta.webp)"></i>
+      <i class="dpx" style="left:73.115%;top:2.269%;width:5.820%;height:11.518%;--r:0deg;background-image:url(assets/el/i-estrella.webp)"></i>
+      <i class="dpx" style="left:0.738%;top:59.860%;width:20.328%;height:39.092%;--r:-17deg;background-image:url(assets/el/i-llaves.webp)"></i>
+      <i class="dpx" style="left:25.574%;top:68.412%;width:9.016%;height:19.197%;--r:-22deg;background-image:url(assets/el/i-mancuernas.webp)"></i>
+      <i class="dpx" style="left:40.000%;top:68.063%;width:24.836%;height:48.342%;--r:0deg;background-image:url(assets/el/i-silla-de-ruedas.webp)"></i>
+      <i class="dpx" style="left:81.066%;top:61.606%;width:13.033%;height:27.749%;--r:0deg;background-image:url(assets/el/i-mascara.webp)"></i>
+      <i class="dpx sh" style="left:18.893%;top:30.803%;width:6.148%;height:16.579%;--r:-8deg;background-image:url(assets/el/d-shardA.webp)"></i>
+      <i class="dpx sh" style="left:74.631%;top:55.236%;width:6.148%;height:16.579%;--r:168deg;background-image:url(assets/el/d-shardB.webp)"></i>
+      <i class="dpx cf" style="left:57.623%;top:76.963%;width:2.787%;height:5.410%;--r:0deg;background-image:url(assets/el/d-cf1.webp)"></i>
+      <i class="dpx cf" style="left:55.984%;top:4.974%;width:2.787%;height:5.410%;--r:180deg;background-image:url(assets/el/d-cf1.webp)"></i>
+      <i class="dpx cf" style="left:31.516%;top:22.077%;width:3.361%;height:6.457%;--r:-160deg;background-image:url(assets/el/d-cf3.webp)"></i>
+      <i class="dpx cf" style="left:85.861%;top:42.670%;width:3.361%;height:6.457%;--r:-160deg;background-image:url(assets/el/d-cf4.webp)"></i>
+      <i class="dpx cf" style="left:82.828%;top:14.921%;width:3.361%;height:6.457%;--r:-41deg;background-image:url(assets/el/d-cf5.webp)"></i>
       <span class="dest-pill">Ayudan a destacar información y objetos</span>
     </div>
   </section>
@@ -2009,11 +2110,11 @@ footer{background:var(--n01);color:#effaff;height:417px;position:relative}
   </section>
 
   <section class="el-pers" id="pers-cons" data-tone="l" data-label="Cómo se construyen los personajes">
-    <div class="pin full" id="slPin" style="--len:1500px"><div class="stick"><div class="wrap">
+    <div class="wrap">
       <h3 class="el-h3" data-r="up">¿Cómo se construyen los personajes?</h3>
       <p class="body" data-r="up" style="--d:.1s">Un mismo universo visual, con formas y acabados adaptados a cada experiencia. Estas son las características que deben conservarse al crear o aplicar nuevas piezas.</p>
       <div class="slid" id="slid"></div>
-    </div></div></div>
+    </div>
   </section>
 
   <section class="el-nar" id="narrativos" data-tone="l" data-label="Personajes narrativos">
@@ -2157,7 +2258,7 @@ tiles.forEach(t=>{
 /* arrastrar con inercia y rebote contra los bordes */
 function draggable(el,o){
   let x=0,y=0,vx=0,vy=0,lx,ly,sx,sy,on=false,raf=0,n=0;
-  const z=()=>o.zoomed?Z:1, put=()=>{el.style.setProperty('--dx',x+'px');el.style.setProperty('--dy',y+'px')};
+  const z=()=>o.zoomed?(typeof o.zoomed==='function'?o.zoomed():Z):1, put=()=>{el.style.setProperty('--dx',x+'px');el.style.setProperty('--dy',y+'px')};
   const loop=()=>{
     const b=o.bounds().getBoundingClientRect(), r=el.getBoundingClientRect();let out=false;
     if(r.left<b.left){vx+=(b.left-r.left)*.12;out=true}if(r.right>b.right){vx-=(r.right-b.right)*.12;out=true}
@@ -2299,15 +2400,9 @@ function goPin(sel,i,n){
 }
 function steps(sel,pinSel){const b=$$(sel+' button');b.forEach((x,i)=>x.addEventListener('click',()=>goPin(pinSel,i,b.length)));return b}
 
-/* logos: aparece uno, se borra, aparece el siguiente */
-const lgL=$$('#lgBox .lg-logo'), lgT=$$('#lgTxts p'), lgS=steps('#lgSteps','#lgPin');let lgI=-1;
-pin('#lgPin',t=>{const i=Math.min(lgL.length-1,Math.floor(clamp(t/.98)*lgL.length));if(i===lgI)return;lgI=i;
-  stack(lgL,i);stack(lgT,i);lgS.forEach((b,j)=>b.classList.toggle('on',j===i))});
-
-/* tres versiones: el marco queda quieto, cambia lo de adentro */
-const vrT=$$('#vrL .vr-t'), vrI=$$('#vrR img'), vrS=steps('#vrSteps','#vrPin');let vrN=-1;
-pin('#vrPin',t=>{const i=Math.min(2,Math.floor(clamp(t/.98)*3));if(i===vrN)return;vrN=i;
-  stack(vrT,i);stack(vrI,i);vrS.forEach((b,j)=>b.classList.toggle('on',j===i))});
+/* tres versiones: se cambia tocando Horizontal / Vertical / Isólogo */
+(()=>{const T=$$('#vrL .vr-t'),I=$$('#vrR img'),B=$$('#vrSteps button');
+  B.forEach((b,i)=>b.addEventListener('click',()=>{stack(T,i);stack(I,i);B.forEach((x,j)=>x.classList.toggle('on',j===i))}))})();
 
 /* submarcas: los logos pasan en horizontal, la caja verde se queda */
 const sbTrack=$('#sbTrack'), sbT=$$('#sbBox .sb-t'), sbS=steps('#sbSteps','#sbPin');let sbI=-1;
@@ -2325,9 +2420,7 @@ pin('#guPin',t=>{const i=Math.min(guR.length-1,Math.floor(clamp(t/.98)*guR.lengt
   stack(guR,i);guS.forEach((b,j)=>b.classList.toggle('on',j===i));
   $$('.gp',guR[i]).forEach(g=>typeGp(g,parseFloat(getComputedStyle(g).getPropertyValue('--d'))*1000+200))});
 
-/* escalas: un tramo por versión y uno para probar el tamaño */
-const esC=$$('#es .es-c'), esS=steps('#esSteps','#esPin');let esI=-1;
-pin('#esPin',t=>{const i=Math.min(esC.length-1,Math.floor(clamp(t/.98)*esC.length));if(i===esI)return;esI=i;stack(esC,i);esS.forEach((b,j)=>b.classList.toggle('on',j===i))});
+/* escalas: "Probalo vos" */
 const tryLogo=$('#tryLogo'), tryMsg=$('#tryMsg'), tryRange=$('#tryRange');
 function trySet(){
   const v=+tryRange.value;
@@ -2335,6 +2428,7 @@ function trySet(){
     tryMsg.textContent=v===150?'150px · tamaño mínimo digital':v+'px · se lee perfecto'}
   else{tryLogo.style.setProperty('--m','var(--k-iso)');tryLogo.style.setProperty('--ar',1.33);tryLogo.style.setProperty('--w',Math.round(34+v*.45)+'px');tryLogo.classList.add('small');
     tryMsg.textContent='Por debajo de 150px el logo completo no se lee: pasa al isólogo'}
+  tryRange.style.setProperty('--p',((v-30)/390*100).toFixed(1)+'%')
 }
 tryRange.addEventListener('input',trySet);trySet();
 
@@ -2346,8 +2440,8 @@ vcB.forEach((b,i)=>b.addEventListener('click',()=>vcLogo(i)));
 vcD.forEach(d=>d.addEventListener('click',e=>{vcCol(d);burst(e.clientX,e.clientY,8)}));
 vcLogo(0);vcCol(vcD[0]);
 
-/* escala de grises: un toque da vuelta el tono */
-$$('#gs .gt').forEach(g=>g.addEventListener('click',()=>g.classList.toggle('inv')));
+/* escala de grises: un toque copia el tono */
+$$('#gs .g2').forEach(g=>g.addEventListener('click',e=>{copyCode(g.dataset.copyGray);burst(e.clientX,e.clientY,6)}));
 
 /* espacio seguro: el marco queda, cambia lo de adentro */
 const spL=$$('#spL .vr-t'), spS=steps('#spSteps','#spPin'), spR=$('#spR');let spI=-1;
@@ -2378,13 +2472,13 @@ const BAD=[
  ['No utilizar colores fuera de la paleta establecida.',()=>BG('#ff6a00')+U('fill="#b400ff"')],
  ['No colocar elementos dentro del logo.',()=>BG()+U('fill="#fff"')+`<circle cx="186" cy="130" r="17" fill="#ff3b30"/><path d="M296 108l7 14 15 2-11 11 3 15-14-8-14 8 3-15-11-11 15-2z" fill="#ffd400"/><circle cx="392" cy="132" r="12" fill="#00b5ff"/>`]
 ];
-const usCard=$('#usCard'), usBad=$('#usBad'), usC=$('#usC'), usN=$('#usN'), usX=$('#usX'), usH=$('#usH'), usTh=$('#usTh');let usI=-1;
-BAD.forEach((b,i)=>{const t=document.createElement('button');t.textContent=i+1;t.setAttribute('aria-label','Ejemplo '+(i+1));t.addEventListener('click',()=>usShow(i));usTh.appendChild(t)});
-function usShow(i){usI=i;usCard.classList.remove('ok');usH.textContent='Tocá la tarjeta para ver cómo va.';
-  usBad.innerHTML=`<svg viewBox="0 0 560 260">${BAD[i][1]()}</svg>`;usC.textContent=BAD[i][0];usN.innerHTML=String(i+1).padStart(2,'0')+'<small>/12</small>';
-  $$('button',usTh).forEach((b,j)=>b.classList.toggle('on',j===i));usX.classList.remove('pop');void usX.offsetWidth;usX.classList.add('pop')}
-usCard.addEventListener('click',()=>{const k=usCard.classList.toggle('ok');usH.textContent=k?'Así se ve bien. Tocá de nuevo para volver.':'Tocá la tarjeta para ver cómo va.';if(k){const r=usCard.getBoundingClientRect();burst(r.left+r.width/2,r.top+r.height/2,10)}});
-usShow(0);
+const usg=$('#usg');
+const USFIX={8:{bg:'#fbffe7',swap:['#8c8c8c','#d7f86e']},10:{bg:'#f3f4f5',swap:['#b400ff','#ff2be0']}};
+usg.innerHTML=BAD.map((b,i)=>{let svg=b[1]();const m=svg.match(/<rect width="560" height="260" fill="([^"]+)"\/>/);let bg='#f3f4f5';
+  svg=svg.replace(/<rect width="560" height="260" fill="[^"]+"\/>/,'');
+  svg=svg.replace(/fill="#fff"/g,'fill="#2d2e30"').replace(/stroke="#fff"/g,'stroke="#2d2e30"');
+  if(USFIX[i]){bg=USFIX[i].bg;svg=svg.split(USFIX[i].swap[0]).join(USFIX[i].swap[1])}
+  return `<figure class="uc2" data-r="up" style="--d:${(i%3)*.08}s"><div class="uc2-c" style="--bg:${bg}"><svg viewBox="0 -34 560 328" aria-hidden="true">${svg}</svg></div><figcaption>${b[0]}</figcaption></figure>`}).join('');
 
 /* botones de descarga todavía sin carpeta */
 $$('[data-say]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();say(a.dataset.say)}));
@@ -2689,7 +2783,7 @@ function build(i){
   add(`<h4 class="car-hd">${s.hd}</h4><p class="car-sb">${s.sb}</p>`,`left:${s.tx}px;top:${s.ty}px`);
   const im=document.createElement('img');im.className='car-img';im.alt=s.nm;im.draggable=false;im.src=`assets/el/car-${s.img[0]}.webp`;im.style.cssText=`left:${s.img[1]}px;top:${s.img[2]}px;width:${s.img[3]}px;height:${s.img[4]}px`;inn.appendChild(im);
   s.ch.forEach((c,k)=>{const d=document.createElement('div');d.className='car-chip '+(c[4]>35?'big':'sm');d.textContent=c[0];d.style.cssText=`left:${c[1]}px;top:${c[2]}px;width:${c[3]}px;height:${c[4]}px;rotate:${ROT[(i+k)%ROT.length]}deg`;
-    inn.appendChild(d);draggable(d,{zoomed:true,bounds:()=>car})});
+    inn.appendChild(d);draggable(d,{zoomed:()=>Z*.72,bounds:()=>car})});
   inn.appendChild(dotsEl);
   dotsEl.innerHTML='';for(let d=-2;d<=2;d++){const dot=document.createElement('i');dot.className='d'+Math.abs(d);dot.dataset.d=d;dot.setAttribute('role','button');dot.setAttribute('aria-label',d?(d<0?'Anterior':'Siguiente'):S[i].nm);dotsEl.appendChild(dot)}
 }
@@ -2700,18 +2794,16 @@ build(0);
 if(!reduce)setInterval(()=>{if(hold||view!=='elementos'||document.hidden)return;const r=car.getBoundingClientRect();if(r.bottom<0||r.top>innerHeight)return;go(cur+1)},5200);
 })();
 
-/* cómo se construyen los personajes */
-(()=>{const S=[['01','Proporciones','#35ceff'],['02','Luz y acabado','#ffd400'],['03','Rostro y expresión','#a599f0'],['04','Uso en piezas','#ccf901']];
+/* cómo se construyen los personajes: se abren si tocás */
+(()=>{const S=[['01','Proporciones','#35ceff','No estirar ni deformar la silueta. Preservar la escala y las relaciones entre sus partes.'],['02','Luz y acabado','#ffe83f','Conservar los reflejos, sombras y pliegues del render original. Evitar filtros externos.'],['03','Rostro y expresión','#a899f0','Mantener los rasgos simplificados y una expresión legible, acorde a su personalidad.'],['04','Uso en piezas','#d4f542','Respetar el contorno completo, el espacio libre y el fondo transparente cuando corresponda.']];
   const host=$('#slid');
-  host.innerHTML=S.map(s=>`<div class="sl-c" role="button" tabindex="0" style="--b:${s[2]}"><small>${s[0]}</small><div class="q"><em>ASÍ SUENA</em><p>“¡Qué bueno que te sumes! Contanos cómo te movés y te armamos tu primer recorrido.”</p></div><h4>${s[1]}</h4></div>`).join('');
-  const cs=$$('.sl-c',host);const set=i=>cs.forEach((c,j)=>c.classList.toggle('on',j===i));
-  cs.forEach((c,i)=>{c.addEventListener('click',()=>set(i));c.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();set(i)}})});
-  set(-1);pin('#slPin',t=>{host.classList.toggle('go',t>.04);set(t<=.04?-1:Math.min(S.length-1,Math.floor(clamp((t-.04)/.94)*S.length)))})})();
+  host.innerHTML=S.map(s=>`<div class="sl-c" role="button" tabindex="0" aria-pressed="false" style="--b:${s[2]}"><div class="sl-f"><small>${s[0]}</small><h4>${s[1]}</h4></div><div class="sl-b"><small>${s[0]}</small><h4>${s[1]}</h4><p>${s[3]}</p></div></div>`).join('');
+  const tog=c=>{c.classList.toggle('on');c.setAttribute('aria-pressed',c.classList.contains('on'))};
+  $$('.sl-c',host).forEach(c=>{c.addEventListener('click',()=>tog(c));c.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();tog(c)}})})})();
 
-/* personajes narrativos: tarjetas que se dan vuelta */
-(()=>{const F=[['Martina','martina','Organizada'],['Tomás','tomas',''],['Lara','lara',''],['Benjamín','benjamin',''],['Abril','abril','']];
-  $('#flips').innerHTML=F.map(f=>`<div class="nfc" role="button" tabindex="0" aria-label="${f[0]}: dar vuelta la tarjeta"><div class="nfc-in"><div class="fl-f"><img src="assets/el/${f[1]}.webp" alt="${f[0]}" loading="lazy"></div><div class="fl-b"><small>PERSONAJE NARRATIVO</small><h4>${f[0]}</h4><p>${f[2]?f[2]+'. ':''}Su recorrido forma parte de las cinco historias de PLAN B.</p></div></div></div>`).join('');
-  $$('.nfc').forEach(f=>{f.addEventListener('click',()=>f.classList.toggle('on'));f.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();f.classList.toggle('on')}})})})();
+/* personajes narrativos: solo se mueven apenas al pasar el mouse */
+(()=>{const F=[['Martina','martina'],['Tomás','tomas'],['Lara','lara'],['Benjamín','benjamin'],['Abril','abril']];
+  $('#flips').innerHTML=F.map(f=>`<div class="nfc"><img src="assets/el/${f[1]}.webp" alt="${f[0]}" loading="lazy"></div>`).join('')})();
 
 /* prompts: aparecen escribiéndose y el botón abre ChatGPT con el prompt listo */
 (()=>{const P={
@@ -2763,6 +2855,9 @@ if(!reduce)setInterval(()=>{if(hold||view!=='elementos'||document.hidden)return;
     try{const im=new Image();im.src=icoSrc(s);await im.decode();const cv=document.createElement('canvas');cv.width=im.naturalWidth;cv.height=im.naturalHeight;cv.getContext('2d').drawImage(im,0,0);
       cv.toBlob(bl=>{if(bl){const u=URL.createObjectURL(bl);save(u,'png');setTimeout(()=>URL.revokeObjectURL(u),3000)}else save(icoSrc(s),'webp')},'image/png')}catch(_){save(icoSrc(s),'webp')}})})();
 
+
+/* destellos: los objetos se mueven con el mouse dentro del cuadro */
+(()=>{const panel=$('#destPanel');if(!panel)return;$$('.dpx',panel).forEach(el=>draggable(el,{zoomed:()=>Z,bounds:()=>panel}))})();
 
 /* arranque */
 const route=()=>{const h=location.hash.slice(1);return PAGES[h]?h:'home'};
