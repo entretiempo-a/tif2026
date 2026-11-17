@@ -2,8 +2,9 @@
 
 Sitio de una sola página en HTML/CSS/JS vanilla. Sin build ni dependencias.
 
-    index.html   → todo el CSS y JS inline (vistas: #home, #sobre, #comunicamos, #signos)
+    index.html   → todo el CSS y JS inline (vistas: #home, #sobre, #comunicamos, #signos, #colores, #elementos)
     assets/      → imágenes raster (fotos, tiles, teléfonos, medidas)
+    assets/el/   → ilustraciones 3D en WebP con transparencia (íconos i-*, versión plana f-*, personajes, mascotas, paleta 3D)
 
 Abrir `index.html` directo en el navegador (funciona con file://) o servir la carpeta con cualquier servidor estático.
 
