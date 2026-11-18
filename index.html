@@ -1414,6 +1414,12 @@ body.inpage .sd-wrap:not(:empty){display:flex}
 
 .mn-list{width:min(300px,calc(92vw - 90px))}
 .mn-it{min-width:auto}.mn-ch{flex:none}
+
+/* indicador: solo la sección actual, un poco más grande y sin punto */
+.sd{display:none}
+.sd.on{display:block;font-size:14px;font-weight:600;opacity:1;padding:6px}
+.sd.on::before{content:none}
+.sd-wrap{-webkit-mask:none;mask:none;overflow:visible;max-height:none}
 </style>
 </head>
 <body>
