@@ -1391,6 +1391,28 @@ body.menu-on .mn-row{opacity:1;transform:none;transition-delay:calc(.12s + var(-
 .s-principios{padding:0}
 .s-principios .princ{padding:79px 0 90px}
 .s-principios .rail .card{padding-bottom:36px}
+
+/* menú: la flecha es el único control para desplegar */
+.mn-ch{width:32px;opacity:1;background:transparent;color:#c9cacc;transition:background .3s,color .3s,transform .35s var(--ease)}
+.mn-ch svg{transform:rotate(180deg);transition:transform .35s var(--ease)}
+.mn-ch:hover{background:rgba(255,255,255,.14);color:#fff}
+.mn-row.open .mn-ch{background:#7a7b7e;color:#fff}
+.mn-row.open .mn-ch svg{transform:none}
+.mn-it:hover span{text-decoration:underline;text-underline-offset:4px}
+
+/* indicador de secciones */
+.sd-wrap{position:fixed;left:0;width:var(--side);top:calc(50% + 50px);z-index:41;display:none;flex-direction:column;align-items:center;gap:6px;color:#fbfdff;transition:color .4s}
+body.inpage .sd-wrap:not(:empty){display:flex}
+.side.dk + .sd-wrap{color:#2d2e30}
+.sd{position:relative;width:26px;height:22px;display:grid;place-items:center;pointer-events:auto;cursor:pointer;background:none;border:0;color:inherit}
+.sd i{display:block;width:9px;height:9px;border-radius:50%;border:1.5px solid currentColor;opacity:.55;transition:transform .35s var(--spring),opacity .3s,background .3s}
+.sd:hover i,.sd:focus-visible i{opacity:1;transform:scale(1.25)}
+.sd.on i{opacity:1;background:currentColor;transform:scale(1.35)}
+.sd em{position:absolute;left:calc(100% + 6px);top:50%;translate:-6px -50%;white-space:nowrap;background:#2d2e30;color:#fbfdff;font-style:normal;font-size:13px;line-height:1;padding:8px 12px;border-radius:999px;box-shadow:0 4px 12px rgba(0,0,0,.25);opacity:0;pointer-events:none;transition:opacity .25s,translate .3s var(--ease)}
+.side.dk + .sd-wrap .sd em{background:#2d2e30;color:#fbfdff}
+.sd:hover em,.sd:focus-visible em{opacity:1;translate:0 -50%}
+@media (max-height:700px){.sd-wrap{gap:2px}}
+.mn-ch{flex:none}.mn-it{min-width:0}
 </style>
 </head>
 <body>
@@ -2353,6 +2375,7 @@ body.menu-on .mn-row{opacity:1;transform:none;transition-delay:calc(.12s + var(-
 
 <div id="chrome">
   <aside class="side" aria-hidden="true"><i class="prog"></i><span class="lbl"><b id="lblBase" style="font-weight:400">Sobre Entre tiempo</b><em id="lbl"></em></span><span class="cr">© Copyright 2026</span></aside>
+  <nav class="sd-wrap" id="sideDots" aria-label="Secciones de la página"></nav>
   <button class="burger" id="burger" aria-label="Abrir el menú de secciones" aria-haspopup="true"><span class="bg"><i></i><i></i><i></i></span><b class="iso" aria-hidden="true"></b></button>
 </div>
 <div id="menu" aria-hidden="true"><div class="mn-bg"></div>
@@ -2457,6 +2480,7 @@ function show(v,hold){
   const de=document.documentElement;de.style.scrollBehavior='auto';void document.body.offsetHeight;
   scrollTo({top:v==='home'?home.offsetHeight:0,left:0,behavior:'instant'});
   requestAnimationFrame(()=>requestAnimationFrame(()=>{de.style.scrollBehavior=''}));
+  buildDots(v);
   if(v==='home')measure();
   else{lblBase.textContent=PAGES[v].name;cur=null;pageScroll();const h=$('.hero',PAGES[v].el);if(!hold)requestAnimationFrame(()=>requestAnimationFrame(()=>h.classList.add('play')))}
 }
@@ -2514,8 +2538,6 @@ mnList.addEventListener('click',e=>{
   const ch=e.target.closest('.mn-ch');if(ch){const r=ch.closest('.mn-row');r.classList.toggle('open');return}
   const a=e.target.closest('a');if(a){e.preventDefault();navTo(a.dataset.k,a.dataset.a);return}
   const b=e.target.closest('.mn-it');if(b)navTo(b.dataset.k)});
-mnRows.forEach(r=>r.addEventListener('mouseenter',()=>{if(matchMedia('(hover:hover)').matches&&MENU.find(m=>m.k===r.dataset.k).s)mnOpen(r.dataset.k)}));
-$('.mn-panel',menu).addEventListener('mouseleave',()=>{if(matchMedia('(hover:hover)').matches)mnOpen(view==='home'?null:view)});
 
 
 /* ── Heros: etiquetas arrastrables, parallax, título reactivo ── */
@@ -2686,6 +2708,21 @@ $$('[data-r],#pills,.brand-logo,.pf-row,#gs').forEach(el=>io.observe(el));
 
 /* ── Scroll dentro de una página ── */
 const logos=$$('.brand-logo');
+
+/* ── Indicador de secciones (barra lateral) ── */
+const sideDots=$('#sideDots');let sdList=[];
+function buildDots(v){
+  const m=MENU.find(x=>x.k===v);
+  sdList=[];sideDots.innerHTML='';
+  if(!m||!m.s||m.soon)return;
+  sdList=m.s.filter(x=>x[1]).map(x=>({t:x[0],a:x[1],el:PAGES[v].el.querySelector('#'+x[1])})).filter(x=>x.el);
+  sideDots.innerHTML=sdList.map((d,i)=>`<button class="sd" data-i="${i}" aria-label="${d.t}"><i></i><em>${d.t}</em></button>`).join('');
+}
+function sdUpdate(H){
+  let idx=-1;sdList.forEach((d,i)=>{if(d.el.getBoundingClientRect().top<H*.5)idx=i});
+  $$('.sd',sideDots).forEach((b,i)=>b.classList.toggle('on',i===idx));
+}
+sideDots.addEventListener('click',e=>{const b=e.target.closest('.sd');if(!b)return;const d=sdList[+b.dataset.i];d&&d.el.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'})});
 function pageScroll(){
   if(view==='home')return;const root=PAGES[view].el, H=innerHeight;
   const max=document.documentElement.scrollHeight-H;
@@ -2695,6 +2732,7 @@ function pageScroll(){
   const tone=y=>{for(const s of zones){const r=s.getBoundingClientRect();if(r.top<=y&&r.bottom>y)return s.dataset.tone==='l'}return false};
   lblS.classList.toggle('dk',tone(100));crS.classList.toggle('dk',tone(H-100));side.classList.toggle('dk',tone(H/2));
   if(name!==cur){cur=name;lbl.classList.add('out');setTimeout(()=>{lbl.textContent=name?' — '+name:'';lbl.classList.remove('out')},250)}
+  sdUpdate(H);
   logos.forEach(l=>{const r=l.getBoundingClientRect();l.style.setProperty('--sp',clamp((H-r.top)/(H*.55)))});
   pins.forEach(p=>{if(!root.contains(p.el))return;const e=p.el.getBoundingClientRect(),s=p.stick.getBoundingClientRect();p.fn(clamp((s.top-e.top)/((e.height-s.height)||1)))});
   seen.forEach(o=>{if(!root.contains(o.el))return;const r=o.el.getBoundingClientRect();o.fn(clamp((H*.9-r.top)/(H*.5)))});
