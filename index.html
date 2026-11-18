@@ -1707,6 +1707,16 @@ body.inpage .sd-wrap:not(:empty){display:flex}
 .tp-elig-in:not(.typed) .tp-elig-b .tw.bd{color:#ff3a30}
 
 .tp-elig .stick{background:var(--n01)}
+
+/* elección tipográfica: frase que se enciende */
+.tp-elig .stick{background:var(--n01);align-items:center}
+.tp-elig-in{padding:0;min-height:0;width:min(964px,calc(100% - var(--side)*2 - 48px))}
+.tp-elig .lit{--off:#4d4e52;--on:#fbfdff}
+.tp-elig .lit .w{opacity:1;transition:color .35s ease}
+.tp-elig .lit b{font-weight:800}
+.tp-elig-a b .w{--on:#ffe500;--off:#6a5f00}
+.tp-elig-b b .w{--on:#ff3a30;--off:#6a2a27}
+.tp-elig-b b{font-weight:700}
 </style>
 </head>
 <body>
@@ -2699,9 +2709,9 @@ body.inpage .sd-wrap:not(:empty){display:flex}
 
   <!-- elección tipográfica -->
   <section class="tp-elig" id="tp-elig" data-label="Familias tipográficas">
-    <div class="pin" id="tpEligPin" style="--h:426px;--len:1000px;--top:10vh"><div class="stick"><div class="tp-elig-in" id="tpElig">
-      <p class="tp-elig-a" id="tpEligA">Elegimos <b>Epilogue</b><br>para los títulos porque aporta presencia y personalidad.</p>
-      <p class="tp-elig-b" id="tpEligB">Además, usamos <b>Figtree</b> para acompañar los textos con claridad y mantener una lectura cómoda.</p>
+    <div class="pin full" id="tpEligPin" style="--len:900px"><div class="stick"><div class="tp-elig-in" id="tpElig">
+      <p class="tp-elig-a lit" id="tpEligA">Elegimos <b>Epilogue</b><br>para los títulos porque aporta presencia y personalidad.</p>
+      <p class="tp-elig-b lit" id="tpEligB">Además, usamos <b>Figtree</b> para acompañar los textos con claridad y mantener una lectura cómoda.</p>
     </div></div></div>
   </section>
 
@@ -3604,21 +3614,9 @@ if(!reduce)setInterval(()=>{if(hold||view!=='elementos'||document.hidden)return;
     tick()}
   new IntersectionObserver((es,ob)=>{es.forEach(e=>{if(e.isIntersecting){ob.disconnect();setTimeout(run,350)}})},{threshold:.45}).observe(box)})();
 
-/* 2 · elección tipográfica: se tipea letra por letra (como el componente de Figma) */
-(()=>{const box=$('#tpElig'),A=$('#tpEligA'),Bp=$('#tpEligB');if(!box)return;
-  const prep=p=>{const out=[];const walk=(n,bold)=>{[...n.childNodes].forEach(c=>{if(c.nodeType===3){const frag=document.createDocumentFragment();c.textContent.split(/(\s+)/).forEach(t=>{if(!t)return;if(/^\s+$/.test(t)){frag.appendChild(document.createTextNode(' '));return}
-        const w=document.createElement('span');w.className='tw'+(bold?' bd':'');[...t].forEach(ch=>{const s=document.createElement('span');s.className='tc2';s.textContent=ch;w.appendChild(s);out.push(s)});frag.appendChild(w)});c.replaceWith(frag)}
-      else if(c.nodeName==='BR'){}else{walk(c,bold||c.nodeName==='B')}})};
-    walk(p,false);p.querySelectorAll('b').forEach(b=>{const f=document.createDocumentFragment();while(b.firstChild)f.appendChild(b.firstChild);b.replaceWith(f)});return out};
-  const ca=prep(A),cb=prep(Bp);
-  const all=ca.concat(cb);
-  if(reduce){all.forEach(c=>c.classList.add('on'));box.classList.add('typed','done');return}
-  let cur=null,last=-1;
-  box.classList.add('typed');
-  pin('#tpEligPin',t=>{const n=Math.round(clamp(t/.85)*all.length);if(n===last)return;last=n;
-    all.forEach((c,i)=>c.classList.toggle('on',i<n));
-    if(cur)cur.classList.remove('cur');cur=n>0&&n<all.length?all[n-1]:null;if(cur)cur.classList.add('cur');
-    box.classList.toggle('done',n>=all.length)})})();
+/* 2 · elección tipográfica: las palabras se van encendiendo al scrollear (como las otras frases) */
+(()=>{const a=$('#tpEligA'),b=$('#tpEligB');if(!a)return;const fa=lit(a),fb=lit(b);
+  pin('#tpEligPin',t=>{const p=clamp(t/.8)*1.02;fa(clamp(p/.62));fb(clamp((p-.58)/.42))})})();
 
 /* 3 · pesos de cada familia: al pasar el cursor se ven en itálica */
 (()=>{const EP=[['Thin',100],['Extralight',200],['Light',300],['Regular',400],['Medium',500],['Semibold',600],['Bold',700],['Extrabold',800],['Black',900]],FI=EP.slice(2);
