@@ -1382,6 +1382,15 @@ body.menu-on .mn-row{opacity:1;transform:none;transition-delay:calc(.12s + var(-
 .mn-sub a{color:#d6d8da;text-decoration:none;font-size:15px;line-height:20px;padding:6.5px 0;transition:color .25s,transform .3s var(--ease)}
 .mn-sub a:hover,.mn-sub a:focus-visible{color:#fff;transform:translateX(4px);outline:0}
 @media (max-width:560px){.mn-panel{padding-left:34px}}
+
+/* principios: altura natural, sin recorte ni scroll fijo */
+.s-principios .pin,.s-principios .pin.full{height:auto!important;min-height:0!important}
+.s-principios .pin .stick{position:static!important;height:auto!important;min-height:0!important;overflow:visible!important;display:block!important}
+.s-principios .pin.full .stick>.wrap{margin:0 auto}
+.s-principios .rail .card{min-height:0}
+.s-principios{padding:0}
+.s-principios .princ{padding:79px 0 90px}
+.s-principios .rail .card{padding-bottom:36px}
 </style>
 </head>
 <body>
