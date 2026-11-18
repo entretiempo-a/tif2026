@@ -892,6 +892,17 @@ footer{background:var(--n01);color:#effaff;height:417px;position:relative}
 .uc.no:hover .uc-v{animation:vibra .38s linear infinite}
 .aa-row.bad .aa-c:hover .aa-card{animation:vibra .38s linear infinite}
 
+.cl-mueve{padding-top:130px}
+.cl-mueve .two{margin-top:0}
+.tn{background:none}
+.tn::before{content:"";position:absolute;inset:0;background:var(--c);transform-origin:bottom;transition:transform .4s var(--spring)}
+.tn:first-child::before{border-radius:24px 0 0 0}.tn:last-child::before{border-radius:0 24px 0 0}
+.tn:hover,.tn:focus-visible{transform:none}
+.tn:hover::before,.tn:focus-visible::before{transform:scaleY(1.4)}
+.tn i{bottom:calc(100% + 24px);padding:9px 14px;border-radius:10px;font-size:13px;line-height:16px;transform:none;min-width:max-content;text-align:center;box-shadow:0 6px 16px rgba(0,0,0,.2)}
+.tn i b{font-size:13px;margin-bottom:2px}
+.tn:hover i,.tn:focus-visible i{translate:-50% 0}
+
 /* ═════════════ ELEMENTOS GRÁFICOS ═════════════ */
 .el-h3{font-family:'Epilogue';font-weight:600;font-size:28px;line-height:32px;letter-spacing:-.03em}
 .el-h3.lt,.body.lt{color:inherit}
@@ -1189,6 +1200,16 @@ footer{background:var(--n01);color:#effaff;height:417px;position:relative}
   .car{height:520px}.car-in{transform:scale(.5)}
 }
 
+/* los destellos del título viajan hasta la imagen de "Ayudan a destacar" */
+.hero.el .blob{opacity:0!important}
+.hero.el .stage,.el-dest .two{position:relative;z-index:2}
+.dest-panel{z-index:2}
+.dest-panel::before{display:none}
+.dst-b{opacity:var(--arr,0)}
+.fly{position:fixed;inset:0;z-index:1;pointer-events:none;overflow:hidden}
+.fly i{position:absolute;left:0;top:0;border-radius:50%;will-change:transform,opacity;opacity:0}
+body:not(.inpage) .fly{display:none}
+
 /* ═════════ Signos: logos, versiones, escalas, grises y usos (scroll libre) ═════════ */
 .sg-logos{padding:130px 0 120px}
 .sg-ver{padding:110px 0 120px}
@@ -1242,6 +1263,17 @@ footer{background:var(--n01);color:#effaff;height:417px;position:relative}
   .vr-w .vr-steps{position:static;margin-top:12px}.es3{grid-template-columns:1fr;grid-template-rows:auto}.es3-c.a,.es3-c.b,.es3-c.c{grid-column:1;grid-row:auto}.es3-c{flex-direction:column;gap:20px}
   .gs2{grid-template-columns:1fr}.usg{grid-template-columns:1fr}.sg-gris{padding-top:200px}
 }
+
+/* espacios seguros: estático */
+.sg-seg{padding:130px 0 140px}
+.sp3{display:flex;flex-direction:column;gap:80px;margin-top:80px}
+.sp3-r{display:grid;grid-template-columns:460px 1fr;column-gap:32px;align-items:center}
+.sp3-r svg{width:460px;height:auto;display:block;overflow:visible}
+.sp3-t h3{font-weight:600;font-size:16px;line-height:20px;margin-bottom:2px}
+.sp3-t .body{font-size:16px;line-height:20px;max-width:470px}
+.sp3-t .body b{font-weight:600}
+.sp3-w{width:100%;height:auto;display:block}
+@media (max-width:560px){.sp3-r{grid-template-columns:1fr;row-gap:16px}.sp3-r svg{width:100%}}
 </style>
 </head>
 <body>
@@ -1534,7 +1566,7 @@ footer{background:var(--n01);color:#effaff;height:417px;position:relative}
   </section>
 
   <section class="c-guia" id="guia" data-tone="l" data-label="Guía de estilos">
-    <div class="pin full" id="guPin" style="--len:2400px"><div class="stick"><div class="wrap">
+    <div class="wrap">
       <div class="c-head">
         <h2 data-r="up">Guía de estilos</h2>
         <div class="body" data-r="up" style="--d:.1s"><p>Nuestra manera de escribir refleja cómo entendemos las experiencias: algo cercano, dinámico y abierto a distintas posibilidades.</p><p style="margin-top:0">Estas pautas nos ayudan a mantener una voz coherente en cada mensaje, sin importar dónde aparezca.</p></div>
@@ -1553,8 +1585,8 @@ footer{background:var(--n01);color:#effaff;height:417px;position:relative}
         <div class="g-col"><div class="gp ok" style="--d:0.00s">“Tu día no tiene un solo camino.”</div><div class="gp ok" style="--d:0.50s">“¿Qué dejás para después?”</div><div class="gp ok" style="--d:1.00s">“Llegá y elegí por dónde empezar.”</div></div>
         <div class="g-col"><div class="gp bad" style="--d:0.25s">“Hay diversas opciones de recorrido.”</div><div class="gp bad" style="--d:0.75s">“Indique las actividades pendientes.”</div><div class="gp bad" style="--d:1.25s">“Seleccione el punto de inicio correspondiente.”</div></div></div>
       </div>
-      <div class="steps gu-steps" id="guSteps"><button>Voseo</button><button>Verbos activos</button><button>Presente</button><button>Directo</button></div>
-    </div></div></div>
+      <div class="steps gu-steps" id="guSteps"><button class="on">Voseo</button><button>Verbos activos</button><button>Presente</button><button>Directo</button></div>
+    </div>
   </section>
 
   <footer>
@@ -1715,11 +1747,11 @@ footer{background:var(--n01);color:#effaff;height:417px;position:relative}
         <div class="body" data-r="up" style="--d:.1s"><p>Cuando el color no está disponible, el logo se adapta a una <b>escala de grises que mantiene su contraste y legibilidad.</b></p><p>Cada tono tiene su versión sobre fondo claro y su versión invertida.</p></div></div>
       <div class="gs2" id="gs">
         <button class="g2 lt" data-copy-gray="#2D2E30" style="--bg:#f2f3f4;--fg:#2d2e30" aria-label="Copiar gris 100% #2D2E30"><small>100%</small><i></i></button>
-        <button class="g2 dk" data-copy-gray="#848587" style="--bg:#848587;--fg:#fff" aria-label="Copiar gris 60% #848587"><small>60%</small><i></i></button>
+        <button class="g2 dk" data-copy-gray="#2D2E30" style="--bg:#2d2e30;--fg:#fff" aria-label="Copiar gris 100% #2D2E30"><small>100%</small><i></i></button>
         <button class="g2 lt" data-copy-gray="#58595B" style="--bg:#f2f3f4;--fg:#58595b" aria-label="Copiar gris 80% #58595B"><small>80%</small><i></i></button>
         <button class="g2 dk" data-copy-gray="#58595B" style="--bg:#58595b;--fg:#fff" aria-label="Copiar gris 80% #58595B"><small>80%</small><i></i></button>
         <button class="g2 lt" data-copy-gray="#848587" style="--bg:#f2f3f4;--fg:#848587" aria-label="Copiar gris 60% #848587"><small>60%</small><i></i></button>
-        <button class="g2 dk" data-copy-gray="#2D2E30" style="--bg:#2d2e30;--fg:#fff" aria-label="Copiar gris 100% #2D2E30"><small>100%</small><i></i></button>
+        <button class="g2 dk" data-copy-gray="#848587" style="--bg:#848587;--fg:#fff" aria-label="Copiar gris 60% #848587"><small>60%</small><i></i></button>
       </div>
       <p class="gs-hint">Tocá un tono para copiar su código.</p>
     </div>
@@ -1727,27 +1759,15 @@ footer{background:var(--n01);color:#effaff;height:417px;position:relative}
 
   <!-- espacios seguros: unidad → área → aplicación -->
   <section class="sg-seg" id="espacios" data-label="Espacios seguros">
-    <div class="pin full" id="spPin" style="--len:1800px"><div class="stick"><div class="wrap">
-      <div class="two"><h2>Espacios<br>seguros</h2>
-        <div class="body"><p>El espacio de seguridad establece el <b>área mínima que debe mantenerse libre alrededor de nuestro logo, garantizando su legibilidad y protagonismo.</b></p><p>Esta distancia se define a partir de una unidad de medida proporcional, asegurando una aplicación coherente en todos los formatos.</p></div></div>
-      <div class="vr sp">
-        <div class="vr-l" id="spL">
-          <div class="vr-t"><span class="chip">1</span><h3>Unidad de medida</h3><p class="body">El espacio de seguridad se construye a partir de la <b>altura de X del logotipo.</b> Esta medida define un módulo cuadrado de lados iguales que funciona como referencia.</p></div>
-          <div class="vr-t"><span class="chip">2</span><h3>Área de protección</h3><p class="body">El módulo X se aplica en los <b>cuatro lados del logotipo,</b> estableciendo una distancia mínima uniforme que garantiza su legibilidad y evita interferencias con otros elementos.</p></div>
-          <div class="vr-t"><span class="chip">3</span><h3>En uso</h3><p class="body">Con el módulo X como referencia, <b>el logo se ubica en cualquier pieza</b> sin invadir ni ser invadido por otros elementos.</p></div>
-        </div>
-        <div class="sp-r" id="spR" data-s="0">
-          <svg viewBox="0 0 560 280" role="img" aria-label="Espacio de seguridad del logo">
-            <g class="ly lg"><use href="#sy-et" x="80" y="118" width="360" height="43.6" fill="#fff"/></g>
-            <g class="ly la"><path d="M440 78V204M483.6 78V204M40 118H520M40 161.6H520" stroke="#fff" stroke-opacity=".4" fill="none"/><rect x="440" y="118" width="43.6" height="43.6" fill="#9ee0ab"/><text x="461.8" y="146" text-anchor="middle" font-size="18" font-weight="700" fill="#2d2e30" font-family="Epilogue,sans-serif">X</text></g>
-            <g class="ly lb"><rect x="36.4" y="74.4" width="447.2" height="130.8" fill="none" stroke="#fff" stroke-opacity=".5"/><g fill="#9ee0ab"><rect x="36.4" y="74.4" width="43.6" height="43.6"/><rect x="440" y="74.4" width="43.6" height="43.6"/><rect x="36.4" y="161.6" width="43.6" height="43.6"/><rect x="440" y="161.6" width="43.6" height="43.6"/></g></g>
-            <g class="ly lc" id="spMini"></g>
-          </svg>
-        </div>
-        <svg class="sp-w" id="spW" viewBox="0 0 1485 413" role="img" aria-label="Aplicaciones del espacio de seguridad"><rect width="1485" height="413" fill="#ecedee"/><g transform="translate(0 0)"><rect x=".5" y=".5" width="266" height="74" fill="none" stroke="#c3c8c9"/><path d="M0 25.5H267M0 49.5H267M25.5 0V75M241.5 0V75" stroke="#9ee0ab" stroke-width=".7" opacity=".8" fill="none"/><g fill="#c9ebd0" opacity=".95"><rect width="25.5" height="25.5"/><rect x="241.5" width="25.5" height="25.5"/><rect y="49.5" width="25.5" height="25.5"/><rect x="241.5" y="49.5" width="25.5" height="25.5"/></g><use href="#sy-et" x="25.5" y="24.5" width="216" height="26.2" fill="#2d2e30"/></g><g transform="translate(609 0)"><rect x=".5" y=".5" width="266" height="74" fill="none" stroke="#c3c8c9"/><path d="M0 25.5H267M0 49.5H267M25.5 0V75M241.5 0V75" stroke="#9ee0ab" stroke-width=".7" opacity=".8" fill="none"/><g fill="#c9ebd0" opacity=".95"><rect width="25.5" height="25.5"/><rect x="241.5" width="25.5" height="25.5"/><rect y="49.5" width="25.5" height="25.5"/><rect x="241.5" y="49.5" width="25.5" height="25.5"/></g><use href="#sy-et" x="25.5" y="24.5" width="216" height="26.2" fill="#2d2e30"/></g><g transform="translate(1218 0)"><rect x=".5" y=".5" width="266" height="74" fill="none" stroke="#c3c8c9"/><path d="M0 25.5H267M0 49.5H267M25.5 0V75M241.5 0V75" stroke="#9ee0ab" stroke-width=".7" opacity=".8" fill="none"/><g fill="#c9ebd0" opacity=".95"><rect width="25.5" height="25.5"/><rect x="241.5" width="25.5" height="25.5"/><rect y="49.5" width="25.5" height="25.5"/><rect x="241.5" y="49.5" width="25.5" height="25.5"/></g><use href="#sy-et" x="25.5" y="24.5" width="216" height="26.2" fill="#2d2e30"/></g><g transform="translate(0 338)"><rect x=".5" y=".5" width="266" height="74" fill="none" stroke="#c3c8c9"/><path d="M0 25.5H267M0 49.5H267M25.5 0V75M241.5 0V75" stroke="#9ee0ab" stroke-width=".7" opacity=".8" fill="none"/><g fill="#c9ebd0" opacity=".95"><rect width="25.5" height="25.5"/><rect x="241.5" width="25.5" height="25.5"/><rect y="49.5" width="25.5" height="25.5"/><rect x="241.5" y="49.5" width="25.5" height="25.5"/></g><use href="#sy-et" x="25.5" y="24.5" width="216" height="26.2" fill="#2d2e30"/></g><g transform="translate(609 338)"><rect x=".5" y=".5" width="266" height="74" fill="none" stroke="#c3c8c9"/><path d="M0 25.5H267M0 49.5H267M25.5 0V75M241.5 0V75" stroke="#9ee0ab" stroke-width=".7" opacity=".8" fill="none"/><g fill="#c9ebd0" opacity=".95"><rect width="25.5" height="25.5"/><rect x="241.5" width="25.5" height="25.5"/><rect y="49.5" width="25.5" height="25.5"/><rect x="241.5" y="49.5" width="25.5" height="25.5"/></g><use href="#sy-et" x="25.5" y="24.5" width="216" height="26.2" fill="#2d2e30"/></g><g transform="translate(1218 338)"><rect x=".5" y=".5" width="266" height="74" fill="none" stroke="#c3c8c9"/><path d="M0 25.5H267M0 49.5H267M25.5 0V75M241.5 0V75" stroke="#9ee0ab" stroke-width=".7" opacity=".8" fill="none"/><g fill="#c9ebd0" opacity=".95"><rect width="25.5" height="25.5"/><rect x="241.5" width="25.5" height="25.5"/><rect y="49.5" width="25.5" height="25.5"/><rect x="241.5" y="49.5" width="25.5" height="25.5"/></g><use href="#sy-et" x="25.5" y="24.5" width="216" height="26.2" fill="#2d2e30"/></g></svg>
+    <div class="wrap">
+      <div class="two"><h2 data-r="up">Espacios<br>seguros</h2>
+        <div class="body" data-r="up" style="--d:.1s"><p>El espacio de seguridad establece el <b>área mínima que debe mantenerse libre alrededor de nuestro logo, garantizando su legibilidad y protagonismo.</b></p><p>Esta distancia se define a partir de una unidad de medida proporcional, asegurando una aplicación coherente en todos los formatos.</p></div></div>
+      <div class="sp3">
+        <div class="sp3-r" data-r="up"><svg viewBox="30 96 500 90" role="img" aria-label="Unidad de medida: altura de X del logo"><path d="M440 96V186M483.6 96V186M30 118H530M30 161.6H530" stroke="#fff" stroke-opacity=".4" fill="none"/><use href="#sy-et" x="80" y="118" width="360" height="43.6" fill="#fff"/><rect x="440" y="118" width="43.6" height="43.6" fill="#9ee0ab"/></svg><div class="sp3-t"><h3>Unidad de medida</h3><p class="body">El espacio de seguridad se construye a partir de la <b>altura de X del logotipo.</b> Esta medida define un módulo cuadrado de lados iguales que funciona como referencia.</p></div></div>
+        <div class="sp3-r" data-r="up"><svg viewBox="30 66 500 150" role="img" aria-label="Área de protección del logo"><use href="#sy-et" x="80" y="118" width="360" height="43.6" fill="#fff"/><rect x="36.4" y="74.4" width="447.2" height="130.8" fill="none" stroke="#fff" stroke-opacity=".5"/><g fill="#9ee0ab"><rect x="36.4" y="74.4" width="43.6" height="43.6"/><rect x="440" y="74.4" width="43.6" height="43.6"/><rect x="36.4" y="161.6" width="43.6" height="43.6"/><rect x="440" y="161.6" width="43.6" height="43.6"/></g></svg><div class="sp3-t"><h3>Área de protección</h3><p class="body">El módulo X se aplica en los <b>cuatro lados del logotipo,</b> estableciendo una distancia mínima uniforme que garantiza su legibilidad y evita interferencias con otros elementos.</p></div></div>
+        <div class="sp3-u" data-r="up"><svg class="sp3-w" id="spW" viewBox="0 0 1485 413" role="img" aria-label="Aplicaciones del espacio de seguridad"><rect width="1485" height="413" fill="#ecedee"/><g transform="translate(0 0)"><rect x=".5" y=".5" width="266" height="74" fill="none" stroke="#c3c8c9"/><path d="M0 25.5H267M0 49.5H267M25.5 0V75M241.5 0V75" stroke="#9ee0ab" stroke-width=".7" opacity=".8" fill="none"/><g fill="#c9ebd0" opacity=".95"><rect width="25.5" height="25.5"/><rect x="241.5" width="25.5" height="25.5"/><rect y="49.5" width="25.5" height="25.5"/><rect x="241.5" y="49.5" width="25.5" height="25.5"/></g><use href="#sy-et" x="25.5" y="24.5" width="216" height="26.2" fill="#2d2e30"/></g><g transform="translate(609 0)"><rect x=".5" y=".5" width="266" height="74" fill="none" stroke="#c3c8c9"/><path d="M0 25.5H267M0 49.5H267M25.5 0V75M241.5 0V75" stroke="#9ee0ab" stroke-width=".7" opacity=".8" fill="none"/><g fill="#c9ebd0" opacity=".95"><rect width="25.5" height="25.5"/><rect x="241.5" width="25.5" height="25.5"/><rect y="49.5" width="25.5" height="25.5"/><rect x="241.5" y="49.5" width="25.5" height="25.5"/></g><use href="#sy-et" x="25.5" y="24.5" width="216" height="26.2" fill="#2d2e30"/></g><g transform="translate(1218 0)"><rect x=".5" y=".5" width="266" height="74" fill="none" stroke="#c3c8c9"/><path d="M0 25.5H267M0 49.5H267M25.5 0V75M241.5 0V75" stroke="#9ee0ab" stroke-width=".7" opacity=".8" fill="none"/><g fill="#c9ebd0" opacity=".95"><rect width="25.5" height="25.5"/><rect x="241.5" width="25.5" height="25.5"/><rect y="49.5" width="25.5" height="25.5"/><rect x="241.5" y="49.5" width="25.5" height="25.5"/></g><use href="#sy-et" x="25.5" y="24.5" width="216" height="26.2" fill="#2d2e30"/></g><g transform="translate(0 338)"><rect x=".5" y=".5" width="266" height="74" fill="none" stroke="#c3c8c9"/><path d="M0 25.5H267M0 49.5H267M25.5 0V75M241.5 0V75" stroke="#9ee0ab" stroke-width=".7" opacity=".8" fill="none"/><g fill="#c9ebd0" opacity=".95"><rect width="25.5" height="25.5"/><rect x="241.5" width="25.5" height="25.5"/><rect y="49.5" width="25.5" height="25.5"/><rect x="241.5" y="49.5" width="25.5" height="25.5"/></g><use href="#sy-et" x="25.5" y="24.5" width="216" height="26.2" fill="#2d2e30"/></g><g transform="translate(609 338)"><rect x=".5" y=".5" width="266" height="74" fill="none" stroke="#c3c8c9"/><path d="M0 25.5H267M0 49.5H267M25.5 0V75M241.5 0V75" stroke="#9ee0ab" stroke-width=".7" opacity=".8" fill="none"/><g fill="#c9ebd0" opacity=".95"><rect width="25.5" height="25.5"/><rect x="241.5" width="25.5" height="25.5"/><rect y="49.5" width="25.5" height="25.5"/><rect x="241.5" y="49.5" width="25.5" height="25.5"/></g><use href="#sy-et" x="25.5" y="24.5" width="216" height="26.2" fill="#2d2e30"/></g><g transform="translate(1218 338)"><rect x=".5" y=".5" width="266" height="74" fill="none" stroke="#c3c8c9"/><path d="M0 25.5H267M0 49.5H267M25.5 0V75M241.5 0V75" stroke="#9ee0ab" stroke-width=".7" opacity=".8" fill="none"/><g fill="#c9ebd0" opacity=".95"><rect width="25.5" height="25.5"/><rect x="241.5" width="25.5" height="25.5"/><rect y="49.5" width="25.5" height="25.5"/><rect x="241.5" y="49.5" width="25.5" height="25.5"/></g><use href="#sy-et" x="25.5" y="24.5" width="216" height="26.2" fill="#2d2e30"/></g></svg></div>
       </div>
-      <div class="steps vr-steps" id="spSteps"><button>Unidad de medida</button><button>Área de protección</button><button>En uso</button></div>
-    </div></div></div>
+    </div>
   </section>
 
   <!-- colaboraciones -->
@@ -1884,11 +1904,6 @@ footer{background:var(--n01);color:#effaff;height:417px;position:relative}
 
   <!-- el color también se mueve -->
   <section class="cl-mueve" id="degrades" data-tone="l" data-label="Degradés">
-    <div class="cl-lines" id="clLines">
-      <i style="--g:linear-gradient(90deg,#ffd400,#ff7a24,#ff3b30);--w:964px;--ml:107px;--from:-130%"></i>
-      <i style="--g:linear-gradient(90deg,#48c569,#ccf901,#35ceff);--w:840px;--ml:493px;--from:130%"></i>
-      <i style="--g:linear-gradient(90deg,#0562a6,#168ed2,#35ceff);--w:638px;--ml:700px;--from:130%"></i>
-    </div>
     <div class="wrap two wide">
       <h2 data-r="up">El color también se mueve</h2>
       <p class="body" data-r="up" style="--d:.1s">Los degradados acompañan la identidad visual de nuestras experiencias. A través de transiciones cromáticas, conectan colores propios de cada universo y aportan continuidad a sus aplicaciones gráficas y espaciales.</p>
@@ -2038,6 +2053,7 @@ footer{background:var(--n01);color:#effaff;height:417px;position:relative}
 
 <!-- ═════════════ ELEMENTOS GRÁFICOS ═════════════ -->
 <main id="elementos" class="view">
+  <div class="fly" id="fly" aria-hidden="true"><i></i><i></i><i></i></div>
 
   <header class="hero el" data-label="">
     <i class="blob a"></i><i class="blob b"></i><i class="blob c"></i><i class="blob d"></i>
@@ -2415,10 +2431,11 @@ pin('#sbPin',t=>{
 function typeGp(el,delay){el._n=(el._n||0)+1;const my=el._n,t=el.dataset.t;el.textContent='';
   if(reduce){el.textContent=t;return}
   setTimeout(()=>{let i=0;const id=setInterval(()=>{if(el._n!==my){clearInterval(id);return}el.textContent=t.slice(0,++i);if(i>=t.length)clearInterval(id)},16)},delay)}
-const guR=$$('#guStack .g-rule'), guS=steps('#guSteps','#guPin');let guI=-1;
-pin('#guPin',t=>{const i=Math.min(guR.length-1,Math.floor(clamp(t/.98)*guR.length));if(i===guI)return;guI=i;
-  stack(guR,i);guS.forEach((b,j)=>b.classList.toggle('on',j===i));
-  $$('.gp',guR[i]).forEach(g=>typeGp(g,parseFloat(getComputedStyle(g).getPropertyValue('--d'))*1000+200))});
+const guR=$$('#guStack .g-rule'), guS=$$('#guSteps button');
+function guSet(i){stack(guR,i);guS.forEach((b,j)=>b.classList.toggle('on',j===i));
+  $$('.gp',guR[i]).forEach(g=>typeGp(g,parseFloat(getComputedStyle(g).getPropertyValue('--d'))*1000+200))}
+guS.forEach((b,i)=>b.addEventListener('click',()=>guSet(i)));
+new IntersectionObserver((es,ob)=>{es.forEach(e=>{if(e.isIntersecting){ob.disconnect();guSet(0)}})},{threshold:.25}).observe($('#guStack'));
 
 /* escalas: "Probalo vos" */
 const tryLogo=$('#tryLogo'), tryMsg=$('#tryMsg'), tryRange=$('#tryRange');
@@ -2442,14 +2459,6 @@ vcLogo(0);vcCol(vcD[0]);
 
 /* escala de grises: un toque copia el tono */
 $$('#gs .g2').forEach(g=>g.addEventListener('click',e=>{copyCode(g.dataset.copyGray);burst(e.clientX,e.clientY,6)}));
-
-/* espacio seguro: el marco queda, cambia lo de adentro */
-const spL=$$('#spL .vr-t'), spS=steps('#spSteps','#spPin'), spR=$('#spR');let spI=-1;
-(function(){const X=15.8,w=130,h=15.8,bw=w+2*X,bh=h+2*X;let s='<rect x="0" y="14" width="560" height="252" fill="#ecedee"/>';
-  [[20,36],[199,36],[379,36],[20,150],[199,150],[379,150]].forEach(([x,y])=>{
-    s+=`<g><rect x="${x}" y="${y}" width="${bw}" height="${bh}" fill="#e7ebec" stroke="#9ee0ab"/><g fill="#bfe9c9"><rect x="${x}" y="${y}" width="${X}" height="${X}"/><rect x="${x+bw-X}" y="${y}" width="${X}" height="${X}"/><rect x="${x}" y="${y+bh-X}" width="${X}" height="${X}"/><rect x="${x+bw-X}" y="${y+bh-X}" width="${X}" height="${X}"/></g><use href="#sy-et" x="${x+X}" y="${y+X}" width="${w}" height="${h}" fill="#2d2e30"/></g>`});
-  $('#spMini').innerHTML=s})();
-pin('#spPin',t=>{const i=Math.min(2,Math.floor(clamp(t/.98)*3));if(i===spI)return;spI=i;stack(spL,i);spS.forEach((b,j)=>b.classList.toggle('on',j===i));spR.dataset.s=i;spR.parentNode.dataset.s=i});
 
 /* usos incorrectos: doce ejemplos, uno por tramo; tiemblan al pasar el mouse */
 const ETP=[...$('#sy-et').querySelectorAll('path')].map(p=>p.getAttribute('d'));
@@ -2614,7 +2623,7 @@ const BR={
   put('MOVIDA')})();
 
 /* degradés: las líneas entran del costado y se mueven */
-io.observe($('#clLines'));
+
 
 /* paleta 3D: se desinfla solo el color que tocás, de a uno */
 (()=>{const hs=$$('.blob-hot');hs.forEach(b=>b.style.setProperty('--c',b.dataset.c));let cur=null;
@@ -2735,8 +2744,7 @@ const ICAT={
 const icoSrc=s=>`assets/el/i-${s}.webp`, flatSrc=s=>`assets/el/f-${s}.webp`;
 
 /* los colores del fondo del inicio bajan, muy sutil, a la foto de abajo */
-onView('#destPanel',p=>{const el=$('#destPanel');if(el)el.style.setProperty('--ha',(p*p*(3-2*p)).toFixed(3))});
-addEventListener('scroll',()=>{if(view!=='elementos')return;const hr=$('#elementos .hero.el');if(!hr)return;hr.style.setProperty('--hb',clamp(scrollY/(hr.offsetHeight*Z||innerHeight)).toFixed(3))},{passive:true});
+
 /* cómo se construyen: un panel se abre y los demás se cierran */
 (()=>{const ACC=[['01. Forma base','Partimos de una forma circular, sin geometrías rígidas.'],['02. Color identitario','Tomamos un color de la paleta del proyecto.'],['03. Transición radial','El centro ilumina y los bordes se vuelven transparentes.'],['04. Segundo plano','La luz se ubica detrás del texto o del objeto.']];
   const host=$('#acc');let cur=0,auto=true,timer=0,seenIn=false;
@@ -2858,6 +2866,32 @@ if(!reduce)setInterval(()=>{if(hold||view!=='elementos'||document.hidden)return;
 
 /* destellos: los objetos se mueven con el mouse dentro del cuadro */
 (()=>{const panel=$('#destPanel');if(!panel)return;$$('.dpx',panel).forEach(el=>draggable(el,{zoomed:()=>Z,bounds:()=>panel}))})();
+
+/* destellos: los de la portada viajan, scrolleando, hasta la imagen de abajo */
+(()=>{const fly=$('#fly'),panel=$('#destPanel'),orbs=$$('i',fly),hero=$('#elementos .hero.el');if(!fly||!panel||!hero)return;
+  const blobs=$$('.blob',hero).slice(0,3),dst=['.dst-3','.dst-2','.dst-1'].map(q=>$(q,panel));
+  const C0=['#6a5ad0','#86a11a','#2aa7d6'],C1=['#8a38f5','#ccf901','#67e8f9'];
+  const rgb=h=>[1,3,5].map(k=>parseInt(h.slice(k,k+2),16)),mix=(a,b,t)=>rgb(a).map((v,i)=>Math.round(v+(rgb(b)[i]-v)*t));
+  const sm=t=>t*t*(3-2*t);
+  function upd(){
+    if(view!=='elementos')return;
+    const pr=panel.getBoundingClientRect(),sy=scrollY,pTop=pr.top+sy,span=Math.max(300,pTop-innerHeight*.5);
+    const t=reduce?1:clamp(sy/span),e=sm(t);
+    panel.style.setProperty('--arr',sm(clamp((t-.55)/.45)).toFixed(3));
+    orbs.forEach((o,i)=>{
+      const a=blobs[i].getBoundingClientRect(),b=dst[i].getBoundingClientRect();
+      const ax=a.left+a.width/2,ay=a.top+a.height/2+sy,bx=b.left+b.width/2,by=b.top+b.height/2+sy;
+      const x=ax+(bx-ax)*e,y=ay+(by-ay)*e-sy;
+      const d0=a.width*.95,d1=b.width*.7,d=d0+(d1-d0)*e,c=mix(C0[i],C1[i],e);
+      o.style.width=o.style.height=d+'px';
+      o.style.background=`radial-gradient(circle closest-side,rgba(${c},.78) 0,rgba(${c},.5) 45%,rgba(${c},0) 100%)`;
+      o.style.transform=`translate(${(x-d/2).toFixed(1)}px,${(y-d/2).toFixed(1)}px)`;
+      o.style.opacity=(1-sm(clamp((t-.7)/.3))).toFixed(3)});
+  }
+  addEventListener('scroll',()=>requestAnimationFrame(upd),{passive:true});addEventListener('resize',upd);
+  new MutationObserver(upd).observe($('#elementos'),{attributes:true,attributeFilter:['class']});
+  (function loop(){if(view==='elementos'&&!document.hidden&&scrollY<innerHeight*1.5)upd();requestAnimationFrame(loop)})();
+})();
 
 /* arranque */
 const route=()=>{const h=location.hash.slice(1);return PAGES[h]?h:'home'};
