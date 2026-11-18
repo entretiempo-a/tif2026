@@ -1502,7 +1502,10 @@ body.inpage .sd-wrap:not(:empty){display:flex}
 
 /* ═════════ USO DE TIPOGRAFÍAS ═════════ */
 #tipografias{background:var(--n10)}
-.hero.tp .blob{display:none}
+.hero.tp .blob.a{background:#ffd400;opacity:.65}
+.hero.tp .blob.b{background:#ff7a24;opacity:.45}
+.hero.tp .blob.c{background:#ff3a30;opacity:.6}
+.hero.tp .blob.d{background:#ffe500;opacity:.3}
 .hero.tp .title{top:46%}
 .tp-two{display:grid;grid-template-columns:393px 1fr;align-items:start}
 .tp-two .body{font-size:16px;line-height:20px;max-width:572px}
@@ -1565,8 +1568,7 @@ body.inpage .sd-wrap:not(:empty){display:flex}
 .tpb-w li:first-child{border-top:0}
 .tpb-w.ep{font-family:'Epilogue'}.tpb-w.fi{font-family:'Figtree'}
 .tpb-w:hover li{opacity:.28}
-.tpb-w:hover li:hover{opacity:1}
-.tpb-w.it li{font-style:italic}
+.tpb-w:hover li:hover{opacity:1;font-style:italic}
 
 /* ajuste */
 .tp-aj{padding:110px 0 130px}
@@ -1683,6 +1685,11 @@ body.inpage .sd-wrap:not(:empty){display:flex}
 .tc .sm .s2{font-family:'Figtree';font-weight:600;font-size:17px;line-height:22px;letter-spacing:0;margin-top:16px}
 .tc .sm .s3{font-family:'Figtree';font-weight:300;font-size:13px;line-height:18px;letter-spacing:0}
 @media (max-width:560px){.tp-two,.tp-aj-h{grid-template-columns:1fr;row-gap:16px}.tpb,.tpb-e,.tpb-f{grid-template-columns:1fr}.tpb-f .tpb-w{order:2}.tpb-s{padding:40px 24px}.tpb-aa b{font-size:180px;line-height:170px}.tp-row{grid-template-columns:1fr;row-gap:4px}.tp-row .ln{display:none}.tp-row .lb{white-space:normal}.tp-int-g,.tp-cg,.tp-bg{grid-template-columns:1fr}.tp-exp-c{grid-template-columns:1fr}.tp-exp-c .c5,.tp-exp-c .rnd{grid-column:1}.tp-ini-t{font-size:32px;line-height:40px}.tp-elig-a{font-size:28px;line-height:36px}.tp-aj-t{font-size:64px;line-height:60px}}
+
+.tc{transition:transform .4s var(--spring),box-shadow .35s}
+.tc:hover{transform:translateY(-5px);box-shadow:0 18px 40px rgba(30,40,80,.1)}
+.tc .sm .in{transition:transform .4s var(--spring)}
+.tc.ok:hover .sm .in{transform:scale(1.03)}
 </style>
 </head>
 <body>
@@ -2645,13 +2652,14 @@ body.inpage .sd-wrap:not(:empty){display:flex}
 <main id="tipografias" class="view">
 
   <header class="hero tp" data-label="">
+    <i class="blob a"></i><i class="blob b"></i><i class="blob c"></i><i class="blob d"></i>
     <div class="stage">
       <h1 class="title"><span class="ln"><span>Uso de</span></span><span class="ln"><span>tipografías</span></span></h1>
-      <a class="pill" href="#" data-to="familias" style="--x:58.8%;--y:32.8%;--r:-7deg;--d:.5s;--f:5.5s;--k:18px">Familias tipográficas</a>
-      <a class="pill" href="#" data-to="jerarquias" style="--x:40%;--y:51.5%;--r:3deg;--d:.6s;--f:7s;--k:-14px">Jerarquías</a>
-      <a class="pill" href="#" data-to="interv" style="--x:78.7%;--y:51.3%;--r:0deg;--d:.7s;--f:6.3s;--k:24px">Intervenciones</a>
-      <a class="pill" href="#" data-to="criterios" style="--x:71.3%;--y:68.2%;--r:0deg;--d:.8s;--f:5s;--k:-20px">Guía y usos</a>
-      <a class="pill" href="#" data-to="aplic" style="--x:36.4%;--y:74%;--r:15deg;--d:.9s;--f:6.8s;--k:12px">Aplicaciones</a>
+      <a class="pill" href="#" data-to="familias" style="--x:57%;--y:17%;--r:-7deg;--d:.5s;--f:5.5s;--k:10px">Familias tipográficas</a>
+      <a class="pill" href="#" data-to="jerarquias" style="--x:15%;--y:38%;--r:3deg;--d:.6s;--f:7s;--k:-8px">Jerarquías</a>
+      <a class="pill" href="#" data-to="interv" style="--x:86%;--y:34%;--r:0deg;--d:.7s;--f:6.3s;--k:10px">Intervenciones</a>
+      <a class="pill" href="#" data-to="criterios" style="--x:76%;--y:77%;--r:0deg;--d:.8s;--f:5s;--k:-10px">Guía y usos</a>
+      <a class="pill" href="#" data-to="aplic" style="--x:30%;--y:79%;--r:15deg;--d:.9s;--f:6.8s;--k:8px">Aplicaciones</a>
     </div>
   </header>
 
@@ -3587,15 +3595,15 @@ if(!reduce)setInterval(()=>{if(hold||view!=='elementos'||document.hidden)return;
 (()=>{const EP=[['Thin',100],['Extralight',200],['Light',300],['Regular',400],['Medium',500],['Semibold',600],['Bold',700],['Extrabold',800],['Black',900]],FI=EP.slice(2);
   $$('.tpb-w').forEach(ul=>{const L=ul.dataset.fam==='Epilogue'?EP:FI;
     ul.innerHTML=L.map(([n,w])=>`<li style="font-weight:${w}" data-n="${n}">${n}</li>`).join('');
-    const set=on=>{ul.classList.toggle('it',on);$$('li',ul).forEach(li=>{const n=li.dataset.n;li.textContent=on?(n==='Regular'?'Italic':n+' italic'):n})};
-    ul.addEventListener('mouseenter',()=>set(true));ul.addEventListener('mouseleave',()=>set(false))})})();
+    $$('li',ul).forEach(li=>{const n=li.dataset.n;li.addEventListener('mouseenter',()=>{li.textContent=n==='Regular'?'Italic':n+' italic'});li.addEventListener('mouseleave',()=>{li.textContent=n})})})})();
 
 /* 4 · ajuste tipográfico: al scrollear (rápido) pasa de 0% a −5% */
-(()=>{const t=$('#tpAjT'),ar=$('#tpAjAr'),c=$('#tpAjC'),v=$('#tpAjV');if(!t)return;
-  onView('#tpAj',p=>{const q=reduce?1:clamp((p-.1)*2.4);
-    t.style.letterSpacing=(-.05*q).toFixed(4)+'em';
-    ar.style.width=(300-150*q).toFixed(1)+'px';
-    const on=q>.5;c.classList.toggle('on',on);v.textContent=on?'-5%':'0%'})})();
+(()=>{const box=$('#tpAj'),t=$('#tpAjT'),ar=$('#tpAjAr'),c=$('#tpAjC'),v=$('#tpAjV');if(!box)return;let raf=0;
+  const upd=()=>{raf=0;if(view!=='tipografias')return;const r=box.getBoundingClientRect(),H=innerHeight;
+    const q=reduce?1:clamp((H*.62-(r.top+r.height*.25))/(H*.34));
+    t.style.letterSpacing=(-.05*q).toFixed(4)+'em';ar.style.width=(300-150*q).toFixed(1)+'px';
+    const on=q>.5;c.classList.toggle('on',on);v.textContent=on?'-5%':'0%'};
+  addEventListener('scroll',()=>{if(!raf)raf=requestAnimationFrame(upd)},{passive:true});upd()})();
 
 /* 5 · probá el sistema */
 (()=>{const T=$('#tpExpT'),M=$('#tpExpM'),H=$('#tpExpH'),I=$('#tpExpI'),S=$('#tpExpS'),W=$('#tpExpW'),O=$('#tpExpO'),R=$('#tpExpR');if(!T)return;
