@@ -913,6 +913,55 @@ footer{background:var(--n01);color:#effaff;height:417px;position:relative}
 .bcard.light{left:calc(50% + 30px);top:16px;rotate:8deg;z-index:1}
 @media (max-width:560px){.bcard.dark{left:calc(50% - 175px)}.bcard.light{left:calc(50% - 15px)}}
 
+/* ═════ cambios del diseño: paletas cromáticas ═════ */
+.hero.cl .blob{display:none}
+.hero.cl::before,.hero.cl::after{content:"";position:absolute;width:612px;aspect-ratio:1;border-radius:50%;pointer-events:none;translate:-50% -50%}
+.hero.cl::before{left:78.9%;top:28.5%;background:radial-gradient(circle closest-side,rgba(53,206,255,.95) 0,rgba(53,206,255,.55) 11%,rgba(53,206,255,.22) 38%,rgba(53,206,255,0) 100%)}
+.hero.cl::after{left:23%;top:48.3%;background:radial-gradient(circle closest-side,rgba(214,64,60,.8) 0,rgba(214,64,60,.45) 11%,rgba(214,64,60,.18) 38%,rgba(214,64,60,0) 100%)}
+.hero.cl .stage{z-index:1}
+.cl-frase .pin.full .stick{background:#7b6fec!important}
+.cl-hint{display:none!important}
+.cgs{box-shadow:none;border:1px solid #d6d9de}
+/* barras: seis tarjetas iguales que se pisan */
+.cl-bars{height:332px;align-items:flex-end}
+.cl-bar{flex:none;width:187px;margin-left:-32px;max-width:none;height:332px;border-radius:24px 24px 0 0;padding:20px 18px 22px}
+.cl-bar:first-child{margin-left:0}
+.cl-bar code{align-self:flex-end;background:transparent;border:1px solid currentColor;opacity:1;padding:4px 10px;border-radius:99px}
+.cl-bar b{opacity:1;transform:none}
+.cl-bar:hover{filter:none;transform:translateY(-6px);transition:transform .4s var(--spring)}
+/* el color también se mueve */
+.cl-mueve .two{display:block}
+.cl-mueve .two h2{margin-left:144px}
+.cl-mueve .mv-txt{margin:70px 0 0 242px;max-width:574px;font-size:16px;line-height:20px}
+.cl-mueve .mv-txt p+p{margin-top:20px}
+.cl-mueve .mv-txt b{font-weight:600}
+.cl-mueve{padding-bottom:140px}
+.cl-3c{display:none}
+.cl-como{display:none}
+/* laboratorio */
+.lab-foot{flex-basis:100%;width:100%;display:flex;align-items:center;justify-content:space-between;border-top:1px solid #e3e6ec;padding-top:16px;margin-top:6px}
+.lab-exp{flex-wrap:wrap}
+.lab-badge{position:static;background:#fbfdff;border:1px solid #d6d9de;box-shadow:none;font-weight:600;font-size:13px;padding:8px 14px}
+/* marquee sobre blanco */
+.cl-marq{background:var(--n10)}
+.marq-in i{color:#2d2e30;opacity:.7}
+/* criterios de uso */
+.us2{gap:24px}
+.uc{border:1px solid #d6d9de;border-radius:30px;padding:18px 18px 28px;background:#fbfdff}
+.uc-v{height:180px;border-radius:20px;overflow:hidden;display:block;padding:0}
+.uv{position:relative;width:100%;height:100%;display:flex;gap:30px;align-items:center;justify-content:center}
+.uv i{display:block;width:58px;height:58px;border-radius:50%}
+.uv.stripes{gap:0}.uv.stripes i{flex:1;height:100%;border-radius:0;width:auto}
+.uv u{position:absolute;width:90px;height:90px;border-radius:50%;background:radial-gradient(circle closest-side,var(--g) 0,transparent 100%);opacity:.7}
+.uc-b{display:inline-flex;align-items:center;gap:8px;margin:18px 0 0;border:1px solid #cfd3d8;border-radius:999px;padding:5px 14px 5px 6px;font-size:13px;font-weight:600;background:#fff}
+.uc-b::before{content:"✓";width:18px;height:18px;border-radius:50%;background:#48c569;color:#fff;display:grid;place-items:center;font-size:11px;line-height:1}
+.uc.no .uc-b::before{content:"✕";background:#ff3a30}
+.uc h4{margin:16px 0 0;font-size:26px;line-height:30px}
+.uc p{margin:14px 0 0;font-size:15px;line-height:21px}
+.uc p b{font-weight:600;color:#2d2e30}
+.uc.no .uc-v::after{display:none}
+@media (max-width:560px){.cl-bar{width:110px;margin-left:-18px;height:260px}.cl-mueve .two h2{margin-left:0}.cl-mueve .mv-txt{margin-left:0}}
+
 /* ═════════════ ELEMENTOS GRÁFICOS ═════════════ */
 .el-h3{font-family:'Epilogue';font-weight:600;font-size:28px;line-height:32px;letter-spacing:-.03em}
 .el-h3.lt,.body.lt{color:inherit}
@@ -1989,13 +2038,12 @@ body.inpage .sd-wrap:not(:empty){display:flex}
   <header class="hero cl" data-label="">
     <i class="blob a"></i><i class="blob b"></i><i class="blob c"></i><i class="blob d"></i>
     <div class="stage">
-      <h1 class="title"><span class="ln"><span>Colores</span></span></h1>
-      <a class="pill" href="#" data-to="madre" style="--x:19%;--y:27%;--r:-6deg;--d:.5s;--f:5.5s;--k:18px">Marca madre</a>
-      <a class="pill" href="#" data-to="usos-color" style="--x:66%;--y:33%;--r:8deg;--d:.6s;--f:7s;--k:-14px">Criterios de uso</a>
-      <a class="pill" href="#" data-to="base" style="--x:54%;--y:23%;--r:-3deg;--d:.7s;--f:6.3s;--k:24px">Base compartida</a>
-      <a class="pill" href="#" data-to="degrades" style="--x:31%;--y:66%;--r:5deg;--d:.8s;--f:5s;--k:-20px">Degradés</a>
-      <a class="pill" href="#" data-to="marcas" style="--x:72%;--y:64%;--r:9deg;--d:.9s;--f:6.8s;--k:12px">Paleta por marca</a>
-      <a class="pill" href="#" data-to="tonos" style="--x:46%;--y:76%;--r:-5deg;--d:1s;--f:5.8s;--k:-10px">Tonalidades</a>
+      <h1 class="title"><span class="ln"><span><b class="ch" style="--w0:700;">P</b><b class="ch" style="--w0:300;">a</b><b class="ch" style="--w0:800;">l</b><b class="ch" style="--w0:800;">e</b><b class="ch" style="--w0:800;">t</b><b class="ch" style="--w0:300;">a</b><b class="ch" style="--w0:700;">s</b></span></span><span class="ln"><span><b class="ch" style="--w0:300;">c</b><b class="ch" style="--w0:800;">r</b><b class="ch" style="--w0:800;font-style:italic;">o</b><b class="ch" style="--w0:300;">m</b><b class="ch" style="--w0:800;">á</b><b class="ch" style="--w0:300;">t</b><b class="ch" style="--w0:300;">i</b><b class="ch" style="--w0:800;">c</b><b class="ch" style="--w0:800;font-style:italic;">a</b><b class="ch" style="--w0:300;">s</b></span></span></h1>
+      <a class="pill" href="#" data-to="madre" style="--x:30.1%;--y:34.7%;--r:-8deg;--d:.5s;--f:5.5s;--k:18px">Marca madre</a>
+      <a class="pill" href="#" data-to="usos-color" style="--x:64.8%;--y:31.4%;--r:8deg;--d:.6s;--f:7s;--k:-14px">Criterios de uso</a>
+      <a class="pill" href="#" data-to="base" style="--x:54.1%;--y:22.2%;--r:-3deg;--d:.7s;--f:6.3s;--k:24px">Base compartida</a>
+      <a class="pill" href="#" data-to="degrades" style="--x:32.2%;--y:67.7%;--r:-2deg;--d:.8s;--f:5s;--k:-20px">Degradés</a>
+      <a class="pill" href="#" data-to="marcas" style="--x:71.3%;--y:68.9%;--r:8deg;--d:.9s;--f:6.8s;--k:12px">Paletas por marca</a>
     </div>
   </header>
 
@@ -2050,15 +2098,15 @@ body.inpage .sd-wrap:not(:empty){display:flex}
   <!-- tonalidades -->
   <section class="cl-tonos" id="tonos" data-tone="l" data-label="Tonalidades">
     <div class="wrap two wide">
-      <h2 data-r="up">Un color,<br>muchas tonalidades</h2>
-      <p class="body" data-r="up" style="--d:.1s">Cada color se despliega en una escala de tonos para adaptarse a distintos usos sin perder su identidad.</p>
+      <h2 data-r="up">Tonalidades<br>de cada color</h2>
+      <div class="body" data-r="up" style="--d:.1s"><p><b>Cada color cuenta con una escala de tonos que amplía sus posibilidades de uso.</b></p><p>Así, puede adaptarse a distintos contextos y niveles de énfasis sin perder la identidad visual que lo hace reconocible.</p></div>
     </div>
     <div class="wrap cl-rows" id="clRows"></div>
     <p class="cl-hint">Pasá el cursor por un tono para verlo completo y tocalo para copiar su código.</p>
   </section>
 
   <!-- paleta por marca -->
-  <section class="cl-marcas" id="marcas" data-tone="l" data-label="Paleta por marca">
+  <section class="cl-marcas" id="marcas" data-tone="l" data-label="Paletas por marca">
     <div class="wrap two wide">
       <h2 data-r="up">Cada marca, su identidad en color</h2>
       <p class="body" data-r="up" style="--d:.1s">Explorá las paletas de cada proyecto: una base compartida de blanco y negro, y colores propios que le dan carácter a cada experiencia.</p>
@@ -2080,7 +2128,7 @@ body.inpage .sd-wrap:not(:empty){display:flex}
   <section class="cl-mueve" id="degrades" data-tone="l" data-label="Degradés">
     <div class="wrap two wide">
       <h2 data-r="up">El color también se mueve</h2>
-      <p class="body" data-r="up" style="--d:.1s">Los degradados acompañan la identidad visual de nuestras experiencias. A través de transiciones cromáticas, conectan colores propios de cada universo y aportan continuidad a sus aplicaciones gráficas y espaciales.</p>
+      <div class="body mv-txt" data-r="up" style="--d:.1s"><p>Los degradados acompañan la identidad visual de nuestras experiencias. A través de transiciones cromáticas, conectan colores propios de cada universo y aportan continuidad a sus aplicaciones gráficas y espaciales.</p><p>Los degradados de tres colores incorporan un nuevo momento dentro del recorrido, <b>un punto intermedio que permite modular la intensidad, generar contrastes y aportar mayor dinamismo a la composición.</b></p><p>Esta construcción acompaña la idea de movimiento y transformación presente en <b>entre tiempo</b>.</p></div>
     </div>
     <div class="wrap cl-3c">
       <div class="cl-3c-card">
@@ -2140,22 +2188,21 @@ body.inpage .sd-wrap:not(:empty){display:flex}
       <h2 class="lab-h" data-r="up">Laboratorio de degradés</h2>
       <p class="body lab-p" data-r="up" style="--d:.1s">Combiná los colores de marca, ajustá la dirección y el punto intermedio, y exportá el resultado.</p>
       <div class="lab">
-        <div class="lab-prev" id="labPrev"><span class="lab-badge" id="labBadge"></span></div>
+        <div class="lab-prev" id="labPrev"></div>
         <div class="lab-ctl">
-          <p class="lab-k">Degradé base</p>
+          <p class="lab-k">Marca</p>
           <div class="lab-pre" id="labPre"><button class="on" data-g="planb">PLAN B</button><button data-g="a1000">A1000</button><button data-g="apuro">APURO</button></div>
-          <p class="lab-k">Colores del degradé</p>
+          <p class="lab-k">Paleta</p>
           <div class="lab-row"><span>Inicio</span><div class="lab-dots" data-k="0"></div></div>
           <div class="lab-row"><span>Intermedio</span><div class="lab-dots" data-k="1"></div></div>
           <div class="lab-row"><span>Final</span><div class="lab-dots" data-k="2"></div></div>
-          <p class="lab-k">Dirección y posición</p>
-          <label class="lab-rg"><span>Dirección</span><output id="labDirV">90°</output><input type="range" id="labDir" min="0" max="360" value="90"></label>
+                    <label class="lab-rg"><span>Dirección</span><output id="labDirV">90°</output><input type="range" id="labDir" min="0" max="360" value="90"></label>
           <label class="lab-rg"><span>Posición del punto intermedio</span><output id="labPosV">50%</output><input type="range" id="labPos" min="5" max="95" value="50"></label>
         </div>
         <div class="lab-exp">
           <div><p class="lab-k">Formato</p><div class="lab-seg" id="labFmt"><button class="on">SVG</button><button>PNG</button><button>JPG</button></div></div>
           <div><p class="lab-k">Tamaño</p><div class="lab-seg" id="labSize"><button>1080 px</button><button class="on">1920 px</button><button>3840 px</button></div></div>
-          <div class="lab-act"><button class="lab-btn" id="labCopy">Copiar SVG</button><button class="lab-btn dk" id="labDl">Descargar</button></div>
+          <div class="lab-foot"><span class="lab-badge" id="labBadge"></span><div class="lab-act"><button class="lab-btn" id="labCopy">Copiar SVG</button><button class="lab-btn dk" id="labDl">Descargar</button></div></div>
         </div>
       </div>
     </div>
@@ -2174,8 +2221,8 @@ body.inpage .sd-wrap:not(:empty){display:flex}
   <!-- verificador de contraste -->
   <section class="cl-wcag" id="wcag" data-tone="l" data-label="Contraste">
     <div class="wrap">
-      <h3 class="cl-h3" data-r="up">Usos correctos e incorrectos</h3>
-      <p class="body" data-r="up" style="--d:.1s">Cómo combinar fondos, elementos gráficos y colores de marca con los colores reales del sistema.</p>
+      <h3 class="cl-h3" data-r="up">Contraste y legibilidad</h3>
+      <p class="body" data-r="up" style="--d:.1s">Probá combinaciones de texto y fondo y verificá si alcanzan los niveles de contraste recomendados.</p>
       <div class="wg">
         <div class="wg-fam"><p class="wg-k">01 &nbsp; ELEGÍ UNA FAMILIA</p><div class="wg-chips" id="wgFam"></div></div>
         <div class="wg-two">
@@ -2199,15 +2246,17 @@ body.inpage .sd-wrap:not(:empty){display:flex}
   <!-- usos correctos e incorrectos (tarjetas) -->
   <section class="cl-usos" id="usos-color" data-tone="l" data-label="Criterios de uso">
     <div class="wrap">
-      <h3 class="cl-h3" data-r="up">Usos correctos e incorrectos</h3>
+      <h3 class="cl-h3" data-r="up">Criterios de uso</h3>
       <p class="body" data-r="up" style="--d:.1s">Cómo combinar fondos, elementos gráficos y colores de marca con los colores reales del sistema.</p>
       <div class="us2">
-        <article class="uc ok" data-r="up"><div class="uc-v" style="background:#ffd400"><i style="background:#2d2e30"></i><i style="background:#2d2e30"></i><i style="background:#2d2e30"></i></div><span class="uc-b">Uso correcto</span><h4>Color de marca sobre la base neutra</h4><p>Amarillo Soleado 600 con negro da 9,49:1. La base compartida de blanco y negro es la que sostiene la lectura de cualquier color de marca.</p></article>
-        <article class="uc ok" data-r="up" style="--d:.08s"><div class="uc-v" style="background:#dff4fa"><i style="background:#0061aa"></i><i style="background:#0082cb"></i><i style="background:#00a7f3"></i></div><span class="uc-b">Uso correcto</span><h4>Dos tonos lejanos de una misma familia</h4><p>Azul Apuro 900 sobre Azul Apuro 50 da 8,89:1. Dentro de una misma escala, los extremos se separan lo suficiente.</p></article>
-        <article class="uc no" data-r="up"><div class="uc-v" style="background:#ccf901"><i style="background:#d1f842"></i><i style="background:#dafb6b"></i><i style="background:#e5fd98"></i></div><span class="uc-b">A evitar</span><h4>Tonos vecinos de una misma familia</h4><p>Lima Activa 400 sobre Lima Activa 500 da 1,01:1. El archivo pide no utilizar colores con poco contraste.</p></article>
-        <article class="uc no" data-r="up" style="--d:.08s"><div class="uc-v stripes"><i style="background:#7b6fec"></i><i style="background:#ccf901"></i><i style="background:#ff3a30"></i><i style="background:#35ceff"></i></div><span class="uc-b">A evitar</span><h4>Familias distintas sin base que las separe</h4><p>Violeta Flow, Lima Activa, Rojo Impulso y Celeste Aire al mismo nivel. En las submarcas predomina su propia paleta sobre la base compartida de blanco y negro.</p></article>
-        <article class="uc ok" data-r="up"><div class="uc-v" style="background:linear-gradient(90deg,#ff3b30,#ff7a24,#ffd400)"></div><span class="uc-b">Uso correcto</span><h4>Degradé aprobado de PLAN B</h4><p>Rojo #FF3B30, naranja #FF7A24 y amarillo #FFD400: es uno de los nueve degradés del archivo, con sus valores y su opacidad originales.</p></article>
-        <article class="uc no" data-r="up" style="--d:.08s"><div class="uc-v" style="background:linear-gradient(90deg,#0562a6,#ff3a30)"></div><span class="uc-b">A evitar</span><h4>Degradé armado con dos familias</h4><p>Azul Apuro con Lima Activa no es ninguno de los degradés aprobados. Una mezcla nueva queda como exploratoria hasta que se valide.</p></article>
+        <article class="uc ok" data-r="up" style="--d:0s"><div class="uc-v"><div class="uv" style="background:#2d2e30"><i style="background:#ffd400"></i><i style="background:#ffd400"></i><i style="background:#ffd400"></i></div></div><span class="uc-b">Uso correcto</span><h4>Color de marca sobre la base neutra</h4><p>Amarillo Soleado 600 con negro da 9,49:1. La base compartida de blanco y negro es la que sostiene la lectura de cualquier color de marca.</p></article>
+        <article class="uc ok" data-r="up" style="--d:0.08s"><div class="uc-v"><div class="uv" style="background:linear-gradient(90deg,#ff3b30,#ff7a24,#ffd400)"></div></div><span class="uc-b">Uso correcto</span><h4>Degradé aprobado de PLAN B</h4><p>Rojo #FF3B30, naranja #FF7A24 y amarillo #FFD400: es uno de los nueve degradés del archivo, con sus valores y su opacidad originales.</p></article>
+        <article class="uc ok" data-r="up" style="--d:0s"><div class="uc-v"><div class="uv" style="background:#2d2e30"><u style="left:12%;top:24%;--g:#ff3a30"></u><u style="left:44%;top:42%;--g:#ccf901"></u><u style="left:58%;top:12%;--g:#48c569"></u><u style="left:78%;top:46%;--g:#ffd400"></u></div></div><span class="uc-b">Uso correcto</span><h4>Luces de submarcas sobre<br>base neutra</h4><p>En el Festival DESVÍO, las luces de distintas submarcas pueden convivir sobre una base neutra, clara u oscura.</p></article>
+        <article class="uc ok" data-r="up" style="--d:0.08s"><div class="uc-v"><div class="uv" style="background:#eef9fe"><i style="background:#00468c"></i><i style="background:#0562a6"></i><i style="background:#0082cb"></i></div></div><span class="uc-b">Uso correcto</span><h4>Dos tonos lejanos de una<br>misma familia</h4><p><b>Azul Apuro 900 sobre Azul Apuro 50 da 8,89:1.</b> Dentro de una misma escala, los extremos se separan lo suficiente.</p></article>
+        <article class="uc no" data-r="up" style="--d:0s"><div class="uc-v"><div class="uv stripes"><i style="background:#7b6fec"></i><i style="background:#ccf901"></i><i style="background:#ff3a30"></i><i style="background:#00468c"></i></div></div><span class="uc-b">Uso incorrecto</span><h4>Familias distintas sin base<br>que las separe</h4><p>En las submarcas predomina su propia paleta sobre la base compartida de blanco y negro.</p></article>
+        <article class="uc no" data-r="up" style="--d:0.08s"><div class="uc-v"><div class="uv" style="background:#ccf901"><i style="background:#d1f842"></i><i style="background:#e5fd98"></i><i style="background:#d1f842"></i></div></div><span class="uc-b">Uso incorrecto</span><h4>Tonos vecinos de una misma familia</h4><p><b>Lima Activa 400 sobre Lima Activa 500 da 1,01:1.</b><br>El archivo pide no utilizar colores con poco contraste.</p></article>
+        <article class="uc no" data-r="up" style="--d:0s"><div class="uc-v"><div class="uv" style="background:linear-gradient(90deg,#ccf901,#7b6fec)"></div></div><span class="uc-b">Uso incorrecto</span><h4>Degradé armado con dos marcas</h4><p>Violeta Flow con Lima Activa no es ninguno de los degradés aprobados. Una mezcla nueva de marcas no está permitido.</p></article>
+        <article class="uc no" data-r="up" style="--d:0.08s"><div class="uc-v"><div class="uv" style="background:#ee2424"><i style="background:#6ed085"></i><i style="background:#ff00ff"></i><i style="background:#6ed085"></i></div></div><span class="uc-b">Uso incorrecto</span><h4>Colores fuera de la paleta</h4><p>Usar tonos que no pertenecen al sistema, o mezclar paletas de distintas submarcas, <b>rompe la coherencia visual de la identidad.</b></p></article>
       </div>
     </div>
   </section>
@@ -2734,7 +2783,7 @@ sideDots.innerHTML='<button class="sd on" hidden></button>';
 const sdBtn=$('.sd',sideDots);
 function buildDots(){sdEl=null;sdBtn.hidden=true;sdBtn.textContent=''}
 function sdUpdate(H,root){
-  let cur=null;$$('[data-label]',root).forEach(el=>{if(el.getBoundingClientRect().top<H*.5)cur=el});
+  let cur=null;$$('[data-label]',root).forEach(el=>{if(el.getClientRects().length&&el.getBoundingClientRect().top<H*.5)cur=el});
   const name=cur&&cur.dataset.label||'';
   if(!name){sdEl=null;sdBtn.hidden=true;return}
   sdEl=cur;
@@ -2784,8 +2833,8 @@ const mixHex=(a,b,t=.5)=>'#'+hx(a).map((v,i)=>Math.round(v+(hx(b)[i]-v)*t).toStr
 /* frase: las palabras se prenden y cambia el color de fondo */
 const clLit=lit($('#clPhrase')),CLBG=['#fbfdff','#5ec8ff','#ee4d3d','#5fc16d','#6f7073','#7b6fec'];let clK=-1;
 pin('#clPin',t=>{const lp=clamp(t/.8);clLit(lp*1.02);const k=Math.min(5,Math.floor(lp*6));if(k===clK)return;clK=k;
-  const bg=CLBG[k],el=$('#clPhrase');$('#clStick').style.background=bg;
-  el.style.setProperty('--on',k===0?'#2d2e30':'#ffffff');el.style.setProperty('--off',k===0?'#c3c6cc':mixHex(bg,'#000000',.16))});
+  const el=$('#clPhrase');$('#clStick').style.background='#7b6fec';
+  el.style.setProperty('--on','#ece8fd');el.style.setProperty('--off','#a79df2')});
 
 /* escala de grises: se expande el que tocás y muestra código y porcentaje */
 const GRIS=['#2D2E30','#4F5053','#6F7073','#848588','#AEAFB2','#CCCDCF','#EDEEF0','#F1F3F5','#F6F8FA','#FBFDFF'], STEPS=[900,800,700,600,500,400,300,200,100,50];
@@ -2804,8 +2853,7 @@ const clBars=$('#clBars');
 clBars.innerHTML=BARS.map(b=>`<button class="cl-bar${b[3]?'':' lt'}" data-copy="${b[0].toUpperCase()}" style="background:${b[0]}" aria-label="Copiar ${b[1]} ${b[2]} ${b[0].toUpperCase()}"><code>${b[0].toUpperCase()}</code><b>${b[1]}<br>${b[2]}</b></button>`).join('');
 const barEls=$$('.cl-bar',clBars);let bsI=0;
 function barsSet(k){const s=BSETS[k%BSETS.length];barEls.forEach((el,i)=>{el.style.height=s[i]+'px';el.classList.toggle('show',s[i]>=150)})}
-barsSet(0);
-if(!reduce)setInterval(()=>{if(view!=='colores'||document.hidden)return;bsI++;barsSet(bsI)},2800);
+barEls.forEach(el=>{el.style.height='332px';el.classList.add('show')});
 
 /* tonalidades: cada tono se asoma completo y se copia al tocarlo */
 const FAMS=[
@@ -2874,7 +2922,7 @@ $$('.uno-grp').forEach(g=>{const set=GRADS[g.dataset.grad];
   function render(){prev.style.background=css();
     $$('.lab-dots').forEach(d=>$$('button',d).forEach(b=>b.classList.toggle('on',b.dataset.c===st.c[+d.dataset.k])));
     const ok=st.dir===90&&st.pos===50&&APPROVED.some(a=>a.every((c,i)=>c.toLowerCase()===st.c[i].toLowerCase()));
-    badge.textContent=ok?'Degradé aprobado':'Mezcla exploratoria · necesita validación';badge.classList.toggle('exp',!ok);
+    badge.textContent=ok?'Paleta aprobada':'Mezcla exploratoria · necesita validación';badge.classList.toggle('exp',!ok);
     $('#labDirV').textContent=st.dir+'°';$('#labPosV').textContent=st.pos+'%'}
   $('#labPre').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;$$('#labPre button').forEach(x=>x.classList.toggle('on',x===b));st.c=[...PRE[b.dataset.g]];st.dir=90;st.pos=50;$('#labDir').value=90;$('#labPos').value=50;render()});
   $('#labDir').addEventListener('input',e=>{st.dir=+e.target.value;render()});
