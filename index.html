@@ -976,6 +976,9 @@ footer{background:var(--n01);color:#effaff;height:417px;position:relative}
 .lab-ctl{gap:2px}
 @media (max-width:560px){.br-row{grid-template-columns:1fr}}
 .cl-bar:hover,.cl-bar:focus-visible{transform:none!important;filter:none}
+.cl-bar code,.cl-bar b{transition:opacity .35s,transform .45s var(--ease)}
+.cl-bar:not(.show) code,.cl-bar:not(.show) b{opacity:0;transform:translateY(10px)}
+.cl-bar.show code,.cl-bar.show b{opacity:1;transform:none}
 
 /* ═════════════ ELEMENTOS GRÁFICOS ═════════════ */
 .el-h3{font-family:'Epilogue';font-weight:600;font-size:28px;line-height:32px;letter-spacing:-.03em}
@@ -2865,7 +2868,7 @@ const BSETS=[[332,137,265,204,332,61],[110,300,80,332,170,280],[260,70,332,150,3
 const clBars=$('#clBars');
 clBars.innerHTML=BARS.map(b=>`<button class="cl-bar${b[3]?'':' lt'}" data-copy="${b[0].toUpperCase()}" style="background:${b[0]}" aria-label="Copiar ${b[1]} ${b[2]} ${b[0].toUpperCase()}"><code>${b[0].toUpperCase()}</code><b>${b[1]}<br>${b[2]}</b></button>`).join('');
 const barEls=$$('.cl-bar',clBars);let bsI=0;
-function barsSet(k){const s=BSETS[k%BSETS.length];barEls.forEach((el,i)=>{el.style.height=s[i]+'px';el.classList.toggle('show',s[i]>=150)})}
+function barsSet(k){const s=BSETS[k%BSETS.length];barEls.forEach((el,i)=>{el.style.height=s[i]+'px';el.classList.toggle('show',s[i]>=190)})}
 barsSet(0);
 if(!reduce)setInterval(()=>{if(view!=='colores'||document.hidden)return;bsI++;barsSet(bsI)},2800);
 
