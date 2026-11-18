@@ -2870,7 +2870,12 @@ clBars.innerHTML=BARS.map(b=>`<button class="cl-bar${b[3]?'':' lt'}" data-copy="
 const barEls=$$('.cl-bar',clBars);let bsI=0;
 function barsSet(k){const s=BSETS[k%BSETS.length];barEls.forEach((el,i)=>{el.style.height=s[i]+'px';el.classList.toggle('show',s[i]>=190)})}
 barsSet(0);
-if(!reduce)setInterval(()=>{if(view!=='colores'||document.hidden)return;bsI++;barsSet(bsI)},2800);
+let barHold=false;
+if(!reduce)setInterval(()=>{if(barHold||view!=='colores'||document.hidden)return;bsI++;barsSet(bsI)},2800);
+barEls.forEach((b,k)=>{
+  b.addEventListener('mouseenter',()=>{barHold=true;barEls.forEach((el,i)=>{const h=i===k?332:70;el.style.height=h+'px';el.classList.toggle('show',h>=190)})});
+  b.addEventListener('mouseleave',()=>{barHold=false})});
+clBars.addEventListener('mouseleave',()=>{barHold=false;barsSet(bsI)});
 
 /* tonalidades: cada tono se asoma completo y se copia al tocarlo */
 const FAMS=[
