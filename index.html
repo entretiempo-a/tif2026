@@ -2281,7 +2281,7 @@ body:not(.inpage) .fly{display:none}
       <div class="eu">
         <article class="euc ok" data-r="up"><div class="eu-v"><i class="eu-mk">✓</i><img src="assets/el/i-corazon.webp" alt="" style="width:38%"></div><p><b>Mostrá cada insignia completa</b> y conservá sus proporciones originales para que se reconozca con claridad.</p></article>
         <article class="euc ok" data-r="up" style="--d:.08s"><div class="eu-v"><i class="eu-mk">✓</i><img src="assets/el/i-mensajes.webp" alt="" style="width:43%"></div><p><b>Respetá los colores, reflejos y pliegues</b> del render aprobado para conservar la apariencia de vinilo inflable.</p></article>
-        <article class="euc ok" data-r="up" style="--d:.16s"><div class="eu-v"><i class="eu-mk">✓</i><img src="assets/el/i-lapiz.webp" alt="" style="width:33%"><img src="assets/el/i-agregar.webp" alt="" style="width:14%;position:absolute;left:41%;top:58%"></div><p>Podés <b>superponer insignias con otros recursos 3D</b> de la colección, siempre que ambas formas sigan siendo reconocibles.</p></article>
+        <article class="euc ok" data-r="up" style="--d:.16s"><div class="eu-v"><i class="eu-mk">✓</i><img src="assets/el/i-lapiz.webp" alt="" style="width:33%;transform:scaleX(-1)"><img src="assets/el/i-agregar.webp" alt="" style="width:14%;position:absolute;left:41%;top:58%"></div><p>Podés <b>superponer insignias con otros recursos 3D</b> de la colección, siempre que ambas formas sigan siendo reconocibles.</p></article>
         <article class="euc no" data-r="up"><div class="eu-v"><i class="eu-mk">✕</i><img src="assets/el/i-corazon.webp" alt="" class="crop" style="width:38%"></div><p><b>Evitá recortar, estirar o deformar</b> la insignia, porque modifica su silueta y dificulta su lectura.</p></article>
         <article class="euc no" data-r="up" style="--d:.08s"><div class="eu-v"><i class="eu-mk">✕</i><img src="assets/el/i-mensajes.webp" alt="" style="width:52%;filter:grayscale(.85) brightness(.8) contrast(.8)"></div><p><b>No apliques filtros ni recoloreos</b> que apaguen el brillo o cambien la materialidad original de la pieza.</p></article>
         <article class="euc no" data-r="up" style="--d:.16s"><div class="eu-v"><i class="eu-mk">✕</i><img src="assets/el/i-lapiz.webp" alt="" style="width:33%"><span class="eu-txt">Escribir</span></div><p><b>No coloques textos, fotografías ni formas planas</b> encima de las insignias. La superposición <b>solo está permitida entre elementos 3D</b>.</p></article>
@@ -2409,27 +2409,9 @@ function show(v,hold){
   if(v==='home')measure();
   else{lblBase.textContent=PAGES[v].name;cur=null;pageScroll();const h=$('.hero',PAGES[v].el);if(!hold)requestAnimationFrame(()=>requestAnimationFrame(()=>h.classList.add('play')))}
 }
-const NUM={sobre:'01',comunicamos:'02',signos:'03',colores:'04',elementos:'05'};
 function openPage(t,name){
   setHash('#'+name);
-  if(reduce)return show(name);
-  const r=t.getBoundingClientRect(), s=wipe.style, col=getComputedStyle(t).getPropertyValue('--c');
-  wipe.innerHTML='<div class="wt"><small>'+(NUM[name]||'')+'</small><b>'+PAGES[name].name+'</b><i></i></div>';
-  wipe.classList.remove('txt');
-  s.clipPath='none';s.transition='none';s.left=r.left+'px';s.top=r.top+'px';s.width=r.width+'px';s.height=r.height+'px';
-  s.borderRadius='10px';s.background=col;s.opacity=1;
-  void wipe.offsetWidth;s.transition='';
-  /* 1. la tarjeta crece hasta ocupar la pantalla */
-  s.left=0;s.top=0;s.width='100vw';s.height='100vh';s.borderRadius=0;
-  /* 2. vira al color de la sección y aparece su nombre */
-  setTimeout(()=>{s.background='#2d2e30';wipe.classList.add('txt')},520);
-  /* 3. se prepara la sección detrás y la cortina sube */
-  setTimeout(()=>{
-    show(name,true);
-    s.transition='clip-path .85s cubic-bezier(.76,0,.24,1)';s.clipPath='inset(0 0 100% 0)';
-    setTimeout(()=>{const h=$('.hero',PAGES[name].el);h&&h.classList.add('play')},260);
-    setTimeout(()=>{s.transition='none';s.opacity=0;s.clipPath='none';wipe.classList.remove('txt');wipe.innerHTML='';void wipe.offsetWidth;s.transition=''},950);
-  },1500);
+  show(name);
 }
 function backHome(){
   setHash('#inicio');
@@ -2886,7 +2868,8 @@ if(!reduce)setInterval(()=>{if(hold||view!=='elementos'||document.hidden)return;
   const host=$('#slid');
   host.innerHTML=S.map(s=>`<div class="sl-c" role="button" tabindex="0" aria-pressed="false" style="--b:${s[2]}"><div class="sl-f"><small>${s[0]}</small><h4>${s[1]}</h4></div><div class="sl-b"><small>${s[0]}</small><h4>${s[1]}</h4><p>${s[3]}</p></div></div>`).join('');
   const tog=c=>{c.classList.toggle('on');c.setAttribute('aria-pressed',c.classList.contains('on'))};
-  $$('.sl-c',host).forEach(c=>{c.addEventListener('click',()=>tog(c));c.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();tog(c)}})})})();
+  const hov=matchMedia('(hover:hover)').matches,setOn=(c,v)=>{c.classList.toggle('on',v);c.setAttribute('aria-pressed',v)};
+  $$('.sl-c',host).forEach(c=>{c.addEventListener('mouseenter',()=>{if(hov)setOn(c,true)});c.addEventListener('mouseleave',()=>{if(hov)setOn(c,false)});c.addEventListener('focus',()=>{if(hov&&c.matches(':focus-visible'))setOn(c,true)});c.addEventListener('blur',()=>{if(hov)setOn(c,false)});c.addEventListener('click',()=>{if(!hov)tog(c)});c.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();tog(c)}})})})();
 
 /* personajes narrativos: solo se mueven apenas al pasar el mouse */
 (()=>{const F=[['Martina','martina'],['Tomás','tomas'],['Lara','lara'],['Benjamín','benjamin'],['Abril','abril']];
@@ -2925,7 +2908,7 @@ if(!reduce)setInterval(()=>{if(hold||view!=='elementos'||document.hidden)return;
 
 /* galería con filtros */
 (()=>{const gal=$('#gal'),F=$('#galF');
-  gal.innerHTML=ICONS.map(([s,n])=>`<article class="gc" data-s="${s}"><div class="gc-i"><img src="${icoSrc(s)}" alt="${n}" loading="lazy"></div><div class="gc-n"><span>${n}</span><button aria-label="Descargar ${n} en PNG" data-dl="${s}"><svg viewBox="0 0 18 18" fill="none" stroke="#2d2e30" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3.5v8M5.5 8.5 9 12l3.5-3.5M4 14.5h10"/></svg></button></div></article>`).join('');
+  gal.innerHTML=ICONS.map(([s,n])=>`<article class="gc" data-s="${s}"><div class="gc-i"><img src="${icoSrc(s)}" alt="${n}" loading="lazy"></div><div class="gc-n"><span>${n}</span>${s==='apuro-mascota'?'':`<button aria-label="Descargar ${n} en PNG" data-dl="${s}"><svg viewBox="0 0 18 18" fill="none" stroke="#2d2e30" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3.5v8M5.5 8.5 9 12l3.5-3.5M4 14.5h10"/></svg></button>`}</div></article>`).join('');
   const cards=$$('.gc',gal);
   let cur='all';
   function filt(k){cur=k;cards.forEach(c=>{c.style.transform='';c.style.zIndex=''});cards.forEach(c=>{const ok=k==='all'||ICAT[k].includes(c.dataset.s);
