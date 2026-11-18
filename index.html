@@ -1706,6 +1706,8 @@ body.inpage .sd-wrap:not(:empty){display:flex}
 .tp-elig-in.done .tp-elig-b .tw.bd{color:#ff3a30}
 .tp-elig-in:not(.typed) .tp-elig-a .tw.bd{color:#ffe500}
 .tp-elig-in:not(.typed) .tp-elig-b .tw.bd{color:#ff3a30}
+
+.tp-elig .stick{background:var(--n01)}
 </style>
 </head>
 <body>
@@ -2698,10 +2700,10 @@ body.inpage .sd-wrap:not(:empty){display:flex}
 
   <!-- elección tipográfica -->
   <section class="tp-elig" id="tp-elig" data-label="Familias tipográficas">
-    <div class="tp-elig-in" id="tpElig">
+    <div class="pin" id="tpEligPin" style="--h:426px;--len:1000px;--top:10vh"><div class="stick"><div class="tp-elig-in" id="tpElig">
       <p class="tp-elig-a" id="tpEligA">Elegimos <b>Epilogue</b><br>para los títulos porque aporta presencia y personalidad.</p>
       <p class="tp-elig-b" id="tpEligB">Además, usamos <b>Figtree</b> para acompañar los textos con claridad y mantener una lectura cómoda.</p>
-    </div>
+    </div></div></div>
   </section>
 
   <section class="tp-blocks" id="tp-blocks" data-label="Familias tipográficas">
@@ -3612,17 +3614,12 @@ if(!reduce)setInterval(()=>{if(hold||view!=='elementos'||document.hidden)return;
   const ca=prep(A),cb=prep(Bp);
   const all=ca.concat(cb);
   if(reduce){all.forEach(c=>c.classList.add('on'));box.classList.add('typed','done');return}
-  let cur=null,raf=0,last=-1;
-  const upd=()=>{raf=0;if(view!=='tipografias')return;
-    const r=box.getBoundingClientRect(),H=innerHeight;
-    const p=clamp((H*.88-r.top)/(H*.5));
-    const n=Math.round(p*all.length);if(n===last)return;last=n;
+  let cur=null,last=-1;
+  box.classList.add('typed');
+  pin('#tpEligPin',t=>{const n=Math.round(clamp(t/.85)*all.length);if(n===last)return;last=n;
     all.forEach((c,i)=>c.classList.toggle('on',i<n));
     if(cur)cur.classList.remove('cur');cur=n>0&&n<all.length?all[n-1]:null;if(cur)cur.classList.add('cur');
-    box.classList.toggle('done',n>=all.length)};
-  box.classList.add('typed');
-  addEventListener('scroll',()=>{if(!raf)raf=requestAnimationFrame(upd)},{passive:true});
-  addEventListener('resize',()=>{last=-1;upd()});upd()})();
+    box.classList.toggle('done',n>=all.length)})})();
 
 /* 3 · pesos de cada familia: al pasar el cursor se ven en itálica */
 (()=>{const EP=[['Thin',100],['Extralight',200],['Light',300],['Regular',400],['Medium',500],['Semibold',600],['Bold',700],['Extrabold',800],['Black',900]],FI=EP.slice(2);
