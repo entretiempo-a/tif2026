@@ -3611,15 +3611,18 @@ if(!reduce)setInterval(()=>{if(hold||view!=='elementos'||document.hidden)return;
     walk(p,false);p.querySelectorAll('b').forEach(b=>{const f=document.createDocumentFragment();while(b.firstChild)f.appendChild(b.firstChild);b.replaceWith(f)});return out};
   const ca=prep(A),cb=prep(Bp);
   const all=ca.concat(cb);
-  if(reduce){box.classList.add('typed','done');return}
-  let started=false,cur=null;
-  const show=ch=>{if(cur)cur.classList.remove('cur');ch.classList.add('on','cur');cur=ch};
-  function run(){if(started)return;started=true;let i=0,j=0;
-    const tickA=()=>{if(i>=ca.length){setTimeout(tickB,520);return}show(ca[i++]);setTimeout(tickA,26+Math.random()*22)};
-    const tickB=()=>{if(j>=cb.length){setTimeout(()=>{if(cur)cur.classList.remove('cur');box.classList.add('done')},500);return}show(cb[j++]);setTimeout(tickB,14+Math.random()*14)};
-    tickA()}
+  if(reduce){all.forEach(c=>c.classList.add('on'));box.classList.add('typed','done');return}
+  let cur=null,raf=0,last=-1;
+  const upd=()=>{raf=0;if(view!=='tipografias')return;
+    const r=box.getBoundingClientRect(),H=innerHeight;
+    const p=clamp((H*.88-r.top)/(H*.5));
+    const n=Math.round(p*all.length);if(n===last)return;last=n;
+    all.forEach((c,i)=>c.classList.toggle('on',i<n));
+    if(cur)cur.classList.remove('cur');cur=n>0&&n<all.length?all[n-1]:null;if(cur)cur.classList.add('cur');
+    box.classList.toggle('done',n>=all.length)};
   box.classList.add('typed');
-  new IntersectionObserver((es,ob)=>{es.forEach(e=>{if(e.isIntersecting){ob.disconnect();setTimeout(run,300)}})},{threshold:.5}).observe(box)})();
+  addEventListener('scroll',()=>{if(!raf)raf=requestAnimationFrame(upd)},{passive:true});
+  addEventListener('resize',()=>{last=-1;upd()});upd()})();
 
 /* 3 · pesos de cada familia: al pasar el cursor se ven en itálica */
 (()=>{const EP=[['Thin',100],['Extralight',200],['Light',300],['Regular',400],['Medium',500],['Semibold',600],['Bold',700],['Extrabold',800],['Black',900]],FI=EP.slice(2);
