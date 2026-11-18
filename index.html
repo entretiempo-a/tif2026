@@ -1690,6 +1690,22 @@ body.inpage .sd-wrap:not(:empty){display:flex}
 .tc:hover{transform:translateY(-5px);box-shadow:0 18px 40px rgba(30,40,80,.1)}
 .tc .sm .in{transition:transform .4s var(--spring)}
 .tc.ok:hover .sm .in{transform:scale(1.03)}
+
+/* elección tipográfica: tipeo */
+.tp-elig .tw{display:inline-block;white-space:nowrap}
+.tp-elig .tw.bd{font-weight:800}
+.tp-elig-b .tw.bd{font-weight:700}
+.tp-elig .tc2{opacity:1}
+.tp-elig-in.typed .tc2{opacity:0}
+.tp-elig-in.typed .tc2.on{opacity:1}
+.tp-elig .tc2.cur{position:relative}
+.tp-elig .tc2.cur::after{content:"";position:absolute;right:-3px;top:.12em;width:2px;height:.85em;background:#fbfdff}
+.tp-elig-a .tw.bd{color:#ff9a9a;transition:color .7s ease}
+.tp-elig-b .tw.bd{color:#ff9a9a;transition:color .7s ease}
+.tp-elig-in.done .tp-elig-a .tw.bd,.tp-elig-in.typed.done .tp-elig-a .tw.bd{color:#ffe500}
+.tp-elig-in.done .tp-elig-b .tw.bd{color:#ff3a30}
+.tp-elig-in:not(.typed) .tp-elig-a .tw.bd{color:#ffe500}
+.tp-elig-in:not(.typed) .tp-elig-b .tw.bd{color:#ff3a30}
 </style>
 </head>
 <body>
@@ -3587,9 +3603,23 @@ if(!reduce)setInterval(()=>{if(hold||view!=='elementos'||document.hidden)return;
     tick()}
   new IntersectionObserver((es,ob)=>{es.forEach(e=>{if(e.isIntersecting){ob.disconnect();setTimeout(run,350)}})},{threshold:.45}).observe(box)})();
 
-/* 2 · elección tipográfica: las palabras van apareciendo al scrollear */
-(()=>{const a=$('#tpEligA'),b=$('#tpEligB');if(!a)return;const fa=lit(a),fb=lit(b);
-  onView('#tpElig',p=>{fa(clamp(p/.55)*1.02);fb(clamp((p-.5)/.45)*1.02)})})();
+/* 2 · elección tipográfica: se tipea letra por letra (como el componente de Figma) */
+(()=>{const box=$('#tpElig'),A=$('#tpEligA'),Bp=$('#tpEligB');if(!box)return;
+  const prep=p=>{const out=[];const walk=(n,bold)=>{[...n.childNodes].forEach(c=>{if(c.nodeType===3){const frag=document.createDocumentFragment();c.textContent.split(/(\s+)/).forEach(t=>{if(!t)return;if(/^\s+$/.test(t)){frag.appendChild(document.createTextNode(' '));return}
+        const w=document.createElement('span');w.className='tw'+(bold?' bd':'');[...t].forEach(ch=>{const s=document.createElement('span');s.className='tc2';s.textContent=ch;w.appendChild(s);out.push(s)});frag.appendChild(w)});c.replaceWith(frag)}
+      else if(c.nodeName==='BR'){}else{walk(c,bold||c.nodeName==='B')}})};
+    walk(p,false);p.querySelectorAll('b').forEach(b=>{const f=document.createDocumentFragment();while(b.firstChild)f.appendChild(b.firstChild);b.replaceWith(f)});return out};
+  const ca=prep(A),cb=prep(Bp);
+  const all=ca.concat(cb);
+  if(reduce){box.classList.add('typed','done');return}
+  let started=false,cur=null;
+  const show=ch=>{if(cur)cur.classList.remove('cur');ch.classList.add('on','cur');cur=ch};
+  function run(){if(started)return;started=true;let i=0,j=0;
+    const tickA=()=>{if(i>=ca.length){setTimeout(tickB,520);return}show(ca[i++]);setTimeout(tickA,26+Math.random()*22)};
+    const tickB=()=>{if(j>=cb.length){setTimeout(()=>{if(cur)cur.classList.remove('cur');box.classList.add('done')},500);return}show(cb[j++]);setTimeout(tickB,14+Math.random()*14)};
+    tickA()}
+  box.classList.add('typed');
+  new IntersectionObserver((es,ob)=>{es.forEach(e=>{if(e.isIntersecting){ob.disconnect();setTimeout(run,300)}})},{threshold:.5}).observe(box)})();
 
 /* 3 · pesos de cada familia: al pasar el cursor se ven en itálica */
 (()=>{const EP=[['Thin',100],['Extralight',200],['Light',300],['Regular',400],['Medium',500],['Semibold',600],['Bold',700],['Extrabold',800],['Black',900]],FI=EP.slice(2);
