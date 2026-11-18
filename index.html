@@ -919,7 +919,6 @@ footer{background:var(--n01);color:#effaff;height:417px;position:relative}
 .hero.cl::before{left:78.9%;top:28.5%;background:radial-gradient(circle closest-side,rgba(53,206,255,.95) 0,rgba(53,206,255,.55) 11%,rgba(53,206,255,.22) 38%,rgba(53,206,255,0) 100%)}
 .hero.cl::after{left:23%;top:48.3%;background:radial-gradient(circle closest-side,rgba(214,64,60,.8) 0,rgba(214,64,60,.45) 11%,rgba(214,64,60,.18) 38%,rgba(214,64,60,0) 100%)}
 .hero.cl .stage{z-index:1}
-.cl-frase .pin.full .stick{background:#7b6fec!important}
 .cl-hint{display:none!important}
 .cgs{box-shadow:none;border:1px solid #d6d9de}
 /* barras: seis tarjetas iguales que se pisan */
@@ -961,6 +960,21 @@ footer{background:var(--n01);color:#effaff;height:417px;position:relative}
 .uc p b{font-weight:600;color:#2d2e30}
 .uc.no .uc-v::after{display:none}
 @media (max-width:560px){.cl-bar{width:110px;margin-left:-18px;height:260px}.cl-mueve .two h2{margin-left:0}.cl-mueve .mv-txt{margin-left:0}}
+
+/* explorador por marca: DESVÍO en tres filas */
+.br-bar.rows{display:flex;flex-direction:column;height:auto;gap:10px;border:0;border-radius:0;overflow:visible}
+.br-row{display:grid;grid-template-columns:96px 1fr;align-items:center;gap:12px}
+.br-row h4{font-family:'Epilogue';font-weight:700;font-size:18px;letter-spacing:-.03em}
+.br-line{display:flex;height:54px;border-radius:12px;overflow:hidden;border:1px solid #e3e6ec}
+.br-bar.rows .br-seg{padding:7px 12px;flex-direction:column;justify-content:flex-start;gap:2px}
+.br-bar.rows .br-seg small{font-size:11px}
+.br-bar.rows .br-seg b{font-size:12px;font-family:inherit;font-weight:500}
+/* laboratorio: la paleta solo muestra los colores de la marca */
+.lab-pal{display:flex;gap:10px;margin:2px 0 6px}
+.lab-pal i{display:block;width:30px;height:30px;border-radius:50%;background:var(--c);box-shadow:0 0 0 2px #fbfdff,0 0 0 3.5px #2d2e30}
+.lab-row{display:none}
+.lab-ctl{gap:2px}
+@media (max-width:560px){.br-row{grid-template-columns:1fr}}
 
 /* ═════════════ ELEMENTOS GRÁFICOS ═════════════ */
 .el-h3{font-family:'Epilogue';font-weight:600;font-size:28px;line-height:32px;letter-spacing:-.03em}
@@ -2038,7 +2052,7 @@ body.inpage .sd-wrap:not(:empty){display:flex}
   <header class="hero cl" data-label="">
     <i class="blob a"></i><i class="blob b"></i><i class="blob c"></i><i class="blob d"></i>
     <div class="stage">
-      <h1 class="title"><span class="ln"><span><b class="ch" style="--w0:700;">P</b><b class="ch" style="--w0:300;">a</b><b class="ch" style="--w0:800;">l</b><b class="ch" style="--w0:800;">e</b><b class="ch" style="--w0:800;">t</b><b class="ch" style="--w0:300;">a</b><b class="ch" style="--w0:700;">s</b></span></span><span class="ln"><span><b class="ch" style="--w0:300;">c</b><b class="ch" style="--w0:800;">r</b><b class="ch" style="--w0:800;font-style:italic;">o</b><b class="ch" style="--w0:300;">m</b><b class="ch" style="--w0:800;">á</b><b class="ch" style="--w0:300;">t</b><b class="ch" style="--w0:300;">i</b><b class="ch" style="--w0:800;">c</b><b class="ch" style="--w0:800;font-style:italic;">a</b><b class="ch" style="--w0:300;">s</b></span></span></h1>
+      <h1 class="title"><span class="ln"><span><b class="ch" style="--w0:700;">P</b><b class="ch" style="--w0:700;">a</b><b class="ch" style="--w0:700;">l</b><b class="ch" style="--w0:700;">e</b><b class="ch" style="--w0:700;">t</b><b class="ch" style="--w0:700;">a</b><b class="ch" style="--w0:700;">s</b></span></span><span class="ln"><span><b class="ch" style="--w0:700;">c</b><b class="ch" style="--w0:700;">r</b><b class="ch" style="--w0:700;">o</b><b class="ch" style="--w0:700;">m</b><b class="ch" style="--w0:700;">á</b><b class="ch" style="--w0:700;">t</b><b class="ch" style="--w0:700;">i</b><b class="ch" style="--w0:700;">c</b><b class="ch" style="--w0:700;">a</b><b class="ch" style="--w0:700;">s</b></span></span></h1>
       <a class="pill" href="#" data-to="madre" style="--x:30.1%;--y:34.7%;--r:-8deg;--d:.5s;--f:5.5s;--k:18px">Marca madre</a>
       <a class="pill" href="#" data-to="usos-color" style="--x:64.8%;--y:31.4%;--r:8deg;--d:.6s;--f:7s;--k:-14px">Criterios de uso</a>
       <a class="pill" href="#" data-to="base" style="--x:54.1%;--y:22.2%;--r:-3deg;--d:.7s;--f:6.3s;--k:24px">Base compartida</a>
@@ -2193,10 +2207,8 @@ body.inpage .sd-wrap:not(:empty){display:flex}
           <p class="lab-k">Marca</p>
           <div class="lab-pre" id="labPre"><button class="on" data-g="planb">PLAN B</button><button data-g="a1000">A1000</button><button data-g="apuro">APURO</button></div>
           <p class="lab-k">Paleta</p>
-          <div class="lab-row"><span>Inicio</span><div class="lab-dots" data-k="0"></div></div>
-          <div class="lab-row"><span>Intermedio</span><div class="lab-dots" data-k="1"></div></div>
-          <div class="lab-row"><span>Final</span><div class="lab-dots" data-k="2"></div></div>
-                    <label class="lab-rg"><span>Dirección</span><output id="labDirV">90°</output><input type="range" id="labDir" min="0" max="360" value="90"></label>
+          <div class="lab-pal" id="labPal"></div>
+          <label class="lab-rg"><span>Dirección</span><output id="labDirV">90°</output><input type="range" id="labDir" min="0" max="360" value="90"></label>
           <label class="lab-rg"><span>Posición del punto intermedio</span><output id="labPosV">50%</output><input type="range" id="labPos" min="5" max="95" value="50"></label>
         </div>
         <div class="lab-exp">
@@ -2252,7 +2264,7 @@ body.inpage .sd-wrap:not(:empty){display:flex}
         <article class="uc ok" data-r="up" style="--d:0s"><div class="uc-v"><div class="uv" style="background:#2d2e30"><i style="background:#ffd400"></i><i style="background:#ffd400"></i><i style="background:#ffd400"></i></div></div><span class="uc-b">Uso correcto</span><h4>Color de marca sobre la base neutra</h4><p>Amarillo Soleado 600 con negro da 9,49:1. La base compartida de blanco y negro es la que sostiene la lectura de cualquier color de marca.</p></article>
         <article class="uc ok" data-r="up" style="--d:0.08s"><div class="uc-v"><div class="uv" style="background:linear-gradient(90deg,#ff3b30,#ff7a24,#ffd400)"></div></div><span class="uc-b">Uso correcto</span><h4>Degradé aprobado de PLAN B</h4><p>Rojo #FF3B30, naranja #FF7A24 y amarillo #FFD400: es uno de los nueve degradés del archivo, con sus valores y su opacidad originales.</p></article>
         <article class="uc ok" data-r="up" style="--d:0s"><div class="uc-v"><div class="uv" style="background:#2d2e30"><u style="left:12%;top:24%;--g:#ff3a30"></u><u style="left:44%;top:42%;--g:#ccf901"></u><u style="left:58%;top:12%;--g:#48c569"></u><u style="left:78%;top:46%;--g:#ffd400"></u></div></div><span class="uc-b">Uso correcto</span><h4>Luces de submarcas sobre<br>base neutra</h4><p>En el Festival DESVÍO, las luces de distintas submarcas pueden convivir sobre una base neutra, clara u oscura.</p></article>
-        <article class="uc ok" data-r="up" style="--d:0.08s"><div class="uc-v"><div class="uv" style="background:#eef9fe"><i style="background:#00468c"></i><i style="background:#0562a6"></i><i style="background:#0082cb"></i></div></div><span class="uc-b">Uso correcto</span><h4>Dos tonos lejanos de una<br>misma familia</h4><p><b>Azul Apuro 900 sobre Azul Apuro 50 da 8,89:1.</b> Dentro de una misma escala, los extremos se separan lo suficiente.</p></article>
+        <article class="uc ok" data-r="up" style="--d:0.08s"><div class="uc-v"><div class="uv" style="background:#eef9fe"><i style="background:#00468c"></i><i style="background:#0562a6"></i><i style="background:#0082cb"></i></div></div><span class="uc-b">Uso correcto</span><h4>Dos tonos lejanos de una<br>misma familia</h4><p><b>Celeste Aire 900 sobre Celeste Aire 50 da 8,89:1.</b> Dentro de una misma escala, los extremos se separan lo suficiente.</p></article>
         <article class="uc no" data-r="up" style="--d:0s"><div class="uc-v"><div class="uv stripes"><i style="background:#7b6fec"></i><i style="background:#ccf901"></i><i style="background:#ff3a30"></i><i style="background:#00468c"></i></div></div><span class="uc-b">Uso incorrecto</span><h4>Familias distintas sin base<br>que las separe</h4><p>En las submarcas predomina su propia paleta sobre la base compartida de blanco y negro.</p></article>
         <article class="uc no" data-r="up" style="--d:0.08s"><div class="uc-v"><div class="uv" style="background:#ccf901"><i style="background:#d1f842"></i><i style="background:#e5fd98"></i><i style="background:#d1f842"></i></div></div><span class="uc-b">Uso incorrecto</span><h4>Tonos vecinos de una misma familia</h4><p><b>Lima Activa 400 sobre Lima Activa 500 da 1,01:1.</b><br>El archivo pide no utilizar colores con poco contraste.</p></article>
         <article class="uc no" data-r="up" style="--d:0s"><div class="uc-v"><div class="uv" style="background:linear-gradient(90deg,#ccf901,#7b6fec)"></div></div><span class="uc-b">Uso incorrecto</span><h4>Degradé armado con dos marcas</h4><p>Violeta Flow con Lima Activa no es ninguno de los degradés aprobados. Una mezcla nueva de marcas no está permitido.</p></article>
@@ -2831,10 +2843,10 @@ const inkOn=h=>lumOf(h)>.38?'#2d2e30':'#fbfdff';
 const mixHex=(a,b,t=.5)=>'#'+hx(a).map((v,i)=>Math.round(v+(hx(b)[i]-v)*t).toString(16).padStart(2,'0')).join('');
 
 /* frase: las palabras se prenden y cambia el color de fondo */
-const clLit=lit($('#clPhrase')),CLBG=['#fbfdff','#5ec8ff','#ee4d3d','#5fc16d','#6f7073','#7b6fec'];let clK=-1;
+const clLit=lit($('#clPhrase')),CLBG=['#fbfdff','#35ceff','#ff3a30','#48c569','#6f7073','#7b6fec'];let clK=-1;
 pin('#clPin',t=>{const lp=clamp(t/.8);clLit(lp*1.02);const k=Math.min(5,Math.floor(lp*6));if(k===clK)return;clK=k;
-  const el=$('#clPhrase');$('#clStick').style.background='#7b6fec';
-  el.style.setProperty('--on','#ece8fd');el.style.setProperty('--off','#a79df2')});
+  const bg=CLBG[k],el=$('#clPhrase');$('#clStick').style.background=bg;
+  el.style.setProperty('--on',k===0?'#2d2e30':'#ffffff');el.style.setProperty('--off',k===0?'#c3c6cc':mixHex(bg,'#000000',.16))});
 
 /* escala de grises: se expande el que tocás y muestra código y porcentaje */
 const GRIS=['#2D2E30','#4F5053','#6F7073','#848588','#AEAFB2','#CCCDCF','#EDEEF0','#F1F3F5','#F6F8FA','#FBFDFF'], STEPS=[900,800,700,600,500,400,300,200,100,50];
@@ -2853,36 +2865,41 @@ const clBars=$('#clBars');
 clBars.innerHTML=BARS.map(b=>`<button class="cl-bar${b[3]?'':' lt'}" data-copy="${b[0].toUpperCase()}" style="background:${b[0]}" aria-label="Copiar ${b[1]} ${b[2]} ${b[0].toUpperCase()}"><code>${b[0].toUpperCase()}</code><b>${b[1]}<br>${b[2]}</b></button>`).join('');
 const barEls=$$('.cl-bar',clBars);let bsI=0;
 function barsSet(k){const s=BSETS[k%BSETS.length];barEls.forEach((el,i)=>{el.style.height=s[i]+'px';el.classList.toggle('show',s[i]>=150)})}
-barEls.forEach(el=>{el.style.height='332px';el.classList.add('show')});
+barsSet(0);
+if(!reduce)setInterval(()=>{if(view!=='colores'||document.hidden)return;bsI++;barsSet(bsI)},2800);
 
 /* tonalidades: cada tono se asoma completo y se copia al tocarlo */
 const FAMS=[
  ['Rojo Impulso',['C30014','D11922','DE232A','F02F30','FF3A30','F94D4C','EE7071','F69999','FFCDD2','FFEBEE']],
  ['Amarillo Soleado',['FC7600','FEA200','FEBC00','FFD400','FCE400','FEEA3F','FFEF67','FFF394','FFF8BF','FFFDE5']],
- ['Azul Apuro',['0061AA','0082CB','0093DF','00A7F3','00B5FF','00C1FF','35CEFF','79DBFF','B0E9FE','DFF4FA']],
+ ['Celeste Aire',['0061AA','0082CB','0093DF','00A7F3','00B5FF','00C1FF','35CEFF','79DBFF','B0E9FE','DFF4FA']],
  ['Lima Activa',['8A8E00','A2B600','B0CE00','C0E600','CCF901','D1F842','DAFB6B','E5FD98','F1FEC2','F9FFE7']],
  ['Verde Calma',['006719','00872D','009838','00AB44','0DBA4E','48C569','6ED085','9BDDA8','C3EACA','E6F7E9']],
  ['Violeta Flow',['001BB7','0025C5','002ACE','0030D7','2334DD','5650E8','7B6FEC','A599F0','CAC1F5','EBE6FB']]];
 $('#clRows').innerHTML=FAMS.map(([n,sc])=>`<div class="cl-row"><small>${n}</small><div class="cl-strips">${sc.map((h,i)=>`<button class="tn" data-copy="#${h}" style="--c:#${h};--f:${[1,1,1,1,1,1,1,1,1.1,3.2][i]}" aria-label="Copiar ${n} ${STEPS[i]} #${h}"><i><b>${n} ${STEPS[i]}</b>#${h}</i></button>`).join('')}</div></div>`).join('');
 
 /* paleta por marca: al elegir cambia cuál se muestra */
+const BW=['Blanco Base','#FBFDFF',20],BN=['Negro Tinta','#2D2E30',20];
 const BR={
- 'PLAN B':{use:'Experiencia interactiva · escape room.',tag:'Base compartida de blanco y negro, más rojo, naranja y amarillo como colores propios.',bg:'#fff1ee',desc:'El rojo, el naranja y el amarillo construyen una transición cálida y enérgica. La base de blanco y negro ordena la información y mantiene la lectura, y los tonos cálidos marcan la tensión y la resolución del juego.',seg:[['Blanco Base','#FBFDFF',20],['Negro Tinta','#2D2E30',20],['Rojo Impulso','#FF3B30',25],['Naranja','#FF7A24',20],['Amarillo Soleado','#FFD400',15]]},
- 'APURO':{use:'Experiencia interactiva · simulación.',tag:'Base compartida de blanco y negro, más azul y celeste como colores propios.',bg:'#e8f5fc',desc:'Las distintas intensidades de azul permiten construir transiciones entre profundidad y luminosidad. La base de blanco y negro sostiene la lectura y el celeste resalta las acciones clave.',seg:[['Blanco Base','#FBFDFF',20],['Negro Tinta','#2D2E30',20],['Azul Apuro','#0562A6',35],['Celeste Aire','#35CEFF',25]]},
- 'A1000':{use:'Experiencia interactiva · exploración.',tag:'Base compartida de blanco y negro, más verde, lima y celeste como colores propios.',bg:'#effbe6',desc:'El encuentro entre verde, lima y celeste introduce contrastes luminosos y variaciones de intensidad. La base de blanco y negro mantiene la claridad mientras los colores propios acompañan el carácter exploratorio.',seg:[['Blanco Base','#FBFDFF',20],['Negro Tinta','#2D2E30',20],['Verde Calma','#48C569',25],['Lima Activa','#CCF901',20],['Celeste Aire','#35CEFF',15]]},
- 'MOVIDA':{use:'Aplicación mobile / apple watch.',tag:'Base compartida de blanco y negro, más Violeta como colores propios.',bg:'#f1effd',desc:'Es una aplicación que integra la organización de actividades y traslados en una misma experiencia. La base de blanco y negro ordena la información y mantiene la lectura, el violeta destaca acciones y contenidos clave sin perder claridad.',seg:[['Blanco Base','#FBFDFF',20],['Negro Tinta','#2D2E30',20],['Violeta Flow','#7B6FEC',60]]},
- 'DESVÍO':{use:'Festival itinerante.',tag:'Base compartida de blanco y negro, más rojo como color propio.',bg:'#fdeeee',desc:'El rojo acompaña el espíritu del festival: energía, encuentro y salida de la rutina. La base de blanco y negro sostiene la lectura y deja que el color marque los recorridos.',seg:[['Blanco Base','#FBFDFF',20],['Negro Tinta','#2D2E30',20],['Rojo Impulso','#FF3B30',40],['Rojo 300','#EE7071',20]]}};
+ 'PLAN B':{use:'Escape room.',tag:'Base compartida de blanco y negro, más Rojo y Amarillo como colores propios.',bg:'#ffe9e7',desc:'El rojo, el naranja y el amarillo construyen una transición cálida y enérgica. Sus variaciones acompañan el clima de alerta, tensión y resolución del escape room.',seg:[BW,BN,['Rojo Impulso','#FF3A30',30],['Amarillo Soleado','#FFD400',30]]},
+ 'APURO':{use:'Experiencia multimedia interactiva e inmersiva.',tag:'Base compartida de blanco y negro, más Azul oscuro y Celeste como colores propios.',bg:'#e3f4fc',desc:'Las distintas intensidades de azul permiten construir transiciones entre profundidad y luminosidad. La variación de tonos refuerza una identidad vinculada al tiempo, las decisiones y el movimiento.',seg:[BW,BN,['Azul Apuro','#0562A6',30],['Celeste Aire','#35CEFF',30]]},
+ 'A1000':{use:'Propuesta de DESVÍO.',tag:'Base compartida de blanco y negro, más Celeste, Lima y Verde como colores propios.',bg:'#eefbe3',desc:'El encuentro entre verde, lima y celeste introduce contrastes luminosos y variaciones de intensidad. Una combinación que acompaña el carácter exploratorio e inmersivo de la experiencia.',seg:[BW,BN,['Celeste Aire','#35CEFF',20],['Lima Activa','#CCF901',20],['Verde Calma','#48C569',20]]},
+ 'MOVIDA':{use:'Aplicación mobile / apple watch.',tag:'Base compartida de blanco y negro, más Violeta como colores propios.',bg:'#ece8fb',desc:'Es una aplicación que integra la organización de actividades y traslados en una misma experiencia. La base de blanco y negro ordena la información y mantiene la lectura, el violeta destaca acciones y contenidos clave sin perder claridad.',seg:[BW,BN,['Violeta Flow','#7B6FEC',60]]},
+ 'DESVÍO':{use:'Evento gratuito e itinerante.',tag:'Agrupa a PLAN B, APURO y A1000. No tiene una paleta propia definida combina acentos de las submarcas.',bg:'#fde9ea',desc:'DESVÍO conecta PLAN B, APURO y A1000 en una misma experiencia. Cada propuesta mantiene sus colores y comparte una base común de blanco y negro.',
+   rows:[['PLAN B',[BW,BN,['Rojo Impulso','#FF3A30',30],['Amarillo Soleado','#FFD400',30]]],['APURO',[BW,BN,['Azul Apuro','#0562A6',30],['Celeste Aire','#35CEFF',30]]],['A1000',[BW,BN,['Celeste Aire','#35CEFF',20],['Lima Activa','#CCF901',20],['Verde Calma','#48C569',20]]]]}};
 (()=>{const chips=$('#brChips'),card=$('#brCard'),bar=$('#brBar');let cur='';
   chips.innerHTML=Object.keys(BR).map(k=>`<button role="tab" data-k="${k}">${k}</button>`).join('');
   function put(k){const d=BR[k];cur=k;
     $$('button',chips).forEach(b=>{b.classList.toggle('on',b.dataset.k===k);b.setAttribute('aria-selected',b.dataset.k===k)});
-    bar.innerHTML=d.seg.map(([n,h,p])=>`<button class="br-seg" data-copy="${h}" style="--p:${p};background:${h};color:${inkOn(h)}" aria-label="Copiar ${n} ${h}"><small>${n}</small><b>${p}%</b></button>`).join('');
+    const segs=l=>l.map(([n,h,p])=>`<button class="br-seg" data-copy="${h}" style="--p:${p};background:${h};color:${inkOn(h)}" aria-label="Copiar ${n} ${h}"><small>${n}</small><b>${p}%</b></button>`).join('');
+    bar.classList.toggle('rows',!!d.rows);
+    bar.innerHTML=d.rows?d.rows.map(([t,l])=>`<div class="br-row"><h4>${t}</h4><div class="br-line">${segs(l)}</div></div>`).join(''):segs(d.seg);
     $('#brName').textContent=k;$('#brUse').textContent=d.use;$('#brTag').textContent=d.tag;$('#brDesc').textContent=d.desc;
     $('.br-info',card).style.setProperty('--bg',d.bg)}
   chips.addEventListener('click',e=>{const b=e.target.closest('button');if(!b||b.dataset.k===cur)return;
     if(reduce){put(b.dataset.k);return}
     card.classList.add('sw');setTimeout(()=>{put(b.dataset.k);card.classList.remove('sw')},220)});
-  put('MOVIDA')})();
+  put('PLAN B')})();
 
 /* degradés: las líneas entran del costado y se mueven */
 
@@ -2912,24 +2929,24 @@ $$('.uno-grp').forEach(g=>{const set=GRADS[g.dataset.grad];
 
 /* laboratorio de degradés */
 (()=>{const DOTS=['#ff3b30','#ff7a24','#ffd400','#ccf901','#48c569','#35ceff','#168ed2','#0562a6','#7b6fec','#083c73'];
-  const PRE={planb:['#ff3b30','#ff7a24','#ffd400'],a1000:['#48c569','#ccf901','#35ceff'],apuro:['#0562a6','#168ed2','#35ceff']};
+  const PRE={planb:['#ffd400','#ff7a24','#ff3b30'],a1000:['#006719','#48c569','#35ceff'],apuro:['#0562a6','#168ed2','#35ceff']};
+  const PAL={planb:['#ff3b30','#ffd400'],apuro:['#35ceff','#0562a6'],a1000:['#35ceff','#ccf901','#48c569']};
   const APPROVED=[];Object.values(GRADS).forEach(s=>s.forEach(c=>APPROVED.push(c.length===2?[c[0],mixHex(c[0],c[1]),c[1]]:c)));
-  const st={c:[...PRE.planb],dir:90,pos:50,fmt:'SVG',size:1920};
+  const st={c:[...PRE.planb],g:'planb',dir:90,pos:50,fmt:'SVG',size:1920};
   const prev=$('#labPrev'),badge=$('#labBadge');
-  const css=()=>`linear-gradient(${st.dir}deg,${st.c[0]} 0%,${st.c[1]} ${st.pos}%,${st.c[2]} 100%)`;
-  $$('.lab-dots').forEach(d=>{const k=+d.dataset.k;d.innerHTML=DOTS.map(c=>`<button style="--c:${c}" data-c="${c}" aria-label="${c}"></button>`).join('');
-    d.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;st.c[k]=b.dataset.c;$$('#labPre button').forEach(x=>x.classList.remove('on'));render()})});
+  const css=()=>`linear-gradient(${st.dir+90}deg,${st.c[0]} 0%,${st.c[1]} ${st.pos}%,${st.c[2]} 100%)`;
+  const palEl=$('#labPal');const palDraw=()=>{palEl.innerHTML=PAL[st.g].map(c=>`<i style="--c:${c}"></i>`).join('')};
   function render(){prev.style.background=css();
-    $$('.lab-dots').forEach(d=>$$('button',d).forEach(b=>b.classList.toggle('on',b.dataset.c===st.c[+d.dataset.k])));
-    const ok=st.dir===90&&st.pos===50&&APPROVED.some(a=>a.every((c,i)=>c.toLowerCase()===st.c[i].toLowerCase()));
+    palDraw();
+    const ok=true;
     badge.textContent=ok?'Paleta aprobada':'Mezcla exploratoria · necesita validación';badge.classList.toggle('exp',!ok);
     $('#labDirV').textContent=st.dir+'°';$('#labPosV').textContent=st.pos+'%'}
-  $('#labPre').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;$$('#labPre button').forEach(x=>x.classList.toggle('on',x===b));st.c=[...PRE[b.dataset.g]];st.dir=90;st.pos=50;$('#labDir').value=90;$('#labPos').value=50;render()});
+  $('#labPre').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;$$('#labPre button').forEach(x=>x.classList.toggle('on',x===b));st.c=[...PRE[b.dataset.g]];st.g=b.dataset.g;st.dir=90;st.pos=50;$('#labDir').value=90;$('#labPos').value=50;render()});
   $('#labDir').addEventListener('input',e=>{st.dir=+e.target.value;render()});
   $('#labPos').addEventListener('input',e=>{st.pos=+e.target.value;render()});
   const seg=(id,key)=>$(id).addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;$$('button',$(id)).forEach(x=>x.classList.toggle('on',x===b));st[key]=key==='size'?parseInt(b.textContent):b.textContent;if(key==='fmt')$('#labCopy').textContent=st.fmt==='SVG'?'Copiar SVG':'Copiar CSS'});
   seg('#labFmt','fmt');seg('#labSize','size');
-  const line=S=>{const a=st.dir*Math.PI/180,s=Math.sin(a),c=Math.cos(a),L=S*(Math.abs(s)+Math.abs(c)),m=S/2;return[m-s*L/2,m+c*L/2,m+s*L/2,m-c*L/2]};
+  const line=S=>{const a=(st.dir+90)*Math.PI/180,s=Math.sin(a),c=Math.cos(a),L=S*(Math.abs(s)+Math.abs(c)),m=S/2;return[m-s*L/2,m+c*L/2,m+s*L/2,m-c*L/2]};
   const svg=S=>{const[x1,y1,x2,y2]=line(S).map(v=>+v.toFixed(1));return `<svg xmlns="http://www.w3.org/2000/svg" width="${S}" height="${S}" viewBox="0 0 ${S} ${S}"><defs><linearGradient id="g" gradientUnits="userSpaceOnUse" x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}"><stop offset="0" stop-color="${st.c[0]}"/><stop offset="${st.pos/100}" stop-color="${st.c[1]}"/><stop offset="1" stop-color="${st.c[2]}"/></linearGradient></defs><rect width="${S}" height="${S}" fill="url(#g)"/></svg>`};
   $('#labCopy').addEventListener('click',async()=>{const t=st.fmt==='SVG'?svg(st.size):`background:${css()};`;const ok=await copyText(t);say(ok?(st.fmt==='SVG'?'SVG copiado':'CSS copiado'):'No se pudo copiar')});
   $('#labDl').addEventListener('click',()=>{
