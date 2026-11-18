@@ -1420,6 +1420,14 @@ body.inpage .sd-wrap:not(:empty){display:flex}
 .sd.on{display:block;font-size:14px;font-weight:600;opacity:1;padding:6px}
 .sd.on::before{content:none}
 .sd-wrap{-webkit-mask:none;mask:none;overflow:visible;max-height:none}
+
+/* indicador: misma tipografía que "© Copyright 2026", en medium y centrado en la barra */
+.sd-wrap{left:0;width:var(--side);align-items:center;justify-content:flex-end;padding:0;box-sizing:border-box}
+.sd{display:block;font-family:inherit;font-size:16px;font-weight:500;line-height:normal;letter-spacing:-.01em;padding:6px 0;margin:0;opacity:1;text-align:center}
+.sd.on{font-size:16px;font-weight:500;padding:6px 0}
+.sd[hidden]{display:none}
+.sd.in{animation:sdIn .5s var(--ease)}
+@keyframes sdIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
 </style>
 </head>
 <body>
@@ -2487,7 +2495,7 @@ function show(v,hold){
   const de=document.documentElement;de.style.scrollBehavior='auto';void document.body.offsetHeight;
   scrollTo({top:v==='home'?home.offsetHeight:0,left:0,behavior:'instant'});
   requestAnimationFrame(()=>requestAnimationFrame(()=>{de.style.scrollBehavior=''}));
-  buildDots(v);
+  buildDots();
   if(v==='home')measure();
   else{lblBase.textContent=PAGES[v].name;cur=null;pageScroll();const h=$('.hero',PAGES[v].el);if(!hold)requestAnimationFrame(()=>requestAnimationFrame(()=>h.classList.add('play')))}
 }
@@ -2716,21 +2724,20 @@ $$('[data-r],#pills,.brand-logo,.pf-row,#gs').forEach(el=>io.observe(el));
 /* ── Scroll dentro de una página ── */
 const logos=$$('.brand-logo');
 
-/* ── Indicador de secciones (barra lateral) ── */
-const sideDots=$('#sideDots');let sdList=[];
-function buildDots(v){
-  const m=MENU.find(x=>x.k===v);
-  sdList=[];sideDots.innerHTML='';
-  if(!m||!m.s||m.soon)return;
-  sdList=m.s.filter(x=>x[1]).map(x=>({t:x[0],a:x[1],el:PAGES[v].el.querySelector('#'+x[1])})).filter(x=>x.el);
-  sideDots.innerHTML=sdList.map((d,i)=>`<button class="sd" data-i="${i}">${d.t}</button>`).join('');
+/* ── Indicador de la sección actual (barra lateral) ── */
+const sideDots=$('#sideDots');let sdEl=null;
+sideDots.innerHTML='<button class="sd on" hidden></button>';
+const sdBtn=$('.sd',sideDots);
+function buildDots(){sdEl=null;sdBtn.hidden=true;sdBtn.textContent=''}
+function sdUpdate(H,root){
+  let cur=null;$$('[data-label]',root).forEach(el=>{if(el.getBoundingClientRect().top<H*.5)cur=el});
+  const name=cur&&cur.dataset.label||'';
+  if(!name){sdEl=null;sdBtn.hidden=true;return}
+  sdEl=cur;
+  if(sdBtn.textContent!==name){sdBtn.hidden=false;sdBtn.textContent=name;sdBtn.classList.remove('in');void sdBtn.offsetWidth;sdBtn.classList.add('in')}
+  else sdBtn.hidden=false;
 }
-function sdUpdate(H){
-  let idx=-1;sdList.forEach((d,i)=>{if(d.el.getBoundingClientRect().top<H*.5)idx=i});
-  $$('.sd',sideDots).forEach((b,i)=>b.classList.toggle('on',i===idx));
-  const on=$('.sd.on',sideDots);if(on){const c=sideDots;c.scrollTop=on.offsetTop-c.clientHeight/2+on.offsetHeight/2}
-}
-sideDots.addEventListener('click',e=>{const b=e.target.closest('.sd');if(!b)return;const d=sdList[+b.dataset.i];d&&d.el.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'})});
+sideDots.addEventListener('click',e=>{if(e.target.closest('.sd')&&sdEl)sdEl.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'})});
 function pageScroll(){
   if(view==='home')return;const root=PAGES[view].el, H=innerHeight;
   const max=document.documentElement.scrollHeight-H;
@@ -2740,7 +2747,7 @@ function pageScroll(){
   const tone=y=>{for(const s of zones){const r=s.getBoundingClientRect();if(r.top<=y&&r.bottom>y)return s.dataset.tone==='l'}return false};
   lblS.classList.toggle('dk',tone(100));crS.classList.toggle('dk',tone(H-100));side.classList.toggle('dk',tone(H/2));
   if(name!==cur){cur=name;lbl.classList.add('out');setTimeout(()=>{lbl.textContent=name?' — '+name:'';lbl.classList.remove('out')},250)}
-  sdUpdate(H);
+  sdUpdate(H,root);
   logos.forEach(l=>{const r=l.getBoundingClientRect();l.style.setProperty('--sp',clamp((H-r.top)/(H*.55)))});
   pins.forEach(p=>{if(!root.contains(p.el))return;const e=p.el.getBoundingClientRect(),s=p.stick.getBoundingClientRect();p.fn(clamp((s.top-e.top)/((e.height-s.height)||1)))});
   seen.forEach(o=>{if(!root.contains(o.el))return;const r=o.el.getBoundingClientRect();o.fn(clamp((H*.9-r.top)/(H*.5)))});
