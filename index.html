@@ -1717,6 +1717,13 @@ body.inpage .sd-wrap:not(:empty){display:flex}
 .tp-elig-a b .w{--on:#ffe500;--off:#6a5f00}
 .tp-elig-b b .w{--on:#ff3a30;--off:#6a2a27}
 .tp-elig-b b{font-weight:700}
+
+/* aparece desde vacío: primero el párrafo grande, después el chico */
+.tp-elig .lit .w{opacity:0;color:#fbfdff;transition:opacity .3s ease,color .7s ease}
+.tp-elig .lit .w.on{opacity:1;color:#fbfdff}
+.tp-elig .lit.tp-elig-a b .w,.tp-elig .lit.tp-elig-a b .w.on,.tp-elig .lit.tp-elig-b b .w,.tp-elig .lit.tp-elig-b b .w.on{color:#ff9a9a}
+.tp-elig-in.done .lit.tp-elig-a b .w.on{color:#ffe500!important}
+.tp-elig-in.done .lit.tp-elig-b b .w.on{color:#ff3a30!important}
 </style>
 </head>
 <body>
@@ -3616,7 +3623,7 @@ if(!reduce)setInterval(()=>{if(hold||view!=='elementos'||document.hidden)return;
 
 /* 2 · elección tipográfica: las palabras se van encendiendo al scrollear (como las otras frases) */
 (()=>{const a=$('#tpEligA'),b=$('#tpEligB');if(!a)return;const fa=lit(a),fb=lit(b);
-  pin('#tpEligPin',t=>{const p=clamp(t/.8)*1.02;fa(clamp(p/.62));fb(clamp((p-.58)/.42))})})();
+  const bx=$('#tpElig');pin('#tpEligPin',t=>{const p=clamp(t/.85)*1.02;fa(clamp(p/.5));fb(clamp((p-.56)/.44));bx.classList.toggle('done',p>=1)})})();
 
 /* 3 · pesos de cada familia: al pasar el cursor se ven en itálica */
 (()=>{const EP=[['Thin',100],['Extralight',200],['Light',300],['Regular',400],['Medium',500],['Semibold',600],['Bold',700],['Extrabold',800],['Black',900]],FI=EP.slice(2);
