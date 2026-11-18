@@ -1292,7 +1292,7 @@ body:not(.inpage) .fly{display:none}
 .s-principios .card header{font-size:18px;line-height:20px;margin-bottom:20px;gap:10px;align-items:flex-start}
 .s-principios .card header i{width:20px;height:20px;font-size:11px;background:#fff;color:var(--n01);margin-top:0}
 .s-principios .card:hover header i{background:var(--naranja);color:var(--n01)}
-.s-principios .card .body{font-size:14px;line-height:17px;color:#fff}
+.s-principios .card .body{font-size:16px;line-height:19px;color:#fff}
 .s-principios .pin.full{height:auto}
 /* espíritu de marca: fondo oscuro con el logo en su color */
 .brand.movida,.brand.apuro,.brand.desvio{background:var(--n01);color:#fff}
@@ -1311,13 +1311,7 @@ body:not(.inpage) .fly{display:none}
 .c-frase p .hi{--on:#2d2e30}
 .pl:not(.on){background:#e6e7e8;border-color:#7d7e80;color:#8f9092;opacity:1}
 .pl:not(.on):hover{opacity:1;background:#dcdddf}
-.c-guia .g-stack{display:block;margin-top:0}
-.c-guia .g-stack>.g-rule{opacity:1;pointer-events:auto;padding:60px 17px;border-bottom:1px solid var(--n01);margin:0 -17px}
-.c-guia .g-stack>.g-rule:first-child{padding-top:76px}
-.c-guia .g-stack>.g-rule:last-child{border-bottom:0}
-.c-guia .g-stack .gp{opacity:1;scale:1}
-.c-guia .g-rule h3{font-size:24px;line-height:30px}
-#guSteps{display:none}
+
 
 /* Signos */
 .sg-frase .pin.full .stick{background:#aeafb2}
@@ -1337,6 +1331,17 @@ body:not(.inpage) .fly{display:none}
 /* usos incorrectos: imágenes del diseño */
 .uc2-c img{position:absolute;max-width:none;height:auto;translate:-50% -50%;pointer-events:none;user-select:none}
 .uc2-c svg{display:none}
+
+.mv-row.b::before{height:2px;background:var(--n01);left:0}
+
+/* transición de entrada a una sección */
+#wipe .wt{position:absolute;inset:0;display:grid;place-content:center;justify-items:center;gap:14px;text-align:center;color:#fff;opacity:0;transition:opacity .35s}
+#wipe.txt .wt{opacity:1}
+#wipe .wt small{font-family:'Epilogue',sans-serif;font-weight:500;font-size:15px;letter-spacing:.18em;opacity:0;transform:translateY(10px);transition:opacity .5s .1s,transform .6s .1s var(--ease)}
+#wipe .wt b{font-family:'Epilogue',sans-serif;font-weight:700;font-size:clamp(30px,5.6vw,76px);letter-spacing:-.04em;line-height:1.05;opacity:0;transform:translateY(34px);transition:opacity .6s .18s,transform .8s .18s var(--ease)}
+#wipe .wt i{display:block;width:min(260px,40vw);height:2px;background:#fff;transform:scaleX(0);transform-origin:left;transition:transform .9s .35s var(--ease)}
+#wipe.txt .wt small,#wipe.txt .wt b{opacity:1;transform:none}
+#wipe.txt .wt i{transform:none}
 </style>
 </head>
 <body>
@@ -2393,7 +2398,7 @@ tiles.forEach(t=>t.addEventListener('click',ev=>{
 /* ── Cambio de vista: la tarjeta crece hasta ocupar la pantalla ── */
 const lblBase=$('#lblBase'), lbl=$('#lbl'), side=$('.side'), lblS=$('.side .lbl'), crS=$('.side .cr');let cur=null;
 function setHash(h){try{history.replaceState(null,'',h)}catch(e){try{location.hash=h}catch(_){}}}
-function show(v){
+function show(v,hold){
   view=v;home.classList.toggle('on',v==='home');
   for(const k in PAGES){PAGES[k].el.classList.toggle('on',k===v);$('.hero',PAGES[k].el).classList.remove('play')}
   document.body.classList.toggle('inpage',v!=='home');
@@ -2402,18 +2407,29 @@ function show(v){
   scrollTo(0,v==='home'?home.offsetHeight:0);
   document.documentElement.style.scrollBehavior='';
   if(v==='home')measure();
-  else{lblBase.textContent=PAGES[v].name;cur=null;pageScroll();const h=$('.hero',PAGES[v].el);requestAnimationFrame(()=>requestAnimationFrame(()=>h.classList.add('play')))}
+  else{lblBase.textContent=PAGES[v].name;cur=null;pageScroll();const h=$('.hero',PAGES[v].el);if(!hold)requestAnimationFrame(()=>requestAnimationFrame(()=>h.classList.add('play')))}
 }
+const NUM={sobre:'01',comunicamos:'02',signos:'03',colores:'04',elementos:'05'};
 function openPage(t,name){
   setHash('#'+name);
   if(reduce)return show(name);
-  const r=t.getBoundingClientRect(), s=wipe.style;
-  s.transition='none';s.left=r.left+'px';s.top=r.top+'px';s.width=r.width+'px';s.height=r.height+'px';
-  s.borderRadius='10px';s.background=getComputedStyle(t).getPropertyValue('--c');s.opacity=1;
+  const r=t.getBoundingClientRect(), s=wipe.style, col=getComputedStyle(t).getPropertyValue('--c');
+  wipe.innerHTML='<div class="wt"><small>'+(NUM[name]||'')+'</small><b>'+PAGES[name].name+'</b><i></i></div>';
+  wipe.classList.remove('txt');
+  s.clipPath='none';s.transition='none';s.left=r.left+'px';s.top=r.top+'px';s.width=r.width+'px';s.height=r.height+'px';
+  s.borderRadius='10px';s.background=col;s.opacity=1;
   void wipe.offsetWidth;s.transition='';
+  /* 1. la tarjeta crece hasta ocupar la pantalla */
   s.left=0;s.top=0;s.width='100vw';s.height='100vh';s.borderRadius=0;
-  setTimeout(()=>{s.background='#2d2e30'},420);
-  setTimeout(()=>{show(name);s.opacity=0},880);
+  /* 2. vira al color de la sección y aparece su nombre */
+  setTimeout(()=>{s.background='#2d2e30';wipe.classList.add('txt')},520);
+  /* 3. se prepara la sección detrás y la cortina sube */
+  setTimeout(()=>{
+    show(name,true);
+    s.transition='clip-path .85s cubic-bezier(.76,0,.24,1)';s.clipPath='inset(0 0 100% 0)';
+    setTimeout(()=>{const h=$('.hero',PAGES[name].el);h&&h.classList.add('play')},260);
+    setTimeout(()=>{s.transition='none';s.opacity=0;s.clipPath='none';wipe.classList.remove('txt');wipe.innerHTML='';void wipe.offsetWidth;s.transition=''},950);
+  },1500);
 }
 function backHome(){
   setHash('#inicio');
@@ -2513,8 +2529,8 @@ function typeGp(el,delay){el._n=(el._n||0)+1;const my=el._n,t=el.dataset.t;el.te
 const guR=$$('#guStack .g-rule'), guS=$$('#guSteps button');
 function guSet(i){stack(guR,i);guS.forEach((b,j)=>b.classList.toggle('on',j===i));
   $$('.gp',guR[i]).forEach(g=>typeGp(g,parseFloat(getComputedStyle(g).getPropertyValue('--d'))*1000+200))}
-const guIO=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){guIO.unobserve(e.target);e.target.classList.add('on');$$('.gp',e.target).forEach(g=>typeGp(g,parseFloat(getComputedStyle(g).getPropertyValue('--d'))*1000+200))}})},{threshold:.35});
-guR.forEach(r=>guIO.observe(r));
+guS.forEach((b,i)=>b.addEventListener('click',()=>guSet(i)));
+new IntersectionObserver((es,ob)=>{es.forEach(e=>{if(e.isIntersecting){ob.disconnect();guSet(0)}})},{threshold:.25}).observe($('#guStack'));
 
 /* escalas: "Probalo vos" */
 const tryLogo=$('#tryLogo'), tryMsg=$('#tryMsg'), tryRange=$('#tryRange');
