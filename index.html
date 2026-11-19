@@ -1054,7 +1054,7 @@ footer{background:var(--n01);color:#effaff;height:417px;position:relative}
 .acc-art{position:absolute;left:50%;top:48%;translate:-50% -50%;width:180px;height:180px}
 .acc-art .c1{position:absolute;inset:0;border-radius:50%;background:#d9d9d9;transition:background .6s}
 .acc-p.s2 .acc-art .c1{background:#ccf901}
-.acc-art .g{position:absolute;inset:-60px;border-radius:50%;background:radial-gradient(circle,#ccf901 0,rgba(204,249,1,.35) 22%,rgba(18,19,21,.5) 46%,rgba(18,19,21,.22) 64%,rgba(18,19,21,.06) 76%,rgba(18,19,21,0) 86%);opacity:0;animation:latido 3.4s ease-in-out infinite}
+.acc-art .g{position:absolute;inset:-60px;border-radius:50%;background:radial-gradient(circle,#ccf901 0,rgba(204,249,1,.55) 14%,rgba(204,249,1,.3) 28%,rgba(204,249,1,.12) 46%,rgba(204,249,1,.03) 62%,rgba(204,249,1,0) 76%);opacity:0;animation:latido 3.4s ease-in-out infinite}
 .acc-p.s3 .acc-art .g{opacity:1}.acc-p.s3 .acc-art .c1{display:none}
 .acc-p.s3 .acc-art .px{position:absolute;left:50%;top:50%;width:34px;height:34px;margin:-17px 0 0 -42px;border:2px solid #4c9bff;background:#ccf901}
 .acc-p.s3 .acc-art .pt{position:absolute;left:50%;top:50%;width:34px;height:34px;margin:-17px 0 0 56px;border:2px solid #fff;background:repeating-conic-gradient(#999 0 25%,#fff 0 50%) 0 0/10px 10px}
@@ -1311,8 +1311,8 @@ footer{background:var(--n01);color:#effaff;height:417px;position:relative}
 body:not(.inpage) .fly{display:none}
 
 /* personajes: el radial entra suave */
-.car-in>.car-ell{filter:blur(28px);transition:opacity 1.9s ease .15s,transform 2.4s var(--ease) .15s}
-.car.sw .car-in>.car-ell{transform:scale(.5)}
+.car-in>.car-ell{filter:blur(44px);transition:opacity 2.6s cubic-bezier(.4,0,.2,1) .1s,transform 3.2s cubic-bezier(.25,.6,.3,1) .1s}
+.car.sw .car-in>.car-ell{transform:scale(.72)}
 /* reglas de De plano a inflable, como en Figma */
 .inf-rules{gap:9px;max-width:805px}
 .inf-rules li{padding-left:26px;font-size:20px;line-height:28px}
@@ -3497,7 +3497,7 @@ const T=s=>{if(LANG!=='en')return s;const k=nz(s);return EN[k]||s};
   window.__i18nWalk=walk;
   walk(document.body);
   let busy=false;
-  new MutationObserver(ms=>{if(busy)return;busy=true;
+  new MutationObserver(ms=>{if(busy||window.__i18nPause)return;busy=true;
     const seen=new Set();
     for(const m of ms){
       if(m.type==='characterData'){const p=m.target.parentElement;if(p&&!seen.has(p)){seen.add(p);walk(p)}}
@@ -4144,7 +4144,7 @@ function build(i){
   const s=S[i];car.style.backgroundColor=s.bg;inn.innerHTML='';
   const add=(h,st)=>{const d=document.createElement('div');d.style.cssText=st;d.innerHTML=h;inn.appendChild(d);return d};
   const e=s.el;
-  add('',`left:${e[0]}px;top:${e[1]}px;width:${e[2]}px;height:${e[2]}px;background:radial-gradient(circle closest-side,${e[3]} ${e[5]*100}%,${e[4]} 100%)`).className='car-ell';
+  add('',`left:${e[0]}px;top:${e[1]}px;width:${e[2]}px;height:${e[2]}px;background:radial-gradient(circle closest-side,${e[3]} ${e[5]*100}%,color-mix(in srgb,${e[3]} 72%,${e[4]}) ${22+e[5]*60}%,color-mix(in srgb,${e[3]} 40%,${e[4]}) ${46+e[5]*30}%,color-mix(in srgb,${e[3]} 15%,${e[4]}) 70%,${e[4]} 86%,${e[4]}00 100%)`).className='car-ell';
   if(s.glow){const g=s.glow;add('',`left:${g[0]}px;top:${g[1]}px;width:${g[2]}px;height:${g[3]}px;border-radius:50%;background:radial-gradient(closest-side,${g[4]} 0,${g[5]} 62%,rgba(250,168,12,0) 100%);opacity:.85`)}
   const lg=s.lg;add(slogo(lg[0]),`left:${lg[1]}px;top:${lg[2]}px`);
   add(lg[3],`left:${lg[4]}px;top:${lg[5]}px;line-height:18px`).className='car-lbl';
@@ -4368,6 +4368,7 @@ const hl=$('.h-lang');
 let curLang=LANG==='en'?'en':'es',langDirty=false;
 const REV={};for(const k in EN)REV[nz(EN[k])]=k;
 function swapHome(to){
+  window.__i18nPause=true;setTimeout(()=>{window.__i18nPause=false},0);
   const get=k=>to==='en'?EN[k]:REV[k];
   const els=[...$$('#home .tile>span:not(.arrow)'),$('#intro p'),$('#intro')];
   els.forEach(e=>{if(!e)return;
