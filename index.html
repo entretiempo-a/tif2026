@@ -2365,6 +2365,185 @@ body.inpage .sd-wrap:not(:empty){display:flex}
 @media (max-width:560px){.car-in>div[style*="border-radius:50%"]:not(.car-ell){display:none!important}}
 /* en el pie la línea de la barra lateral no se ve */
 .side.nol::before,.side.nol .prog{opacity:0!important;transition:opacity .3s}
+
+/* ═════════ SEÑALÉTICA ═════════ */
+#senaletica{background:var(--n10)}
+.hero.se .blob.a{background:#ff3a30;opacity:.55}.hero.se .blob.b{background:#7a1010;opacity:.25}
+.hero.se .blob.c{background:#e0b400;opacity:.55}.hero.se .blob.d{background:#ffd400;opacity:.2}
+#senaletica h2{font-size:48px;line-height:56px}
+#senaletica .body{font-size:16px;line-height:20px}
+#senaletica .body b{font-weight:600}
+.se-sec{padding:100px 0 0}
+.se-sec.se-last{padding-bottom:110px}
+.se-two{display:grid;grid-template-columns:393px 1fr;align-items:start}
+.se-two .body{max-width:572px}.se-two .body p+p{margin-top:20px}
+.se-cr{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
+.se-cr article,.se-ac article,.se-fi,.se-reg{background:#f7f8fb;border-radius:20px}
+.se-cr article{padding:20px 24px 24px}
+.se-cr h3,.se-ac h3{font-family:'Epilogue';font-weight:600;font-size:24px;line-height:32px;letter-spacing:-.04em}
+.se-cr p,.se-ac p{font-size:16px;line-height:20px;margin-top:8px;color:#4a4b4e}
+.se-cr p b,.se-ac p b{color:#2d2e30;font-weight:600}
+#se-materialidad .se-cr article{padding:24px 28px 28px}
+#se-materialidad .se-cr p{margin-top:10px}
+.se-f3,.se-f2{display:grid;gap:16px;margin-top:32px}
+.se-f3{grid-template-columns:repeat(3,1fr)}.se-f2{grid-template-columns:470fr 470fr;gap:25px}
+.se-fi{padding:24px}
+.se-im{position:relative;background:#cccdcf;border-radius:12px;overflow:hidden;aspect-ratio:262.67/210}
+.se-f2 .se-im{aspect-ratio:422/210}
+.se-im>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.se-sw .se-ov{position:absolute;display:block}
+.se-sw .se-nm{left:5.7%;top:12.9%;width:88.7%;height:auto}
+.se-sw .se-inf{left:36.4%;top:9%;width:27.6%;height:auto}
+.se-im .se-sw{position:absolute;inset:0}
+.se-fi h3{font-family:'Epilogue';font-weight:600;font-size:24px;line-height:32px;letter-spacing:-.04em;margin-top:16px}
+.se-fi dl,.se-v dl{margin-top:16px}
+.se-fi dt,.se-v dt{font-size:14px;line-height:20px;color:#6f7073;font-weight:500}
+.se-fi dd,.se-v dd{font-size:16px;line-height:20px;margin:4px 0 20px;color:#2d2e30}
+.se-fi dd:last-child,.se-v dd:last-child{margin-bottom:0}
+.se-reg{margin-top:32px;padding:32px}
+.se-reg h3{font-family:'Epilogue';font-weight:600;font-size:24px;line-height:32px;letter-spacing:-.04em}
+.se-reg .lead{font-size:16px;line-height:24px;color:#4a4b4e;margin-top:14px}
+.se-f3.in3{margin-top:24px;gap:24px}
+.se-v h4{font-family:'Figtree';font-weight:600;font-size:16px;line-height:20px;margin-top:16px}
+.se-v .se-im{aspect-ratio:284/160}
+.se-med{margin-top:34px;border-radius:24px;overflow:hidden;background:#cccdcf}
+.se-med img{display:block;width:100%;height:auto}
+.se-ley{display:flex;flex-wrap:wrap;gap:32px;list-style:none;margin:20px 0 0;padding:0;font-size:14px;line-height:20px}
+.se-ley li{display:flex;align-items:center;gap:10px}
+.se-ley i{display:block;width:36px;height:0;border-top:2px solid #2d2e30}
+.se-ley i.se-dsh{border-top-style:dashed;border-color:#6f7073}
+.se-ac{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:34px}
+.se-ac article{background:#f6f8fa;padding:16px 18px 20px;min-height:190px}
+.se-ac h3{font-size:24px}
+.se-dn{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:64px}
+.se-dn h4{font-family:'Epilogue';font-weight:600;font-size:20px;line-height:32px;letter-spacing:-.03em;margin:0 0 14px 4px}
+.se-dn>div{display:flex;flex-direction:column;gap:31px}
+.se-dn>div>h4{margin-bottom:-17px}
+.se-dn img{display:block;width:100%;height:auto;aspect-ratio:470/264;object-fit:cover;border-radius:20px}
+@media (max-width:560px){
+  .se-sec{padding:56px 0 0}.se-sec.se-last{padding-bottom:56px}
+  .se-two{grid-template-columns:1fr;row-gap:16px}
+  .se-cr,.se-f3,.se-f2,.se-f3.in3{grid-template-columns:1fr}
+  .se-reg{padding:20px}
+  .se-ac{grid-template-columns:1fr 1fr}
+  .se-ac article{min-height:0}
+  .se-dn{grid-template-columns:1fr;gap:28px}
+  #senaletica h2{font-size:32px;line-height:38px}
+}
+@media (max-width:560px){
+  .se-ac{grid-template-columns:1fr}
+  .se-med{overflow-x:auto;-webkit-overflow-scrolling:touch}.se-med img{width:780px;max-width:none}
+}
+
+/* ═════════ MOTION Y SONIDOS ═════════ */
+#motion{background:var(--n10)}
+.hero.mo .blob.a{background:#1f8a3b;opacity:.6}.hero.mo .blob.b{background:#14532a;opacity:.2}
+.hero.mo .blob.c{left:-14vw;right:auto;top:-14vw;bottom:auto;background:#2a8aa0;opacity:.7}
+.hero.mo .blob.d{left:28vw;bottom:-26vw;background:#5a4fb0;opacity:.7}
+#motion h2{font-size:48px;line-height:56px}
+#motion .body{font-size:16px;line-height:20px}
+#motion .body b{font-weight:600}
+.mo-sec{padding:100px 0 0}
+.mo-two{display:grid;grid-template-columns:393px 1fr;align-items:start}
+.mo-two .body{max-width:572px}
+.mo-h3{font-family:'Epilogue';font-weight:700;font-size:36px;line-height:44px;letter-spacing:-.05em;margin-top:80px}
+.mo-h3.big{margin-top:0}
+.mo-lead{margin-top:16px;max-width:964px}
+.mo-pr{display:grid;grid-template-columns:repeat(3,1fr);gap:48px 40px;margin-top:40px}
+.mo-pr .pi{display:grid;place-items:center;height:64px;border:1.343px solid var(--n01);border-radius:99px;background:var(--c);font-size:26.86px;font-weight:300;letter-spacing:-.01em}
+.mo-pr p{margin-top:16px;font-size:14px;line-height:18px;max-width:270px}
+.mo-pr p b{font-weight:600}
+.mo-dur{padding-top:0}
+.mo-du{margin-top:34px;display:flex;flex-direction:column;gap:30px}
+.mo-du .mo-r{display:grid;grid-template-columns:150px 1fr;column-gap:20px;align-items:start}
+.mo-du .mo-l small{display:block;font-size:12px;line-height:16px;letter-spacing:.02em;text-transform:uppercase;color:#4a4b4e}
+.mo-du .mo-l b{display:block;font-size:12px;line-height:18px;font-weight:600;color:#2faa55}
+.mo-du .mo-tr{height:6px;border-radius:9px;background:#b6e8c3;overflow:hidden}
+.mo-du .mo-tr i{display:block;height:100%;width:0;border-radius:9px;background:#48c569;transition:width 1.3s var(--ease)}
+.mo-du .mo-r.in .mo-tr i{width:var(--w)}
+.mo-du p{font-size:12px;line-height:16px;margin-top:8px}
+.mo-ph{background:#2d2e30;color:#fbfdff;margin-top:90px;padding:70px 0 80px}
+.mo-phg{display:grid;grid-template-columns:auto 1fr;gap:110px;align-items:center}
+.mo-ph .ph{width:min(325px,100%);height:auto;display:block;margin-left:56px}
+.mo-ph .tb h3{font-family:'Epilogue';font-weight:600;font-size:28px;line-height:36px;letter-spacing:-.04em}
+.mo-ph .tb .body{margin-top:20px;color:#fbfdff}
+.mo-ph dl{margin-top:44px;display:grid;grid-template-columns:200px 1fr;row-gap:30px;font-size:14px;line-height:20px}
+.mo-ph dt{text-transform:uppercase;letter-spacing:.03em;color:#cfd0d2}
+.mo-ph dd{margin:0;font-weight:600}
+.mo-ap{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:40px}
+.mo-ap article{background:#2d2e30;color:#fbfdff;border-radius:20px;padding:20px;height:277px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 4px 8px rgba(0,0,0,.2)}
+.mo-ap h4{font-weight:400;font-size:18px;line-height:24px}
+.mo-ap h4 b{font-weight:700}
+.mo-ap p{font-size:16px;line-height:20px}
+.mo-two.s h2{white-space:nowrap}
+.mo-sl{display:flex;flex-direction:column;gap:32px;margin-top:70px}
+.mo-so{display:grid;grid-template-columns:86px 585px 1fr;gap:16px;align-items:stretch}
+.mo-so .num{display:grid;place-items:center;background:#2d2e30;border-radius:14px;color:#d4f542;font-family:'Epilogue';font-weight:800;font-size:48px;letter-spacing:-.05em}
+.mo-so .mo-pl{position:relative;background:#2d2e30;border-radius:14px;height:255px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px}
+.mo-so .wv{display:flex;align-items:center;gap:1.6px;height:34px}
+.mo-so .wv i{display:block;width:2px;height:calc(var(--h)*1px);background:#fbfdff;opacity:.9;border-radius:1px;transition:height .2s}
+.mo-so.on .wv i{animation:wave .7s ease-in-out infinite alternate;animation-delay:calc(var(--h)*-.04s)}
+@keyframes wave{from{transform:scaleY(.35)}to{transform:scaleY(1.15)}}
+.mo-so .ct{display:flex;align-items:center;gap:26px}
+.mo-so .ct button{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;color:#fbfdff;transition:transform .3s var(--spring),opacity .2s}
+.mo-so .ct button svg{width:30px;height:30px;fill:currentColor}
+.mo-so .ct .pp{width:52px;height:52px;background:#fbfdff;color:#2d2e30}
+.mo-so .ct .pp svg{width:28px;height:28px}
+.mo-so .ct button:hover{transform:scale(1.1)}
+.mo-so .ic-s{display:none}.mo-so.on .ic-s{display:block}.mo-so.on .ic-p{display:none}
+.mo-so .tx{align-self:end;padding-bottom:0}
+.mo-so .tx small{display:block;font-size:12px;line-height:16px;color:#4a4b4e;letter-spacing:.02em}
+.mo-so .tx h4{font-family:'Figtree';font-weight:600;font-size:18px;line-height:24px;margin-top:8px;letter-spacing:-.01em}
+.mo-so .tx p{font-size:14px;line-height:18px;margin-top:4px;color:#4a4b4e}
+.mo-hp{background:#2d2e30;color:#fbfdff;margin-top:90px;padding:80px 0 90px}
+.mo-hp .mo-h3{margin-top:0}
+.mo-hp .body{color:#fbfdff;margin-top:14px;max-width:964px}
+.mo-hg{display:grid;grid-template-columns:330px 1fr;gap:60px;align-items:center;margin-top:60px;padding:0 32px}
+.mo-hg .mo-wt{position:relative;width:min(237px,100%);margin-left:60px}
+.mo-hg .mo-wt>img{display:block;width:100%;height:auto;border-radius:6px}
+.mo-hg .scr{position:absolute;left:12.6%;top:18.2%;width:73.5%;height:61.8%;border-radius:12% / 8%;overflow:hidden;background:#000;display:grid;place-items:center}
+.mo-hg .scr i{position:absolute;left:50%;top:50%;width:30%;aspect-ratio:1;translate:-50% -50%;border-radius:50%;border:3px solid var(--hc,#00b5ff);opacity:0}
+.mo-hg .mo-wt.go{animation:hshake var(--hd,.5s) linear}
+.mo-hg .mo-wt.go .scr i{animation:hring var(--hd,.5s) ease-out var(--hn,1) both}
+.mo-hg .mo-wt.go .scr i:nth-child(2){animation-delay:.12s}.mo-hg .mo-wt.go .scr i:nth-child(3){animation-delay:.24s}
+@keyframes hring{0%{opacity:.9;transform:scale(.4)}100%{opacity:0;transform:scale(3.1)}}
+@keyframes hshake{0%,100%{transform:none}15%{transform:translateX(-4px) rotate(-1deg)}30%{transform:translateX(4px) rotate(1deg)}45%{transform:translateX(-3px)}60%{transform:translateX(3px)}80%{transform:translateX(-1px)}}
+.mo-hg .ls{display:flex;flex-direction:column;gap:12px}
+.mo-hg .ha{display:block;text-align:left;background:#fbfdff;color:#2d2e30;border-radius:12px;padding:16px 20px;border-left:0;box-shadow:inset 0 0 0 0 #00b5ff;transition:background .3s,box-shadow .3s,transform .3s var(--spring)}
+.mo-hg .ha b{display:block;font-size:14px;line-height:18px;font-weight:600}
+.mo-hg .ha span{display:block;font-size:14px;line-height:20px;color:#4a4b4e;margin-top:2px}
+.mo-hg .ha:hover{transform:translateX(4px)}
+.mo-hg .ha.on{background:#dff3fa;box-shadow:inset 4px 0 0 #00b5ff}
+.mo-hg .ha.on b{color:#00a0e6}
+.mo-fr{background:#cccdcf;margin-top:90px;padding:44px 24px;text-align:center}
+.mo-fr p{font-family:'Epilogue';font-weight:700;font-size:48px;line-height:62px;letter-spacing:-.05em;color:#8a8b8e;margin:0 auto;max-width:1000px;padding-left:var(--side)}
+.mo-bp{padding-bottom:110px}
+.mo-k{font-family:'Figtree';font-weight:400;font-size:18px;line-height:28px;letter-spacing:.02em;text-transform:uppercase;margin-top:56px}
+.mo-cd{display:grid;grid-template-columns:repeat(2,311px);justify-content:center;gap:52px;margin-top:22px}
+.mo-cd img{display:block;width:100%;height:auto;border-radius:0}
+.mo-bp .mo-two+.mo-k{margin-top:60px}
+@media (max-width:560px){
+  .mo-sec{padding:56px 0 0}.mo-ph{margin-top:56px;padding:48px 0 56px}.mo-hp{margin-top:56px;padding:56px 0}.mo-fr{margin-top:56px;padding:36px 18px}
+  .mo-two{grid-template-columns:1fr;row-gap:16px}
+  .mo-two.s h2{white-space:normal}
+  #motion h2{font-size:32px;line-height:38px}
+  .mo-h3{font-size:24px;line-height:30px;margin-top:48px}
+  .mo-pr{grid-template-columns:1fr;gap:28px}.mo-pr .pi{font-size:22px;height:52px}
+  .mo-du .mo-r{grid-template-columns:1fr;row-gap:8px}
+  .mo-phg{grid-template-columns:1fr;gap:36px}.mo-ph .ph{margin:0 auto;width:min(260px,70%)}
+  .mo-ph dl{grid-template-columns:1fr 1fr;row-gap:20px}
+  .mo-ap{grid-template-columns:1fr}.mo-ap article{height:200px}
+  .mo-so{grid-template-columns:56px 1fr;gap:10px}.mo-so .num{font-size:28px}.mo-so .tx{grid-column:1/-1}
+  .mo-so .mo-pl{height:170px;gap:16px}.mo-so .wv{height:28px;transform:scaleX(.55);transform-origin:center}
+  .mo-hg{grid-template-columns:1fr;padding:0;gap:28px}.mo-hg .mo-wt{margin:0 auto;width:150px}
+  .mo-fr p{font-size:28px;line-height:36px;padding-left:var(--side)}
+  .mo-cd{grid-template-columns:1fr 1fr;gap:12px}
+  .mo-k{font-size:16px}
+}
+.mo-phg{grid-template-columns:381px minmax(0,1fr);gap:100px}
+.mo-ph .tb{min-width:0}
+.mo-bp .mo-two{grid-template-columns:430px 1fr}
+@media (max-width:560px){.mo-phg{grid-template-columns:1fr!important}.mo-bp .mo-two{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -2385,11 +2564,11 @@ body.inpage .sd-wrap:not(:empty){display:flex}
           <a class="tile" href="#tipografias" data-go="tipografias" style="--ar:184/258;--lx:11;--ly:14;flex:1;--t:#fbfdff"><img src="assets/home/tipografias.webp" alt="" draggable="false"><span>Uso de<br>tipografías</span></a>
         </div>
         <a class="tile" href="#elementos" data-go="elementos" style="--ar:383/165;--lx:11;--ly:14;flex:165;--t:#fbfdff"><img src="assets/home/elementos.webp" alt="" draggable="false"><span>Elementos<br>gráficos</span><span class="arrow">↗</span></a>
-        <a class="tile" href="#" style="--ar:382/258;--lx:22;--ly:15;flex:258;--t:#fbfdff"><img src="assets/home/senaletica.webp" alt="" draggable="false"><span>Señalética</span><span class="arrow">↗</span></a>
+        <a class="tile" href="#senaletica" data-go="senaletica" style="--ar:382/258;--lx:22;--ly:15;flex:258;--t:#fbfdff"><img src="assets/home/senaletica.webp" alt="" draggable="false"><span>Señalética</span><span class="arrow">↗</span></a>
       </div>
       <div class="col">
         <a class="tile" href="#colores" data-go="colores" style="--ar:383/258;--lx:23;--ly:14;flex:258;--t:#2d2e30"><img src="assets/home/paletas.webp" alt="" draggable="false"><span>Paletas<br>cromáticas</span><span class="arrow">↗</span></a>
-        <a class="tile" href="#" style="--ar:382/258;--lx:22;--ly:17;flex:258;--t:#2d2e30"><img src="assets/home/motion.webp" alt="" draggable="false"><span>Motion<br>y sonidos</span><span class="arrow">↗</span></a>
+        <a class="tile" href="#motion" data-go="motion" style="--ar:382/258;--lx:22;--ly:17;flex:258;--t:#2d2e30"><img src="assets/home/motion.webp" alt="" draggable="false"><span>Motion<br>y sonidos</span><span class="arrow">↗</span></a>
         <a class="tile" href="#" style="--ar:383/164;--lx:22;--ly:18;flex:164;--t:#2d2e30"><img src="assets/home/marca.webp" alt="" draggable="false"><span>La marca<br>en uso</span><span class="arrow">↗</span></a>
       </div>
     </nav>
@@ -3748,6 +3927,249 @@ body.inpage .sd-wrap:not(:empty){display:flex}
 </main>
 
 
+<!-- ═════════════ SEÑALÉTICA ═════════════ -->
+<main id="senaletica" class="view">
+
+  <header class="hero se" data-label="">
+    <i class="blob a"></i><i class="blob b"></i><i class="blob c"></i><i class="blob d"></i>
+    <div class="stage">
+      <h1 class="title"><span class="ln"><span><b class="ch" style="--w0:200">S</b><b class="ch" style="--w0:800">e</b><b class="ch" style="--w0:800">ñ</b><b class="ch" style="--w0:300">a</b><b class="ch" style="--w0:300">l</b><b class="ch" style="--w0:300">é</b><b class="ch" style="--w0:800">t</b><b class="ch" style="--w0:800">i</b><b class="ch" style="--w0:800">c</b><b class="ch" style="--w0:800">a</b></span></span></h1>
+      <a class="pill" href="#" data-to="se-medidas" style="--x:24.8%;--y:31%;--r:3deg;--d:0.5s;--f:5.5s;--k:14px">Medidas</a>
+      <a class="pill" href="#" data-to="se-criterios" style="--x:52.4%;--y:30%;--r:-5deg;--d:0.6s;--f:7s;--k:-12px">Criterios</a>
+      <a class="pill" href="#" data-to="se-materialidad" style="--x:81.3%;--y:40%;--r:0deg;--d:0.7s;--f:6.3s;--k:16px">Materialidad</a>
+      <a class="pill" href="#" data-to="se-tipos" style="--x:36%;--y:69%;--r:12deg;--d:0.8s;--f:5s;--k:-12px">Tipos de señales</a>
+      <a class="pill" href="#" data-to="se-tipos" style="--x:70.8%;--y:69.5%;--r:0deg;--d:0.9s;--f:6.8s;--k:12px">Cantidades</a>
+      <p class="sub">Señales que orientan y caminos<br>que invitan a descubrir.</p>
+    </div>
+  </header>
+
+  <div class="flow">
+
+  <section class="se-sec" id="se-criterios" data-tone="l" data-label="Criterios">
+    <div class="wrap">
+      <div class="se-two"><h2 data-r="up">Criterios</h2>
+        <p class="body" data-r="up" style="--d:.1s">La señalética orienta y acompaña la experiencia de Desvío, ubica las actividades y <b>ayuda a explorar el espacio con autonomía.</b></p></div>
+      <div class="se-cr">
+        <article data-r="up"><h3>Señales indicativas</h3><p><b>Identifican cada estación, los accesos y servicios.</b> Usan texto legible, contraste y códigos consistentes, el color no es la única forma de distinguir destinos.</p></article>
+        <article data-r="up" style="--d:.08s"><h3>Señales de orientación</h3><p>Mapas y flechas <b>indican cómo llegar sin imponer un circuito.</b> Se ven desde los puntos de decisión y se actualizan si cambian accesos o circulación.</p></article>
+        <article data-r="up"><h3>Criterio de implantación</h3><p><b>Orientar en cruces, identificar</b> accesos y servicios, <b>informar</b> en ingreso y salida <b>y advertir riesgos</b> en puntos críticos.</p></article>
+        <article data-r="up" style="--d:.08s"><h3>Orientación libre</h3><p>No hay itinerario obligatorio, se reconocen los espacios y <b>se puede volver a ubicar desde cualquier punto.</b></p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="se-sec" id="se-tipos" data-tone="l" data-label="Tipos de señales">
+    <div class="wrap">
+      <div class="se-two"><h2 data-r="up">Tipos de<br>señaléticas</h2>
+        <p class="body" data-r="up" style="--d:.1s">La señalética de Desvío se organiza en <b>cinco familias y ocho tipos de señales,</b> diseñadas <b>para orientar, informar y acompañar</b> a las personas durante su recorrido por el festival.</p></div>
+      <div class="se-f3">
+        <article class="se-fi" data-r="up"><div class="se-im"><div class="se-sw"><img class="se-ov se-nm" src="assets/se/nomen.webp" alt="Nomenclador: mapa del festival con las salas y servicios" loading="lazy" draggable="false"></div></div><h3>Nomenclador</h3><dl><dt>Para qué sirve</dt><dd>Mapa con salas y servicios y la referencia “Vos estás acá”. Ayuda a elegir recorrido y ubicar cada espacio.</dd><dt>Dónde va</dt><dd>En el ingreso, antes de iniciar el recorrido.</dd></dl></article>
+        <article class="se-fi" data-r="up"><div class="se-im"><img src="assets/se/direc.webp" alt="Señal direccional con pictogramas y flechas" loading="lazy" draggable="false"></div><h3>Direccional</h3><dl><dt>Para qué sirve</dt><dd>Orienta entre salas y servicios. Combina pictograma, destino y flecha para resolver una bifurcación de un vistazo.</dd><dt>Dónde va</dt><dd>En bifurcaciones y salidas de sectores.</dd></dl></article>
+        <article class="se-fi" data-r="up"><div class="se-im"><div class="se-sw"><img class="se-ov se-inf" src="assets/se/info.webp" alt="Señal informativa con código QR" loading="lazy" draggable="false"></div></div><h3>Informativa</h3><dl><dt>Para qué sirve</dt><dd>Presenta el festival y permite sacar otro turno con el QR. Se lee de arriba abajo: título, descripción, QR y redes.</dd><dt>Dónde va</dt><dd>En áreas de espera o descanso y cerca de los ingresos.</dd></dl></article>
+      </div>
+      <article class="se-reg" data-r="up">
+        <h3>Reguladoras</h3>
+        <p class="lead">Tres variantes con la misma placa, altura y base: cambia el pictograma y la regla que comunican.</p>
+        <div class="se-f3 in3">
+          <div class="se-v"><div class="se-im"><img src="assets/se/proh.webp" alt="Señales prohibitivas: no tocar, no pasar, no fumar" loading="lazy" draggable="false"></div><h4>Prohibitiva</h4><dl><dt>Para qué sirve</dt><dd>Señala conductas no permitidas, como por ejemplo no fumar.</dd><dt>Dónde va</dt><dd>En instalaciones técnicas, límites de acceso de personal y sectores donde no se permite fumar</dd></dl></div>
+          <div class="se-v"><div class="se-im"><img src="assets/se/prev.webp" alt="Señales preventivas: piso mojado, cruce peatonal, sonido envolvente" loading="lazy" draggable="false"></div><h4>Preventiva</h4><dl><dt>Para qué sirve</dt><dd>Anticipa condiciones que requieren atención.</dd><dt>Dónde va</dt><dd>Antes de cada condición: sectores con piso mojado, ingreso a salas con sonido y cruces peatonales.</dd></dl></div>
+          <div class="se-v"><div class="se-im"><img src="assets/se/rest.webp" alt="Señales restrictivas: velocidad máxima, capacidad máxima, ingreso por turnos" loading="lazy" draggable="false"></div><h4>Restrictiva</h4><dl><dt>Para qué sirve</dt><dd>Informa límites o condiciones de uso, como capacidad permitida.</dd><dt>Dónde va</dt><dd>En accesos a salas con turno o capacidad limitada y en circulaciones de servicio.</dd></dl></div>
+        </div>
+      </article>
+      <div class="se-f2">
+        <article class="se-fi" data-r="up"><div class="se-im"><img src="assets/se/indes.webp" alt="Señales indicativas de espacios: emergencias, sanitarios, área de descanso y gastronomía" loading="lazy" draggable="false"></div><h3>Indicativas | Espacios</h3><dl><dt>Para qué sirve</dt><dd>Identifica servicios con icono, nombre y flecha. Confirma que la persona llegó e indica hacia dónde continuar.</dd><dt>Dónde va</dt><dd>En cada servicio: emergencias, información, gastronomía, sanitarios, soporte, descanso y sala operacional.</dd></dl></article>
+        <article class="se-fi" data-r="up"><div class="se-im"><img src="assets/se/indsa.webp" alt="Señales indicativas de salas: Apuro, Plan B y A1000" loading="lazy" draggable="false"></div><h3>Indicativas | Salas</h3><dl><dt>Para qué sirve</dt><dd>Anuncia Apuro, Plan B y A1000 con color, nombre y flecha; orienta antes de llegar al ingreso de cada sala.</dd><dt>Dónde va</dt><dd>En circulaciones principales, cerca de cada sala y visible antes de llegar al ingreso.</dd></dl></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="se-sec" id="se-medidas" data-tone="l" data-label="Medidas">
+    <div class="wrap">
+      <div class="se-two"><h2 data-r="up">Medidas</h2>
+        <p class="body" data-r="up" style="--d:.1s">Se presentan a una misma escala, junto a dos figuras de referencia, para <b>comparar sus dimensiones y evaluar su relación con las personas</b> en el espacio. Esta comparación permite <b>visualizar las alturas propuestas y considerar la accesibilidad</b> en el recorrido.</p></div>
+      <div class="se-med" data-r="up"><img src="assets/se/medidas.webp" alt="Alturas de todas las señales a la misma escala, junto a una persona de 1,80 m y un usuario en silla de ruedas de 1,35 m" loading="lazy" draggable="false"></div>
+      <ul class="se-ley" data-r="up"><li><i class="se-sln"></i>Persona de referencia (1,80 m) y usuario en silla de ruedas (1,35 m)</li><li><i class="se-dsh"></i>Altura propuesta de la pieza</li></ul>
+    </div>
+  </section>
+
+  <section class="se-sec" id="se-accesibilidad" data-tone="l" data-label="Accesibilidad">
+    <div class="wrap">
+      <div class="se-two"><h2 data-r="up">Accesibilidad</h2>
+        <p class="body" data-r="up" style="--d:.1s">Contemplamos diferentes formas de recorrer el espacio. Definimos <b>criterios de ubicación y altura</b> para facilitar la lectura, el acceso y <b>la circulación</b> de todas las personas.</p></div>
+      <div class="se-ac">
+        <article data-r="up"><h3>Espacio libre</h3><p>Dejamos un espacio de 1,50m libre frente a las señales informativas y reguladoras para facilitar la lectura.</p></article>
+        <article data-r="up" style="--d:.06s"><h3>QR al alcance</h3><p>Ubicamos los códigos QR a una altura accesible tanto de pie como desde una silla de ruedas.</p></article>
+        <article data-r="up" style="--d:.12s"><h3>Altura de paso</h3><p>Establecemos una altura mínima de 2m para el borde inferior de las señales elevadas, evitando obstáculos en el recorrido.</p></article>
+        <article data-r="up" style="--d:.18s"><h3>Circulación libre</h3><p>Ubicamos las bases y los soportes fuera de las zonas de circulación para mantener los recorridos libres de obstáculos.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="se-sec se-last" id="se-materialidad" data-tone="l" data-label="Materialidad y lectura">
+    <div class="wrap">
+      <div class="se-two"><h2 data-r="up">Materialidad<br>y lectura</h2>
+        <div class="body" data-r="up" style="--d:.1s"><p>La señalética de Desvío utiliza <b>materiales resistentes y criterios de iluminación que garantizan su lectura</b> durante toda la jornada.</p><p>La direccional incorpora iluminación propia para destacarse durante la noche.</p></div></div>
+      <div class="se-cr">
+        <article data-r="up"><h3>Materialidad</h3><p>Las piezas se construyen con vinilo sobre chapa y estructuras de acero pintado. Se priorizan materiales resistentes y desmontables, adecuados para el uso en espacios exteriores y los cambios de ediciones del evento.</p></article>
+        <article data-r="up" style="--d:.08s"><h3>Lectura de día y de noche</h3><p>Durante el día, la señalética se lee con luz natural. Por la noche, incorporan iluminación LED en sus bordes para facilitar la lectura.</p></article>
+      </div>
+      <div class="se-dn">
+        <div><h4 data-r="up">De día</h4><img data-r="up" src="assets/se/foto-d1.webp" alt="Señalética de día" loading="lazy" draggable="false"><img data-r="up" src="assets/se/foto-d2.webp" alt="Señalética de día" loading="lazy" draggable="false"><img data-r="up" src="assets/se/foto-d3.webp" alt="Señalética de día" loading="lazy" draggable="false"><img data-r="up" src="assets/se/foto-d4.webp" alt="Señalética de día" loading="lazy" draggable="false"></div>
+        <div><h4 data-r="up">De noche</h4><img data-r="up" src="assets/se/foto-n1.webp" alt="Señalética de noche" loading="lazy" draggable="false"><img data-r="up" src="assets/se/foto-n2.webp" alt="Señalética de noche" loading="lazy" draggable="false"><img data-r="up" src="assets/se/foto-n3.webp" alt="Señalética de noche" loading="lazy" draggable="false"><img data-r="up" src="assets/se/foto-n4.webp" alt="Señalética de noche" loading="lazy" draggable="false"></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <button class="up">
+      <span class="ring">
+        <svg class="orb" viewBox="0 0 114 114" fill="none" stroke="#effaff" stroke-width="3" stroke-linecap="round"><path d="M12 30A55 55 0 0 1 48 3"/><path d="M102 84a55 55 0 0 1-36 27"/></svg>
+        <span class="dot"><svg width="30" height="30" viewBox="0 0 30 30" fill="none" stroke="#2d2e30" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M7 15l8-8 8 8M7 24l8-8 8 8"/></svg></span>
+      </span>
+      Volver arriba
+    </button>
+    <div class="sign"><i class="mk sign-logo" role="img" aria-label="Entre tiempo" style="--m:var(--k-et);--ar:8.1"></i><small>Una identidad, múltiples experiencias.</small></div>
+  </footer>
+  </div>
+</main>
+
+<!-- ═════════════ MOTION Y SONIDOS ═════════════ -->
+<main id="motion" class="view">
+
+  <header class="hero mo" data-label="">
+    <i class="blob a"></i><i class="blob b"></i><i class="blob c"></i><i class="blob d"></i>
+    <div class="stage">
+      <h1 class="title"><span class="ln"><span><b class="ch" style="--w0:800">M</b><b class="ch" style="--w0:300">o</b><b class="ch" style="--w0:300">t</b><b class="ch" style="--w0:800">i</b><b class="ch" style="--w0:700;font-style:italic">o</b><b class="ch" style="--w0:300">n</b></span></span><span class="ln"><span><b class="ch" style="--w0:800">y</b> <b class="ch" style="--w0:800;font-style:italic">s</b><b class="ch" style="--w0:300">o</b><b class="ch" style="--w0:800">n</b><b class="ch" style="--w0:300">i</b><b class="ch" style="--w0:700;font-style:italic">d</b><b class="ch" style="--w0:300">o</b><b class="ch" style="--w0:300;font-style:italic">s</b></span></span></h1>
+      <a class="pill" href="#" data-to="mo-sonidos" style="--x:44.8%;--y:19.6%;--r:-8deg;--d:0.5s;--f:5.5s;--k:14px">Sonidos</a>
+      <a class="pill" href="#" data-to="mo-movimiento" style="--x:20.5%;--y:45.5%;--r:7deg;--d:0.6s;--f:7s;--k:-12px">Movimientos</a>
+      <a class="pill" href="#" data-to="mo-practicas" style="--x:79.4%;--y:45.5%;--r:-6deg;--d:0.7s;--f:6.3s;--k:16px">Usos correctos</a>
+      <p class="sub">Cada transición  y sonido aporta<br>claridad sin interrumpir la experiencia.</p>
+    </div>
+  </header>
+
+  <div class="flow">
+
+  <section class="mo-sec" id="mo-movimiento" data-tone="l" data-label="Movimiento">
+    <div class="wrap">
+      <div class="mo-two"><h2 data-r="up">Movimiento</h2>
+        <p class="body" data-r="up" style="--d:.1s">Or<b>ienta y confirma acciones</b>; el sonido comunica cambios y construye atmósferas. Esta sección reúne <b>criterios de aplicación</b> para todo ENTRE TIEMPO.</p></div>
+      <h3 class="mo-h3" data-r="up">Principios del movimiento</h3>
+      <p class="body mo-lead" data-r="up"><b>No mover por mover:</b> el movimiento debe <b>orientar, responder o enfatizar</b> una acción. Si no ayuda a comprender un cambio, no hace falta animarlo.</p>
+      <div class="mo-pr">
+        <div data-r="up"><span class="pi" style="--c:#e6f7e9">Orientar</span><p>Mantener la <b>continuidad</b> al pasar de una pantalla a otra.</p></div>
+        <div data-r="up" style="--d:.08s"><span class="pi" style="--c:#9bdda8">Responder</span><p>Confirmar que una selección o acción <b>fue registrada</b>.</p></div>
+        <div data-r="up" style="--d:.16s"><span class="pi" style="--c:#48c569">Enfatizar</span><p>Destacar logros o momentos clave <b>sin interrumpir la tarea</b>.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mo-sec mo-dur" id="mo-duraciones" data-tone="l" data-label="Duraciones del movimiento">
+    <div class="wrap">
+      <h3 class="mo-h3" data-r="up">Duraciones del movimiento</h3>
+      <p class="body mo-lead" data-r="up">Los rangos sirven como guía para el feedback, las transiciones y el énfasis. Deben validarse según cada interfaz; el ejemplo de <b>MOVIDA</b> documenta sus propios tiempos.</p>
+      <div class="mo-du" id="moDu">
+        <div class="mo-r" data-w="18"><div class="mo-l"><small>Microfeedback</small><b>120–180 ms</b></div><div class="mo-b"><div class="mo-tr"><i></i></div><p><b>Selección / toque:</b> Respuesta inmediata y discreta</p></div></div>
+        <div class="mo-r" data-w="38"><div class="mo-l"><small>Transición</small><b>220–320 ms</b></div><div class="mo-b"><div class="mo-tr"><i></i></div><p><b>Navegación / cambio:</b> Mantener continuidad espacial</p></div></div>
+        <div class="mo-r" data-w="78"><div class="mo-l"><small>Énfasis</small><b>400–650 ms</b></div><div class="mo-b"><div class="mo-tr"><i></i></div><p><b>Insignias / logros:</b> Usar de forma ocasional</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mo-ph" id="mo-seleccion" data-tone="d" data-label="Selección de actividad">
+    <div class="wrap">
+      <div class="mo-phg">
+        <img class="ph" data-r="up" src="assets/mo/phone.webp" alt="Pantalla Mi jornada de MOViDA con tres actividades para elegir" loading="lazy" draggable="false">
+        <div class="tb" data-r="up" style="--d:.1s">
+          <h3>Selección de actividad</h3>
+          <p class="body">Al tocar una actividad cambian <b>el fondo, el borde y el check.</b> Al seleccionar <b>Trabajo y Universidad</b> aparece el recorrido; desplazá el celular para ver Continuar. <b>Sin rebotes ni efectos decorativos.</b></p>
+          <dl><dt>Disparador</dt><dd>Toque sobre una actividad</dd><dt>Respuesta</dt><dd>Borde, fondo violeta y check</dd><dt>Duración propuesta</dt><dd>160 ms selección · 260 ms mapa</dd><dt>Curva propuesta</dt><dd>Ease-out</dd><dt>Estado final</dt><dd>Selección visible al terminar</dd></dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mo-sec" id="mo-apps" data-tone="l" data-label="Aplicaciones por experiencia">
+    <div class="wrap">
+      <h3 class="mo-h3 big" data-r="up">Aplicaciones por experiencia</h3>
+      <div class="mo-ap">
+        <article data-r="up"><h4>APURO<br>Tensión</h4><p>Un contador o imprevisto modifica la atención.</p></article>
+        <article data-r="up" style="--d:.08s"><h4>A1000<br><b>Pausa</b></h4><p>Transiciones progresivas acompañan la reflexión.</p></article>
+        <article data-r="up" style="--d:.16s"><h4>DESVÍO<br>Orientación</h4><p>Entradas breves a estaciones y contenidos digitales.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="mo-sec" id="mo-sonidos" data-tone="l" data-label="Sonidos">
+    <div class="wrap">
+      <div class="mo-two s"><h2 data-r="up">Sonidos</h2>
+        <p class="body" data-r="up" style="--d:.1s">Cada uno debe tener un propósito claro y no interferir con los contenidos. Acompañan las interacciones de ENTRE TIEMPO. <b>Confirman acciones, señalan imprevistos y refuerzan momentos de la experiencia,</b> aportando información sin depender exclusivamente del audio.</p></div>
+      <div class="mo-sl">
+        <div class="mo-so" data-r="up" data-n="1"><div class="num">01</div>
+      <div class="mo-pl"><div class="wv" aria-hidden="true"><i style="--h:8"></i><i style="--h:14"></i><i style="--h:22"></i><i style="--h:10"></i><i style="--h:28"></i><i style="--h:18"></i><i style="--h:9"></i><i style="--h:24"></i><i style="--h:30"></i><i style="--h:12"></i><i style="--h:20"></i><i style="--h:26"></i><i style="--h:8"></i><i style="--h:16"></i><i style="--h:29"></i><i style="--h:11"></i><i style="--h:23"></i><i style="--h:27"></i><i style="--h:9"></i><i style="--h:19"></i><i style="--h:31"></i><i style="--h:13"></i><i style="--h:21"></i><i style="--h:25"></i><i style="--h:10"></i><i style="--h:17"></i><i style="--h:28"></i><i style="--h:12"></i><i style="--h:22"></i><i style="--h:15"></i><i style="--h:8"></i><i style="--h:26"></i><i style="--h:30"></i><i style="--h:14"></i><i style="--h:20"></i><i style="--h:24"></i><i style="--h:11"></i><i style="--h:18"></i><i style="--h:29"></i><i style="--h:9"></i><i style="--h:23"></i><i style="--h:27"></i><i style="--h:13"></i><i style="--h:21"></i><i style="--h:16"></i><i style="--h:10"></i><i style="--h:25"></i><i style="--h:31"></i><i style="--h:12"></i><i style="--h:19"></i><i style="--h:28"></i><i style="--h:8"></i><i style="--h:22"></i><i style="--h:17"></i><i style="--h:26"></i><i style="--h:14"></i></div><div class="ct"><button class="pv" aria-label="Anterior"><svg viewBox="0 0 24 24"><path d="M6 6h2v12H6zM9.5 12 18 18V6z"/></svg></button><button class="pp" aria-label="Reproducir Confirmación de actividad"><svg class="ic-p" viewBox="0 0 24 24"><path d="M9 7v10l8-5z"/></svg><svg class="ic-s" viewBox="0 0 24 24"><path d="M8 7h3v10H8zM13 7h3v10h-3z"/></svg></button><button class="nx" aria-label="Siguiente"><svg viewBox="0 0 24 24"><path d="M16 6h2v12h-2zM6 18l8.5-6L6 6z"/></svg></button></div></div>
+      <div class="tx"><small>MOVIDA</small><h4>Confirmación de actividad</h4><p>Confirma que una actividad fue registrada correctamente, sin interrumpir la navegación.</p></div></div>
+        <div class="mo-so" data-r="up" data-n="2"><div class="num">02</div>
+      <div class="mo-pl"><div class="wv" aria-hidden="true"><i style="--h:8"></i><i style="--h:14"></i><i style="--h:22"></i><i style="--h:10"></i><i style="--h:28"></i><i style="--h:18"></i><i style="--h:9"></i><i style="--h:24"></i><i style="--h:30"></i><i style="--h:12"></i><i style="--h:20"></i><i style="--h:26"></i><i style="--h:8"></i><i style="--h:16"></i><i style="--h:29"></i><i style="--h:11"></i><i style="--h:23"></i><i style="--h:27"></i><i style="--h:9"></i><i style="--h:19"></i><i style="--h:31"></i><i style="--h:13"></i><i style="--h:21"></i><i style="--h:25"></i><i style="--h:10"></i><i style="--h:17"></i><i style="--h:28"></i><i style="--h:12"></i><i style="--h:22"></i><i style="--h:15"></i><i style="--h:8"></i><i style="--h:26"></i><i style="--h:30"></i><i style="--h:14"></i><i style="--h:20"></i><i style="--h:24"></i><i style="--h:11"></i><i style="--h:18"></i><i style="--h:29"></i><i style="--h:9"></i><i style="--h:23"></i><i style="--h:27"></i><i style="--h:13"></i><i style="--h:21"></i><i style="--h:16"></i><i style="--h:10"></i><i style="--h:25"></i><i style="--h:31"></i><i style="--h:12"></i><i style="--h:19"></i><i style="--h:28"></i><i style="--h:8"></i><i style="--h:22"></i><i style="--h:17"></i><i style="--h:26"></i><i style="--h:14"></i></div><div class="ct"><button class="pv" aria-label="Anterior"><svg viewBox="0 0 24 24"><path d="M6 6h2v12H6zM9.5 12 18 18V6z"/></svg></button><button class="pp" aria-label="Reproducir Aviso de imprevisto"><svg class="ic-p" viewBox="0 0 24 24"><path d="M9 7v10l8-5z"/></svg><svg class="ic-s" viewBox="0 0 24 24"><path d="M8 7h3v10H8zM13 7h3v10h-3z"/></svg></button><button class="nx" aria-label="Siguiente"><svg viewBox="0 0 24 24"><path d="M16 6h2v12h-2zM6 18l8.5-6L6 6z"/></svg></button></div></div>
+      <div class="tx"><small>APURO</small><h4>Aviso de imprevisto</h4><p>Señala una situación inesperada que modifica el recorrido y requiere una nueva decisión.</p></div></div>
+        <div class="mo-so" data-r="up" data-n="3"><div class="num">03</div>
+      <div class="mo-pl"><div class="wv" aria-hidden="true"><i style="--h:8"></i><i style="--h:14"></i><i style="--h:22"></i><i style="--h:10"></i><i style="--h:28"></i><i style="--h:18"></i><i style="--h:9"></i><i style="--h:24"></i><i style="--h:30"></i><i style="--h:12"></i><i style="--h:20"></i><i style="--h:26"></i><i style="--h:8"></i><i style="--h:16"></i><i style="--h:29"></i><i style="--h:11"></i><i style="--h:23"></i><i style="--h:27"></i><i style="--h:9"></i><i style="--h:19"></i><i style="--h:31"></i><i style="--h:13"></i><i style="--h:21"></i><i style="--h:25"></i><i style="--h:10"></i><i style="--h:17"></i><i style="--h:28"></i><i style="--h:12"></i><i style="--h:22"></i><i style="--h:15"></i><i style="--h:8"></i><i style="--h:26"></i><i style="--h:30"></i><i style="--h:14"></i><i style="--h:20"></i><i style="--h:24"></i><i style="--h:11"></i><i style="--h:18"></i><i style="--h:29"></i><i style="--h:9"></i><i style="--h:23"></i><i style="--h:27"></i><i style="--h:13"></i><i style="--h:21"></i><i style="--h:16"></i><i style="--h:10"></i><i style="--h:25"></i><i style="--h:31"></i><i style="--h:12"></i><i style="--h:19"></i><i style="--h:28"></i><i style="--h:8"></i><i style="--h:22"></i><i style="--h:17"></i><i style="--h:26"></i><i style="--h:14"></i></div><div class="ct"><button class="pv" aria-label="Anterior"><svg viewBox="0 0 24 24"><path d="M6 6h2v12H6zM9.5 12 18 18V6z"/></svg></button><button class="pp" aria-label="Reproducir Pista resuelta"><svg class="ic-p" viewBox="0 0 24 24"><path d="M9 7v10l8-5z"/></svg><svg class="ic-s" viewBox="0 0 24 24"><path d="M8 7h3v10H8zM13 7h3v10h-3z"/></svg></button><button class="nx" aria-label="Siguiente"><svg viewBox="0 0 24 24"><path d="M16 6h2v12h-2zM6 18l8.5-6L6 6z"/></svg></button></div></div>
+      <div class="tx"><small>PLAN B</small><h4>Pista resuelta</h4><p>Feedback de progreso. Reconoce un avance en la investigación sin anticipar las soluciones restantes.</p></div></div>
+        <div class="mo-so" data-r="up" data-n="4"><div class="num">04</div>
+      <div class="mo-pl"><div class="wv" aria-hidden="true"><i style="--h:8"></i><i style="--h:14"></i><i style="--h:22"></i><i style="--h:10"></i><i style="--h:28"></i><i style="--h:18"></i><i style="--h:9"></i><i style="--h:24"></i><i style="--h:30"></i><i style="--h:12"></i><i style="--h:20"></i><i style="--h:26"></i><i style="--h:8"></i><i style="--h:16"></i><i style="--h:29"></i><i style="--h:11"></i><i style="--h:23"></i><i style="--h:27"></i><i style="--h:9"></i><i style="--h:19"></i><i style="--h:31"></i><i style="--h:13"></i><i style="--h:21"></i><i style="--h:25"></i><i style="--h:10"></i><i style="--h:17"></i><i style="--h:28"></i><i style="--h:12"></i><i style="--h:22"></i><i style="--h:15"></i><i style="--h:8"></i><i style="--h:26"></i><i style="--h:30"></i><i style="--h:14"></i><i style="--h:20"></i><i style="--h:24"></i><i style="--h:11"></i><i style="--h:18"></i><i style="--h:29"></i><i style="--h:9"></i><i style="--h:23"></i><i style="--h:27"></i><i style="--h:13"></i><i style="--h:21"></i><i style="--h:16"></i><i style="--h:10"></i><i style="--h:25"></i><i style="--h:31"></i><i style="--h:12"></i><i style="--h:19"></i><i style="--h:28"></i><i style="--h:8"></i><i style="--h:22"></i><i style="--h:17"></i><i style="--h:26"></i><i style="--h:14"></i></div><div class="ct"><button class="pv" aria-label="Anterior"><svg viewBox="0 0 24 24"><path d="M6 6h2v12H6zM9.5 12 18 18V6z"/></svg></button><button class="pp" aria-label="Reproducir Sonido del videojuego"><svg class="ic-p" viewBox="0 0 24 24"><path d="M9 7v10l8-5z"/></svg><svg class="ic-s" viewBox="0 0 24 24"><path d="M8 7h3v10H8zM13 7h3v10h-3z"/></svg></button><button class="nx" aria-label="Siguiente"><svg viewBox="0 0 24 24"><path d="M16 6h2v12h-2zM6 18l8.5-6L6 6z"/></svg></button></div></div>
+      <div class="tx"><small>APURO</small><h4>Sonido del videojuego</h4><p>Experiencia de juego. Acompaña la simulación y contribuye al ritmo de las decisiones durante el recorrido.</p></div></div>
+        <div class="mo-so" data-r="up" data-n="5"><div class="num">05</div>
+      <div class="mo-pl"><div class="wv" aria-hidden="true"><i style="--h:8"></i><i style="--h:14"></i><i style="--h:22"></i><i style="--h:10"></i><i style="--h:28"></i><i style="--h:18"></i><i style="--h:9"></i><i style="--h:24"></i><i style="--h:30"></i><i style="--h:12"></i><i style="--h:20"></i><i style="--h:26"></i><i style="--h:8"></i><i style="--h:16"></i><i style="--h:29"></i><i style="--h:11"></i><i style="--h:23"></i><i style="--h:27"></i><i style="--h:9"></i><i style="--h:19"></i><i style="--h:31"></i><i style="--h:13"></i><i style="--h:21"></i><i style="--h:25"></i><i style="--h:10"></i><i style="--h:17"></i><i style="--h:28"></i><i style="--h:12"></i><i style="--h:22"></i><i style="--h:15"></i><i style="--h:8"></i><i style="--h:26"></i><i style="--h:30"></i><i style="--h:14"></i><i style="--h:20"></i><i style="--h:24"></i><i style="--h:11"></i><i style="--h:18"></i><i style="--h:29"></i><i style="--h:9"></i><i style="--h:23"></i><i style="--h:27"></i><i style="--h:13"></i><i style="--h:21"></i><i style="--h:16"></i><i style="--h:10"></i><i style="--h:25"></i><i style="--h:31"></i><i style="--h:12"></i><i style="--h:19"></i><i style="--h:28"></i><i style="--h:8"></i><i style="--h:22"></i><i style="--h:17"></i><i style="--h:26"></i><i style="--h:14"></i></div><div class="ct"><button class="pv" aria-label="Anterior"><svg viewBox="0 0 24 24"><path d="M6 6h2v12H6zM9.5 12 18 18V6z"/></svg></button><button class="pp" aria-label="Reproducir Insignia obtenida"><svg class="ic-p" viewBox="0 0 24 24"><path d="M9 7v10l8-5z"/></svg><svg class="ic-s" viewBox="0 0 24 24"><path d="M8 7h3v10H8zM13 7h3v10h-3z"/></svg></button><button class="nx" aria-label="Siguiente"><svg viewBox="0 0 24 24"><path d="M16 6h2v12h-2zM6 18l8.5-6L6 6z"/></svg></button></div></div>
+      <div class="tx"><small>MOVIDA</small><h4>Insignia obtenida</h4><p>Acompaña la obtención de una insignia con un sonido breve y distintivo que refuerza la sensación de logro.</p></div></div>
+      </div>
+      <h3 class="mo-h3" data-r="up" style="margin-top:96px">Criterios sonoros</h3>
+      <p class="body mo-lead" data-r="up">Cada sonido necesita una <b>función clara</b>: confirmar, advertir o acompañar. El volumen <b>no debe tapar otros contenidos. Toda señal sonora debe tener una alternativa visual. La información tiene que comprenderse incluso con el audio desactivado.</b></p>
+    </div>
+  </section>
+
+  <section class="mo-hp" id="mo-haptica" data-tone="d" data-label="Respuestas hápticas">
+    <div class="wrap">
+      <h3 class="mo-h3" data-r="up">Respuestas hápticas</h3>
+      <p class="body" data-r="up">En MOVIDA, el Apple Watch acompaña el recorrido mediante señales vinculadas a eventos. Seleccioná una de las cinco funciones para ver cómo se representaría su respuesta háptica.</p>
+      <div class="mo-hg">
+        <div class="mo-wt" id="moWatch"><img src="assets/mo/watch.webp" alt="Apple Watch" draggable="false" loading="lazy"><div class="scr" id="moScr"><i></i><i></i><i></i></div></div>
+        <div class="ls" id="moHap" role="tablist">
+          <button class="ha on" data-i="0"><b>Comienzo</b><span>Inicio o reanudación del recorrido</span></button>
+          <button class="ha" data-i="1"><b>Éxito</b><span>Llegada, confirmación o sincronización</span></button>
+          <button class="ha" data-i="2"><b>Notificación</b><span>Aviso o cambio externo</span></button>
+          <button class="ha" data-i="3"><b>Rever</b><span>Reintento de conexión u operación</span></button>
+          <button class="ha" data-i="4"><b>Falla</b><span>Fallo real sin resolución inmediata</span></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mo-fr" id="mo-pausa" data-tone="l" data-label="">
+    <p>El tiempo también se diseña con pausas.</p>
+  </section>
+
+  <section class="mo-sec mo-bp" id="mo-practicas" data-tone="l" data-label="Buenas prácticas">
+    <div class="wrap">
+      <div class="mo-two s"><h2 data-r="up">Buenas prácticas</h2>
+        <p class="body" data-r="up" style="--d:.1s">El movimiento y el sonido deben <b>reforzar la comprensión</b>, no reemplazarla. Toda interacción requiere <b>información visible y alternativas accesibles</b>.</p></div>
+      <h5 class="mo-k" data-r="up">Movimiento</h5>
+      <div class="mo-cd"><img data-r="up" src="assets/mo/bp1.webp" alt="Sí: dejar visible el estado seleccionado y respetar la preferencia de movimiento reducido" loading="lazy" draggable="false"><img data-r="up" style="--d:.08s" src="assets/mo/bp2.webp" alt="No: ocultar datos dentro de una animación ni hacer obligatorio esperar una transición" loading="lazy" draggable="false"></div>
+      <h5 class="mo-k" data-r="up">Sonidos</h5>
+      <div class="mo-cd"><img data-r="up" src="assets/mo/bp3.webp" alt="Sí: acompañar alertas y confirmaciones con mensajes visibles y ofrecer control de volumen" loading="lazy" draggable="false"><img data-r="up" style="--d:.08s" src="assets/mo/bp4.webp" alt="No: usar el audio como única señal ni incorporar avisos constantes sin función" loading="lazy" draggable="false"></div>
+    </div>
+  </section>
+
+  <footer>
+    <button class="up">
+      <span class="ring">
+        <svg class="orb" viewBox="0 0 114 114" fill="none" stroke="#effaff" stroke-width="3" stroke-linecap="round"><path d="M12 30A55 55 0 0 1 48 3"/><path d="M102 84a55 55 0 0 1-36 27"/></svg>
+        <span class="dot"><svg width="30" height="30" viewBox="0 0 30 30" fill="none" stroke="#2d2e30" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M7 15l8-8 8 8M7 24l8-8 8 8"/></svg></span>
+      </span>
+      Volver arriba
+    </button>
+    <div class="sign"><i class="mk sign-logo" role="img" aria-label="Entre tiempo" style="--m:var(--k-et);--ar:8.1"></i><small>Una identidad, múltiples experiencias.</small></div>
+  </footer>
+  </div>
+</main>
+
 <div id="chrome">
   <aside class="side" aria-hidden="true"><i class="prog"></i><span class="lbl"><b id="lblBase" style="font-weight:400">Sobre Entre tiempo</b><em id="lbl"></em></span><span class="cr">© Copyright 2026</span></aside>
   <nav class="sd-wrap" id="sideDots" aria-label="Secciones de la página"></nav>
@@ -3822,7 +4244,7 @@ const T=s=>{if(LANG!=='en')return s;const k=nz(s);return EN[k]||s};
 
 const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
 const home=$('#home'), grid=$('#grid'), intro=$('#intro'), wipe=$('#wipe');
-const PAGES={sobre:{el:$('#sobre'),name:'Sobre Entre tiempo'},comunicamos:{el:$('#comunicamos'),name:'Cómo nos comunicamos'},signos:{el:$('#signos'),name:'Signos marcarios'},colores:{el:$('#colores'),name:'Paletas cromáticas'},elementos:{el:$('#elementos'),name:'Elementos gráficos'},tipografias:{el:$('#tipografias'),name:'Uso de tipografías'},ds:{el:$('#ds'),name:'Design System'}};
+const PAGES={sobre:{el:$('#sobre'),name:'Sobre Entre tiempo'},comunicamos:{el:$('#comunicamos'),name:'Cómo nos comunicamos'},signos:{el:$('#signos'),name:'Signos marcarios'},colores:{el:$('#colores'),name:'Paletas cromáticas'},elementos:{el:$('#elementos'),name:'Elementos gráficos'},tipografias:{el:$('#tipografias'),name:'Uso de tipografías'},ds:{el:$('#ds'),name:'Design System'},senaletica:{el:$('#senaletica'),name:'Señalética'},motion:{el:$('#motion'),name:'Motion y sonidos'}};
 const tiles=$$('.tile'); let offs=[], view='home';
 const clamp=(v,a=0,b=1)=>Math.min(b,Math.max(a,v));
 const ease=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
@@ -3943,8 +4365,8 @@ const MENU=[
  {k:'tipografias',t:'Uso de tipografías',i:'tipo',s:[['Familias tipográficas','familias'],['Jerarquías','jerarquias'],['Intervenciones','interv'],['Guías y usos','criterios'],['Aplicaciones','aplic']]},
  {k:'elementos',t:'Elementos gráficos',i:'elem',s:[['Destellos','destellos'],['Personajes del universo','personajes'],['Galería de ilustraciones','galeria']]},
  {k:'ds',t:'Design System',i:'ds',s:[['Atomic design','atomic'],['Iconografía','ds-iconos'],['Grillas','grillas'],['Nomenclaturas','nomen']]},
- {k:'senaletica',t:'Señalética',i:'evento',soon:1},
- {k:'motion',t:'Motion y sonidos',i:'motion',soon:1},
+ {k:'senaletica',t:'Señalética',i:'evento',s:[['Criterios','se-criterios'],['Tipos de señales','se-tipos'],['Medidas','se-medidas'],['Accesibilidad','se-accesibilidad'],['Materialidad y lectura','se-materialidad']]},
+ {k:'motion',t:'Motion y sonidos',i:'motion',s:[['Movimiento','mo-movimiento'],['Duraciones','mo-duraciones'],['Sonidos','mo-sonidos'],['Respuestas hápticas','mo-haptica'],['Buenas prácticas','mo-practicas']]},
  {k:'marca',t:'La marca en uso',i:'signos',soon:1}
 ];
 const menu=$('#menu'), mnList=$('#mnList');
@@ -4692,6 +5114,41 @@ if(!reduce)setInterval(()=>{if(hold||view!=='elementos'||document.hidden)return;
 
 /* espaciados */
 (()=>{const h=$('#dsEg');if(!h)return;h.innerHTML=[8,12,16,20,24].map(n=>`<div><b>${n} px</b><div class="h"><i></i><u style="width:${n}px"></u><s></s></div><small>HORIZONTALES</small><div class="v"><i></i><s style="height:${n}px"></s><em></em></div><small>VERTICALES</small></div>`).join('')})();
+
+/* ══════════ MOTION Y SONIDOS ══════════ */
+(()=>{
+  /* barras de duración: se llenan al entrar */
+  const du=$('#moDu');if(du){$$('.mo-r',du).forEach(r=>r.style.setProperty('--w',r.dataset.w+'%'));
+    new IntersectionObserver((es,ob)=>es.forEach(e=>{if(e.isIntersecting){$$('.mo-r',du).forEach((r,i)=>setTimeout(()=>r.classList.add('in'),i*220));ob.disconnect()}}),{threshold:.35}).observe(du)}
+  /* sonidos: cada fila reproduce un tono sintetizado (no hay archivos de audio) */
+  let ac=null,cur=null,stopT=0;
+  const NOTES={1:[[660,.09],[880,.14]],2:[[520,.1],[390,.1],[520,.1],[390,.14]],3:[[440,.08],[554,.08],[659,.16]],4:[[330,.1],[330,.1],[392,.1],[494,.1],[392,.1],[523,.18]],5:[[523,.08],[659,.08],[784,.08],[1047,.26]]};
+  function play(n){
+    try{ac=ac||new (window.AudioContext||window.webkitAudioContext)();
+      const g=ac.createGain();g.gain.value=.12;g.connect(ac.destination);let t=ac.currentTime+.02,tot=0;
+      (NOTES[n]||[]).forEach(([f,d])=>{const o=ac.createOscillator();o.type=n===4?'square':'sine';o.frequency.value=f;const e=ac.createGain();e.gain.setValueAtTime(0,t);e.gain.linearRampToValueAtTime(1,t+.015);e.gain.exponentialRampToValueAtTime(.001,t+d);o.connect(e);e.connect(g);o.start(t);o.stop(t+d+.02);t+=d;tot+=d});
+      return tot*1000+120}catch(e){return 1200}
+  }
+  $$('.mo-so').forEach(row=>{
+    const n=+row.dataset.n,pp=$('.pp',row);
+    const stop=()=>{row.classList.remove('on');if(cur===row)cur=null};
+    pp.addEventListener('click',()=>{
+      if(row.classList.contains('on')){stop();return}
+      if(cur)cur.classList.remove('on');cur=row;row.classList.add('on');
+      const ms=play(n);clearTimeout(stopT);stopT=setTimeout(stop,Math.max(ms,900));
+    });
+    const jump=d=>{const rows=$$('.mo-so'),i=rows.indexOf(row),nx=rows[(i+d+rows.length)%rows.length];nx.scrollIntoView({block:'center',behavior:reduce?'auto':'smooth'});setTimeout(()=>$('.pp',nx).click(),reduce?0:450)};
+    $('.pv',row).addEventListener('click',()=>jump(-1));$('.nx',row).addEventListener('click',()=>jump(1));
+  });
+  /* hápticas: el reloj vibra con un patrón distinto según el evento */
+  const wt=$('#moWatch'),hp=$('#moHap');
+  if(wt&&hp){
+    const P=[{c:'#00b5ff',n:1,d:.7},{c:'#48c569',n:2,d:.5},{c:'#ffd400',n:1,d:.4},{c:'#fc7600',n:3,d:.45},{c:'#ff3a30',n:4,d:.55}];
+    const go=i=>{const p=P[i];wt.style.setProperty('--hc',p.c);wt.style.setProperty('--hd',p.d+'s');wt.style.setProperty('--hn',p.n);wt.classList.remove('go');void wt.offsetWidth;wt.classList.add('go')};
+    hp.addEventListener('click',e=>{const b=e.target.closest('.ha');if(!b)return;$$('.ha',hp).forEach(x=>x.classList.toggle('on',x===b));go(+b.dataset.i)});
+    new IntersectionObserver((es,ob)=>es.forEach(e=>{if(e.isIntersecting){setTimeout(()=>go(0),500);ob.disconnect()}}),{threshold:.5}).observe(wt);
+  }
+})();
 
 /* arranque */
 const route=()=>{const h=location.hash.slice(1);return PAGES[h]?h:'home'};
