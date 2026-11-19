@@ -980,6 +980,8 @@ footer{background:var(--n01);color:#effaff;height:417px;position:relative}
 .cl-bar:not(.show) code,.cl-bar:not(.show) b{opacity:0;transform:translateY(10px)}
 .cl-bar.show code,.cl-bar.show b{opacity:1;transform:none}
 
+.cgs{overflow:clip}
+
 /* ═════════════ ELEMENTOS GRÁFICOS ═════════════ */
 .el-h3{font-family:'Epilogue';font-weight:600;font-size:28px;line-height:32px;letter-spacing:-.03em}
 .el-h3.lt,.body.lt{color:inherit}
@@ -1031,7 +1033,7 @@ footer{background:var(--n01);color:#effaff;height:417px;position:relative}
 .acc-art{position:absolute;left:50%;top:48%;translate:-50% -50%;width:180px;height:180px}
 .acc-art .c1{position:absolute;inset:0;border-radius:50%;background:#d9d9d9;transition:background .6s}
 .acc-p.s2 .acc-art .c1{background:#ccf901}
-.acc-art .g{position:absolute;inset:-60px;border-radius:50%;background:radial-gradient(circle,#ccf901 0,rgba(204,249,1,.35) 25%,rgba(120,120,200,.25) 55%,transparent 70%);opacity:0;animation:latido 3.4s ease-in-out infinite}
+.acc-art .g{position:absolute;inset:-60px;border-radius:50%;background:radial-gradient(circle,#ccf901 0,rgba(204,249,1,.35) 22%,rgba(18,19,21,.5) 46%,rgba(18,19,21,.22) 64%,rgba(18,19,21,.06) 76%,rgba(18,19,21,0) 86%);opacity:0;animation:latido 3.4s ease-in-out infinite}
 .acc-p.s3 .acc-art .g{opacity:1}.acc-p.s3 .acc-art .c1{display:none}
 .acc-p.s3 .acc-art .px{position:absolute;left:50%;top:50%;width:34px;height:34px;margin:-17px 0 0 -42px;border:2px solid #4c9bff;background:#ccf901}
 .acc-p.s3 .acc-art .pt{position:absolute;left:50%;top:50%;width:34px;height:34px;margin:-17px 0 0 56px;border:2px solid #fff;background:repeating-conic-gradient(#999 0 25%,#fff 0 50%) 0 0/10px 10px}
@@ -1286,6 +1288,20 @@ footer{background:var(--n01);color:#effaff;height:417px;position:relative}
 .fly{position:fixed;inset:0;z-index:1;pointer-events:none;overflow:hidden}
 .fly i{position:absolute;left:0;top:0;border-radius:50%;will-change:transform,opacity;opacity:0}
 body:not(.inpage) .fly{display:none}
+
+/* personajes: el radial entra suave */
+.car-in>.car-ell{filter:blur(28px);transition:opacity 1.9s ease .15s,transform 2.4s var(--ease) .15s}
+.car.sw .car-in>.car-ell{transform:scale(.5)}
+/* reglas de De plano a inflable, como en Figma */
+.inf-rules{gap:9px;max-width:805px}
+.inf-rules li{padding-left:26px;font-size:20px;line-height:28px}
+.inf-rules li::before{top:0;bottom:0;width:9px}
+.inf-rules li b{font-family:'Epilogue';font-size:30px;line-height:38px;font-weight:500}
+.inf-rules li strong{font-family:'Figtree';font-weight:600;font-size:20px;letter-spacing:0;margin-left:6px}
+.inf-rules li p{font-size:20px;line-height:28px;margin-top:2px}
+.inf-rules li p em{font-style:normal;font-weight:600}
+/* uso incorrecto: recorte limpio, sin sombra */
+.eu-v img.crop{filter:none;clip-path:inset(0 24% 9% 0)}
 
 /* ═════════ Signos: logos, versiones, escalas, grises y usos (scroll libre) ═════════ */
 .sg-logos{padding:130px 0 120px}
@@ -1724,6 +1740,22 @@ body.inpage .sd-wrap:not(:empty){display:flex}
 .tp-elig .lit.tp-elig-a b .w,.tp-elig .lit.tp-elig-a b .w.on,.tp-elig .lit.tp-elig-b b .w,.tp-elig .lit.tp-elig-b b .w.on{color:#ff9a9a}
 .tp-elig-in.done .lit.tp-elig-a b .w.on{color:#ffe500!important}
 .tp-elig-in.done .lit.tp-elig-b b .w.on{color:#ff3a30!important}
+
+/* centrado como el resto de la página */
+.tpb-e .tpb-s{padding-left:98px}
+.tpb-w.ep{padding-left:99px}
+.tpb-f .tpb-w{padding-left:98px}
+/* elección tipográfica: tamaño del Figma */
+.tp-elig-in{padding-left:99px;width:min(964px,calc(100% - var(--side)*2 - 48px));box-sizing:border-box}
+.tp-elig-a{font-size:48px;line-height:56px;max-width:767px;letter-spacing:-.02em}
+.tp-elig-b{font-size:20px;line-height:28px;max-width:640px;margin-top:70px}
+/* espacios */
+.tp-ini-in{height:620px}
+.tp-fam-h{padding:80px 0 50px}
+/* contorno como en Figma: trazo gris grueso y relleno limpio */
+.tp-ic .v2{color:#fbfdff;-webkit-text-stroke:3px #86878a;paint-order:stroke fill;font-weight:800;letter-spacing:-.04em}
+.tc .sm.ct{color:#fbfdff;-webkit-text-stroke:2px #9a9ca0;paint-order:stroke fill}
+@media (max-width:560px){.tpb-e .tpb-s,.tpb-f .tpb-w,.tpb-w.ep{padding-left:24px}.tp-elig-in{padding-left:0}.tp-elig-a{font-size:30px;line-height:36px}}
 </style>
 </head>
 <body>
@@ -2636,9 +2668,9 @@ body.inpage .sd-wrap:not(:empty){display:flex}
         </div>
       </div>
       <ol class="inf-rules">
-        <li style="--c:#ccf901"><b>01.</b> <strong>Volumen suave</strong><p>Formas redondeadas y ligeramente exageradas que parecen llenas de aire.</p></li>
-        <li style="--c:#ff3a30"><b>02.</b> <strong>Vinilo brillante</strong><p>Superficies lisas con reflejos alargados que acompañan las curvas.</p></li>
-        <li style="--c:#7b6fec"><b>03.</b> <strong>Pliegues sutiles</strong><p>Pequeñas arrugas y compresiones que refuerzan su apariencia inflable.</p></li>
+        <li style="--c:#ccf901"><b>01.</b> <strong>Volumen suave</strong><p><em>Formas redondeadas y ligeramente exageradas</em> que parecen llenas de aire.</p></li>
+        <li style="--c:#ff3a30"><b>02.</b> <strong>Vinilo brillante</strong><p><em>Superficies lisas con reflejos alargados</em> que acompañan las curvas.</p></li>
+        <li style="--c:#7b6fec"><b>03.</b> <strong>Pliegues sutiles</strong><p><em>Pequeñas arrugas y compresiones</em> que refuerzan su apariencia inflable.</p></li>
       </ol>
     </div>
   </section>
@@ -2716,7 +2748,7 @@ body.inpage .sd-wrap:not(:empty){display:flex}
 
   <!-- elección tipográfica -->
   <section class="tp-elig" id="tp-elig" data-label="Familias tipográficas">
-    <div class="pin full" id="tpEligPin" style="--len:900px"><div class="stick"><div class="tp-elig-in" id="tpElig">
+    <div class="pin full" id="tpEligPin" style="--len:520px"><div class="stick"><div class="tp-elig-in" id="tpElig">
       <p class="tp-elig-a lit" id="tpEligA">Elegimos <b>Epilogue</b><br>para los títulos porque aporta presencia y personalidad.</p>
       <p class="tp-elig-b lit" id="tpEligB">Además, usamos <b>Figtree</b> para acompañar los textos con claridad y mantener una lectura cómoda.</p>
     </div></div></div>
@@ -3271,7 +3303,7 @@ pin('#clPin',t=>{const lp=clamp(t/.8);clLit(lp*1.02);const k=Math.min(5,Math.flo
 const GRIS=['#2D2E30','#4F5053','#6F7073','#848588','#AEAFB2','#CCCDCF','#EDEEF0','#F1F3F5','#F6F8FA','#FBFDFF'], STEPS=[900,800,700,600,500,400,300,200,100,50];
 (()=>{const L0=lumOf(GRIS[0]),host=$('#cgs');
   host.innerHTML=GRIS.map((g,i)=>{const pct=Math.round((1-lumOf(g))/(1-L0)*100);
-    return `<button class="cgs-s" role="listitem" data-copy="${g}" style="background:${g};color:${inkOn(g)}" aria-label="Copiar gris ${STEPS[i]} ${g}"><span><b>${STEPS[i]}</b><br>${g} · ${pct}%</span></button>`}).join('')})();
+    return `<button class="cgs-s" role="listitem" data-copy="${g}" style="background:${g};color:${inkOn(g)}" aria-label="Copiar gris ${STEPS[i]} ${g}"><span><b>${STEPS[i]}</b><br>${g}</span></button>`}).join('')})();
 
 /* paleta que gira */
 (()=>{const C=['#7b6fec','#35ceff','#ccf901','#48c569','#ffd400','#ff3a30'];
@@ -3641,18 +3673,18 @@ if(!reduce)setInterval(()=>{if(hold||view!=='elementos'||document.hidden)return;
 
 /* 5 · probá el sistema */
 (()=>{const T=$('#tpExpT'),M=$('#tpExpM'),H=$('#tpExpH'),I=$('#tpExpI'),S=$('#tpExpS'),W=$('#tpExpW'),O=$('#tpExpO'),R=$('#tpExpR');if(!T)return;
-  const st={mode:1,seed:3,a:0,b:0};
+  const st={mode:1,seed:0,a:0,b:0};
   const WP=[300,800,400,700,200,900,300,600],IT=[1,0,0,1,0,0,1,0];
   const sel=()=>{const x=I.value,i=x.indexOf('plan');return i>=0?[i,i+4]:[0,0]};
   [st.a,st.b]=sel();
   const esc=c=>c.replace(/&/g,'&amp;').replace(/</g,'&lt;');
   function render(){
     const x=I.value,fs=+S.value,w=+W.value;
-    T.style.fontSize=fs+'px';T.style.lineHeight=Math.round(fs*1.17)+'px';T.style.fontWeight=w;
+    T.style.fontSize=fs+'px';T.style.lineHeight=Math.round(fs*1.17)+'px';T.style.fontWeight=(st.mode&&st.b>st.a&&st.a<I.value.length)?700:w;
     const has=st.b>st.a&&st.a<x.length;let h='',n=0;
     for(let i=0;i<x.length;i++){const ch=x[i];if(ch===' '){h+=' ';continue}
       const ins=has&&i>=st.a&&i<Math.min(st.b,x.length);
-      if(ins&&st.mode){const k=(n+st.seed*3)%WP.length;h+=`<span class="lt" style="font-weight:${WP[k]};${IT[(k+st.seed)%IT.length]?'font-style:italic':''}">${esc(ch)}</span>`;n++}
+      if(ins&&st.mode){const OFF=[0,-300,0,-400,0,-200,0,-300],k=(n+st.seed)%OFF.length,ww=Math.min(900,Math.max(200,Math.round((w+OFF[k])/100)*100));h+=`<span class="lt" style="font-weight:${ww};${(n+st.seed)%2===0?'font-style:italic':''}">${esc(ch)}</span>`;n++}
       else if(ins&&!st.mode){h+=`<span class="sel">${esc(ch)}</span>`}
       else h+=esc(ch)}
     T.innerHTML=h;
