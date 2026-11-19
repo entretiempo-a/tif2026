@@ -1839,6 +1839,180 @@ body.inpage .sd-wrap:not(:empty){display:flex}
  .tp-exp-c{grid-template-columns:1fr}.tp-exp-c .c5,.tp-exp-c .rnd{grid-column:1}
 }
 .tile .arrow{display:none!important}
+
+/* ═════════ DESIGN SYSTEM ═════════ */
+#ds{background:var(--n10)}
+.hero.ds .blob.a{background:#35ceff;opacity:.6}.hero.ds .blob.b{background:#7b6fec;opacity:.5}.hero.ds .blob.c{background:#ccf901;opacity:.4}.hero.ds .blob.d{background:#48c569;opacity:.3}
+#ds h2{font-size:48px;line-height:56px}
+#ds .body,#ds .ds-two .body{font-size:16px;line-height:20px}
+#ds .body b{font-weight:600}
+.ds-two{display:grid;grid-template-columns:393px 1fr;align-items:start}
+.ds-two .body{max-width:480px}
+.ds-atom-h{padding:100px 0 30px}
+/* atomic: escena fija */
+.ds-atom{background:#fff}
+.ds-atom .stick{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;background:#fff}
+.ds-at-st{position:relative;width:min(700px,calc(100% - var(--side)*2 - 40px),calc((100vh - 170px)*1560/1442));aspect-ratio:1560/1442}
+.ds-at-st img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity .5s ease,transform .6s var(--ease);transform:scale(.98)}
+.ds-at-st img.on{opacity:1;transform:none}
+.ds-pill{display:inline-flex;align-items:baseline;gap:12px;background:#d4f542;border-radius:999px;padding:9px 30px;max-width:calc(100% - var(--side)*2 - 30px);min-height:38px;transition:transform .4s var(--spring)}
+.ds-pill b{font-family:'Epilogue';font-weight:700;font-size:20px;letter-spacing:-.03em;white-space:nowrap}
+.ds-pill span{font-size:12px;color:#5c6b00;line-height:16px}
+.ds-dots{display:flex;gap:8px}
+.ds-dots button{width:10px;height:10px;border-radius:50%;border:1.5px solid #2d2e30;transition:background .3s,transform .3s var(--spring)}
+.ds-dots button.on{background:#2d2e30;transform:scale(1.25)}
+.ds-dk{padding:60px 0 90px}
+.ds-dk2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.ds-dk2 article{background:var(--n01);color:#fff;border-radius:16px;padding:26px 24px 28px;box-shadow:0 4px 6px rgba(0,0,0,.25);min-height:221px;display:flex;flex-direction:column;justify-content:space-between}
+.ds-dk2 h4{font-family:'Figtree';font-weight:500;font-size:20px;line-height:22px}
+.ds-dk2 p{font-size:16px;line-height:24px}
+.ds-dk2 p b{font-weight:600}
+/* botones */
+.ds-bt{padding:60px 0 110px}
+.ds-fam{margin-top:100px;padding-bottom:56px;border-bottom:1px solid #d6d9de}
+.ds-fam:last-of-type{border:0}
+.ds-fam h3,.ds-crit h3,.ds-an h3,.ds-cons h3,.ds-rad h3,.ds-esp h3,.ds-sh h3,.ds-ej h3{font-family:'Epilogue';font-weight:600;font-size:30px;line-height:36px;letter-spacing:-.04em}
+.ds-fam>.body,.ds-an>.body,.ds-rad>.body,.ds-esp>.body,.ds-sh>.body,.ds-ej>.body{margin-top:8px;max-width:880px}
+.ds-b3{display:grid;grid-template-columns:repeat(3,1fr);gap:0 28px;margin-top:42px}
+.ds-b3 h5{font-family:'Epilogue';font-weight:500;font-size:19px;line-height:24px;letter-spacing:-.02em;margin:26px 0 4px}
+.ds-b3 p{font-size:14px;line-height:17px;max-width:270px}
+.ds-b3 p b{font-weight:600}
+.bb{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;font-family:'Figtree';white-space:nowrap}
+.bb.big{width:100%;height:48px;font-weight:700;font-size:14px}
+.bb.med{width:100%;height:34px;font-weight:600;font-size:12px}
+.bb.sm{height:26px;padding:0 18px;font-weight:600;font-size:11.5px}
+.bb.d{background:#2d2e30;color:#fff}
+.bb.l{background:#fbfdff;color:#2d2e30;box-shadow:0 2px 4px rgba(0,0,0,.12)}
+.bb.x{background:#cccdcf;color:#6f7073}
+.bb.nb{font-family:'Epilogue';font-weight:500;font-size:22px;letter-spacing:-.03em;color:#2d2e30;padding:0}
+.chv{display:inline-block;width:6px;height:6px;border-right:1.6px solid currentColor;border-top:1.6px solid currentColor;rotate:45deg;margin-left:2px}
+.bb.nb .chv{width:9px;height:9px;border-width:2px}
+.ds-dl{display:flex;justify-content:flex-end;align-items:center;margin-top:26px;font-size:12px;color:#58595b}
+.ds-nb{display:grid;grid-template-columns:276px 1fr;align-items:center;margin-top:36px}
+.ds-nb p{font-size:13px;line-height:17px;max-width:260px}
+.ds-crit{margin-top:70px}
+.ds-c2{display:grid;grid-template-columns:1fr 1fr;gap:34px;margin-top:20px}
+.ds-c2 p{font-size:14px;line-height:17px}.ds-c2 b{font-weight:600}
+.ds-an{margin-top:90px}
+.ds-an-box{margin-top:22px;background:#f6f8fb;border-radius:26px;padding:30px 28px 34px}
+.ds-tabs{display:flex;gap:8px;flex-wrap:wrap}
+.ds-tabs button{height:30px;padding:0 20px;border-radius:999px;background:#e9ebee;font-size:13px;font-weight:600;flex:1 1 0;min-width:0;transition:background .3s,color .3s}
+.ds-tabs.ic button{flex:none;height:28px;font-size:11px;padding:0 20px}
+.ds-tabs button.on{background:#2d2e30;color:#fff}
+.ds-an-st{position:relative;margin-top:28px;height:267px;background:#fff;border-radius:18px;box-shadow:0 2px 8px rgba(0,0,0,.1);display:grid;place-items:center}
+.ds-an-st small{position:absolute;left:21px;top:17px;font-size:12px;color:#58595b}
+.ds-an-b{position:relative}
+.ds-an-b .bb{transition:width .3s}
+.ds-an-b.gr::before{content:"";position:absolute;inset:-14px -22px;border:1.5px dashed #7b6fec;border-radius:14px;pointer-events:none}
+.ds-an-b.gr::after{content:attr(data-d);position:absolute;left:50%;bottom:-30px;translate:-50% 0;font-size:11px;font-weight:600;color:#7b6fec;white-space:nowrap}
+.ds-eye{position:absolute;right:20px;bottom:18px;width:48px;height:48px;border-radius:50%;background:#0082cb;display:grid;place-items:center;transition:transform .3s var(--spring)}
+.ds-eye:hover{transform:scale(1.08)}
+.ds-eye .sl{opacity:1}.ds-eye[aria-pressed=true] .sl{opacity:0}
+.ds-an-m{display:flex;justify-content:space-around;gap:10px;margin-top:26px;font-size:12px;font-weight:600;letter-spacing:.03em;color:#2d2e30;flex-wrap:wrap}
+/* usos */
+.ds-us{background:var(--n01);color:#fff;padding:80px 0 90px}
+.ds-us h2{color:#fff}
+.ds-us .body{margin-top:14px;font-size:16px;line-height:24px;max-width:900px}
+.ds-ug{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:50px}
+.ds-ug img{display:block;width:100%;height:auto;border-radius:12px}
+.ds-ug p{font-size:14px;line-height:19px;margin-top:14px;padding-right:12px}
+.ds-ug p b{font-weight:600}
+.ds-ug article{transition:transform .4s var(--spring)}
+.ds-ug article:hover{transform:translateY(-4px)}
+.ds-ug article.no:hover img{animation:vibra .38s linear infinite}
+/* íconos */
+.ds-ic{padding:130px 0 80px}
+.ds-tabs.ic{margin-top:46px}
+.ds-icg{position:relative;margin-top:34px;max-width:812px;border-radius:12px;overflow:hidden;transition:background .4s}
+.ds-icg img{display:block;width:100%;height:auto;transition:filter .4s,mix-blend-mode .4s}
+.ds-icg.t1,.ds-icg.t2{background:var(--bg)}
+.ds-icg.t1 img,.ds-icg.t2 img{filter:invert(1);mix-blend-mode:screen}
+.ds-icg.t1{--bg:#2d2e30}.ds-icg.t2{--bg:#7b6fec}
+.ds-bar{margin-top:44px}
+.ds-cons{display:grid;grid-template-columns:278px 1fr;gap:115px;align-items:center;margin-top:120px}
+.ds-cons .body{margin-top:26px}
+.ds-cons img{width:100%;height:auto;display:block}
+/* grillas */
+.ds-gr{padding:100px 0 120px}
+.ds-gfig{position:relative;margin-top:70px;display:grid;grid-template-columns:1fr 1fr;align-items:start}
+.ds-gfig.g12{grid-template-columns:870fr 94fr}
+.ds-gfig .im{position:relative}
+.ds-gfig:not(.g12) .im{width:62%}
+.ds-gfig img{display:block;width:100%;height:auto}
+.ds-gfig .lb{position:absolute;top:var(--t);right:0;display:flex;align-items:center;gap:10px;font-family:'Epilogue';font-weight:600;font-size:22px;letter-spacing:-.03em}
+.ds-gfig .lb i{position:absolute;right:calc(100% + 10px);width:var(--w);height:1px;background:#009fe0}
+.ds-gfig .lb::before{content:"";width:6px;height:6px;border-radius:50%;background:#009fe0}
+.ds-gfig:not(.g12) .lb i{display:none}
+.ds-gfig:not(.g12) .lb{left:63%;right:auto;border-top:0}
+.ds-gfig:not(.g12) .lb::after{content:"";position:absolute;right:calc(100% + 16px);height:1px;width:20%;background:#009fe0;display:none}
+.ds-gfig.g12 .lb{right:-8px;padding-left:0}
+.ds-gfig.g12{margin-top:80px;padding-right:10px}
+.ds-rad,.ds-esp,.ds-sh{margin-top:130px}
+.ds-rg{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:34px}
+.ds-rg div{background:var(--n01);color:#fff;border-radius:16px;height:193px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:0 8px 18px;position:relative}
+.ds-rg i{position:absolute;left:30px;top:22px;width:62px;height:62px;border-top:1.5px solid #fff;border-left:1.5px solid #fff;border-top-left-radius:var(--r)}
+.ds-rg b{font-family:'Epilogue';font-weight:500;font-size:20px;letter-spacing:-.02em}
+.ds-rg small{font-size:10px;margin-top:10px;opacity:.9;text-align:center}
+.ds-eg{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:44px}
+.ds-eg>div>b{display:block;font-family:'Epilogue';font-weight:600;font-size:22px;letter-spacing:-.03em;margin-bottom:34px;padding-left:2px}
+.ds-eg .h{display:flex;align-items:center;margin-bottom:12px}
+.ds-eg .h i{display:block;width:44px;height:44px;border-radius:8px;background:#2d2e30}
+.ds-eg .h u{display:block;height:20px;background:#ccf901;text-decoration:none}
+.ds-eg .h s{display:block;width:44px;height:44px;border-radius:8px;background:#0082cb}
+.ds-eg small{display:block;font-size:11px;letter-spacing:.04em;color:#58595b;margin-bottom:34px}
+.ds-eg .v{display:flex;flex-direction:column;width:100%;margin-bottom:12px}
+.ds-eg .v i{display:block;height:26px;border-radius:7px;background:#2d2e30}.ds-eg .v s{display:block;background:#ccf901}.ds-eg .v em{display:block;height:26px;border-radius:7px;background:#0082cb}
+.ds-eg .h{width:96px}
+.ds-sc{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:40px;padding:0 6%}
+.ds-sc .card{border-radius:20px;height:230px;padding:90px 18px 0;background:#fbfdff;transition:box-shadow .3s}
+.ds-sc .card.ex{box-shadow:0 2px 4px rgba(0,0,0,.05),0 4px 6px rgba(0,0,0,.08)}
+.ds-sc .card.in{box-shadow:inset 0 -4px 20px rgba(0,0,0,.25),0 2px 6px rgba(0,0,0,.06)}
+.ds-sc h4{font-family:'Epilogue';font-weight:600;font-size:20px;letter-spacing:-.03em}
+.ds-sc .card p{font-size:14px;line-height:19px;margin-top:8px;max-width:260px}
+.ds-sc dl{display:flex;gap:46px;margin-top:22px;padding-left:18px}
+.ds-sc dt{font-size:9px;letter-spacing:.08em;color:#58595b}
+.ds-sc dd{font-family:'Epilogue';font-weight:500;font-size:19px;margin:2px 0 0}
+.ds-cu{border-left:9px solid #ccf901;padding:2px 0 2px 16px;margin:60px 0 0 6%;max-width:680px}
+.ds-cu h4{font-family:'Epilogue';font-weight:500;font-size:20px;letter-spacing:-.02em}
+.ds-cu p{font-size:14px;line-height:20px;margin-top:2px}
+.ds-cu p b{font-weight:600}
+/* nomenclatura */
+.ds-nm{padding:90px 0 130px}
+.ds-fmt{margin-top:60px;background:var(--n01);color:#fff;border-radius:22px;padding:30px 30px 34px}
+.ds-fmt small{font-size:11px;letter-spacing:.06em;color:#d4f542}
+.ds-fmt p{font-family:'Epilogue';font-weight:500;font-size:36px;line-height:44px;letter-spacing:-.03em;margin-top:20px}
+.ds-fmt p .b{color:#00b5ff;display:block}
+.ds-fmt hr{border:0;border-top:1px solid #686a6e;margin:28px 0 24px}
+.ds-fmt div{font-size:14px;line-height:20px;max-width:760px}.ds-fmt b{font-weight:700}
+.ds-tb{width:100%;border-collapse:collapse;margin-top:50px;font-size:12px}
+.ds-tb th{text-align:left;font-weight:400;font-size:13px;padding:0 0 14px 18px;letter-spacing:.02em}
+.ds-tb td{padding:26px 0 26px 18px;border-top:1px solid #d6d9de;vertical-align:middle}
+.ds-tb td:first-child{font-family:'Epilogue';font-weight:600;font-size:19px;letter-spacing:-.02em;width:33%}
+.ds-tb td:nth-child(2){width:38%}
+.ds-tb td.k1{color:#00a7f3}
+.ds-ej{margin-top:90px}
+.ds-ej ul{list-style:none;margin:34px 0 0;padding:0;display:grid;gap:34px}
+.ds-ej li{position:relative;padding-left:26px}
+.ds-ej li::before{content:"";position:absolute;left:0;top:0;bottom:0;width:9px;background:var(--c)}
+.ds-ej li span{display:block;font-family:'Epilogue';font-weight:300;font-size:20px;line-height:26px}
+.ds-ej li b{display:block;font-family:'Epilogue';font-weight:500;font-size:20px;line-height:28px;letter-spacing:-.02em;margin-top:2px;overflow-wrap:anywhere}
+@media (max-width:560px){
+ .ds-two,.ds-nb,.ds-cons{grid-template-columns:1fr;row-gap:16px}
+ .ds-b3{grid-template-columns:1fr;gap:30px}.ds-c2,.ds-dk2,.ds-ug,.ds-sc{grid-template-columns:1fr}.ds-sc{padding:0}
+ .ds-rg{grid-template-columns:repeat(2,1fr)}.ds-eg{grid-template-columns:repeat(2,1fr);row-gap:40px}
+ .ds-an-box{padding:20px 14px}.ds-tabs button{flex:1 1 40%}
+ .ds-an-st{height:230px}.ds-gfig:not(.g12) .im{width:70%}.ds-gfig .lb{font-size:15px}.ds-gfig:not(.g12) .lb{left:71%}
+ .ds-fmt p{font-size:22px;line-height:28px;overflow-wrap:anywhere}
+ .ds-tb td:first-child,.ds-tb td:nth-child(2){width:auto}.ds-tb{font-size:11px}.ds-tb td:first-child{font-size:15px}
+ .ds-cu{margin-left:0}.ds-cons{gap:30px;margin-top:70px}
+ .ds-at-st{width:calc(100% - var(--side) - 30px);margin-left:calc(var(--side) + 14px)}
+}
+@media (max-width:560px){
+ #ds h2{font-size:32px;line-height:38px;overflow-wrap:anywhere}
+ .ds-pill{flex-direction:column;align-items:flex-start;gap:2px;border-radius:22px;padding:12px 20px;margin-left:calc(var(--side) + 14px);margin-right:14px;max-width:none}
+ .ds-pill span{font-size:12px}.ds-dots{margin-left:calc(var(--side) + 14px)}
+ .ds-sc dl{gap:20px;flex-wrap:wrap}
+}
 </style>
 </head>
 <body>
@@ -1850,7 +2024,7 @@ body.inpage .sd-wrap:not(:empty){display:flex}
       <div class="col">
         <a class="tile" href="#sobre" data-go="sobre" style="--ln:2;flex:173;--c:#ffa95e;--t:#dc6700;--gx:70%;--gy:60%"><img src="assets/tile-sobre.png" alt=""><span>Sobre<br>Entre tiempo</span><span class="arrow">↗</span></a>
         <a class="tile" href="#signos" data-go="signos" style="--ln:2;flex:264;--c:#009838;--t:#004e13;--gx:50%;--gy:95%;--op:center bottom"><img src="assets/tile-signos.png" alt=""><span>Signos<br>marcarios</span><span class="arrow">↗</span></a>
-        <a class="tile" href="#" style="--ln:2;flex:267;--c:#d1f842;--t:#8a8e00;--gx:45%;--gy:70%;--op:center bottom"><img src="assets/tile-design-system.png" alt=""><span>Design<br>system</span><span class="arrow">↗</span></a>
+        <a class="tile" href="#ds" data-go="ds" style="--ln:2;flex:267;--c:#d1f842;--t:#8a8e00;--gx:45%;--gy:70%;--op:center bottom"><img src="assets/tile-design-system.png" alt=""><span>Design<br>system</span><span class="arrow">↗</span></a>
       </div>
       <div class="col">
         <div class="row" style="flex:267">
@@ -2987,6 +3161,233 @@ body.inpage .sd-wrap:not(:empty){display:flex}
 </main>
 
 
+<!-- ═════════════ DESIGN SYSTEM ═════════════ -->
+<main id="ds" class="view">
+
+  <header class="hero ds" data-label="">
+    <i class="blob a"></i><i class="blob b"></i><i class="blob c"></i><i class="blob d"></i>
+    <div class="stage">
+      <h1 class="title"><span class="ln"><span><b class="ch" style="--w0:700">D</b><b class="ch" style="--w0:700">e</b><b class="ch" style="--w0:700">s</b><b class="ch" style="--w0:700">i</b><b class="ch" style="--w0:700">g</b><b class="ch" style="--w0:700">n</b></span></span><span class="ln"><span><b class="ch" style="--w0:700">s</b><b class="ch" style="--w0:700">y</b><b class="ch" style="--w0:700">s</b><b class="ch" style="--w0:700">t</b><b class="ch" style="--w0:700">e</b><b class="ch" style="--w0:700">m</b></span></span></h1>
+      <a class="pill" href="#" data-to="atomic" style="--x:40%;--y:18%;--r:-8deg;--d:.5s;--f:5.5s;--k:10px">Atomic Design</a>
+      <a class="pill" href="#" data-to="ds-iconos" style="--x:15%;--y:50%;--r:5deg;--d:.6s;--f:7s;--k:-8px">Iconografía</a>
+      <a class="pill" href="#" data-to="nomen" style="--x:83%;--y:46%;--r:-12deg;--d:.7s;--f:6.3s;--k:10px">Nomenclatura</a>
+      <a class="pill" href="#" data-to="grillas" style="--x:55%;--y:79%;--r:6deg;--d:.8s;--f:5s;--k:-10px">Grillas</a>
+    </div>
+  </header>
+
+  <div class="flow">
+
+  <section class="ds-atom-h" id="atomic" data-tone="l" data-label="Atomic Design">
+    <div class="wrap">
+      <div class="ds-two">
+        <h2 data-r="up">Atomic Design</h2>
+        <p class="body" data-r="up" style="--d:.1s">De los átomos a las páginas completas, <b>cada nivel combina recursos del anterior</b>. La tipografía, el color y los íconos se integran en componentes que luego se adaptan a <b>MOViDA, APURO y DESVÍO</b>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="ds-atom" id="ds-atom" data-tone="l" data-label="Atomic Design">
+    <div class="pin full" id="dsAtPin" style="--len:1500px"><div class="stick">
+      <div class="ds-at-st" id="dsAt">
+        <img class="on" src="assets/ds/at1.webp" alt="Átomos: texto e íconos de la tarjeta">
+        <img src="assets/ds/at2.webp" alt="Moléculas: estado y botón">
+        <img src="assets/ds/at3.webp" alt="Organismos: tarjeta de próximo destino">
+        <img src="assets/ds/at4.webp" alt="Plantillas: la distribución sin contenido">
+        <img src="assets/ds/at5.webp" alt="Páginas: la Home de MOViDA">
+      </div>
+      <div class="ds-pill" id="dsAtPill"><b></b><span></span></div>
+      <div class="ds-dots" id="dsAtDots"><button aria-label="Átomos"></button><button aria-label="Moléculas"></button><button aria-label="Organismos"></button><button aria-label="Plantillas"></button><button aria-label="Páginas"></button></div>
+    </div></div>
+  </section>
+
+  <section class="ds-dk" data-tone="l" data-label="Atomic Design">
+    <div class="wrap ds-dk2">
+      <article data-r="up"><h4 style="color:#6fd6ff">Recursos<br>aprobados</h4><p>Los componentes parten de <b>recursos aprobados</b>: los 13 estilos tipográficos, las paletas de cada proyecto y la iconografía del sistema. Se combinan <b>sin crear reglas nuevas</b>.</p></article>
+      <article data-r="up" style="--d:.08s"><h4 style="color:#d8f542">Composición<br>progresiva</h4><p>Los átomos <b>se combinan en controles y tarjetas</b>; esos módulos construyen organismos que después se organizan en plantillas y páginas. Así se mantiene una <b>identidad coherente</b> en cada experiencia.</p></article>
+    </div>
+  </section>
+
+  <!-- botones -->
+  <section class="ds-bt" id="botones" data-tone="l" data-label="Botones">
+    <div class="wrap">
+      <div class="ds-two"><h2 data-r="up">Botones</h2>
+        <p class="body" data-r="up" style="--d:.1s">Los botones se organizan en <b>cuatro familias</b> según su función: grande, mediano, pequeño y sin fondo. Las variantes de color y los estados comunican <b>prioridad, disponibilidad y contexto</b> de uso.</p></div>
+
+      <div class="ds-fam" data-r="up">
+        <h3>Botón grande</h3>
+        <p class="body">El botón grande guía la <b>acción principal</b> de la pantalla móvil y ocupa el <b>ancho disponible</b> del contenido.</p>
+        <div class="ds-b3">
+          <div><div class="bb big d">Continuar</div><h5>Predeterminado</h5><p>Destaca la <b>acción principal</b> con el contraste más alto de esta familia.</p></div>
+          <div><div class="bb big l">Continuar</div><h5>Versión clara</h5><p>La <b>versión clara</b> mantiene visible la acción cuando se necesita un <b>contraste más suave</b>.</p></div>
+          <div><div class="bb big x">Continuar</div><h5>Deshabilitado</h5><p>El <b>estado deshabilitado</b> señala que la acción todavía <b>no está disponible</b>.</p></div>
+        </div>
+        <div class="ds-dl"><span>349 × 48 px &nbsp;/&nbsp; Figtree Bold 14 px &nbsp;/&nbsp; Sin ícono</span></div>
+      </div>
+
+      <div class="ds-fam" data-r="up">
+        <h3>Botón mediano</h3>
+        <p class="body">El botón mediano acompaña <b>acciones secundarias</b>. Puede combinar <b>texto e ícono</b> sin competir con la decisión principal.</p>
+        <div class="ds-b3">
+          <div><div class="bb med d">Ver detalles y usar plantilla</div><h5>Predeterminado</h5><p>Estado activo para una <b>acción secundaria</b> disponible.</p></div>
+          <div><div class="bb med l">Ver detalles y usar plantilla</div><h5>Versión clara</h5><p>La <b>versión clara</b> acompaña la interfaz con menor contraste.</p></div>
+          <div><div class="bb med x">Ver detalles y usar plantilla</div><h5>Deshabilitado</h5><p>La acción está <b>inactiva</b> y no responde al toque.</p></div>
+        </div>
+        <div class="ds-dl"><span>318 × 34 px sin ícono / Figtree SemiBold 12 px</span></div>
+        <div class="ds-b3">
+          <div><div class="bb med d">Eliminar plantilla <i class="chv"></i></div><h5>Predeterminado con ícono</h5><p>El <b>ícono</b> refuerza el sentido de la acción junto al texto.</p></div>
+          <div><div class="bb med l">Eliminar plantilla <i class="chv"></i></div><h5>Versión clara con ícono</h5><p>Texto e ícono se mantienen visibles en la <b>variante clara</b>.</p></div>
+          <div><div class="bb med x">Eliminar plantilla <i class="chv"></i></div><h5>Deshabilitado con ícono</h5><p>Texto e ícono señalan que la acción <b>no está disponible</b>.</p></div>
+        </div>
+        <div class="ds-dl"><span>318 × 34 px con ícono / Figtree SemiBold 12 px</span></div>
+      </div>
+
+      <div class="ds-fam" data-r="up">
+        <h3>Botón pequeño</h3>
+        <p class="body">El botón pequeño resuelve <b>acciones puntuales dentro de tarjetas u organismos</b>, junto al contenido al que se refiere.</p>
+        <div class="ds-b3">
+          <div><div class="bb sm d">Crear viaje compartido</div><h5>Predeterminado</h5><p>Acción puntual <b>dentro de una tarjeta</b> o módulo.</p></div>
+          <div><div class="bb sm l">Crear viaje compartido</div><h5>Versión clara</h5><p>Acompaña la información con <b>menor peso visual</b>.</p></div>
+          <div><div class="bb sm x">Crear viaje compartido</div><h5>Deshabilitado</h5><p>Muestra una acción que <b>todavía no puede ejecutarse</b>.</p></div>
+        </div>
+        <div class="ds-b3">
+          <div><div class="bb sm d">Crear viaje compartido <i class="chv"></i></div><h5>Predeterminado con ícono</h5><p>El <b>ícono</b> ayuda a reconocer la acción del módulo.</p></div>
+          <div><div class="bb sm l">Crear viaje compartido <i class="chv"></i></div><h5>Versión clara con ícono</h5><p>La variante clara conserva la lectura de <b>texto e ícono</b>.</p></div>
+          <div><div class="bb sm x">Crear viaje compartido <i class="chv"></i></div><h5>Deshabilitado con ícono</h5><p>La etiqueta y el ícono muestran el <b>estado inactivo</b>.</p></div>
+        </div>
+      </div>
+
+      <div class="ds-fam" data-r="up">
+        <h3>Botón sin fondo</h3>
+        <p class="body">El botón sin fondo es una <b>acción contextual</b> de menor jerarquía: mantiene <b>texto e ícono</b> sin sumar un contenedor sólido.</p>
+        <div class="ds-nb"><div class="bb nb">Ver jornadas <i class="chv"></i></div><p><b>Acceso contextual</b> con ícono y texto. Acompaña el contenido <b>sin competir</b> con las acciones principales.</p></div>
+      </div>
+
+      <div class="ds-crit" data-r="up">
+        <h3>Criterio de jerarquía</h3>
+        <div class="ds-c2"><p>El <b>tamaño y la ubicación</b> definen la jerarquía: el botón grande orienta la <b>decisión principal</b>; los medianos y pequeños acompañan acciones específicas dentro de la interfaz.</p>
+        <p><b>Criterio de elección:</b> usá el mayor énfasis para la <b>decisión principal</b> y reducí el peso visual en acciones de apoyo. Evitá presentar varias acciones como igualmente prioritarias.</p></div>
+      </div>
+
+      <div class="ds-an" id="dsAn" data-r="up">
+        <h3>Anatomía de botones</h3>
+        <p class="body">Seleccioná una familia para revisar su construcción: <b>contenedor, etiqueta, ícono y dimensiones</b>. Los ejemplos muestran medidas de los componentes originales.</p>
+        <div class="ds-an-box">
+          <div class="ds-tabs" id="dsAnTabs"><button class="on" data-k="0">Grande</button><button data-k="1">Mediano</button><button data-k="2">Pequeño</button><button data-k="3">Sin fondo</button></div>
+          <div class="ds-an-st" id="dsAnSt"><small id="dsAnCap"></small><div class="ds-an-b" id="dsAnB"><div class="bb big d" id="dsAnBtn"></div></div>
+            <button class="ds-eye" id="dsAnEye" aria-label="Ver construcción" aria-pressed="false"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/><path class="sl" d="M4 20L20 4"/></svg></button></div>
+          <div class="ds-an-m"><span id="dsAnD"></span><span id="dsAnT"></span><span id="dsAnV"></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- usos correctos e incorrectos de botones -->
+  <section class="ds-us" id="ds-usos" data-label="Botones · usos">
+    <div class="wrap">
+      <h2 data-r="up">Usos correctos e incorrectos</h2>
+      <p class="body" data-r="up" style="--d:.1s">La <b>jerarquía, la ubicación y el estado</b> de cada botón deben acompañar su función. Estos ejemplos comparan aplicaciones <b>correctas e incorrectas</b>.</p>
+      <div class="ds-ug">
+        <article data-r="up"><img src="assets/ds/u1.webp" alt=""><p>El <b>botón grande</b> ocupa el ancho de la pantalla para destacar una <b>única acción principal</b>.</p></article>
+        <article data-r="up" style="--d:.06s"><img src="assets/ds/u3.webp" alt=""><p>El <b>botón pequeño</b> se ubica <b>junto al contenido</b> de la tarjeta sobre el que actúa.</p></article>
+        <article data-r="up" style="--d:.12s"><img src="assets/ds/u5.webp" alt=""><p>El <b>botón sin fondo</b>, con ícono, acompaña <b>acciones contextuales</b> sin competir con la principal.</p></article>
+        <article class="no" data-r="up"><img src="assets/ds/u2.webp" alt=""><p>No reduzcas el <b>botón grande</b> a una cápsula aislada: pierde su función de <b>acción principal</b>.</p></article>
+        <article class="no" data-r="up" style="--d:.06s"><img src="assets/ds/u4.webp" alt=""><p>No separes el <b>botón pequeño</b> de su tarjeta: su función <b>depende del contexto</b>.</p></article>
+        <article class="no" data-r="up" style="--d:.12s"><img src="assets/ds/u6.webp" alt=""><p>No reemplaces la <b>acción principal</b> por un botón <b>sin fondo</b> ni quites su ícono.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- íconos -->
+  <section class="ds-ic" id="ds-iconos" data-tone="l" data-label="Iconografía">
+    <div class="wrap">
+      <div class="ds-two"><h2 data-r="up">Íconos</h2>
+        <p class="body" data-r="up" style="--d:.1s"><b>Material Symbols Rounded</b> es la base de la iconografía de MOViDA. Los <b>símbolos planos</b> se usan en navegación y controles; los <b>inflados blanco y violeta</b> se reservan para recursos expresivos. La retícula documenta la construcción del ícono plano.</p></div>
+      <div class="ds-tabs ic" id="dsIcTabs" data-r="up"><button class="on" data-k="0">Plano</button><button data-k="1">Inflado blanco</button><button data-k="2">Inflado violeta</button></div>
+      <div class="ds-icg" id="dsIcG" data-r="up"><img src="assets/ds/iconos.webp" alt="Colección de 61 íconos de MOViDA" draggable="false"></div>
+      <div class="ds-bar" data-r="up"><a class="btn-dl" href="#" data-say="El link a la plantilla de íconos todavía no está cargado">Descargar plantilla <i><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4v8M5.5 9 9 12.5 12.5 9"/></svg></i></a></div>
+      <div class="ds-cons">
+        <div data-r="up"><h3>Construcción</h3><p class="body">La <b>retícula de 24 × 24 px</b> organiza el símbolo plano de Material Symbols Rounded. Las versiones infladas conservan su silueta, pero se usan como <b>recursos expresivos 3D</b> y no sustituyen los íconos de interfaz.</p></div>
+        <img data-r="up" style="--d:.1s" src="assets/ds/construccion.webp" alt="Retícula de 24 × 24 px con el ícono home" draggable="false">
+      </div>
+    </div>
+  </section>
+
+  <!-- grillas -->
+  <section class="ds-gr" id="grillas" data-tone="l" data-label="Grillas y layout">
+    <div class="wrap">
+      <div class="ds-two"><h2 data-r="up">Grillas y layout</h2>
+        <p class="body" data-r="up" style="--d:.1s">Las grillas organizan la interfaz mediante <b>columnas y márgenes</b>. Los <b>radios y espaciados</b> completan la estructura y ayudan a relacionar contenidos y acciones.</p></div>
+      <div class="ds-gfig" data-r="up"><div class="im"><img src="assets/ds/phone.webp" alt="Grilla móvil de 4 columnas" draggable="false"></div>
+        <div class="lb" style="--t:53%"><i style="--w:33%"></i><b>102 px</b></div><div class="lb" style="--t:78%"><i style="--w:28%"></i><b>20 px</b></div></div>
+      <div class="ds-gfig g12" data-r="up"><div class="im"><img src="assets/ds/grid12.webp" alt="Grilla de 12 columnas" draggable="false"></div>
+        <div class="lb" style="--t:39%"><i style="--w:40%"></i><b>82 px</b></div><div class="lb" style="--t:63%"><i style="--w:38%"></i><b>16 px</b></div><div class="lb" style="--t:86%"><i style="--w:0%"></i><b>60 px</b></div></div>
+
+      <div class="ds-rad" data-r="up"><h3>Radios</h3>
+        <p class="body">Los radios de esquina responden a la <b>función de cada elemento</b>. Filas, tarjetas y botones tipo cápsula utilizan <b>curvaturas diferentes</b> según su escala y contexto.</p>
+        <div class="ds-rg">
+          <div style="--r:8px"><i></i><b>08 px</b><small>Filas de actividad</small></div>
+          <div style="--r:10px"><i></i><b>10 px</b><small>Tarjetas compactas</small></div>
+          <div style="--r:12px"><i></i><b>12 px</b><small>Contenedores</small></div>
+          <div style="--r:14px"><i></i><b>14 px</b><small>Tarjetas de actividad</small></div>
+          <div style="--r:16px"><i></i><b>16 px</b><small>Mapas y módulos</small></div>
+          <div style="--r:46px"><i></i><b>PILL</b><small>Botones tipo cápsula</small></div>
+        </div>
+      </div>
+
+      <div class="ds-esp" data-r="up"><h3>Espaciados</h3>
+        <p class="body">Los espaciados establecen <b>distancias</b> entre controles, tarjetas y bloques de contenido. Se muestran <b>valores presentes en MOViDA</b> y su aplicación <b>horizontal y vertical</b>.</p>
+        <div class="ds-eg" id="dsEg"></div>
+      </div>
+
+      <div class="ds-sh" data-r="up"><h3>Sombras</h3>
+        <p class="body">La <b>sombra exterior</b> separa suavemente el botón del fondo; la <b>sombra interior</b> agrega profundidad dentro de la superficie. Cada efecto tiene una función diferente.</p>
+        <div class="ds-sc">
+          <div><div class="card ex"><h4>Sombra exterior</h4><p>Se proyecta <b>fuera del control</b> y lo separa suavemente de la superficie.</p></div>
+            <dl><div><dt>X</dt><dd>0 px</dd></div><div><dt>Y</dt><dd>2 px</dd></div><div><dt>BLUR</dt><dd>4 px</dd></div><div><dt>OPACIDAD</dt><dd>5 %</dd></div></dl></div>
+          <div><div class="card in"><h4>Sombra interior</h4><p>Aparece <b>dentro del control</b> y genera una sensación de profundidad o presión.</p></div>
+            <dl><div><dt>X</dt><dd>0 px</dd></div><div><dt>Y</dt><dd>-4 px</dd></div><div><dt>BLUR</dt><dd>20 px</dd></div><div><dt>OPACIDAD</dt><dd>25 %</dd></div></dl></div>
+        </div>
+        <blockquote class="ds-cu"><h4>Criterio de uso</h4><p>La <b>sombra exterior</b> separa el botón del fondo; la <b>interior</b> introduce profundidad dentro de la superficie. Usá cada efecto según la interacción y <b>evitá combinarlos</b> sin un criterio definido.</p></blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- nomenclatura -->
+  <section class="ds-nm" id="nomen" data-tone="l" data-label="Nomenclatura">
+    <div class="wrap">
+      <div class="ds-two"><h2 data-r="up">Nomenclatura</h2>
+        <p class="body" data-r="up" style="--d:.1s">La nomenclatura permite identificar el <b>proyecto, el tipo de recurso, la pieza y su versión</b> sin abrir cada archivo. Esta convención es una <b>propuesta pendiente de validación</b> por el equipo.</p></div>
+      <div class="ds-fmt" data-r="up"><small>FORMATO PROPUESTO</small><p><span>proyecto_tipo_pieza_variante</span><span class="b">_medida_v01.ext</span></p><hr><div>Separá los datos con <b>guiones bajos</b> y reservá el punto para la extensión. La <b>medida es opcional</b>; la <b>versión</b> permite identificar cada entrega.</div></div>
+      <table class="ds-tb" data-r="up"><thead><tr><th>CAMPO</th><th>FUNCIÓN</th><th>EJEMPLO</th></tr></thead><tbody>
+        <tr><td class="k1">proyecto</td><td>A qué marca o experiencia pertenece.</td><td>movida - apuro - desvio</td></tr>
+        <tr><td>tipo</td><td>Qué clase de recurso es.</td><td>ui - foto - motion</td></tr>
+        <tr><td>pieza</td><td>Qué elemento o pantalla identifica.</td><td>home - planb - cabina</td></tr>
+        <tr><td>variante</td><td>Color, estado o aplicación.</td><td>principal - blanco - error</td></tr>
+        <tr><td>medida</td><td>Dimensión solo cuando corresponde.</td><td>390x931 - 1920x1080</td></tr>
+        <tr><td>v01.ext</td><td>Número correlativo y extensión.</td><td>v01.png · v02.pdf · v03.svg</td></tr></tbody></table>
+      <div class="ds-ej" data-r="up"><h3>Ejemplos de archivos</h3><p class="body">Estos nombres ilustran la convención propuesta, <b>no representan archivos exportados</b>.</p>
+        <ul>
+          <li style="--c:#ccf901"><span>Identidad paraguas</span><b>entretiempo_marca_logo_principal.svg</b></li>
+          <li style="--c:#00b5ff"><span>Pantalla y tamaño de referencia</span><b>movida_ui_home_proximoviaje_390x931.png</b></li>
+          <li style="--c:#7b6fec"><span>Animación de la experiencia</span><b>apuro_motion_temporizador.mp4</b></li>
+          <li style="--c:#ff3a30"><span>Señalética de una estación</span><b>desvio_senal_planb_direccional.pdf</b></li></ul></div>
+    </div>
+  </section>
+
+  <footer>
+    <button class="up">
+      <span class="ring">
+        <svg class="orb" viewBox="0 0 114 114" fill="none" stroke="#effaff" stroke-width="3" stroke-linecap="round"><path d="M12 30A55 55 0 0 1 48 3"/><path d="M102 84a55 55 0 0 1-36 27"/></svg>
+        <span class="dot"><svg width="30" height="30" viewBox="0 0 30 30" fill="none" stroke="#2d2e30" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M7 15l8-8 8 8M7 24l8-8 8 8"/></svg></span>
+      </span>
+      Volver arriba
+    </button>
+    <div class="sign"><i class="mk sign-logo" role="img" aria-label="Entre tiempo" style="--m:var(--k-et);--ar:8.1"></i><small>Una identidad, múltiples experiencias.</small></div>
+  </footer>
+  </div>
+</main>
+
+
 <div id="chrome">
   <aside class="side" aria-hidden="true"><i class="prog"></i><span class="lbl"><b id="lblBase" style="font-weight:400">Sobre Entre tiempo</b><em id="lbl"></em></span><span class="cr">© Copyright 2026</span></aside>
   <nav class="sd-wrap" id="sideDots" aria-label="Secciones de la página"></nav>
@@ -3002,7 +3403,7 @@ body.inpage .sd-wrap:not(:empty){display:flex}
 const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
 const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
 const home=$('#home'), grid=$('#grid'), intro=$('#intro'), wipe=$('#wipe');
-const PAGES={sobre:{el:$('#sobre'),name:'Sobre Entre tiempo'},comunicamos:{el:$('#comunicamos'),name:'Cómo nos comunicamos'},signos:{el:$('#signos'),name:'Signos marcarios'},colores:{el:$('#colores'),name:'Paletas cromáticas'},elementos:{el:$('#elementos'),name:'Elementos gráficos'},tipografias:{el:$('#tipografias'),name:'Uso de tipografías'}};
+const PAGES={sobre:{el:$('#sobre'),name:'Sobre Entre tiempo'},comunicamos:{el:$('#comunicamos'),name:'Cómo nos comunicamos'},signos:{el:$('#signos'),name:'Signos marcarios'},colores:{el:$('#colores'),name:'Paletas cromáticas'},elementos:{el:$('#elementos'),name:'Elementos gráficos'},tipografias:{el:$('#tipografias'),name:'Uso de tipografías'},ds:{el:$('#ds'),name:'Design System'}};
 const tiles=$$('.tile'); let offs=[], view='home';
 const clamp=(v,a=0,b=1)=>Math.min(b,Math.max(a,v));
 const ease=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
@@ -3121,7 +3522,7 @@ const MENU=[
  {k:'colores',t:'Paletas cromáticas',i:'pal',s:[['Base compartida','base'],['Marca madre','madre'],['Paletas por marcas','marcas'],['Degradés','degrades'],['Criterios de uso','usos-color']]},
  {k:'tipografias',t:'Uso de tipografías',i:'tipo',s:[['Familias tipográficas','familias'],['Jerarquías','jerarquias'],['Intervenciones','interv'],['Guías y usos','criterios'],['Aplicaciones','aplic']]},
  {k:'motion',t:'Motion y sonidos',i:'motion',soon:1,s:[['Familias tipográficas'],['Jerarquías'],['Intervenciones'],['Guías y usos'],['Aplicaciones']]},
- {k:'ds',t:'Design System',i:'ds',soon:1,s:[['Atomic design'],['Iconografía'],['Grillas'],['Nomenclaturas']]},
+ {k:'ds',t:'Design System',i:'ds',s:[['Atomic design','atomic'],['Iconografía','ds-iconos'],['Grillas','grillas'],['Nomenclaturas','nomen']]},
  {k:'evento',t:'Evento',i:'evento',soon:1,s:[['De qué se trata'],['Señalética'],['Iconografía'],['Accesibilidad']]}
 ];
 const menu=$('#menu'), mnList=$('#mnList');
@@ -3783,6 +4184,34 @@ if(!reduce)setInterval(()=>{if(hold||view!=='elementos'||document.hidden)return;
   R.addEventListener('click',()=>{const x=I.value,ws=[...x.matchAll(/\S+/g)];if(ws.length){const m=ws[Math.floor(Math.random()*ws.length)];st.a=m.index;st.b=m.index+m[0].replace(/[.,;:!?]+$/,'').length}
     st.seed=Math.floor(Math.random()*20);st.mode=1;$$('button',O).forEach(b=>b.classList.toggle('on',+b.dataset.m===1));render()});
   render()})();
+
+/* ══════════ DESIGN SYSTEM ══════════ */
+/* atomic design: la escena se queda fija y avanza con el scroll */
+(()=>{const imgs=$$('#dsAt img'),dots=$$('#dsAtDots button'),pill=$('#dsAtPill'),pb=$('b',pill),ps=$('span',pill);if(!imgs.length)return;
+  const T=[['Átomos','Texto, íconos y color presentes en la tarjeta de destino.'],['Moléculas','El estado «Salí en 5 min» reúne una señal visual y su mensaje.'],['Organismos','La tarjeta combina destino, horarios, transporte y una acción.'],['Plantillas','La misma distribución, antes de completar los contenidos.'],['Páginas','La Home final de MOViDA con información real de Joaquín.']];
+  let cur=-1;
+  const set=i=>{if(i===cur)return;cur=i;imgs.forEach((m,k)=>m.classList.toggle('on',k===i));dots.forEach((d,k)=>d.classList.toggle('on',k===i));pb.textContent=T[i][0];ps.textContent=T[i][1]};
+  set(0);
+  pin('#dsAtPin',t=>set(Math.min(4,Math.floor(clamp(t/.96)*5))));
+  dots.forEach((d,i)=>d.addEventListener('click',()=>{const p=$('#dsAtPin'),r=p.getBoundingClientRect(),H=p.offsetHeight-innerHeight;const y=scrollY+r.top+H*((i+.5)/5)*.96;scrollTo({top:y,behavior:reduce?'auto':'smooth'})}))})();
+
+/* anatomía de botones */
+(()=>{const tabs=$('#dsAnTabs');if(!tabs)return;const btn=$('#dsAnBtn'),box=$('#dsAnB'),cap=$('#dsAnCap'),eye=$('#dsAnEye');
+  const F=[{k:'big d',t:'Continuar',w:'349px',cap:'Sin ícono · Acción principal en móvil',d:'349 × 48 px',ty:'Figtree Bold 14 px',v:'Sin ícono'},
+    {k:'med d',t:'Ver detalles y usar plantilla',w:'318px',cap:'Sin ícono · Acción secundaria',d:'318 × 34 px',ty:'Figtree SemiBold 12 px',v:'Sin ícono'},
+    {k:'sm d',t:'Crear viaje compartido <i class="chv"></i>',w:'auto',cap:'Con ícono · Dentro de una tarjeta',d:'143 × 26 px',ty:'Figtree SemiBold 11,5 px',v:'Con ícono'},
+    {k:'nb',t:'Ver jornadas <i class="chv"></i>',w:'auto',cap:'Con ícono · Acción contextual',d:'Según el contenido',ty:'Epilogue Medium 22 px',v:'Con ícono'}];
+  const put=i=>{const f=F[i];btn.className='bb '+f.k;btn.innerHTML=f.t;btn.style.width=f.w==='auto'?'':'min(100%,'+f.w+')';box.style.width=f.w==='auto'?'':'min(100%,'+f.w+')';
+    cap.textContent=f.cap;$('#dsAnD').textContent='DIMENSIONES: '+f.d;$('#dsAnT').textContent='TIPOGRAFÍA: '+f.ty;$('#dsAnV').textContent='VARIANTE: '+f.v;box.dataset.d=f.d;
+    $$('button',tabs).forEach((b,k)=>b.classList.toggle('on',k===i))};
+  tabs.addEventListener('click',e=>{const b=e.target.closest('button');if(b)put(+b.dataset.k)});
+  eye.addEventListener('click',()=>{const on=box.classList.toggle('gr');eye.setAttribute('aria-pressed',on)});put(0)})();
+
+/* íconos: plano / inflado blanco / inflado violeta */
+(()=>{const t=$('#dsIcTabs'),g=$('#dsIcG');if(!t)return;t.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;$$('button',t).forEach(x=>x.classList.toggle('on',x===b));g.className='ds-icg t'+b.dataset.k+' in'})})();
+
+/* espaciados */
+(()=>{const h=$('#dsEg');if(!h)return;h.innerHTML=[8,12,16,20,24].map(n=>`<div><b>${n} px</b><div class="h"><i></i><u style="width:${n}px"></u><s></s></div><small>HORIZONTALES</small><div class="v"><i></i><s style="height:${n}px"></s><em></em></div><small>VERTICALES</small></div>`).join('')})();
 
 /* arranque */
 const route=()=>{const h=location.hash.slice(1);return PAGES[h]?h:'home'};
