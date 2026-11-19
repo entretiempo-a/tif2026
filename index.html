@@ -21,7 +21,7 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{transition:opacity .75s ease}html.swp body{opacity:0;transition:none}
+html.swp body{opacity:0}
 body{font-family:'Figtree',system-ui,sans-serif;background:var(--grid-bg);color:var(--n01);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img{display:block;max-width:100%}
 button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
@@ -4365,9 +4365,9 @@ if(route()!=='home')show(route());else measure();
 const hl=$('.h-lang');
 if(hl){if(LANG==='en')hl.classList.add('en');
   hl.addEventListener('click',()=>{if(hl._busy)return;hl._busy=true;try{localStorage.setItem('et-lang',LANG==='en'?'es':'en');sessionStorage.setItem('et-keep','1')}catch(e){}
-    document.body.style.transition='opacity .45s ease';document.body.style.opacity='0';setTimeout(()=>location.reload(),reduce?0:470)})}
+    location.reload()})}
 if(route()==='home'&&document.documentElement.classList.contains('swp')){history.scrollRestoration='manual';scrollTo(0,home.offsetHeight);measure()}
-requestAnimationFrame(()=>requestAnimationFrame(()=>setTimeout(()=>document.documentElement.classList.remove('swp'),60)));
+requestAnimationFrame(()=>document.documentElement.classList.remove('swp'));
 addEventListener('load',()=>{if(view==='home')measure();else pageScroll()});
 })();
 
