@@ -2034,6 +2034,20 @@ body.inpage .sd-wrap:not(:empty){display:flex}
 
 /* menú: entran las 11 entradas sin scroll */
 .mn-list{gap:clamp(12px,2.4vh,34px)}
+
+/* títulos: el texto de cada encabezado de dos columnas arranca a la altura del título */
+@media (min-width:561px){
+  :is(.two,.c-head,.tp-two,.ds-two,.tp-aj-h,.sb-head,.col-h)>.body,:is(.two,.c-head,.tp-two,.ds-two,.tp-aj-h,.sb-head,.col-h)>p.body{margin-top:0!important}
+}
+
+/* ── escala tipográfica móvil: h1 · h2 · h3 · h4 · texto, igual en todas las páginas ── */
+@media (max-width:560px){
+  .view h2{font-size:32px!important;line-height:38px!important}
+  :is(.cl-h3,.cl-uno-h,.tp-h3,.el-h3,#ds h3,.vr-t h3,.col-row h3,.br-l h3,.tp-app h3){font-size:24px!important;line-height:30px!important}
+  :is(.face h3,.g-rule h3,.sp3-t h3,.cl-3c-card h3,.uno-grp h4,.uc h4,.tp-ic h4,.bc h4,.ds-dk h4,#ds h4,.acc-in h4){font-size:20px!important;line-height:26px!important}
+  :is(.two,.c-head,.tp-two,.ds-two,.tp-aj-h,.col-h,.sb-head){row-gap:16px!important}
+  .view .body:not(.g-rule .body){font-size:16px!important;line-height:22px!important}
+}
 </style>
 </head>
 <body>
