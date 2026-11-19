@@ -1877,16 +1877,16 @@ body.inpage .sd-wrap:not(:empty){display:flex}
 .ds-b3 h5{font-family:'Epilogue';font-weight:500;font-size:19px;line-height:24px;letter-spacing:-.02em;margin:26px 0 4px}
 .ds-b3 p{font-size:14px;line-height:17px;max-width:270px}
 .ds-b3 p b{font-weight:600}
-.bb{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;font-family:'Figtree';white-space:nowrap}
+.bb{display:inline-flex;align-items:center;justify-content:center;gap:10px;border-radius:100px;font-family:'Figtree';white-space:nowrap;filter:drop-shadow(0 2px 2px rgba(0,0,0,.05))}
 .bb.big{width:100%;height:48px;font-weight:700;font-size:14px}
-.bb.med{width:100%;height:34px;font-weight:600;font-size:12px}
-.bb.sm{height:26px;padding:0 18px;font-weight:600;font-size:11.5px}
-.bb.d{background:#2d2e30;color:#fff}
-.bb.l{background:#fbfdff;color:#2d2e30;box-shadow:0 2px 4px rgba(0,0,0,.12)}
-.bb.x{background:#cccdcf;color:#6f7073}
-.bb.nb{font-family:'Epilogue';font-weight:500;font-size:22px;letter-spacing:-.03em;color:#2d2e30;padding:0}
-.chv{display:inline-block;width:6px;height:6px;border-right:1.6px solid currentColor;border-top:1.6px solid currentColor;rotate:45deg;margin-left:2px}
-.bb.nb .chv{width:9px;height:9px;border-width:2px}
+.bb.med{width:100%;height:34px;padding:8.5px 12px;font-weight:600;font-size:12px}
+.bb.sm{padding:5.354px 22px;font-weight:400;font-size:12px;line-height:normal}
+.bb.d{background:#2d2e30;color:#f6f8fa}
+.bb.l{background:#fbfdff;color:#2d2e30}
+.bb.x{background:#cccdcf;color:#2d2e30}
+.bb.nb{gap:10.352px;font-weight:600;font-size:20.704px;line-height:normal;color:#2d2e30;padding:0;filter:none;border-radius:0}
+.chv{display:inline-block;flex:none;width:13px;height:13px;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 13 13'%3E%3Cpath d='M4 1.5 9.2 6.5 4 11.5' fill='none' stroke='%23000' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 13 13'%3E%3Cpath d='M4 1.5 9.2 6.5 4 11.5' fill='none' stroke='%23000' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat}
+.bb.nb .chv{width:12.2px;height:12.2px}
 .ds-dl{display:flex;justify-content:flex-end;align-items:center;margin-top:26px;font-size:12px;color:#58595b}
 .ds-nb{display:grid;grid-template-columns:276px 1fr;align-items:center;margin-top:36px}
 .ds-nb p{font-size:13px;line-height:17px;max-width:260px}
@@ -1925,9 +1925,6 @@ body.inpage .sd-wrap:not(:empty){display:flex}
 .ds-tabs.ic{margin-top:46px}
 .ds-icg{position:relative;margin-top:34px;max-width:812px;border-radius:12px;overflow:hidden;transition:background .4s}
 .ds-icg img{display:block;width:100%;height:auto;transition:filter .4s,mix-blend-mode .4s}
-.ds-icg.t1,.ds-icg.t2{background:var(--bg)}
-.ds-icg.t1 img,.ds-icg.t2 img{filter:invert(1);mix-blend-mode:screen}
-.ds-icg.t1{--bg:#2d2e30}.ds-icg.t2{--bg:#7b6fec}
 .ds-bar{margin-top:44px}
 .ds-cons{display:grid;grid-template-columns:278px 1fr;gap:115px;align-items:center;margin-top:120px}
 .ds-cons .body{margin-top:26px}
@@ -3303,7 +3300,7 @@ body.inpage .sd-wrap:not(:empty){display:flex}
       <div class="ds-two"><h2 data-r="up">Íconos</h2>
         <p class="body" data-r="up" style="--d:.1s"><b>Material Symbols Rounded</b> es la base de la iconografía de MOViDA. Los <b>símbolos planos</b> se usan en navegación y controles; los <b>inflados blanco y violeta</b> se reservan para recursos expresivos. La retícula documenta la construcción del ícono plano.</p></div>
       <div class="ds-tabs ic" id="dsIcTabs" data-r="up"><button class="on" data-k="0">Plano</button><button data-k="1">Inflado blanco</button><button data-k="2">Inflado violeta</button></div>
-      <div class="ds-icg" id="dsIcG" data-r="up"><img src="assets/ds/iconos.webp" alt="Colección de 61 íconos de MOViDA" draggable="false"></div>
+      <div class="ds-icg" id="dsIcG" data-r="up"><img src="assets/ds/iconos.webp" width="2400" height="2064" alt="Colección de 61 íconos de MOViDA" draggable="false"></div>
       <div class="ds-bar" data-r="up"><a class="btn-dl" href="#" data-say="El link a la plantilla de íconos todavía no está cargado">Descargar plantilla <i><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4v8M5.5 9 9 12.5 12.5 9"/></svg></i></a></div>
       <div class="ds-cons">
         <div data-r="up"><h3>Construcción</h3><p class="body">La <b>retícula de 24 × 24 px</b> organiza el símbolo plano de Material Symbols Rounded. Las versiones infladas conservan su silueta, pero se usan como <b>recursos expresivos 3D</b> y no sustituyen los íconos de interfaz.</p></div>
@@ -4199,8 +4196,8 @@ if(!reduce)setInterval(()=>{if(hold||view!=='elementos'||document.hidden)return;
 (()=>{const tabs=$('#dsAnTabs');if(!tabs)return;const btn=$('#dsAnBtn'),box=$('#dsAnB'),cap=$('#dsAnCap'),eye=$('#dsAnEye');
   const F=[{k:'big d',t:'Continuar',w:'349px',cap:'Sin ícono · Acción principal en móvil',d:'349 × 48 px',ty:'Figtree Bold 14 px',v:'Sin ícono'},
     {k:'med d',t:'Ver detalles y usar plantilla',w:'318px',cap:'Sin ícono · Acción secundaria',d:'318 × 34 px',ty:'Figtree SemiBold 12 px',v:'Sin ícono'},
-    {k:'sm d',t:'Crear viaje compartido <i class="chv"></i>',w:'auto',cap:'Con ícono · Dentro de una tarjeta',d:'143 × 26 px',ty:'Figtree SemiBold 11,5 px',v:'Con ícono'},
-    {k:'nb',t:'Ver jornadas <i class="chv"></i>',w:'auto',cap:'Con ícono · Acción contextual',d:'Según el contenido',ty:'Epilogue Medium 22 px',v:'Con ícono'}];
+    {k:'sm d',t:'Crear viaje compartido <i class="chv"></i>',w:'auto',cap:'Con ícono · Dentro de una tarjeta',d:'190 × 25 px',ty:'Figtree Regular 12 px',v:'Con ícono'},
+    {k:'nb',t:'Ver jornadas <i class="chv"></i>',w:'auto',cap:'Con ícono · Acción contextual',d:'Según el contenido',ty:'Figtree SemiBold 20,7 px',v:'Con ícono'}];
   const put=i=>{const f=F[i];btn.className='bb '+f.k;btn.innerHTML=f.t;btn.style.width=f.w==='auto'?'':'min(100%,'+f.w+')';box.style.width=f.w==='auto'?'':'min(100%,'+f.w+')';
     cap.textContent=f.cap;$('#dsAnD').textContent='DIMENSIONES: '+f.d;$('#dsAnT').textContent='TIPOGRAFÍA: '+f.ty;$('#dsAnV').textContent='VARIANTE: '+f.v;box.dataset.d=f.d;
     $$('button',tabs).forEach((b,k)=>b.classList.toggle('on',k===i))};
@@ -4208,7 +4205,7 @@ if(!reduce)setInterval(()=>{if(hold||view!=='elementos'||document.hidden)return;
   eye.addEventListener('click',()=>{const on=box.classList.toggle('gr');eye.setAttribute('aria-pressed',on)});put(0)})();
 
 /* íconos: plano / inflado blanco / inflado violeta */
-(()=>{const t=$('#dsIcTabs'),g=$('#dsIcG');if(!t)return;t.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;$$('button',t).forEach(x=>x.classList.toggle('on',x===b));g.className='ds-icg t'+b.dataset.k+' in'})})();
+(()=>{const t=$('#dsIcTabs'),g=$('#dsIcG');if(!t)return;t.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;$$('button',t).forEach(x=>x.classList.toggle('on',x===b));$('img',g).src=['assets/ds/iconos.webp','assets/ds/iconos-blanco.webp','assets/ds/iconos-violeta.webp'][+b.dataset.k];g.className='ds-icg t'+b.dataset.k+' in'})})();
 
 /* espaciados */
 (()=>{const h=$('#dsEg');if(!h)return;h.innerHTML=[8,12,16,20,24].map(n=>`<div><b>${n} px</b><div class="h"><i></i><u style="width:${n}px"></u><s></s></div><small>HORIZONTALES</small><div class="v"><i></i><s style="height:${n}px"></s><em></em></div><small>VERTICALES</small></div>`).join('')})();
