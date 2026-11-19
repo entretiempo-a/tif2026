@@ -986,6 +986,13 @@ footer{background:var(--n01);color:#effaff;height:417px;position:relative}
 .tn i b{font-family:'Epilogue';font-size:22px;line-height:26px;letter-spacing:-.03em;margin:0;display:inline}
 .tn i span{font-size:11px;line-height:14px}
 .tn:hover i,.tn:focus-visible i{translate:0 0!important}
+/* ficha de tonalidad más chica: solo lo justo para número y código */
+.tn:hover,.tn:focus-visible{flex:calc(var(--f,1) + .7) 1 0}
+.tn:hover::before,.tn:focus-visible::before{height:66px;border-radius:12px 12px 0 0}
+.tn:first-child:hover::before{border-radius:24px 12px 0 0}.tn:last-child:hover::before{border-radius:12px 24px 0 0}
+.tn i{bottom:36px;padding:0 12px;align-items:center}
+.tn i b{font-size:18px;line-height:22px}
+.tn i span{font-size:10px}
 
 /* ═════════════ ELEMENTOS GRÁFICOS ═════════════ */
 .el-h3{font-family:'Epilogue';font-weight:600;font-size:28px;line-height:32px;letter-spacing:-.03em}
