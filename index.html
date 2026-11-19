@@ -2309,6 +2309,13 @@ body.inpage .sd-wrap:not(:empty){display:flex}
   .tpb-s{padding:40px 18px 40px var(--ml)!important}
   .tpb-e .tpb-s{padding-left:var(--ml)!important}
 }
+
+/* frase de Paletas: letras que aparecen de a poco, palabras clave de color */
+.cl-frase .lit .w{color:inherit;transition:none}
+.cl-frase .lit .w .lt{font-style:normal;color:transparent;transition:color .3s ease}
+.cl-frase .lit .w .lt.on{color:var(--on)}
+.cl-frase .lit.ph0 .w.kwr .lt.on{color:#ff3a30}
+.cl-frase .lit.ph0 .w.kwc .lt.on{color:#35ceff}
 </style>
 </head>
 <body>
@@ -4179,10 +4186,18 @@ const inkOn=h=>lumOf(h)>.38?'#2d2e30':'#fbfdff';
 const mixHex=(a,b,t=.5)=>'#'+hx(a).map((v,i)=>Math.round(v+(hx(b)[i]-v)*t).toString(16).padStart(2,'0')).join('');
 
 /* frase: las palabras se prenden y cambia el color de fondo */
-const clLit=lit($('#clPhrase')),CLBG=['#fbfdff','#35ceff','#ff3a30','#48c569','#6f7073','#7b6fec'];let clK=-1;
-pin('#clPin',t=>{const lp=clamp(t/.8);clLit(lp*1.02);const k=Math.min(5,Math.floor(lp*6));if(k===clK)return;clK=k;
-  const bg=CLBG[k],el=$('#clPhrase');$('#clStick').style.background=bg;
-  el.style.setProperty('--on',k===0?'#2d2e30':'#ffffff');el.style.setProperty('--off',k===0?'#c3c6cc':mixHex(bg,'#000000',.16))});
+const CLBG=['#fbfdff','#35ceff','#ff3a30','#48c569','#6f7073','#7b6fec'];let clK=-1;
+/* la frase se revela letra por letra; «intensos» en rojo y «tranquilos» en celeste mientras el fondo es blanco */
+const clLit=(()=>{const el=$('#clPhrase');split(el);const ws=$$('.w',el);
+  ws.forEach(w=>{const t=w.textContent;w.textContent='';[...t].forEach(c=>{const i=document.createElement('i');i.className='lt';i.textContent=c;w.appendChild(i)});
+    if(/^(intensos|intense)/i.test(t))w.classList.add('kwr');else if(/^(tranquilos|calm)/i.test(t))w.classList.add('kwc')});
+  const ls=$$('.lt',el);
+  return p=>{const k=p*ls.length;ls.forEach((l,i)=>l.classList.toggle('on',i<k))}})();
+pin('#clPin',t=>{const lp=clamp(t/.8);clLit(Math.min(1,lp/.92));
+  const k=lp<.4?0:Math.min(5,1+Math.floor((lp-.4)/.6*5));
+  if(k===clK)return;clK=k;
+  const bg=CLBG[k],el=$('#clPhrase');$('#clStick').style.background=bg;el.classList.toggle('ph0',k===0);
+  el.style.setProperty('--on',k===0?'#2d2e30':'#ffffff')});
 
 /* escala de grises: se expande el que tocás y muestra código y porcentaje */
 const GRIS=['#2D2E30','#4F5053','#6F7073','#848588','#AEAFB2','#CCCDCF','#EDEEF0','#F1F3F5','#F6F8FA','#FBFDFF'], STEPS=[900,800,700,600,500,400,300,200,100,50];
