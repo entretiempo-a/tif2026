@@ -2434,6 +2434,13 @@ body.inpage .sd-wrap:not(:empty){display:flex}
   .se-ac{grid-template-columns:1fr}
   .se-med{overflow-x:auto;-webkit-overflow-scrolling:touch}.se-med img{width:780px;max-width:none}
 }
+/* móvil: cada tipo de señal en su propio cuadro */
+@media (max-width:560px){
+  .se-reg{background:none;padding:0;border-radius:0}
+  .se-reg h3,.se-reg .lead{padding:0 2px}
+  .se-f3.in3{gap:16px;margin-top:20px}
+  .se-v{background:#f7f8fb;border-radius:20px;padding:24px}
+}
 
 /* ═════════ MOTION Y SONIDOS ═════════ */
 #motion{background:var(--n10)}
