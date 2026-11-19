@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Entre tiempo · Brandbook</title>
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<script>try{if(sessionStorage.getItem('et-keep')){sessionStorage.removeItem('et-keep');document.documentElement.className+=' swp'}}catch(e){}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&family=Figtree:ital,wght@0,300..900;1,300..900&family=Anton&family=Caveat:wght@400;700&family=Permanent+Marker&family=Roboto+Slab:wght@300&display=swap" rel="stylesheet">
@@ -20,6 +21,7 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
+body{transition:opacity .75s ease}html.swp body{opacity:0;transition:none}
 body{font-family:'Figtree',system-ui,sans-serif;background:var(--grid-bg);color:var(--n01);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img{display:block;max-width:100%}
 button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
@@ -2807,7 +2809,7 @@ body.inpage .sd-wrap:not(:empty){display:flex}
   </section>
 
   <!-- texto de corrido -->
-  <section class="cl-marq" id="marq" data-label="">
+  <section class="cl-marq" id="marq" data-tone="l" data-label="">
     <div class="marq"><div class="marq-in" id="marqIn"><span>La vida no pasa en un solo color</span><i>·</i><span>La vida no pasa en un solo color</span><i>·</i><span>La vida no pasa en un solo color</span><i>·</i><span>La vida no pasa en un solo color</span><i>·</i></div></div>
   </section>
 
@@ -2886,7 +2888,7 @@ body.inpage .sd-wrap:not(:empty){display:flex}
   </section>
 
   <!-- cómo se construyen -->
-  <section class="el-cons" id="construyen" data-label="Cómo se construyen">
+  <section class="el-cons" id="construyen" data-tone="l" data-label="Cómo se construyen">
     <div class="wrap">
       <h2 class="cons-h stk" data-r="up">Como se construyen</h2>
       <div class="acc" id="acc"></div>
@@ -2984,7 +2986,7 @@ body.inpage .sd-wrap:not(:empty){display:flex}
   </section>
 
   <!-- usos -->
-  <section class="el-usos" id="usos-el" data-label="Usos correctos e incorrectos">
+  <section class="el-usos" id="usos-el" data-tone="l" data-label="Usos correctos e incorrectos">
     <div class="wrap">
       <h3 class="el-h3 lt" data-r="up">Usos correctos e incorrectos</h3>
       <p class="body lt" data-r="up" style="--d:.1s">Las insignias e ilustraciones <b>comparten un lenguaje inflable</b>. Estos ejemplos muestran cómo conservar su <b>silueta, materialidad y claridad</b> al aplicarlas en diferentes piezas.</p>
@@ -4362,8 +4364,10 @@ addEventListener('hashchange',()=>{const v=route();if(v!==view)show(v)});
 if(route()!=='home')show(route());else measure();
 const hl=$('.h-lang');
 if(hl){if(LANG==='en')hl.classList.add('en');
-  hl.addEventListener('click',()=>{try{localStorage.setItem('et-lang',LANG==='en'?'es':'en');sessionStorage.setItem('et-keep','1')}catch(e){}location.reload()})}
-try{if(route()==='home'&&sessionStorage.getItem('et-keep')){sessionStorage.removeItem('et-keep');history.scrollRestoration='manual';scrollTo(0,home.offsetHeight);measure()}}catch(e){}
+  hl.addEventListener('click',()=>{if(hl._busy)return;hl._busy=true;try{localStorage.setItem('et-lang',LANG==='en'?'es':'en');sessionStorage.setItem('et-keep','1')}catch(e){}
+    document.body.style.transition='opacity .45s ease';document.body.style.opacity='0';setTimeout(()=>location.reload(),reduce?0:470)})}
+if(route()==='home'&&document.documentElement.classList.contains('swp')){history.scrollRestoration='manual';scrollTo(0,home.offsetHeight);measure()}
+requestAnimationFrame(()=>requestAnimationFrame(()=>setTimeout(()=>document.documentElement.classList.remove('swp'),60)));
 addEventListener('load',()=>{if(view==='home')measure();else pageScroll()});
 })();
 
