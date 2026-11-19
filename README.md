@@ -16,5 +16,5 @@ Abrir `index.html` directo en el navegador (funciona con file://) o servir la ca
 
 ## Pendiente: calidad de imágenes
 Las imágenes de `assets/` están exportadas a 1x desde Figma (archivo `iq4xYoSzLlfEnHCzyObg8F`) y se ven pixeladas en pantallas retina. Reemplazarlas por exportaciones **3x (PNG o WebP)** con el MISMO nombre de archivo; el tamaño en pantalla lo fija el CSS, no hace falta tocar código:
-`tile-*.png`, `phone-1..5.png`, `apuro-*/desvio-*.png`, `con-*.png`, `ver-*.png`, `sub-*.png`.
+`home/*.webp` (tarjetas del inicio, 4×), `phone-1..5.png`, `apuro-*/desvio-*.png`, `con-*.png`, `ver-*.png`, `sub-*.png`.
 Giant (colaboraciones) es raster en Figma: exportarlo en SVG o PNG 3x y regenerar `--k-giant`.

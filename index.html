@@ -30,20 +30,23 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 #home{height:260vh;background:var(--grid-bg)}
 .h-stage{position:sticky;top:0;height:100vh;overflow:hidden;--W:min(100vw,calc(100vh*1280/832))}
 /* la grilla respeta las proporciones del diseño (1280×832) y se escala para entrar en pantalla */
-.grid{position:absolute;left:50%;top:50%;translate:-50% -50%;width:var(--W);aspect-ratio:1280/832;display:flex;gap:var(--g);padding:calc(var(--W)*50/1280);--g:calc(var(--W)*15/1280)}
+.grid{position:absolute;left:50%;top:50%;translate:-50% -50%;width:var(--W);aspect-ratio:1280/832;display:flex;gap:var(--g);padding:calc(var(--W)*87/1280) calc(var(--W)*50/1280) calc(var(--W)*38/1280) calc(var(--W)*49/1280);--g:calc(var(--W)*15/1280)}
 .col{flex:1 1 0;display:flex;flex-direction:column;gap:var(--g);min-width:0}
 .row{display:flex;gap:var(--g);min-height:0}
 .row>.tile{flex:1 1 0}
-.tile{position:relative;display:block;text-align:left;border-radius:10px;overflow:hidden;min-height:0;background:var(--c);will-change:transform;
+.tile{position:relative;display:block;text-align:left;border-radius:10px;overflow:hidden;min-height:0;background:#2d2e30;will-change:transform;
   font-family:'Epilogue',sans-serif;font-weight:700;font-size:max(11px,calc(var(--W)*22/1280));line-height:1;letter-spacing:-.017em;color:var(--t);text-decoration:none}
-.tile::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 70% at var(--gx,65%) var(--gy,75%),rgba(255,255,255,.42),transparent 70%);transition:opacity .5s,transform .8s var(--ease)}
 .tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:var(--op,right bottom);transform-origin:var(--to,70% 80%);transition:transform .7s var(--spring);pointer-events:none}
-.tile span{position:absolute;left:max(8px,calc(var(--W)*15/1280));top:max(8px,calc(var(--W)*15/1280));z-index:2;transition:transform .5s var(--ease)}
-.tile span:not(.arrow){opacity:var(--lab,0)}
+.tile span{position:absolute;left:max(8px,calc(var(--W)*var(--lx,17)/1280));top:max(8px,calc(var(--W)*var(--ly,14)/1280));z-index:2;transition:transform .5s var(--ease)}
+.tile span:not(.arrow){opacity:var(--lab,0);line-height:1.02}
+.h-top{position:absolute;inset:0;pointer-events:none;opacity:var(--lab,0)}
+.h-logo{position:absolute;left:calc(var(--W)*49/1280);top:calc(var(--W)*42/1280);width:calc(var(--W)*160/1280);height:auto}
+.h-lang{position:absolute;left:calc(var(--W)*1115/1280);top:calc(var(--W)*43/1280);width:calc(var(--W)*104/1280);height:calc(var(--W)*19/1280);min-height:16px;border:1px solid #fbfdff;border-radius:99px;display:flex;align-items:center;font:400 max(9px,calc(var(--W)*12/1280))/1 'Figtree',sans-serif;color:#fbfdff;pointer-events:auto;overflow:hidden;cursor:pointer}
+.h-lang b{flex:0 0 55%;height:100%;display:grid;place-items:center;background:#fbfdff;color:#2d2e30;font-weight:400;border-radius:99px}
+.h-lang i{flex:1;font-style:normal;font-weight:600;text-align:center}
 .tile .arrow{left:auto;right:max(8px,calc(var(--W)*15/1280));opacity:0;transform:translate(-8px,8px);transition:.4s var(--ease);font-family:'Figtree';font-weight:500}
 .grid.ready .tile{transition:filter .4s,box-shadow .4s,transform .25s ease-out}
 .grid.ready .tile:hover img,.grid.ready .tile:focus-visible img{transform:scale(1.09) rotate(-3deg)}
-.grid.ready .tile:hover::before{transform:scale(1.35)}
 .grid.ready .tile:hover .arrow,.grid.ready .tile:focus-visible .arrow{opacity:1;transform:none}
 .grid.ready:has(.tile:hover) .tile:not(:hover){filter:saturate(.75) brightness(.82)}
 .tile:focus-visible{outline:3px solid #fff;outline-offset:3px}
@@ -383,7 +386,7 @@ footer{background:var(--n01);color:#effaff;height:417px;position:relative}
   .pills{grid-template-columns:1fr;row-gap:34px;justify-items:center}.val{width:min(270px,100%)}
   .phones{gap:6px;margin-inline:0}.phones figcaption{font-size:11px;padding:6px 9px}
   .side span{font-size:12px}.burger i{width:22px}.burger .iso{width:30px}
-  .grid{flex-direction:column;overflow:auto;left:0;top:0;translate:none;width:auto;aspect-ratio:auto;inset:0;padding:14px;--g:10px}.col{flex:none}.tile{min-height:120px;font-size:15px}
+  .grid{flex-direction:column;overflow:auto;left:0;top:0;translate:none;width:auto;aspect-ratio:auto;inset:0;padding:14px;--g:10px}.col{flex:none}.row{flex:none!important}.tile{min-height:0;aspect-ratio:var(--ar);font-size:15px;flex:none!important}.tile span{left:12px;top:11px}.row>.tile{flex:1 1 0!important}.h-top{position:static;display:flex;justify-content:space-between;align-items:center;flex:none;height:28px;opacity:1;margin-bottom:2px}.h-logo,.h-lang{position:static;width:auto}.h-logo{width:128px}.h-lang{width:84px;height:22px;font-size:11px}
   .sign{flex-direction:column;gap:10px;bottom:28px}
 }
 
@@ -2021,22 +2024,24 @@ body.inpage .sd-wrap:not(:empty){display:flex}
 <main id="home" class="view on">
   <div class="h-stage">
     <nav class="grid" id="grid" aria-label="Secciones del brandbook">
+      <div class="h-top"><img class="h-logo" src="assets/home/logo.svg" alt="Entre tiempo" width="160" height="19"><button class="h-lang" type="button" data-say="La versión en inglés todavía no está disponible" aria-label="Idioma: español"><b>ESP</b><i>ENG</i></button></div>
       <div class="col">
-        <a class="tile" href="#sobre" data-go="sobre" style="--ln:2;flex:173;--c:#ffa95e;--t:#dc6700;--gx:70%;--gy:60%"><img src="assets/tile-sobre.png" alt=""><span>Sobre<br>Entre tiempo</span><span class="arrow">↗</span></a>
-        <a class="tile" href="#signos" data-go="signos" style="--ln:2;flex:264;--c:#009838;--t:#004e13;--gx:50%;--gy:95%;--op:center bottom"><img src="assets/tile-signos.png" alt=""><span>Signos<br>marcarios</span><span class="arrow">↗</span></a>
-        <a class="tile" href="#ds" data-go="ds" style="--ln:2;flex:267;--c:#d1f842;--t:#8a8e00;--gx:45%;--gy:70%;--op:center bottom"><img src="assets/tile-design-system.png" alt=""><span>Design<br>system</span><span class="arrow">↗</span></a>
+        <a class="tile" href="#sobre" data-go="sobre" style="--ar:383/167;--lx:17;--ly:14;flex:167;--t:#2d2e30"><img src="assets/home/sobre.webp" alt="" draggable="false"><span>Sobre<br>Entre tiempo</span><span class="arrow">↗</span></a>
+        <a class="tile" href="#signos" data-go="signos" style="--ar:383/255;--lx:16;--ly:14;flex:255;--t:#e6f7e9"><img src="assets/home/signos.webp" alt="" draggable="false"><span>Signos<br>marcarios</span><span class="arrow">↗</span></a>
+        <a class="tile" href="#ds" data-go="ds" style="--ar:382/258;--lx:15;--ly:14;flex:258;--t:#2d2e30"><img src="assets/home/ds.webp" alt="" draggable="false"><span>Design<br>system</span><span class="arrow">↗</span></a>
       </div>
       <div class="col">
-        <div class="row" style="flex:267">
-          <a class="tile" href="#comunicamos" data-go="comunicamos" style="--ln:2;--c:#79dbff;--t:#0082cb;--gx:40%;--gy:60%;--op:left bottom;--to:30% 70%"><img src="assets/tile-comunicamos.png" alt=""><span>Cómo nos<br>comunicamos</span></a>
-          <a class="tile" href="#tipografias" data-go="tipografias" style="--c:#ffd400;--t:#937a01;--gx:60%;--gy:60%"><img src="assets/tile-tipografias.png" alt=""><span>Tipografías</span></a>
+        <div class="row" style="flex:258">
+          <a class="tile" href="#comunicamos" data-go="comunicamos" style="--ar:184/258;--lx:11;--ly:14;flex:1;--t:#2d2e30"><img src="assets/home/comunicamos.webp" alt="" draggable="false"><span>Cómo nos<br>comunicamos</span></a>
+          <a class="tile" href="#tipografias" data-go="tipografias" style="--ar:184/258;--lx:11;--ly:14;flex:1;--t:#fbfdff"><img src="assets/home/tipografias.webp" alt="" draggable="false"><span>Uso de<br>tipografías</span></a>
         </div>
-        <a class="tile" href="#elementos" data-go="elementos" style="--ln:2;flex:170;--c:#7b6fec;--t:#484189;--gx:70%;--gy:30%;--op:right top;--to:70% 30%"><img src="assets/tile-elementos.png" alt=""><span>Elementos<br>gráficos</span><span class="arrow">↗</span></a>
-        <a class="tile" href="#" style="flex:267;--c:#ee7071;--t:#c30014;--gx:55%;--gy:75%;--op:center bottom"><img src="assets/tile-evento.png" alt=""><span>Evento</span><span class="arrow">↗</span></a>
+        <a class="tile" href="#elementos" data-go="elementos" style="--ar:383/165;--lx:11;--ly:14;flex:165;--t:#fbfdff"><img src="assets/home/elementos.webp" alt="" draggable="false"><span>Elementos<br>gráficos</span><span class="arrow">↗</span></a>
+        <a class="tile" href="#" style="--ar:382/258;--lx:22;--ly:15;flex:258;--t:#fbfdff"><img src="assets/home/senaletica.webp" alt="" draggable="false"><span>Señalética</span><span class="arrow">↗</span></a>
       </div>
       <div class="col">
-        <a class="tile" href="#colores" data-go="colores" style="--ln:2;flex:267;--c:#48c569;--t:#006719;--gx:65%;--gy:75%"><img src="assets/tile-paletas.png" alt=""><span>Paletas<br>cromáticas</span><span class="arrow">↗</span></a>
-        <a class="tile" href="#" style="flex:451;--c:#0082cb;--t:#013a6f;--gx:60%;--gy:85%;--op:right center;--to:60% 60%"><img src="assets/tile-motion.png" alt=""><span>Motion y sonidos</span><span class="arrow">↗</span></a>
+        <a class="tile" href="#colores" data-go="colores" style="--ar:383/258;--lx:23;--ly:14;flex:258;--t:#2d2e30"><img src="assets/home/paletas.webp" alt="" draggable="false"><span>Paletas<br>cromáticas</span><span class="arrow">↗</span></a>
+        <a class="tile" href="#" style="--ar:382/258;--lx:22;--ly:17;flex:258;--t:#2d2e30"><img src="assets/home/motion.webp" alt="" draggable="false"><span>Motion<br>y sonidos</span><span class="arrow">↗</span></a>
+        <a class="tile" href="#" style="--ar:383/164;--lx:22;--ly:18;flex:164;--t:#2d2e30"><img src="assets/home/marca.webp" alt="" draggable="false"><span>La marca<br>en uso</span><span class="arrow">↗</span></a>
       </div>
     </nav>
     <div class="intro" id="intro" role="button" tabindex="0" aria-label="Explorar el brandbook">
