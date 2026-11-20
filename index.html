@@ -2430,6 +2430,9 @@ body.inpage .sd-wrap:not(:empty){display:none}
   .ds-at-st{width:min(700px,calc(100% - var(--side)*2 - 40px),calc((100vh - 225px)*1560/1442))}
 }
 
+/* en la portada de cada sección la barra lateral va sin relleno */
+.side.nofill{background:transparent}
+
 /* ═════════ SEÑALÉTICA ═════════ */
 #senaletica{background:var(--n10)}
 .hero.se .blob.a{background:#ff3a30;opacity:.55}.hero.se .blob.b{background:#7a1010;opacity:.25}
@@ -4983,7 +4986,7 @@ function pageScroll(){
   let name='';$$('[data-label]',root).forEach(s=>{if(s.getBoundingClientRect().top<H*.5)name=s.dataset.label});
   const zones=$$('.hero,section,footer',root);
   const tone=y=>{for(const s of zones){const r=s.getBoundingClientRect();if(r.top<=y&&r.bottom>y)return s.dataset.tone==='l'}return false};
-  const dkS=tone(H/2);lblS.classList.toggle('dk',dkS);crS.classList.toggle('dk',dkS);side.classList.toggle('dk',dkS);
+  const dkS=tone(H/2);lblS.classList.toggle('dk',dkS);crS.classList.toggle('dk',dkS);side.classList.toggle('dk',dkS);{const hh=$('.hero',root);side.classList.toggle('nofill',!!hh&&hh.getBoundingClientRect().bottom>H*.5)}
   if(name!==cur){cur=name;lbl.classList.add('out');setTimeout(()=>{lbl.textContent=name?' — '+name:'';lbl.classList.remove('out')},250)}
   sdUpdate(H,root);
   logos.forEach(l=>{const r=l.getBoundingClientRect();l.style.setProperty('--sp',clamp((H-r.top)/(H*.55)))});
