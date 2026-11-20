@@ -257,6 +257,8 @@ h2{font-family:'Epilogue';font-weight:700;font-size:48px;line-height:56px;letter
   animation:float var(--f,6s) ease-in-out infinite alternate}
 .play .pill{scale:1}
 .pill.moving{transition:scale .3s,rotate .4s var(--spring),background .3s,color .3s;z-index:6}
+.pill.phys,.pill.moved{transition:scale .7s var(--spring) var(--d,0s),rotate .5s var(--spring),background .3s,color .3s}
+.pill.drag{transition:scale .3s,rotate .4s var(--spring),background .3s,color .3s}
 .pill.drag{cursor:grabbing;scale:1.1;background:var(--n10);color:var(--n01)}
 .pill:hover,.pill:focus-visible{background:var(--n10);color:var(--n01);rotate:0deg;scale:1.08;transition-delay:0s;outline:0}
 @keyframes float{from{transform:translateY(-.5cqw)}to{transform:translateY(.6cqw)}}
@@ -4956,6 +4958,91 @@ tiles.forEach(t=>{
     t.style.transform=`perspective(700px) rotateX(${-((e.clientY-r.top)/r.height-.5)*9}deg) rotateY(${((e.clientX-r.left)/r.width-.5)*9}deg) scale(1.02)`});
   t.addEventListener('pointerleave',()=>{if(grid.classList.contains('ready'))t.style.transform=''});
 });
+
+/* pastillas de los heros: rebotan en los bordes visibles de la pantalla, en el título y entre sí; se pueden arrastrar y lanzar */
+function pillPhysics(hero){
+  const pills=$$('.pill',hero);if(!pills.length)return;
+  pills.forEach(q=>q.classList.add('phys'));
+  const st=pills.map(p=>({p,x:null,y:null,vx:0,vy:0,drag:false,w:0,h:0}));
+  let active=false,raf=0,last=0,booted=false;
+  const on=()=>innerWidth>560;
+  const par=st[0].p.offsetParent||hero;
+  const pct=(p,k)=>parseFloat(p.style.getPropertyValue(k))/100;
+  const put=o=>{o.p.style.setProperty('--dx',(o.x-o.bx)+'px');o.p.style.setProperty('--dy',(o.y-o.by)+'px')};
+  const geom=()=>{
+    const pr=par.getBoundingClientRect(),W=par.clientWidth,H=par.clientHeight,hr=hero.getBoundingClientRect();
+    const side=($('.side')&&$('.side').getBoundingClientRect().right)||60;
+    const L=Math.max(hr.left,side,0)-pr.left+6,R=Math.min(hr.right,innerWidth)-pr.left-6,
+          T=Math.max(hr.top,0)-pr.top+6,B=Math.min(hr.bottom,innerHeight)-pr.top-6;
+    const obs=[];
+    $$('.title .ln > span',hero).forEach(sp=>{const r=sp.getBoundingClientRect();if(!r.width)return;
+      obs.push({cx:(r.left+r.right)/2-pr.left,cy:(r.top+r.bottom)/2-pr.top-r.height*.06,hw:r.width/2+4,hh:r.height*.42})});
+    const sb=$('.sub',hero);if(sb){const r=sb.getBoundingClientRect();if(r.width)obs.push({cx:(r.left+r.right)/2-pr.left,cy:(r.top+r.bottom)/2-pr.top,hw:r.width/2+10,hh:r.height/2+8})}
+    return{W,H,L,R,T,B,obs};
+  };
+  const step=(t)=>{
+    raf=0;if(!active)return;
+    const dt=Math.min(.033,Math.max(.001,(t-last)/1000||.016));last=t;
+    if(!on()||!par.clientWidth){raf=requestAnimationFrame(step);return}
+    const g=geom();
+    st.forEach(o=>{
+      o.w=o.p.offsetWidth/2+2;o.h=o.p.offsetHeight/2+2;
+      o.bx=pct(o.p,'--x')*g.W;o.by=pct(o.p,'--y')*g.H;
+      if(o.x==null){o.x=o.bx;o.y=o.by;const a=Math.random()*6.283,sp=38+Math.random()*22;o.vx=Math.cos(a)*sp;o.vy=Math.sin(a)*sp}
+    });
+    const free=st.filter(o=>!o.drag);
+    if(!reduce)free.forEach(o=>{
+      o.x+=o.vx*dt;o.y+=o.vy*dt;
+      const sp=Math.hypot(o.vx,o.vy)||1,cruise=46,k=Math.min(1,dt*(sp>cruise?1.6:.8));
+      const f=1+(cruise/sp-1)*k;o.vx*=f;o.vy*=f;
+    });
+    for(let it=0;it<3;it++){
+      st.forEach(o=>{
+        if(g.R-g.L>o.w*2){
+          if(o.x<g.L+o.w){o.x=g.L+o.w;if(!o.drag)o.vx=Math.abs(o.vx)}
+          if(o.x>g.R-o.w){o.x=g.R-o.w;if(!o.drag)o.vx=-Math.abs(o.vx)}
+        }else o.x=(g.L+g.R)/2;
+        if(g.B-g.T>o.h*2){
+          if(o.y<g.T+o.h){o.y=g.T+o.h;if(!o.drag)o.vy=Math.abs(o.vy)}
+          if(o.y>g.B-o.h){o.y=g.B-o.h;if(!o.drag)o.vy=-Math.abs(o.vy)}
+        }else o.y=(g.T+g.B)/2;
+        g.obs.forEach(b=>{
+          const dx=o.x-b.cx,dy=o.y-b.cy,px=o.w+b.hw-Math.abs(dx),py=o.h+b.hh-Math.abs(dy);
+          if(px>0&&py>0){
+            if(px<py){o.x+=Math.sign(dx||1)*px;if(!o.drag)o.vx=Math.sign(dx||1)*Math.abs(o.vx)}
+            else{o.y+=Math.sign(dy||1)*py;if(!o.drag)o.vy=Math.sign(dy||1)*Math.abs(o.vy)}
+          }
+        });
+      });
+      for(let i=0;i<st.length;i++)for(let j=i+1;j<st.length;j++){
+        const a=st[i],b=st[j],dx=b.x-a.x,dy=b.y-a.y,px=a.w+b.w-Math.abs(dx),py=a.h+b.h-Math.abs(dy);
+        if(px>0&&py>0){
+          const ax=px<py?'x':'y',v='v'+ax,d=ax==='x'?dx:dy,s=Math.sign(d||1),m=(ax==='x'?px:py);
+          if(a.drag){b[ax]+=s*m}else if(b.drag){a[ax]-=s*m}else{a[ax]-=s*m/2;b[ax]+=s*m/2;const t2=a[v];a[v]=b[v];b[v]=t2;
+            if(s*(b[v]-a[v])<0){/* se alejan */}else{a[v]=-s*Math.abs(a[v]);b[v]=s*Math.abs(b[v])}}
+        }
+      }
+    }
+    st.forEach(o=>{if(g.R-g.L>o.w*2)o.x=Math.min(g.R-o.w,Math.max(g.L+o.w,o.x));if(g.B-g.T>o.h*2)o.y=Math.min(g.B-o.h,Math.max(g.T+o.h,o.y))});
+    st.forEach(put);
+    raf=requestAnimationFrame(step);
+  };
+  const start=()=>{if(active)return;active=true;last=performance.now();raf=requestAnimationFrame(step)};
+  const stop=()=>{active=false;cancelAnimationFrame(raf)};
+  new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting?start():stop()),{threshold:0}).observe(hero);
+  /* arrastrar y lanzar */
+  st.forEach(o=>{
+    const p=o.p;let lx,ly,sx,sy;
+    p.draggable=false;p.addEventListener('dragstart',e=>e.preventDefault());
+    p.addEventListener('pointerdown',e=>{if(e.button||!on())return;o.drag=true;p._drag=false;lx=sx=e.clientX;ly=sy=e.clientY;o.vx=o.vy=0;
+      p.setPointerCapture(e.pointerId);p.classList.add('drag','moved')});
+    p.addEventListener('pointermove',e=>{if(!o.drag)return;const dx=e.clientX-lx,dy=e.clientY-ly;lx=e.clientX;ly=e.clientY;
+      if(Math.hypot(lx-sx,ly-sy)>5)p._drag=true;o.x+=dx;o.y+=dy;o.vx=o.vx*.5+dx*30;o.vy=o.vy*.5+dy*30});
+    const end=()=>{if(!o.drag)return;o.drag=false;p.classList.remove('drag');
+      const m=360,s=Math.hypot(o.vx,o.vy);if(s>m){o.vx*=m/s;o.vy*=m/s}};
+    p.addEventListener('pointerup',end);p.addEventListener('pointercancel',end);
+  });
+}
 /* arrastrar con inercia y rebote contra los bordes */
 function draggable(el,o){
   let x=0,y=0,vx=0,vy=0,lx,ly,sx,sy,on=false,raf=0,n=0;
@@ -5074,7 +5161,8 @@ mnList.addEventListener('click',e=>{
 /* ── Heros: etiquetas arrastrables, parallax, título reactivo ── */
 const go=id=>{const el=document.getElementById(id);el&&el.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'})};
 $$('.hero').forEach(hero=>{
-  $$('.pill',hero).forEach(p=>{draggable(p,{bounds:()=>hero,cls:'moved'});p.addEventListener('click',e=>{e.preventDefault();if(!p._drag)go(p.dataset.to)})});
+  $$('.pill',hero).forEach(p=>{p.addEventListener('click',e=>{e.preventDefault();if(!p._drag)go(p.dataset.to)})});
+  pillPhysics(hero);
   hero.addEventListener('pointermove',e=>{const r=hero.getBoundingClientRect();
     hero.style.setProperty('--mx',((e.clientX-r.left)/r.width-.5)*2);hero.style.setProperty('--my',((e.clientY-r.top)/r.height-.5)*2)});
 });
