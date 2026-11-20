@@ -2626,6 +2626,20 @@ body.inpage .sd-wrap:not(:empty){display:none}
   .ds-fam .ds-dl{margin-top:34px}
 }
 @media (min-width:561px){.ds-fam .ds-dl+.ds-b3{margin-top:96px}.ds-fam:has(.bb.med) .ds-dl+.ds-b3{margin-top:96px}}
+/* Botones: medidas exactas del Figma (Botón mediano 1065:12236) */
+@media (min-width:561px){
+  .ds-fam{grid-template-columns:391px 578px}
+  .ds-fam>h3{font-size:28px;line-height:36px;letter-spacing:-.05em;font-weight:600;width:382px}
+  .ds-fam>.body{margin-top:0;font-size:16px;line-height:24px;max-width:578px}
+  .ds-fam .ds-b3{margin-top:52px;gap:0}
+  .ds-fam:has(.bb.med) .ds-b3{grid-template-columns:repeat(3,278px)}
+  .ds-fam:has(.bb.med) .ds-b3>div>.bb{width:270px;height:auto;padding:8.5px 10.2px;font-size:10.2px;font-weight:600;margin:0 auto;display:flex}
+  .ds-fam:has(.bb.med) .ds-b3>div>.bb{margin-left:0}
+  .ds-b3 h5{font-family:'Figtree';font-weight:400;font-size:18px;line-height:20px;letter-spacing:0;margin:46px 0 4px}
+  .ds-b3 p{font-size:14px;line-height:20px;max-width:none}
+  .ds-fam .ds-dl{margin-top:78px}
+  .ds-fam .ds-dl+.ds-b3{margin-top:128px}
+}
 
 /* ═════════ SEÑALÉTICA ═════════ */
 #senaletica{background:var(--n10)}
