@@ -2396,7 +2396,7 @@ body.inpage .sd-wrap:not(:empty){display:flex}
 /* v79: la barra lateral lleva relleno y muestra «Página — Sección» */
 .side{background:#2d2e30;transition:color .4s,background .4s}
 .side.dk{background:#fbfdff}
-.side .lbl{display:block;top:30px;max-height:calc(50% - 64px);overflow:hidden;text-overflow:ellipsis;font-size:14px;pointer-events:auto;cursor:pointer}
+.side .lbl{display:block;top:30px;max-height:calc(50% - 64px);overflow:hidden;font-size:14px;pointer-events:auto;cursor:pointer}
 .side .lbl b{font-weight:400}.side .lbl em{font-weight:700}
 body.inpage .sd-wrap:not(:empty){display:none}
 
@@ -4520,7 +4520,7 @@ body.inpage .sd-wrap:not(:empty){display:none}
     <div class="wrap">
       <div class="mu-two"><h2 data-r="up">Redes<br>sociales</h2>
         <div class="body" data-r="up" style="--d:.1s"><p>La campaña presenta las distintas experiencias del evento, despierta curiosidad y brinda información para participar.</p>
-          <a class="btn-dl" href="#" data-say="El link a Instagram todavía no está cargado">Explorá nuestro Instagram</a></div></div>
+          <a class="btn-dl" href="https://festivaldesviosocial.netlify.app/" target="_blank" rel="noopener">Explorá nuestro Instagram</a></div></div>
       <h3 class="mu-h" data-r="up">Publicaciones <small>1080 × 1350 px · 12 piezas</small></h3>
       <div class="mu-pub"><div class="mu-px" data-r="up" style="--d:0.00s"><img src="assets/mu/pub1.webp" alt="Publicación 1 de la campaña" loading="lazy" draggable="false"></div><div class="mu-px" data-r="up" style="--d:0.05s"><img src="assets/mu/pub2.webp" alt="Publicación 2 de la campaña" loading="lazy" draggable="false"></div><div class="mu-px" data-r="up" style="--d:0.10s"><img src="assets/mu/pub3.webp" alt="Publicación 3 de la campaña" loading="lazy" draggable="false"></div><div class="mu-px" data-r="up" style="--d:0.15s"><img src="assets/mu/pub4.webp" alt="Publicación 4 de la campaña" loading="lazy" draggable="false"></div><div class="mu-px" data-r="up" style="--d:0.20s"><img src="assets/mu/pub5.webp" alt="Publicación 5 de la campaña" loading="lazy" draggable="false"></div><div class="mu-px" data-r="up" style="--d:0.25s"><img src="assets/mu/pub6.webp" alt="Publicación 6 de la campaña" loading="lazy" draggable="false"></div><div class="mu-px" data-r="up" style="--d:0.00s"><img src="assets/mu/pub7.webp" alt="Publicación 7 de la campaña" loading="lazy" draggable="false"></div><div class="mu-px" data-r="up" style="--d:0.05s"><img src="assets/mu/pub8.webp" alt="Publicación 8 de la campaña" loading="lazy" draggable="false"></div><div class="mu-px" data-r="up" style="--d:0.10s"><img src="assets/mu/pub9.webp" alt="Publicación 9 de la campaña" loading="lazy" draggable="false"></div><div class="mu-px" data-r="up" style="--d:0.15s"><img src="assets/mu/pub10.webp" alt="Publicación 10 de la campaña" loading="lazy" draggable="false"></div><div class="mu-px" data-r="up" style="--d:0.20s"><img src="assets/mu/pub11.webp" alt="Publicación 11 de la campaña" loading="lazy" draggable="false"></div><div class="mu-px" data-r="up" style="--d:0.25s"><img src="assets/mu/pub12.webp" alt="Publicación 12 de la campaña" loading="lazy" draggable="false"></div></div>
       <h3 class="mu-h" data-r="up">Carrusel <small>1080 × 1350 px · 5 láminas</small></h3>
@@ -4958,6 +4958,10 @@ function sdUpdate(H,root){
   if(sdBtn.textContent!==name){sdBtn.hidden=false;sdBtn.textContent=name;sdBtn.classList.remove('in');void sdBtn.offsetWidth;sdBtn.classList.add('in')}
   else sdBtn.hidden=false;
 }
+/* la etiqueta lateral achica la letra hasta que entra completa */
+function fitLbl(){lblS.style.fontSize='14px';let fs=14;while(lblS.scrollHeight>lblS.clientHeight+1&&fs>7){fs-=.5;lblS.style.fontSize=fs+'px'}}
+new MutationObserver(()=>fitLbl()).observe(lblS,{childList:true,characterData:true,subtree:true});
+addEventListener('resize',fitLbl);
 lblS.addEventListener('click',()=>{if(sdEl)sdEl.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'})});
 sideDots.addEventListener('click',e=>{if(e.target.closest('.sd')&&sdEl)sdEl.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'})});
 function pageScroll(){
