@@ -2522,6 +2522,11 @@ body.inpage .sd-wrap:not(:empty){display:none}
   .tile[data-go=motion]>img{object-position:60% 70%}
   .tile[data-go=elementos]{--bgl:rgb(105,90,232)}.tile[data-go=colores]{--bgl:rgb(253,235,77)}.tile[data-go=marca]{--bgl:rgb(10,195,255)}.tile[data-go=motion]{--bgl:rgb(240,249,255)}
 }
+@media (max-width:560px){
+  .tile[data-go=elementos]>img{transform:scaleY(-1);-webkit-mask-image:linear-gradient(0deg,transparent,#000 22%);mask-image:linear-gradient(0deg,transparent,#000 22%);object-position:72% 70%}
+  .tile[data-go=motion]>img{left:0;right:0;top:26%;height:74%;width:100%;transform:translateX(24%) scale(1.12);transform-origin:right center;object-position:50% 40%;-webkit-mask-image:none;mask-image:none}
+}
+@media (max-width:560px){.tile[data-go=motion]>img{-webkit-mask-image:linear-gradient(90deg,transparent,#000 30%);mask-image:linear-gradient(90deg,transparent,#000 30%)}}
 
 /* ═════════ SEÑALÉTICA ═════════ */
 #senaletica{background:var(--n10)}
