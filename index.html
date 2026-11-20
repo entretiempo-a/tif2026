@@ -2424,6 +2424,11 @@ body.inpage .sd-wrap:not(:empty){display:none}
 #colores .cl-base .two .body{font-size:14px;line-height:18px;font-weight:500;max-width:none}
 /* la etiqueta lateral arranca siempre en el mismo lugar (sobre el menú) y solo crece hacia arriba si el texto es más largo */
 .side .lbl{top:auto;bottom:calc(50% + 44px);max-height:calc(50% - 72px)}
+/* Atomic Design: la escena queda un poco más arriba para que se vean los puntitos */
+@media (min-width:561px){
+  .ds-atom .stick{box-sizing:border-box;padding-bottom:48px}
+  .ds-at-st{width:min(700px,calc(100% - var(--side)*2 - 40px),calc((100vh - 225px)*1560/1442))}
+}
 
 /* ═════════ SEÑALÉTICA ═════════ */
 #senaletica{background:var(--n10)}
