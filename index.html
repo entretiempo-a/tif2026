@@ -2597,6 +2597,10 @@ body.inpage .sd-wrap:not(:empty){display:none}
 .ds-pend em{font-style:normal;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:#ffd400;margin-left:2px}
 .ds-pend:hover{transform:none;box-shadow:none}
 
+.sl-c.sl-in{opacity:1;transform:none}
+@media (prefers-reduced-motion:no-preference){.sl-c.sl-in{animation:slin .7s var(--ease) both;animation-delay:calc(var(--i)*.08s)}}
+@keyframes slin{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+
 /* ═════════ SEÑALÉTICA ═════════ */
 #senaletica{background:var(--n10)}
 .hero.se .blob.a{background:#ff3a30;opacity:.55}.hero.se .blob.b{background:#7a1010;opacity:.25}
@@ -3847,7 +3851,7 @@ body.inpage .sd-wrap:not(:empty){display:none}
       <p class="body" data-r="up" style="--d:.1s">Los personajes narrativos <b>representan situaciones cotidianas</b> mediante figuras humanas estilizadas. Sus <b>proporciones expresivas, accesorios con volumen y brillo moderado</b> hacen reconocible cada historia.</p>
       <div class="flips" id="flips"></div>
       <div class="pr-card" data-p="nar"><code></code><a class="pr-btn" target="_blank" rel="noopener">Ver prompt completo <i>→</i></a></div>
-      <div class="el-dl" data-r="up"><a class="btn-dl" href="https://drive.google.com/drive/folders/1xsh7EfiO22gUmVlnEq1CIrgwY9AU4gCb" target="_blank" rel="noopener">Descargar personajes <i><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4v8M5.5 9 9 12.5 12.5 9"/></svg></i></a></div>
+      <div class="el-dl" data-r="up"><a class="btn-dl" href="assets/descargas/personajes-narrativos.zip" download="personajes-narrativos.zip">Descargar personajes <i><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4v8M5.5 9 9 12.5 12.5 9"/></svg></i></a></div>
     </div>
   </section>
 
@@ -3861,11 +3865,11 @@ body.inpage .sd-wrap:not(:empty){display:none}
         <figure><img src="assets/el/mascota-planb-hd.webp" alt="Mascota de PLAN B" loading="lazy"></figure>
       </div>
       <div class="pr-card" data-p="mas"><code></code><a class="pr-btn" target="_blank" rel="noopener">Ver prompt completo <i>→</i></a></div>
-      <div class="el-dl" data-r="up"><a class="btn-dl" href="https://drive.google.com/drive/folders/1oqnx1gAna9wVFv2cNI5VVBYu3CM-mgqe" target="_blank" rel="noopener">Descargar mascotas <i><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4v8M5.5 9 9 12.5 12.5 9"/></svg></i></a></div>
+      <div class="el-dl" data-r="up"><a class="btn-dl" href="assets/descargas/mascotas-desvio.zip" download="mascotas-desvio.zip">Descargar mascotas <i><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4v8M5.5 9 9 12.5 12.5 9"/></svg></i></a></div>
       <h3 class="el-h3 sp" data-r="up">Mascota digital</h3>
       <p class="body" data-r="up" style="--d:.1s">Móvi acompaña la experiencia digital con una <b>presencia cercana y amigable</b>. Su <b>volumen compacto, rasgos simplificados y acabado luminoso</b> permiten reconocerlo en distintos formatos.</p>
       <div class="movi"><img src="assets/el/mascota-movi-hd.webp" alt="Móvi, la mascota digital" loading="lazy"><div class="pr-card" data-p="movi"><code></code><a class="pr-btn" target="_blank" rel="noopener">Ver prompt completo <i>→</i></a></div></div>
-      <div class="el-dl" data-r="up"><a class="btn-dl" href="https://drive.google.com/drive/folders/1G8g0na32-G6_fiBnk0Y1X97XsrvZT06s" target="_blank" rel="noopener">Descargar a Móvi <i><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4v8M5.5 9 9 12.5 12.5 9"/></svg></i></a></div>
+      <div class="el-dl" data-r="up"><a class="btn-dl" href="assets/descargas/movi.zip" download="movi.zip">Descargar a Móvi <i><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4v8M5.5 9 9 12.5 12.5 9"/></svg></i></a></div>
     </div>
   </section>
 
@@ -5518,7 +5522,7 @@ if(!reduce)setInterval(()=>{if(hold||view!=='elementos'||document.hidden)return;
 /* cómo se construyen los personajes: se abren si tocás */
 (()=>{const S=[['01','Proporciones','#35ceff','No estirar ni deformar la silueta. Preservar la escala y las relaciones entre sus partes.'],['02','Luz y acabado','#ffe83f','Conservar los reflejos, sombras y pliegues del render original. Evitar filtros externos.'],['03','Rostro y expresión','#a899f0','Mantener los rasgos simplificados y una expresión legible, acorde a su personalidad.'],['04','Uso en piezas','#d4f542','Respetar el contorno completo, el espacio libre y el fondo transparente cuando corresponda.']];
   const host=$('#slid');
-  host.innerHTML=S.map((s,i)=>`<div class="sl-c" data-r="up" style="--b:${s[2]};--d:${i*.08}s"><div class="sl-f"><small>${s[0]}</small><h4>${s[1]}</h4><p>${s[3]}</p></div></div>`).join('');$$('.sl-c',host).forEach(c=>{c.removeAttribute('role');c.removeAttribute('tabindex')});
+  host.innerHTML=S.map((s,i)=>`<div class="sl-c sl-in" style="--b:${s[2]};--i:${i}"><div class="sl-f"><small>${s[0]}</small><h4>${s[1]}</h4><p>${s[3]}</p></div></div>`).join('');$$('.sl-c',host).forEach(c=>{c.removeAttribute('role');c.removeAttribute('tabindex')});
 })();
 
 /* personajes narrativos: solo se mueven apenas al pasar el mouse */
