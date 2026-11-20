@@ -2550,6 +2550,13 @@ body.inpage .sd-wrap:not(:empty){display:none}
   .dest-panel{--arr:1!important}
   .dst-b{opacity:1!important}
 }
+/* Voz en táctil: la barra con el ejemplo aparece al tocar la tarjeta (y se cierra al volver a tocar) */
+@media (hover:none),(max-width:560px){
+  .face.back{translate:-50% -110px!important;transition:translate .5s var(--spring)!important}
+  .flip.on .face.back{translate:-50% 0!important}
+  .flip:hover .face.back{translate:-50% -110px!important}
+  .flip.on:hover .face.back{translate:-50% 0!important}
+}
 
 /* ═════════ SEÑALÉTICA ═════════ */
 #senaletica{background:var(--n10)}
