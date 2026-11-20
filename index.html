@@ -2513,6 +2513,15 @@ body.inpage .sd-wrap:not(:empty){display:none}
   .tile>img{left:auto;right:0;top:auto;bottom:0;width:auto;height:64%;max-width:none;object-fit:contain;object-position:right bottom;-webkit-mask-image:linear-gradient(90deg,transparent,#000 16%);mask-image:linear-gradient(90deg,transparent,#000 16%)}
   .tile[data-go=comunicamos]>img,.tile[data-go=tipografias]>img{top:0;height:100%;width:100%;object-fit:cover;-webkit-mask-image:none;mask-image:none}
 }
+/* menú móvil: Elementos, Paletas, La marca y Motion — la ilustración ocupa la parte baja de la tarjeta, con fundido hacia el título */
+@media (max-width:560px){
+  .tile[data-go=elementos]>img,.tile[data-go=colores]>img,.tile[data-go=marca]>img,.tile[data-go=motion]>img{left:0;right:0;top:34%;bottom:0;width:100%;height:66%;object-fit:cover;-webkit-mask-image:linear-gradient(180deg,transparent,#000 22%);mask-image:linear-gradient(180deg,transparent,#000 22%)}
+  .tile[data-go=elementos]>img{object-position:72% 30%}
+  .tile[data-go=colores]>img{object-position:78% 60%}
+  .tile[data-go=marca]>img{object-position:82% 50%}
+  .tile[data-go=motion]>img{object-position:60% 70%}
+  .tile[data-go=elementos]{--bgl:rgb(105,90,232)}.tile[data-go=colores]{--bgl:rgb(253,235,77)}.tile[data-go=marca]{--bgl:rgb(10,195,255)}.tile[data-go=motion]{--bgl:rgb(240,249,255)}
+}
 
 /* ═════════ SEÑALÉTICA ═════════ */
 #senaletica{background:var(--n10)}
