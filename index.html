@@ -2544,7 +2544,6 @@ body.inpage .sd-wrap:not(:empty){display:none}
   .tile[data-go=motion]>img:not(.mob-sp){display:none}
   .tile[data-go=motion]>img.mob-sp,.grid.ready .tile[data-go=motion]:hover>img.mob-sp{display:block;position:absolute;left:auto;top:auto;right:-30%;bottom:15%;width:128%;height:auto;max-width:none;object-fit:contain;-webkit-mask-image:none;mask-image:none;transform:none!important;scale:1;filter:drop-shadow(0 8px 10px rgba(20,60,160,.25))}
 }
-}
 /* Voz en táctil: la barra con el ejemplo aparece al tocar la tarjeta (y se cierra al volver a tocar) */
 @media (hover:none),(max-width:560px){
   .face.back{translate:-50% -110px!important;transition:translate .5s var(--spring)!important}
@@ -5070,8 +5069,9 @@ function plSet(i,anim){
 pls.forEach(b=>b.addEventListener('click',()=>plSet(+b.dataset.i,true)));plSet(0);
 
 /* nuestra voz: en pantallas táctiles la tarjeta gira al tocarla */
-$$('.flip').forEach(f=>{f.addEventListener('click',()=>f.classList.toggle('on'));
-  f.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();f.classList.toggle('on')}})});
+$$('.flip').forEach(f=>{const bk=$('.face.back',f),setOn=v=>{f.classList.toggle('on',v);f.setAttribute('aria-expanded',v);if(bk){if(v)bk.style.setProperty('translate','-50% 0','important');else bk.style.removeProperty('translate')}};
+  f.addEventListener('click',()=>setOn(!f.classList.contains('on')));
+  f.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();setOn(!f.classList.contains('on'))}})});
 
 /* guía de estilos: las frases se escriben solas */
 function type(el,delay){const t=el.dataset.t;if(reduce){el.textContent=t;return}
