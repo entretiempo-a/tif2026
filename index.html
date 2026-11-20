@@ -2614,6 +2614,18 @@ body.inpage .sd-wrap:not(:empty){display:none}
   .tp-aj-h .body{max-width:572px}
 }
 .ds-dl{gap:18px}
+/* Botones: cabecera de familia en dos columnas (título · bajada) y columnas de la fila como en Figma */
+@media (min-width:561px){
+  .ds-fam{display:grid;grid-template-columns:392px 572px;column-gap:0;align-items:start}
+  .ds-fam>h3{grid-column:1;grid-row:1}
+  .ds-fam>.body{grid-column:2;grid-row:1;margin-top:6px;max-width:572px;font-size:16px;line-height:20px}
+  .ds-fam>:not(h3):not(.body){grid-column:1/-1}
+  .ds-fam:has(.bb.med) .ds-b3{grid-template-columns:repeat(3,271px);justify-content:space-between;margin-top:48px}
+  .ds-fam:has(.bb.med) .ds-b3 .bb{height:32px;font-size:11px}
+  .ds-b3 h5{font-size:18px;margin-top:24px}
+  .ds-fam .ds-dl{margin-top:34px}
+}
+@media (min-width:561px){.ds-fam .ds-dl+.ds-b3{margin-top:96px}.ds-fam:has(.bb.med) .ds-dl+.ds-b3{margin-top:96px}}
 
 /* ═════════ SEÑALÉTICA ═════════ */
 #senaletica{background:var(--n10)}
