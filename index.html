@@ -2644,6 +2644,16 @@ body.inpage .sd-wrap:not(:empty){display:none}
   #ds .ds-fam>.body{margin-top:0!important;font-size:16px!important;line-height:24px!important}
   #ds .ds-fam>h3{margin:0!important}
 }
+/* Botones: columnas de 278 px con aire entre sí en todas las familias; «sin fondo» en una sola fila como en Figma */
+@media (min-width:561px){
+  #ds .ds-fam .ds-b3{grid-template-columns:repeat(3,278px)!important;justify-content:space-between;column-gap:0!important}
+  #ds .ds-fam .ds-b3 p{max-width:278px}
+  #ds .ds-fam:has(.bb.nb){grid-template-columns:391px 578px}
+  #ds .ds-fam:has(.bb.nb) .ds-nb{grid-column:1/-1;grid-row:2;margin-top:48px;display:flex;align-items:center;gap:0;padding:0}
+  #ds .ds-fam:has(.bb.nb) .ds-nb .bb{margin:0;width:auto}
+  #ds .ds-fam:has(.bb.nb) .ds-nb p{margin:0 0 0 188px;max-width:278px;font-size:12px;line-height:16px}
+  #ds .ds-fam:has(.bb.nb) .ds-dl{grid-column:1/-1;grid-row:2;justify-self:end;align-self:center;margin-top:48px}
+}
 
 /* ═════════ SEÑALÉTICA ═════════ */
 #senaletica{background:var(--n10)}
