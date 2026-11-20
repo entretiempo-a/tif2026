@@ -5466,8 +5466,9 @@ if(!reduce)setInterval(()=>{if(hold||view!=='elementos'||document.hidden)return;
 
 /* 4 · ajuste tipográfico: al scrollear (rápido) pasa de 0% a −5% */
 (()=>{const box=$('#tpAj'),t=$('#tpAjT'),ar=$('#tpAjAr'),c=$('#tpAjC'),v=$('#tpAjV');if(!box)return;let raf=0;
-  const upd=()=>{raf=0;if(view!=='tipografias')return;const r=box.getBoundingClientRect(),H=innerHeight;
-    const q=(reduce||innerWidth<=560)?1:clamp((H*.62-(r.top+r.height*.25))/(H*.34));
+  const upd=()=>{raf=0;if(view!=='tipografias')return;const r=($('.tp-aj-h')||box).getBoundingClientRect(),H=innerHeight;
+    /* llega a −5 % cuando el título de la sección alcanza ~12 % de la altura de la pantalla */
+    const q=(reduce||innerWidth<=560)?1:clamp((H*.55-r.top)/(H*.43));
     t.style.letterSpacing=(-.05*q).toFixed(4)+'em';ar.style.width=(300-150*q).toFixed(1)+'px';
     const on=q>.5;c.classList.toggle('on',on);v.textContent=on?'-5%':'0%'};
   addEventListener('scroll',()=>{if(!raf)raf=requestAnimationFrame(upd)},{passive:true});upd()})();
