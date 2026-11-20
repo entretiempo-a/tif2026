@@ -2499,19 +2499,19 @@ body.inpage .sd-wrap:not(:empty){display:none}
 .mn-bg{inset:-140px 0!important}
 .mn-panel{top:0;bottom:auto;height:100lvh;min-height:100%}
 @supports not (height:100lvh){#menu,.mn-panel{height:100vh}}
-/* prueba · menú principal móvil: todas las categorías con el tamaño y la forma de «Elementos gráficos» */
+/* menú principal móvil: todas las categorías con la forma vertical de «Cómo nos comunicamos», de a dos */
 @media (max-width:560px){
-  .row{flex-direction:column!important}
-  .row>.tile,.tile{aspect-ratio:383/165!important;flex:none!important;width:100%}
-  .tile span:not(.arrow){font-size:17px}
-}
-/* móvil: las ilustraciones van a la derecha, enteras, y no pisan el título */
-@media (max-width:560px){
-  .tile[data-go=ds],.tile[data-go=motion],.tile[data-go=paletas],.tile[data-go=colores],.tile[data-go=senaletica],.tile[data-go=signos],.tile[data-go=comunicamos],.tile[data-go=tipografias]{background:var(--bgl)}
-  .tile[data-go=ds],.tile[data-go=motion],.tile[data-go=colores],.tile[data-go=senaletica],.tile[data-go=signos],.tile[data-go=comunicamos],.tile[data-go=tipografias]{--bgl:#000}
+  #grid{display:grid!important;grid-template-columns:1fr 1fr;grid-auto-rows:min-content;gap:10px;align-content:start}
+  #grid>.h-top{grid-column:1/-1}
+  #grid .col,#grid .row{display:contents!important}
+  #grid .tile{aspect-ratio:184/258!important;flex:none!important;width:auto;min-width:0}
+  .tile span:not(.arrow){font-size:16px}
+  .tile{background:var(--bgl,#2d2e30)}
+  .tile[data-go=sobre]{--bgl:rgb(255,190,10)}.tile[data-go=elementos]{--bgl:rgb(110,100,235)}.tile[data-go=marca]{--bgl:rgb(30,200,255)}
   .tile[data-go=ds]{--bgl:rgb(214,250,85)}.tile[data-go=motion]{--bgl:rgb(239,249,255)}.tile[data-go=colores]{--bgl:rgb(253,235,77)}
   .tile[data-go=senaletica]{--bgl:rgb(254,58,47)}.tile[data-go=signos]{--bgl:rgb(0,171,68)}.tile[data-go=comunicamos]{--bgl:rgb(135,223,255)}.tile[data-go=tipografias]{--bgl:rgb(254,58,47)}
-  .tile[data-go=ds]>img,.tile[data-go=motion]>img,.tile[data-go=colores]>img,.tile[data-go=senaletica]>img,.tile[data-go=signos]>img,.tile[data-go=comunicamos]>img,.tile[data-go=tipografias]>img{left:auto;right:0;width:auto;height:100%;max-width:none;object-fit:contain;-webkit-mask-image:linear-gradient(90deg,transparent,#000 14%);mask-image:linear-gradient(90deg,transparent,#000 14%)}
+  .tile>img{left:auto;right:0;top:auto;bottom:0;width:auto;height:64%;max-width:none;object-fit:contain;object-position:right bottom;-webkit-mask-image:linear-gradient(90deg,transparent,#000 16%);mask-image:linear-gradient(90deg,transparent,#000 16%)}
+  .tile[data-go=comunicamos]>img,.tile[data-go=tipografias]>img{top:0;height:100%;width:100%;object-fit:cover;-webkit-mask-image:none;mask-image:none}
 }
 
 /* ═════════ SEÑALÉTICA ═════════ */
