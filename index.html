@@ -2413,10 +2413,10 @@ body.inpage .sd-wrap:not(:empty){display:none}
 
 /* v82: pesos tipográficos como en Figma + bajadas de Paletas (Body M 18/20) */
 .tpb-w li{transition:opacity .25s,font-style .2s;cursor:pointer}
-.tpb-w.hv li{opacity:.35}.tpb-w.hv li.hot{opacity:1}
+/* sin atenuar las demás filas */
 #colores .two,#colores .two.wide{grid-template-columns:390px 574px;column-gap:16px}
 #colores .two .body{font-size:18px;line-height:20px}
-.tpb-w li:hover{font-style:normal}
+/* sin atenuar las demás filas */
 
 /* v84: bajadas de Paletas como en Figma */
 #colores .two,#colores .two.wide{grid-template-columns:467px 1fr;column-gap:0}
@@ -5456,13 +5456,13 @@ if(!reduce)setInterval(()=>{if(hold||view!=='elementos'||document.hidden)return;
 (()=>{const a=$('#tpEligA'),b=$('#tpEligB');if(!a)return;const fa=lit(a),fb=lit(b);
   const bx=$('#tpElig');pin('#tpEligPin',t=>{const p=clamp(t/.85)*1.02;fa(clamp(p/.5));fb(clamp((p-.56)/.44));bx.classList.toggle('done',p>=1)})})();
 
-/* 3 · pesos de cada familia: al pasar por una fila se resalta y las demás se atenúan; al tocar, toda la lista pasa a itálica (como en Figma) */
+/* 3 · pesos de cada familia: al pasar el cursor por una fila, esa se vuelve itálica y las demás no cambian */
 (()=>{const EP=[['Thin',100],['Extralight',200],['Light',300],['Regular',400],['Medium',500],['Semibold',600],['Bold',700],['Extrabold',800],['Black',900]],FI=EP.slice(2);
-  $$('.tpb-w').forEach(ul=>{const L=ul.dataset.fam==='Epilogue'?EP:FI;let it=false;
+  $$('.tpb-w').forEach(ul=>{const L=ul.dataset.fam==='Epilogue'?EP:FI;
     ul.innerHTML=L.map(([n,w])=>`<li style="font-weight:${w}" data-n="${n}">${n}</li>`).join('');
-    const paint=()=>$$('li',ul).forEach(li=>{const n=li.dataset.n;li.textContent=it?(n==='Regular'?'Italic':n+' italic'):n;li.style.fontStyle=it?'italic':''});
-    $$('li',ul).forEach(li=>{li.addEventListener('mouseenter',()=>{ul.classList.add('hv');li.classList.add('hot')});li.addEventListener('mouseleave',()=>{ul.classList.remove('hv');li.classList.remove('hot')})});
-    ul.addEventListener('click',e=>{const li=e.target.closest('li');if(!li)return;it=!it;paint();if(matchMedia('(hover:none)').matches){$$('li',ul).forEach(x=>x.classList.toggle('hot',x===li));ul.classList.add('hv')}})})})();
+    const on=(li,v)=>{const n=li.dataset.n;li.textContent=v?(n==='Regular'?'Italic':n+' italic'):n;li.style.fontStyle=v?'italic':''};
+    $$('li',ul).forEach(li=>{li.addEventListener('mouseenter',()=>on(li,true));li.addEventListener('mouseleave',()=>on(li,false));
+      li.addEventListener('click',()=>{if(matchMedia('(hover:none)').matches){on(li,li.style.fontStyle!=='italic')}})})})})();
 
 /* 4 · ajuste tipográfico: al scrollear (rápido) pasa de 0% a −5% */
 (()=>{const box=$('#tpAj'),t=$('#tpAjT'),ar=$('#tpAjAr'),c=$('#tpAjC'),v=$('#tpAjV');if(!box)return;let raf=0;
