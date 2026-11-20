@@ -2505,6 +2505,14 @@ body.inpage .sd-wrap:not(:empty){display:none}
   .row>.tile,.tile{aspect-ratio:383/165!important;flex:none!important;width:100%}
   .tile span:not(.arrow){font-size:17px}
 }
+/* móvil: las ilustraciones van a la derecha, enteras, y no pisan el título */
+@media (max-width:560px){
+  .tile[data-go=ds],.tile[data-go=motion],.tile[data-go=paletas],.tile[data-go=colores],.tile[data-go=senaletica],.tile[data-go=signos],.tile[data-go=comunicamos],.tile[data-go=tipografias]{background:var(--bgl)}
+  .tile[data-go=ds],.tile[data-go=motion],.tile[data-go=colores],.tile[data-go=senaletica],.tile[data-go=signos],.tile[data-go=comunicamos],.tile[data-go=tipografias]{--bgl:#000}
+  .tile[data-go=ds]{--bgl:rgb(214,250,85)}.tile[data-go=motion]{--bgl:rgb(239,249,255)}.tile[data-go=colores]{--bgl:rgb(253,235,77)}
+  .tile[data-go=senaletica]{--bgl:rgb(254,58,47)}.tile[data-go=signos]{--bgl:rgb(0,171,68)}.tile[data-go=comunicamos]{--bgl:rgb(135,223,255)}.tile[data-go=tipografias]{--bgl:rgb(254,58,47)}
+  .tile[data-go=ds]>img,.tile[data-go=motion]>img,.tile[data-go=colores]>img,.tile[data-go=senaletica]>img,.tile[data-go=signos]>img,.tile[data-go=comunicamos]>img,.tile[data-go=tipografias]>img{left:auto;right:0;width:auto;height:100%;max-width:none;object-fit:contain;-webkit-mask-image:linear-gradient(90deg,transparent,#000 14%);mask-image:linear-gradient(90deg,transparent,#000 14%)}
+}
 
 /* ═════════ SEÑALÉTICA ═════════ */
 #senaletica{background:var(--n10)}
