@@ -2600,6 +2600,19 @@ body.inpage .sd-wrap:not(:empty){display:none}
 .sl-c.sl-in{opacity:1;transform:none}
 @media (prefers-reduced-motion:no-preference){.sl-c.sl-in{animation:slin .7s var(--ease) both;animation-delay:calc(var(--i)*.08s)}}
 @keyframes slin{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+/* Revisión general contra Figma (desktop) */
+@media (min-width:561px){
+  .cl-tonos .two,.cl-marcas .two{grid-template-columns:392px 572px!important;column-gap:0!important}
+  .cl-tonos .two .body,.cl-marcas .two .body{font-size:16px;line-height:20px;max-width:572px}
+  .mu-band .mu-two{grid-template-columns:427px 1fr}.mu-band .body{max-width:572px}
+  .mu-idea{grid-template-columns:572px 1fr;column-gap:16px}
+  .mu-rd{column-gap:25px}
+  .mu-tb .r{grid-template-columns:143px 367px 1fr}
+  .mo-du .mo-r{grid-template-columns:117px 1fr}
+  .mo-fr p{margin:0 0 0 98px;max-width:955px;padding:0;text-align:left}
+  .ds-atom-h .ds-two .body,.ds-two .body{max-width:572px}
+  .tp-aj-h .body{max-width:572px}
+}
 
 /* ═════════ SEÑALÉTICA ═════════ */
 #senaletica{background:var(--n10)}
@@ -2843,6 +2856,10 @@ body.inpage .sd-wrap:not(:empty){display:none}
 @media (prefers-reduced-motion:reduce){.mo-hg .mo-wt.vib{animation:none}.mo-pr>div{opacity:1;transform:none;transition:none}}
 .se-fi .se-im,.se-v .se-im{transition:transform .5s var(--spring),box-shadow .5s}
 .se-fi:hover .se-im,.se-v:hover .se-im{transform:scale(1.04);box-shadow:0 14px 30px rgba(30,40,80,.16)}
+@media (min-width:561px){
+  #motion .mo-du .mo-r{grid-template-columns:117px 1fr}
+  #motion .mo-fr p{margin:0 0 0 138px;max-width:955px;padding:0;text-align:left}
+}
 /* ═════════ LA MARCA EN USO ═════════ */
 #marca{background:var(--n10)}
 .hero.mu .blob.a{background:#ff3a30;opacity:.55}.hero.mu .blob.b{background:#2a8aa8;opacity:.5}
@@ -2964,6 +2981,12 @@ body.inpage .sd-wrap:not(:empty){display:none}
   .mu-hi .row7{grid-template-columns:repeat(4,1fr)}
   .mu-h small{display:block;margin:2px 0 0}
   .mu-pr{gap:16px 20px}
+}
+@media (min-width:561px){
+  #marca .mu-band .mu-two{grid-template-columns:427px 1fr}#marca .mu-band .body{max-width:572px}
+  #marca .mu-idea{grid-template-columns:572px 1fr;column-gap:16px}
+  #marca .mu-rd{column-gap:25px}
+  #marca .mu-tb .r{grid-template-columns:143px 367px 1fr}
 }
 </style>
 </head>
