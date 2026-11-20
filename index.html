@@ -1966,13 +1966,12 @@ body.inpage .sd-wrap:not(:empty){display:flex}
 .ds-eg{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:44px}
 .ds-eg>div>b{display:block;font-family:'Epilogue';font-weight:600;font-size:22px;letter-spacing:-.03em;margin-bottom:34px;padding-left:2px}
 .ds-eg .h{display:flex;align-items:center;margin-bottom:12px}
-.ds-eg .h i{display:block;width:44px;height:44px;border-radius:8px;background:#2d2e30}
-.ds-eg .h u{display:block;height:20px;background:#ccf901;text-decoration:none}
-.ds-eg .h s{display:block;width:44px;height:44px;border-radius:8px;background:#0082cb}
+.ds-eg .h i{display:block;width:54px;height:54px;border-radius:10px;background:#2d2e30}
+.ds-eg .h u{display:block;height:38px;background:#ccf901;text-decoration:none}
+.ds-eg .h s{display:block;width:54px;height:54px;border-radius:10px;background:#0082cb}
 .ds-eg small{display:block;font-size:11px;letter-spacing:.04em;color:#58595b;margin-bottom:34px}
-.ds-eg .v{display:flex;flex-direction:column;width:100%;margin-bottom:12px}
-.ds-eg .v i{display:block;height:26px;border-radius:7px;background:#2d2e30}.ds-eg .v s{display:block;background:#ccf901}.ds-eg .v em{display:block;height:26px;border-radius:7px;background:#0082cb}
-.ds-eg .h{width:96px}
+.ds-eg .v{display:flex;flex-direction:column;margin-bottom:12px}
+.ds-eg .v i{display:block;height:32px;border-radius:8px;background:#2d2e30}.ds-eg .v s{display:block;background:#ccf901}.ds-eg .v em{display:block;height:32px;border-radius:8px;background:#0082cb}
 .ds-sc{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:40px;padding:0 6%}
 .ds-sc .card{border-radius:20px;height:230px;padding:90px 18px 0;background:#fbfdff;transition:box-shadow .3s}
 .ds-sc .card.ex{box-shadow:0 2px 4px rgba(0,0,0,.05),0 4px 6px rgba(0,0,0,.08)}
@@ -2023,6 +2022,35 @@ body.inpage .sd-wrap:not(:empty){display:flex}
  .ds-pill span{font-size:12px}.ds-dots{margin-left:calc(var(--side) + 14px)}
  .ds-sc dl{gap:20px;flex-wrap:wrap}
 }
+
+/* v76: anatomía de botones como en Figma */
+.ds-tabs.ic{margin-top:10px;gap:8px}
+.ds-tabs.ic button{flex:none;height:22px;font-size:11px;padding:0 17px;font-weight:500}
+.ds-tabs.ic.off{visibility:hidden}
+.ds-an-st{margin-top:16px;height:267px;border:1px solid #ecedf0;box-shadow:none}
+.ds-an-st.agrid{background-image:linear-gradient(#eef0f3 1px,transparent 1px),linear-gradient(90deg,#eef0f3 1px,transparent 1px);background-size:20px 20px}
+.ds-an-b{width:var(--bw);height:var(--bh);display:grid;place-items:center}
+.ds-an-b .bb{width:var(--bw);height:var(--bh);padding:0 12px;max-width:none;filter:none;transition:none}
+.ds-an-b .bb.nbq{background:none;color:#7b6fec;font-weight:600;font-size:24px;gap:12px;padding:0}
+.ds-an-b .bb.nbq .xx{font-style:normal;font-size:24px;line-height:1}
+.ds-an-b .bb.sm{padding:0 22px}
+.ds-an-b .gd{display:none;position:absolute;inset:0}
+.ds-an-b.gr::before,.ds-an-b.gr::after{content:none}
+.ds-an-b.gr .gd{display:block}
+.gd b{position:absolute;color:#009fe0;font-size:9px;font-weight:500;letter-spacing:.02em}
+.gd .gw{left:0;right:0;top:-34px;height:9px;border-left:1px solid #009fe0;border-right:1px solid #009fe0}
+.gd .gw::before{content:"";position:absolute;left:0;right:0;top:4px;height:1px;background:#009fe0}
+.gd .gw u,.gd .gh u{text-decoration:none;position:absolute;background:#f8fafc;padding:0 4px;font-weight:500}
+.gd .gw u{left:50%;top:-14px;translate:-50% 0;background:none}
+.gd .gh{left:calc(100% + 18px);top:0;bottom:0;width:9px;border-top:1px solid #009fe0;border-bottom:1px solid #009fe0}
+.gd .gh::before{content:"";position:absolute;top:0;bottom:0;left:4px;width:1px;background:#009fe0}
+.gd .gh u{left:13px;top:50%;translate:0 -50%;background:none}
+.gd .gl{top:calc(100% + 4px);width:0;height:22px;border-left:1px solid #009fe0;font-weight:500}
+.gd .gl::before{content:"";position:absolute;left:-2.5px;top:-1px;width:4px;height:4px;border-radius:50%;background:#009fe0}
+.gd .gl em{position:absolute;top:24px;left:0;translate:-50% 0;font-style:normal;font-size:8px;letter-spacing:.04em}
+.ds-an-st small.x2{position:absolute;left:21px;top:auto;bottom:17px;font-size:10px;color:#009fe0;display:none}
+.ds-an-m{justify-content:space-between;padding:0 6%;margin-top:30px;font-size:11px;font-weight:500;letter-spacing:.01em}
+@media (max-width:560px){.ds-an-b{transform:scale(.8)}.ds-an-m{flex-direction:column;align-items:center;gap:8px;padding:0}}
 /* ritmo uniforme: columna del título 393 px y misma separación título → texto en todas las secciones */
 @media (min-width:561px){
   .two,.two.wide,.mv-row,.cl-base .two,.cl-tonos .two,.cl-marcas .two,.tp-aj-h{grid-template-columns:393px 1fr}
@@ -3877,7 +3905,10 @@ body.inpage .sd-wrap:not(:empty){display:flex}
         <p class="body">Seleccioná una familia para revisar su construcción: <b>contenedor, etiqueta, ícono y dimensiones</b>. Los ejemplos muestran medidas de los componentes originales.</p>
         <div class="ds-an-box">
           <div class="ds-tabs" id="dsAnTabs"><button class="on" data-k="0">Grande</button><button data-k="1">Mediano</button><button data-k="2">Pequeño</button><button data-k="3">Sin fondo</button></div>
-          <div class="ds-an-st" id="dsAnSt"><small id="dsAnCap"></small><div class="ds-an-b" id="dsAnB"><div class="bb big d" id="dsAnBtn"></div></div>
+          <div class="ds-tabs ic" id="dsAnIc"><button class="on" data-i="1">Con ícono</button><button data-i="0">Sin ícono</button></div>
+          <div class="ds-an-st" id="dsAnSt"><small id="dsAnCap"></small>
+            <div class="ds-an-b" id="dsAnB"><div class="bb" id="dsAnBtn"></div><div class="gd" id="dsAnGd" aria-hidden="true"></div></div>
+            <small class="x2" id="dsAnX2">Vista ×2 para lectura. Dimensiones originales: 64 × 16 px.</small>
             <button class="ds-eye" id="dsAnEye" aria-label="Ver construcción" aria-pressed="false"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/><path class="sl" d="M4 20L20 4"/></svg></button></div>
           <div class="ds-an-m"><span id="dsAnD"></span><span id="dsAnT"></span><span id="dsAnV"></span></div>
         </div>
@@ -5167,23 +5198,39 @@ if(!reduce)setInterval(()=>{if(hold||view!=='elementos'||document.hidden)return;
   pin('#dsAtPin',t=>set(Math.min(4,Math.floor(clamp(t/.96)*5))));
   dots.forEach((d,i)=>d.addEventListener('click',()=>{const p=$('#dsAtPin'),r=p.getBoundingClientRect(),H=p.offsetHeight-innerHeight;const y=scrollY+r.top+H*((i+.5)/5)*.96;scrollTo({top:y,behavior:reduce?'auto':'smooth'})}))})();
 
-/* anatomía de botones */
-(()=>{const tabs=$('#dsAnTabs');if(!tabs)return;const btn=$('#dsAnBtn'),box=$('#dsAnB'),cap=$('#dsAnCap'),eye=$('#dsAnEye');
-  const F=[{k:'big d',t:'Continuar',w:'349px',cap:'Sin ícono · Acción principal en móvil',d:'349 × 48 px',ty:'Figtree Bold 14 px',v:'Sin ícono'},
-    {k:'med d',t:'Ver detalles y usar plantilla',w:'318px',cap:'Sin ícono · Acción secundaria',d:'318 × 34 px',ty:'Figtree SemiBold 12 px',v:'Sin ícono'},
-    {k:'sm d',t:'Crear viaje compartido <i class="chv"></i>',w:'auto',cap:'Con ícono · Dentro de una tarjeta',d:'190 × 25 px',ty:'Figtree Regular 12 px',v:'Con ícono'},
-    {k:'nb',t:'Ver jornadas <i class="chv"></i>',w:'auto',cap:'Con ícono · Acción contextual',d:'Según el contenido',ty:'Figtree SemiBold 20,7 px',v:'Con ícono'}];
-  const put=i=>{const f=F[i];btn.className='bb '+f.k;btn.innerHTML=f.t;btn.style.width=f.w==='auto'?'':'min(100%,'+f.w+')';box.style.width=f.w==='auto'?'':'min(100%,'+f.w+')';
-    cap.textContent=f.cap;$('#dsAnD').textContent='DIMENSIONES: '+f.d;$('#dsAnT').textContent='TIPOGRAFÍA: '+f.ty;$('#dsAnV').textContent='VARIANTE: '+f.v;box.dataset.d=f.d;
-    $$('button',tabs).forEach((b,k)=>b.classList.toggle('on',k===i))};
-  tabs.addEventListener('click',e=>{const b=e.target.closest('button');if(b)put(+b.dataset.k)});
-  eye.addEventListener('click',()=>{const on=box.classList.toggle('gr');eye.setAttribute('aria-pressed',on)});put(0)})();
+/* anatomía de botones: 12 variantes (tipo × ícono × grilla) como en el componente de Figma */
+(()=>{const tabs=$('#dsAnTabs');if(!tabs)return;const ic=$('#dsAnIc'),btn=$('#dsAnBtn'),box=$('#dsAnB'),gd=$('#dsAnGd'),cap=$('#dsAnCap'),eye=$('#dsAnEye'),x2=$('#dsAnX2');
+  const CH='<i class="chv"></i>';
+  /* [k, ícono] -> datos */
+  const V={
+    '0-0':{c:'bb big d',t:'Continuar',w:349,h:48,cap:'Sin ícono | Acción principal ancho mobile',d:'349 × 48 px',ty:'Figtree Bold 14 px',v:'Sin ícono',lab:[.5,null]},
+    '1-1':{c:'bb med d',t:'Eliminar plantilla '+CH,w:318,h:34,cap:'Con ícono | Acción secundaria',d:'318 × 34 px',ty:'Figtree SemiBold 12 px',v:'Con ícono',lab:[.38,.65]},
+    '1-0':{c:'bb med d',t:'Ver detalles y usar plantilla',w:318,h:34,cap:'Sin ícono | Acción secundaria',d:'318 × 34 px',ty:'Figtree SemiBold 12 px',v:'Sin ícono',lab:[.5,null]},
+    '2-1':{c:'bb sm d',t:'Crear viaje compartido '+CH,w:190,h:24.7,cap:'Con ícono | Acción terciaria dentro de organismos',d:'190 × 24.7 px',ty:'Figtree Regular 12 px',v:'Con ícono',lab:[.24,.86]},
+    '2-0':{c:'bb sm d',t:'Crear viaje compartido',w:167,h:24.7,cap:'Sin ícono | Acción terciaria dentro de organismos',d:'167 × 24.7 px',ty:'Figtree Regular 12 px',v:'Sin ícono',lab:[.5,null]},
+    '3-1':{c:'bb nbq',t:'Eliminar <i class="xx">×</i>',w:64,h:16,cap:'Con ícono | Acción cuaternaria',d:'64 × 16 px',ty:'Figtree SemiBold 12 px',v:'Con ícono',lab:[.35,.92],big:1}};
+  let k=0,icn=1,grid=false;
+  const put=()=>{
+    const i=(k===0)?0:(k===3?1:icn),f=V[k+'-'+i];
+    ic.classList.toggle('off',k===0||k===3);
+    $$('button',ic).forEach(b=>b.classList.toggle('on',+b.dataset.i===i));
+    btn.className=f.c;btn.innerHTML=f.t;
+    const z=f.big?2:1;box.style.setProperty('--bw',f.w*z+'px');box.style.setProperty('--bh',f.h*z+'px');box.classList.toggle('dbl',!!f.big);
+    btn.style.width=f.w*z+'px';btn.style.height=f.h*z+'px';
+    cap.textContent=f.cap;$('#dsAnD').textContent='DIMENSIONES: '+f.d;$('#dsAnT').textContent='TIPOGRAFÍA: '+f.ty;$('#dsAnV').textContent='VARIANTE: '+f.v;
+    x2.style.display=(f.big&&grid)?'block':'none';
+    gd.innerHTML='<b class="gw"><u>'+f.d.split(' × ')[0]+' px</u></b><b class="gh"><u>'+f.h+' px</u></b><b class="gl" style="left:'+f.lab[0]*100+'%"><em>ETIQUETA</em></b>'+(f.lab[1]!=null?'<b class="gl" style="left:'+f.lab[1]*100+'%"><em>ÍCONO</em></b>':'');
+    box.classList.toggle('gr',grid);
+    $$('button',tabs).forEach((b,n)=>b.classList.toggle('on',n===k))};
+  tabs.addEventListener('click',e=>{const b=e.target.closest('button');if(b){k=+b.dataset.k;put()}});
+  ic.addEventListener('click',e=>{const b=e.target.closest('button');if(b&&!ic.classList.contains('off')){icn=+b.dataset.i;put()}});
+  eye.addEventListener('click',()=>{grid=!grid;eye.setAttribute('aria-pressed',grid);$('#dsAnSt').classList.toggle('agrid',grid);put()});put()})();
 
 /* íconos: plano / inflado blanco / inflado violeta */
 (()=>{const t=$('#dsIcTabs'),g=$('#dsIcG');if(!t)return;t.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;$$('button',t).forEach(x=>x.classList.toggle('on',x===b));$('img',g).src=['assets/ds/iconos.webp','assets/ds/iconos-blanco.webp','assets/ds/iconos-violeta.webp'][+b.dataset.k];g.className='ds-icg t'+b.dataset.k+' in'})})();
 
 /* espaciados */
-(()=>{const h=$('#dsEg');if(!h)return;h.innerHTML=[8,12,16,20,24].map(n=>`<div><b>${n} px</b><div class="h"><i></i><u style="width:${n}px"></u><s></s></div><small>HORIZONTALES</small><div class="v"><i></i><s style="height:${n}px"></s><em></em></div><small>VERTICALES</small></div>`).join('')})();
+(()=>{const h=$('#dsEg');if(!h)return;h.innerHTML=[8,12,16,20,24].map(n=>`<div><b>${n} px</b><div class="h" style="width:${108+n}px"><i></i><u style="width:${n}px"></u><s></s></div><small>HORIZONTALES</small><div class="v" style="width:${108+n}px"><i></i><s style="height:${n}px"></s><em></em></div><small>VERTICALES</small></div>`).join('')})();
 /* ══════════ MOTION Y SONIDOS ══════════ */
 (()=>{
   /* principios: aparecen de a uno, con una transición breve; quedan visibles */
