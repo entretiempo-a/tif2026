@@ -311,7 +311,7 @@ h2{font-family:'Epilogue';font-weight:700;font-size:48px;line-height:56px;letter
 .card{flex:0 0 474px;min-height:208px;background:var(--naranja);border-radius:20px;padding:30px;box-shadow:0 4px 2px rgba(0,0,0,.25);transition:background .35s}
 .card:hover{background:#ffbd80}
 .card header i{transition:transform .6s var(--spring),background .3s,color .3s}
-.card:hover header i{transform:rotate(360deg) scale(1.2);background:var(--naranja-osc);color:#fff}
+.card:hover header i{background:var(--naranja-osc);color:#fff}
 .card header{display:flex;align-items:center;gap:12px;font-weight:700;font-size:22px;line-height:28px;margin-bottom:16px}
 .card header i{flex:none;width:30px;height:30px;border-radius:50%;background:var(--n01);color:var(--naranja);display:grid;place-items:center;font-style:normal;font-weight:600;font-size:18px}
 
@@ -2392,6 +2392,31 @@ body.inpage .sd-wrap:not(:empty){display:flex}
 @media (max-width:560px){.car-in>div[style*="border-radius:50%"]:not(.car-ell){display:none!important}}
 /* en el pie la línea de la barra lateral no se ve */
 .side.nol::before,.side.nol .prog{opacity:0!important;transition:opacity .3s}
+
+/* v79: la barra lateral lleva relleno y muestra «Página — Sección» */
+.side{background:#2d2e30;transition:color .4s,background .4s}
+.side.dk{background:#fbfdff}
+.side .lbl{display:block;top:30px;max-height:calc(50% - 64px);overflow:hidden;text-overflow:ellipsis;font-size:14px;pointer-events:auto;cursor:pointer}
+.side .lbl b{font-weight:400}.side .lbl em{font-weight:700}
+body.inpage .sd-wrap:not(:empty){display:none}
+
+/* v80: Voz — sin giro; al pasar el mouse se despliega una barra inferior con el ejemplo */
+.flip{perspective:none;position:relative;margin-bottom:112px}
+.flip-in{transform-style:flat;transition:none}
+.flip:hover .flip-in,.flip.on .flip-in{transform:none}
+.face{backface-visibility:visible;-webkit-backface-visibility:visible;z-index:1}
+.face.back{transform:none;inset:auto;left:50%;top:calc(100% - 7px);width:82.7%;height:112px;z-index:0;border-radius:0 0 20px 20px;padding:38px 22px 12px;justify-content:flex-start;translate:-50% -110px;transition:translate .5s var(--spring);box-shadow:none}
+.face.back h3{display:none}
+.face.back p{font-size:14px;line-height:18px;text-align:center}
+.flip:hover .face.back,.flip:focus-visible .face.back,.flip.on .face.back{translate:-50% 0}
+@media (hover:none){.face.back{translate:-50% 0;transition:none}}
+
+/* v82: pesos tipográficos como en Figma + bajadas de Paletas (Body M 18/20) */
+.tpb-w li{transition:opacity .25s,font-style .2s;cursor:pointer}
+.tpb-w.hv li{opacity:.35}.tpb-w.hv li.hot{opacity:1}
+#colores .two,#colores .two.wide{grid-template-columns:390px 574px;column-gap:16px}
+#colores .two .body{font-size:18px;line-height:20px}
+.tpb-w li:hover{font-style:normal}
 
 /* ═════════ SEÑALÉTICA ═════════ */
 #senaletica{background:var(--n10)}
@@ -4933,6 +4958,7 @@ function sdUpdate(H,root){
   if(sdBtn.textContent!==name){sdBtn.hidden=false;sdBtn.textContent=name;sdBtn.classList.remove('in');void sdBtn.offsetWidth;sdBtn.classList.add('in')}
   else sdBtn.hidden=false;
 }
+lblS.addEventListener('click',()=>{if(sdEl)sdEl.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'})});
 sideDots.addEventListener('click',e=>{if(e.target.closest('.sd')&&sdEl)sdEl.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'})});
 function pageScroll(){
   if(view==='home')return;const root=PAGES[view].el, H=innerHeight;
@@ -4941,7 +4967,7 @@ function pageScroll(){
   let name='';$$('[data-label]',root).forEach(s=>{if(s.getBoundingClientRect().top<H*.5)name=s.dataset.label});
   const zones=$$('.hero,section,footer',root);
   const tone=y=>{for(const s of zones){const r=s.getBoundingClientRect();if(r.top<=y&&r.bottom>y)return s.dataset.tone==='l'}return false};
-  lblS.classList.toggle('dk',tone(100));crS.classList.toggle('dk',tone(H-100));side.classList.toggle('dk',tone(H/2));
+  const dkS=tone(H/2);lblS.classList.toggle('dk',dkS);crS.classList.toggle('dk',dkS);side.classList.toggle('dk',dkS);
   if(name!==cur){cur=name;lbl.classList.add('out');setTimeout(()=>{lbl.textContent=name?' — '+name:'';lbl.classList.remove('out')},250)}
   sdUpdate(H,root);
   logos.forEach(l=>{const r=l.getBoundingClientRect();l.style.setProperty('--sp',clamp((H-r.top)/(H*.55)))});
@@ -4992,6 +5018,22 @@ function clearPills(){
           if(!hit(nx,ny)){x=nx;y=ny;found=true;break}}}
       p.style.setProperty('--x',(x/W*100).toFixed(2)+'%');p.style.setProperty('--y',(y/H*100).toFixed(2)+'%')}
     else if(px<hw+60/Z+10){x=hw+60/Z+10;p.style.setProperty('--x',(x/W*100).toFixed(2)+'%')}
+    /* «apoyadas»: cada pastilla se acerca al título hasta quedar casi tocándolo, sin pisarlo */
+    {const cx2=W/2,cy2=(lines[0].t+lines[lines.length-1].b)/2,hw2=p.offsetWidth/2+8,hh2=p.offsetHeight/2+8;
+      const tight=lines.map(o=>({l:o.l+M-3,r:o.r-M+3,t:o.t-2,b:o.b+14}));if(sb&&sb.offsetWidth){const sw=sb.offsetWidth;tight.push({l:W/2-sw/2-8,r:W/2+sw/2+8,t:sb.offsetTop-8,b:sb.offsetTop+sb.offsetHeight+8})}
+      const hit2=(x,y)=>tight.some(o=>Math.abs(x-(o.l+o.r)/2)<hw2+(o.r-o.l)/2&&Math.abs(y-(o.t+o.b)/2)<hh2+(o.b-o.t)/2)||placed.some(q=>Math.abs(x-q.x)<hw2+q.hw-6&&Math.abs(y-q.y)<hh2+q.hh-6);
+      const minX=hw+60/Z+10;
+      for(let i=0;i<220;i++){
+        const dx=cx2-x,dy=cy2-y,d=Math.hypot(dx,dy);if(d<8)break;
+        const nx=Math.max(minX,x+dx/d*4),ny=y+dy/d*4;
+        if(hit2(nx,ny)){
+          /* si no puede seguir en línea recta, prueba deslizarse en un solo eje */
+          const ox=Math.max(minX,x+Math.sign(dx)*4);const oy=y+Math.sign(dy)*4;
+          if(Math.abs(dx)>Math.abs(dy)&&!hit2(x,oy)){y=oy;continue}
+          if(!hit2(ox,y)){x=ox;continue}
+          break}
+        x=nx;y=ny}
+      p.style.setProperty('--x',(x/W*100).toFixed(2)+'%');p.style.setProperty('--y',(y/H*100).toFixed(2)+'%')}
     placed.push({x,y,hw,hh})});
 }
 addEventListener('resize',()=>{if(view!=='home')clearPills()});
@@ -5395,11 +5437,13 @@ if(!reduce)setInterval(()=>{if(hold||view!=='elementos'||document.hidden)return;
 (()=>{const a=$('#tpEligA'),b=$('#tpEligB');if(!a)return;const fa=lit(a),fb=lit(b);
   const bx=$('#tpElig');pin('#tpEligPin',t=>{const p=clamp(t/.85)*1.02;fa(clamp(p/.5));fb(clamp((p-.56)/.44));bx.classList.toggle('done',p>=1)})})();
 
-/* 3 · pesos de cada familia: al pasar el cursor se ven en itálica */
+/* 3 · pesos de cada familia: al pasar por una fila se resalta y las demás se atenúan; al tocar, toda la lista pasa a itálica (como en Figma) */
 (()=>{const EP=[['Thin',100],['Extralight',200],['Light',300],['Regular',400],['Medium',500],['Semibold',600],['Bold',700],['Extrabold',800],['Black',900]],FI=EP.slice(2);
-  $$('.tpb-w').forEach(ul=>{const L=ul.dataset.fam==='Epilogue'?EP:FI;
+  $$('.tpb-w').forEach(ul=>{const L=ul.dataset.fam==='Epilogue'?EP:FI;let it=false;
     ul.innerHTML=L.map(([n,w])=>`<li style="font-weight:${w}" data-n="${n}">${n}</li>`).join('');
-    $$('li',ul).forEach(li=>{const n=li.dataset.n;li.addEventListener('mouseenter',()=>{li.textContent=n==='Regular'?'Italic':n+' italic'});li.addEventListener('mouseleave',()=>{li.textContent=n})})})})();
+    const paint=()=>$$('li',ul).forEach(li=>{const n=li.dataset.n;li.textContent=it?(n==='Regular'?'Italic':n+' italic'):n;li.style.fontStyle=it?'italic':''});
+    $$('li',ul).forEach(li=>{li.addEventListener('mouseenter',()=>{ul.classList.add('hv');li.classList.add('hot')});li.addEventListener('mouseleave',()=>{ul.classList.remove('hv');li.classList.remove('hot')})});
+    ul.addEventListener('click',e=>{const li=e.target.closest('li');if(!li)return;it=!it;paint();if(matchMedia('(hover:none)').matches){$$('li',ul).forEach(x=>x.classList.toggle('hot',x===li));ul.classList.add('hv')}})})})();
 
 /* 4 · ajuste tipográfico: al scrollear (rápido) pasa de 0% a −5% */
 (()=>{const box=$('#tpAj'),t=$('#tpAjT'),ar=$('#tpAjAr'),c=$('#tpAjC'),v=$('#tpAjV');if(!box)return;let raf=0;
