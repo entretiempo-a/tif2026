@@ -276,7 +276,6 @@ h2{font-family:'Epilogue';font-weight:700;font-size:48px;line-height:56px;letter
 
 /* concepto rector */
 .banner{position:relative;background:var(--naranja);color:var(--naranja-osc);overflow:hidden;min-height:351px;padding:51px 0 28px}
-.banner::before{content:"";position:absolute;width:560px;aspect-ratio:1;border-radius:50%;left:var(--bx,16%);top:var(--by,62%);translate:-50% -50%;background:radial-gradient(circle,rgba(255,236,214,.95),rgba(255,236,214,0) 62%);transition:left .9s var(--ease),top .9s var(--ease)}
 .banner .wrap{position:relative}
 .kicker{font-family:'Epilogue';font-weight:600;font-size:24px;line-height:32px;letter-spacing:-.02em}
 .claim-big{font-family:'Epilogue';font-weight:700;font-size:72px;line-height:1.11;letter-spacing:-.05em;margin-top:13px}
@@ -4774,10 +4773,6 @@ $$('.hero').forEach(h=>{
       c.style.fontWeight=Math.round(c._w>500?c._w-520*f:c._w+520*f)})});
   h.addEventListener('pointerleave',()=>chs.forEach(c=>c.style.fontWeight=''));
 });
-const banner=$('.banner');
-banner.addEventListener('pointermove',e=>{const r=banner.getBoundingClientRect();
-  banner.style.setProperty('--bx',(e.clientX-r.left)/Z+'px');banner.style.setProperty('--by',(e.clientY-r.top)/Z+'px')});
-banner.addEventListener('pointerleave',()=>{banner.style.removeProperty('--bx');banner.style.removeProperty('--by')});
 
 /* ── Frases que se encienden palabra por palabra ── */
 function split(el){
