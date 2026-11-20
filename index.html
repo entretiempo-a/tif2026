@@ -2558,7 +2558,8 @@ body.inpage .sd-wrap:not(:empty){display:none}
 /* v17 · Elementos gráficos */
 /* 04.1 destellos: elementos sueltos sobre el fondo general, sin contenedor ni fondo propio */
 .dest-panel{background:none!important;overflow:visible!important;border-radius:0!important;box-shadow:none!important}
-.dest-panel .dst-b,.dest-panel::before,.dest-panel::after{display:none!important}
+.dest-panel::before,.dest-panel::after{display:none!important}
+.dest-panel .dst-b{display:block!important;opacity:var(--arr,0)!important}
 /* 04.3 tarjetas de frente */
 .slid{display:grid;grid-template-columns:repeat(4,224px);justify-content:space-between;gap:22px;height:auto}
 .sl-c{height:auto;min-height:195px;perspective:none;cursor:default}
