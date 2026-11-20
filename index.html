@@ -2494,6 +2494,11 @@ body.inpage .sd-wrap:not(:empty){display:none}
   .mu-tb .r.h+.r{border-top:0!important}
   .mu-tb{padding-top:8px}
 }
+/* menú: el fondo atenuado y el panel cubren toda la pantalla, también bajo las barras del navegador del celular */
+#menu{height:100lvh;bottom:auto}
+.mn-bg{inset:-140px 0!important}
+.mn-panel{top:0;bottom:auto;height:100lvh;min-height:100%}
+@supports not (height:100lvh){#menu,.mn-panel{height:100vh}}
 
 /* ═════════ SEÑALÉTICA ═════════ */
 #senaletica{background:var(--n10)}
