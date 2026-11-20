@@ -2458,6 +2458,30 @@ body.inpage .sd-wrap:not(:empty){display:none}
   .view .flow>section:nth-last-child(2),.view .flow>div:nth-last-child(2){padding-bottom:88px!important}
 }
 
+/* v96 · móvil */
+@media (max-width:560px){
+  #carrusel{display:none!important}
+  .cl-strips{height:58px}
+  .tn i{position:absolute;inset:0;left:0!important;right:0!important;top:auto!important;bottom:0!important;translate:0 0!important;transform:none!important;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:1px;background:none;box-shadow:none;padding:0 2px;color:var(--ink);opacity:0;min-width:0;white-space:nowrap}
+  .tn i b{font-size:12px;line-height:14px;margin:0;display:block;font-family:'Epilogue'}
+  .tn i span{font-size:9px;line-height:11px}
+  .tn.on{flex:calc(var(--f,1) + 5) 1 0!important}
+  .tn:hover::before,.tn:focus-visible::before,.tn.on::before{height:100%!important;border-radius:0!important}
+  .tn:first-child::before,.tn.on:first-child::before{border-radius:16px 0 0 0!important}
+  .tn:last-child::before,.tn.on:last-child::before{border-radius:0 16px 0 0!important}
+  .tn:hover i,.tn:focus-visible i{opacity:0!important}
+  .tn.on i{opacity:1!important}
+  .ds-an-box{background:none!important;padding:0!important;border-radius:0!important}
+  .ds-an-st{height:auto!important;min-height:230px;padding:36px 0 56px;overflow:hidden}
+  .ds-an-b{transform:none!important;width:100%!important;max-width:100%;height:auto!important;display:flex;justify-content:center}
+  .ds-an-b .bb,.ds-an-b .bb.big,.ds-an-b .bb.med{width:min(var(--bw),calc(100% - 28px))!important;max-width:calc(100% - 28px);margin:0 auto}
+  .ds-an-b.dbl .bb{width:auto!important;transform:scale(1.4)}
+  .ds-an-m{flex-direction:column;align-items:center;gap:8px;padding:18px 0 0}
+  .ds-eye{right:12px;bottom:10px}
+  .ds-atom .stick{min-height:100svh;box-sizing:border-box}
+  .ds-dots{margin:auto 0 22px!important;align-self:center;justify-content:center}
+}
+
 /* ═════════ SEÑALÉTICA ═════════ */
 #senaletica{background:var(--n10)}
 .hero.se .blob.a{background:#ff3a30;opacity:.55}.hero.se .blob.b{background:#7a1010;opacity:.25}
@@ -2821,11 +2845,6 @@ body.inpage .sd-wrap:not(:empty){display:none}
   .mu-hi .row7{grid-template-columns:repeat(4,1fr)}
   .mu-h small{display:block;margin:2px 0 0}
   .mu-pr{gap:16px 20px}
-}
-/* móvil: el formato de referencia se ve ampliado y sin la tira de pestañas del export */
-@media (max-width:560px){
-  .mu-fi{aspect-ratio:3/2;overflow:hidden;border-radius:14px}
-  .mu-fi img{object-fit:cover;object-position:50% 100%;transform:scale(1.55);transform-origin:50% 100%}
 }
 </style>
 </head>
@@ -4562,7 +4581,7 @@ body.inpage .sd-wrap:not(:empty){display:none}
       <p class="mu-k" data-r="up">FORMATOS DE REFERENCIA</p>
       <div class="mu-ft" id="muFt" data-r="up">
         <div class="mu-tabs"><button type="button" class="on" data-i="0"><b>Afiches</b><span>297x420mm</span></button><button type="button" class="" data-i="1"><b>Vía pública</b><span>2000×1000mm</span></button><button type="button" class="" data-i="2"><b>Publicación</b><span>1080×1350 px</span></button><button type="button" class="" data-i="3"><b>Historia</b><span>1080×1920 px</span></button></div>
-        <div class="mu-fi"><img src="assets/mu/fmt0.webp" alt="Afiches de la campaña sobre un cartel de calle" loading="lazy" draggable="false" class="on"><img src="assets/mu/fmt1.webp" alt="Gráfica en la parte trasera de un colectivo" loading="lazy" draggable="false"><img src="assets/mu/fmt2.webp" alt="Publicación vista en un celular" loading="lazy" draggable="false"><img src="assets/mu/fmt3.webp" alt="Historia vista en un celular" loading="lazy" draggable="false"></div>
+        <div class="mu-fi"><img src="assets/mu/fmc0.webp" alt="Afiches de la campaña sobre un cartel de calle" loading="lazy" draggable="false" class="on"><img src="assets/mu/fmc1.webp" alt="Gráfica en la parte trasera de un colectivo" loading="lazy" draggable="false"><img src="assets/mu/fmc2.webp" alt="Publicación vista en un celular" loading="lazy" draggable="false"><img src="assets/mu/fmc3.webp" alt="Historia vista en un celular" loading="lazy" draggable="false"></div>
       </div>
     </div>
   </section>
@@ -5291,6 +5310,10 @@ $$('.uno-grp').forEach(g=>{const set=GRADS[g.dataset.grad];
 /* texto de corrido: el degradé avanza con el scroll */
 onView('#marq',p=>{const m=$('#marqIn');if(m)m.style.setProperty('--bp',(p*100).toFixed(1)+'%')});
 
+/* móvil: al tocar un tono se abre dentro de la barra con su nombre y código */
+$('#clRows').addEventListener('click',e=>{const t=e.target.closest('.tn');if(!t||innerWidth>560)return;
+  $$('.tn.on').forEach(x=>{if(x!==t)x.classList.remove('on')});t.classList.toggle('on')});
+
 /* logos vectoriales de las láminas del carrusel (exportados de Figma) */
 const SLOGO={
 planb:{w:76,h:21,d:["M7.62523 0.131836H1.42165C0.634457 0.131836 0 0.766295 0 1.56524V18.6369C0 19.4358 0.634457 20.0703 1.42165 20.0703C2.20885 20.0703 2.85505 19.4358 2.85505 18.6369V11.5873C7.54299 11.5873 7.64873 11.5873 7.74273 11.5521C10.8798 11.2113 13.1944 8.791 13.1944 5.81845C13.1944 2.8459 10.7153 0.249328 7.62523 0.131836ZM7.39025 8.73224H2.85505V2.98689H7.39025C9.02339 2.98689 10.3393 4.22056 10.3628 5.81845C10.3393 7.43984 9.02339 8.73224 7.39025 8.73224Z","M25.1076 17.2152H16.5894V1.56524C16.5894 0.766295 15.9315 0.131836 15.1678 0.131836C14.4041 0.131836 13.7344 0.766295 13.7344 1.56524V18.6369C13.7344 19.4358 14.3571 20.0703 15.1678 20.0703H25.1076C25.8713 20.0703 26.5293 19.4358 26.5293 18.6369C26.5293 17.8379 25.8713 17.2152 25.1076 17.2152Z","M36.2673 0.143571C35.6094 0.00258003 34.7164 0.319815 34.3757 1.17751L33.3535 4.09133H26.3745L25.1878 1.17751C25.0351 0.519551 24.4946 0.143571 23.8132 0.143571H23.4959C22.6382 0.519545 22.2975 1.34201 22.462 2.03521L28.5833 19.0598C28.7478 19.6003 29.2648 20.082 29.9815 20.082C30.6982 20.082 31.1564 19.6003 31.3209 19.0598L37.125 2.03521C37.4305 1.34201 37.125 0.519545 36.2673 0.143571ZM29.9815 14.2896L27.4084 6.96986H32.4958L29.9815 14.2896Z","M52.9546 1.4354C52.9546 0.636452 52.3319 0.00199327 51.5564 0.00199327C50.781 0.00199327 50.123 0.636452 50.123 1.4354V14.4888L40.8176 0.659946C40.3829 -0.021508 39.5017 -0.197729 38.8438 0.236992C38.3621 0.542471 38.1388 1.09469 38.1858 1.63515V18.8007C38.1858 19.5644 38.8438 20.1989 39.6192 20.1989C40.3947 20.1989 41.0174 19.5644 41.0174 18.8007V6.12332L50.358 19.5409C50.64 19.9639 51.0982 20.1989 51.5564 20.1989C51.8149 20.1989 52.0969 20.1401 52.3319 19.9639C52.8136 19.6584 53.0368 19.1062 52.9546 18.5658V1.4354Z","M73.8825 0.131836H64.8473C61.8513 0.308074 59.2782 2.7049 59.2782 5.84194C59.3017 7.18135 59.7599 8.415 60.5354 9.39019C58.679 10.3536 57.4453 12.3275 57.4453 14.4424C57.4806 17.4384 59.8187 19.8353 62.7912 20.0703H73.9177C74.7167 20.0703 75.3394 19.4358 75.3394 18.6369V1.56524C75.3394 0.789793 74.6814 0.131836 73.8825 0.131836ZM72.4843 17.2152H62.9909C61.5928 17.2152 60.2769 15.9815 60.2769 14.4424C60.2769 13.009 61.5575 11.6108 63.1319 11.5873H72.4843V17.2152ZM72.4843 8.73224H65.0706C63.4492 8.73224 62.1332 7.43984 62.098 5.81845C62.1332 4.22056 63.4492 2.98689 65.0706 2.98689H72.4843V8.73224Z"]},
@@ -5678,6 +5701,11 @@ const RM=reduce&&!matchMedia('(hover:none)').matches;
   const po=$('#muPo');if(po)$$('.mu-lg li').forEach(li=>{const n=li.dataset.n,on=v=>$$('.mu-m[data-n="'+n+'"]',po).forEach(m=>m.classList.toggle('hl',v));
     li.addEventListener('mouseenter',()=>on(true));li.addEventListener('mouseleave',()=>on(false))});
 })();
+
+/* lightbox de los formatos de referencia */
+(()=>{const fi=$('.mu-fi');if(!fi)return;const lb=document.createElement('div');lb.className='mu-lb';lb.innerHTML='<img alt=""><button aria-label="Cerrar">×</button>';document.body.appendChild(lb);
+  const close=()=>lb.classList.remove('on');lb.addEventListener('click',close);addEventListener('keydown',e=>{if(e.key==='Escape')close()});
+  fi.addEventListener('click',()=>{const im=$('img.on',fi);if(!im)return;$('img',lb).src=im.src;$('img',lb).alt=im.alt;lb.classList.add('on')})})();
 
 /* arranque */
 const route=()=>{const h=location.hash.slice(1);return PAGES[h]?h:'home'};
