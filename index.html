@@ -2538,6 +2538,13 @@ body.inpage .sd-wrap:not(:empty){display:none}
   .tile[data-go=motion]>img{-webkit-mask-image:linear-gradient(90deg,transparent,#000 24%),linear-gradient(180deg,#000 74%,transparent 98%);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent,#000 24%),linear-gradient(180deg,#000 74%,transparent 98%);mask-composite:intersect}
 }
 
+/* parlante de Motion: imagen propia (sin recortes) solo en móvil, entrando por la derecha */
+.tile>img.mob-sp{display:none}
+@media (max-width:560px){
+  .tile[data-go=motion]>img:not(.mob-sp){display:none}
+  .tile[data-go=motion]>img.mob-sp,.grid.ready .tile[data-go=motion]:hover>img.mob-sp{display:block;position:absolute;left:auto;top:auto;right:-30%;bottom:15%;width:128%;height:auto;max-width:none;object-fit:contain;-webkit-mask-image:none;mask-image:none;transform:none!important;scale:1;filter:drop-shadow(0 8px 10px rgba(20,60,160,.25))}
+}
+
 /* ═════════ SEÑALÉTICA ═════════ */
 #senaletica{background:var(--n10)}
 .hero.se .blob.a{background:#ff3a30;opacity:.55}.hero.se .blob.b{background:#7a1010;opacity:.25}
@@ -2926,7 +2933,7 @@ body.inpage .sd-wrap:not(:empty){display:none}
       </div>
       <div class="col">
         <a class="tile" href="#colores" data-go="colores" style="--ar:383/258;--lx:23;--ly:14;flex:258;--t:#2d2e30"><img src="assets/home/paletas.webp" alt="" draggable="false"><span>Paletas<br>cromáticas</span><span class="arrow">↗</span></a>
-        <a class="tile" href="#motion" data-go="motion" style="--ar:382/258;--lx:22;--ly:17;flex:258;--t:#2d2e30"><img src="assets/home/motion.webp" alt="" draggable="false"><span>Motion<br>y sonidos</span><span class="arrow">↗</span></a>
+        <a class="tile" href="#motion" data-go="motion" style="--ar:382/258;--lx:22;--ly:17;flex:258;--t:#2d2e30"><img src="assets/home/motion.webp" alt="" draggable="false"><img class="mob-sp" src="assets/home/parlante.webp" alt="" draggable="false"><span>Motion<br>y sonidos</span><span class="arrow">↗</span></a>
         <a class="tile" href="#marca" data-go="marca" style="--ar:383/164;--lx:22;--ly:18;flex:164;--t:#2d2e30"><img src="assets/home/marca.webp" alt="" draggable="false"><span>La marca<br>en uso</span><span class="arrow">↗</span></a>
       </div>
     </nav>
