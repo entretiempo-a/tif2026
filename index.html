@@ -2422,6 +2422,8 @@ body.inpage .sd-wrap:not(:empty){display:none}
 #colores .two,#colores .two.wide{grid-template-columns:467px 1fr;column-gap:0}
 #colores .two .body{font-size:16px;line-height:19px;max-width:486px}
 #colores .cl-base .two .body{font-size:14px;line-height:18px;font-weight:500;max-width:none}
+/* la etiqueta lateral arranca siempre en el mismo lugar (sobre el menú) y solo crece hacia arriba si el texto es más largo */
+.side .lbl{top:auto;bottom:calc(50% + 44px);max-height:calc(50% - 72px)}
 
 /* ═════════ SEÑALÉTICA ═════════ */
 #senaletica{background:var(--n10)}
