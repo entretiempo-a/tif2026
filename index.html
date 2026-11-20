@@ -2282,7 +2282,7 @@ body.inpage .sd-wrap:not(:empty){display:flex}
   .sl-c.on .q{display:block}
   .sl-c .q p{font-size:16px;line-height:22px}.sl-c .q em{font-size:10px}
   /* carrusel de personajes: re-armado en vertical, personaje al centro */
-  .car{height:auto;margin-left:var(--ml);width:calc(100% - var(--ml))}
+  .car{height:auto;margin-left:var(--side);width:calc(100% - var(--side))}
   .car-in{position:relative;left:auto;margin:0;width:100%;height:auto;transform:none!important;display:flex;flex-direction:column;align-items:center;gap:12px;padding:36px 18px 56px 18px;overflow:hidden;text-align:center}
   .car-in>*{position:relative!important;left:auto!important;top:auto!important;width:auto}
   .car-in>.car-ell{position:absolute!important;left:50%!important;top:130px!important;width:460px!important;height:460px!important;translate:-50% 0;z-index:0}
@@ -2441,6 +2441,22 @@ body.inpage .sd-wrap:not(:empty){display:none}
 .tpb-d2{font-size:13px;line-height:17px;margin-top:14px}
 .tpb-bt{margin-top:28px;width:max-content;height:34px;font-size:12px;padding:0 8px 0 16px}
 .tpb-bt i{width:20px;height:20px}.tpb-bt i svg{width:14px;height:14px}
+
+/* v95 · móvil */
+.c-aside-m{display:none}
+@media (max-width:560px){
+  .c-intro .aside{display:none!important}
+  .c-aside-m{display:block;margin:0 18px 0 var(--ml);padding:44px 0 72px;background:none}
+  .c-aside-m p+p{margin-top:16px}
+  .el-inf{display:none}
+  .br-line{display:grid;grid-template-columns:1fr 1fr;height:auto}
+  .br-bar.rows .br-seg{min-height:54px}
+  .br-bar.rows .br-seg small{font-size:11px}
+  .aa-row .aa-c:last-child:nth-child(odd){grid-column:1/-1}
+  .aa-row .aa-c:last-child:nth-child(odd) .aa-card{height:auto;aspect-ratio:2/1}
+  /* más aire entre la última sección y el pie de página, igual en todas las páginas */
+  .view .flow>section:nth-last-child(2),.view .flow>div:nth-last-child(2){padding-bottom:88px!important}
+}
 
 /* ═════════ SEÑALÉTICA ═════════ */
 #senaletica{background:var(--n10)}
@@ -2806,6 +2822,11 @@ body.inpage .sd-wrap:not(:empty){display:none}
   .mu-h small{display:block;margin:2px 0 0}
   .mu-pr{gap:16px 20px}
 }
+/* móvil: el formato de referencia se ve ampliado y sin la tira de pestañas del export */
+@media (max-width:560px){
+  .mu-fi{aspect-ratio:3/2;overflow:hidden;border-radius:14px}
+  .mu-fi img{object-fit:cover;object-position:50% 100%;transform:scale(1.55);transform-origin:50% 100%}
+}
 </style>
 </head>
 <body>
@@ -3024,6 +3045,10 @@ body.inpage .sd-wrap:not(:empty){display:none}
         </div>
       </div>
     </div></div>
+    <div class="wrap body c-aside-m" data-r="up">
+      <p>Creemos que la comunicación es una forma de conectar, despertar curiosidad y generar nuevas experiencias.</p>
+      <p><b>Hablamos de manera cercana, clara y dinámica,</b> invitando a las personas a explorar, participar y descubrir otras perspectivas sobre lo cotidiano.</p>
+    </div>
   </section>
 
   <section class="c-pilares" id="pilares" data-tone="l" data-label="Pilares de comunicación">
@@ -3688,7 +3713,7 @@ body.inpage .sd-wrap:not(:empty){display:none}
       <p class="body" data-r="up" style="--d:.1s">Los personajes narrativos <b>representan situaciones cotidianas</b> mediante figuras humanas estilizadas. Sus <b>proporciones expresivas, accesorios con volumen y brillo moderado</b> hacen reconocible cada historia.</p>
       <div class="flips" id="flips"></div>
       <div class="pr-card" data-p="nar"><code></code><a class="pr-btn" target="_blank" rel="noopener">Ver prompt completo <i>→</i></a></div>
-      <div class="el-dl" data-r="up"><a class="btn-dl" href="#" data-say="El link a los personajes narrativos todavía no está cargado">Descargar personajes <i><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4v8M5.5 9 9 12.5 12.5 9"/></svg></i></a></div>
+      <div class="el-dl" data-r="up"><a class="btn-dl" href="https://drive.google.com/drive/folders/1xsh7EfiO22gUmVlnEq1CIrgwY9AU4gCb" target="_blank" rel="noopener">Descargar personajes <i><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4v8M5.5 9 9 12.5 12.5 9"/></svg></i></a></div>
     </div>
   </section>
 
@@ -3702,11 +3727,11 @@ body.inpage .sd-wrap:not(:empty){display:none}
         <figure><img src="assets/el/mascota-planb-hd.webp" alt="Mascota de PLAN B" loading="lazy"></figure>
       </div>
       <div class="pr-card" data-p="mas"><code></code><a class="pr-btn" target="_blank" rel="noopener">Ver prompt completo <i>→</i></a></div>
-      <div class="el-dl" data-r="up"><a class="btn-dl" href="#" data-say="El link a las mascotas todavía no está cargado">Descargar mascotas <i><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4v8M5.5 9 9 12.5 12.5 9"/></svg></i></a></div>
+      <div class="el-dl" data-r="up"><a class="btn-dl" href="https://drive.google.com/drive/folders/1oqnx1gAna9wVFv2cNI5VVBYu3CM-mgqe" target="_blank" rel="noopener">Descargar mascotas <i><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4v8M5.5 9 9 12.5 12.5 9"/></svg></i></a></div>
       <h3 class="el-h3 sp" data-r="up">Mascota digital</h3>
       <p class="body" data-r="up" style="--d:.1s">Móvi acompaña la experiencia digital con una <b>presencia cercana y amigable</b>. Su <b>volumen compacto, rasgos simplificados y acabado luminoso</b> permiten reconocerlo en distintos formatos.</p>
       <div class="movi"><img src="assets/el/mascota-movi-hd.webp" alt="Móvi, la mascota digital" loading="lazy"><div class="pr-card" data-p="movi"><code></code><a class="pr-btn" target="_blank" rel="noopener">Ver prompt completo <i>→</i></a></div></div>
-      <div class="el-dl" data-r="up"><a class="btn-dl" href="#" data-say="El link a Móvi todavía no está cargado">Descargar a Móvi <i><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4v8M5.5 9 9 12.5 12.5 9"/></svg></i></a></div>
+      <div class="el-dl" data-r="up"><a class="btn-dl" href="https://drive.google.com/drive/folders/1G8g0na32-G6_fiBnk0Y1X97XsrvZT06s" target="_blank" rel="noopener">Descargar a Móvi <i><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4v8M5.5 9 9 12.5 12.5 9"/></svg></i></a></div>
     </div>
   </section>
 
@@ -4111,7 +4136,7 @@ body.inpage .sd-wrap:not(:empty){display:none}
         <p class="body" data-r="up" style="--d:.1s"><b>Material Symbols Rounded</b> es la base de la iconografía de MOViDA. Los <b>símbolos planos</b> se usan en navegación y controles; los <b>inflados blanco y violeta</b> se reservan para recursos expresivos. La retícula documenta la construcción del ícono plano.</p></div>
       <div class="ds-tabs ic" id="dsIcTabs" data-r="up"><button class="on" data-k="0">Plano</button><button data-k="1">Inflado blanco</button><button data-k="2">Inflado violeta</button></div>
       <div class="ds-icg" id="dsIcG" data-r="up"><img src="assets/ds/iconos.webp" width="3200" height="2752" alt="Colección de 61 íconos de MOViDA" draggable="false"></div>
-      <div class="ds-bar" data-r="up"><a class="btn-dl" href="#" data-say="El link a la plantilla de íconos todavía no está cargado">Descargar plantilla <i><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4v8M5.5 9 9 12.5 12.5 9"/></svg></i></a></div>
+      <div class="ds-bar" data-r="up"><a class="btn-dl" href="https://drive.google.com/drive/folders/1zoS7KUmRUKtAqxs-s_AG9HOWDWFYPgAv" target="_blank" rel="noopener">Descargar plantilla <i><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4v8M5.5 9 9 12.5 12.5 9"/></svg></i></a></div>
       <div class="ds-cons">
         <div data-r="up"><h3>Construcción</h3><p class="body">La <b>retícula de 24 × 24 px</b> organiza el símbolo plano de Material Symbols Rounded. Las versiones infladas conservan su silueta, pero se usan como <b>recursos expresivos 3D</b> y no sustituyen los íconos de interfaz.</p></div>
         <img data-r="up" style="--d:.1s" src="assets/ds/construccion.webp" alt="Retícula de 24 × 24 px con el ícono home" draggable="false">
@@ -5119,12 +5144,13 @@ const BSETS=[[332,137,265,204,332,61],[110,300,80,332,170,280],[260,70,332,150,3
 const clBars=$('#clBars');
 clBars.innerHTML=BARS.map(b=>`<button class="cl-bar${b[3]?'':' lt'}" data-copy="${b[0].toUpperCase()}" style="background:${b[0]}" aria-label="Copiar ${b[1]} ${b[2]} ${b[0].toUpperCase()}"><code>${b[0].toUpperCase()}</code><b>${b[1]}<br>${b[2]}</b></button>`).join('');
 const barEls=$$('.cl-bar',clBars);let bsI=0;
-function barsSet(k){const s=BSETS[k%BSETS.length];barEls.forEach((el,i)=>{el.style.height=s[i]+'px';el.classList.toggle('show',s[i]>=190)})}
+const BF=()=>innerWidth<=560?260/332:1;
+function barsSet(k){const s=BSETS[k%BSETS.length];barEls.forEach((el,i)=>{el.style.height=Math.round(s[i]*BF())+'px';el.classList.toggle('show',s[i]>=190)})}
 barsSet(0);
 let barHold=false;
 if(!reduce)setInterval(()=>{if(barHold||view!=='colores'||document.hidden)return;bsI++;barsSet(bsI)},2800);
 barEls.forEach((b,k)=>{
-  b.addEventListener('mouseenter',()=>{barHold=true;barEls.forEach((el,i)=>{const h=i===k?332:70;el.style.height=h+'px';el.classList.toggle('show',h>=190)})});
+  b.addEventListener('mouseenter',()=>{barHold=true;barEls.forEach((el,i)=>{const h=i===k?332:70;el.style.height=Math.round(h*BF())+'px';el.classList.toggle('show',h>=190)})});
   b.addEventListener('mouseleave',()=>{barHold=false})});
 clBars.addEventListener('mouseleave',()=>{barHold=false;barsSet(bsI)});
 
@@ -5433,6 +5459,8 @@ if(!reduce)setInterval(()=>{if(hold||view!=='elementos'||document.hidden)return;
   new MutationObserver(upd).observe($('#elementos'),{attributes:true,attributeFilter:['class']});
   (function loop(){if(view==='elementos'&&!document.hidden&&scrollY<innerHeight*1.5)upd();requestAnimationFrame(loop)})();
 })();
+/* en el celular las animaciones informativas siguen activas aunque el sistema pida reducir movimiento */
+const RM=reduce&&!matchMedia('(hover:none)').matches;
 
 /* ══════════ USO DE TIPOGRAFÍAS ══════════ */
 /* 1 · animación inicial: se tipea "mal" (distintas tipografías) y después se ajusta */
@@ -5448,7 +5476,7 @@ if(!reduce)setInterval(()=>{if(hold||view!=='elementos'||document.hidden)return;
   const a=mk(L1,'ln1'),b=mk(L2,'ln2');host.append(a,b);
   const ws=$$('.wd',host);
   const fin=()=>{ws.forEach(w=>{w.textContent=w.dataset.t;w.removeAttribute('style')});$('.cr',host)&&$('.cr',host).remove();box.classList.add('ok')};
-  if(reduce){fin();return}
+  if(RM){fin();return}
   const cr=document.createElement('i');cr.className='cr';
   let started=false;
   function run(){if(started)return;started=true;
@@ -5477,9 +5505,9 @@ if(!reduce)setInterval(()=>{if(hold||view!=='elementos'||document.hidden)return;
 
 /* 4 · ajuste tipográfico: al scrollear (rápido) pasa de 0% a −5% */
 (()=>{const box=$('#tpAj'),t=$('#tpAjT'),ar=$('#tpAjAr'),c=$('#tpAjC'),v=$('#tpAjV');if(!box)return;let raf=0;
-  const upd=()=>{raf=0;if(view!=='tipografias')return;const r=($('.tp-aj-h')||box).getBoundingClientRect(),H=innerHeight;
-    /* llega a −5 % cuando el título de la sección alcanza ~12 % de la altura de la pantalla */
-    const q=(reduce||innerWidth<=560)?1:clamp((H*.55-r.top)/(H*.43));
+  const upd=()=>{raf=0;if(view!=='tipografias')return;const mob=innerWidth<=560,r=(mob?box:($('.tp-aj-h')||box)).getBoundingClientRect(),H=innerHeight;
+    /* escritorio: llega a −5 % cuando el título alcanza ~12 % de la altura; celular: cuando la palabra sube a media pantalla */
+    const q=RM?1:(mob?clamp((H*.9-r.top)/(H*.4)):clamp((H*.55-r.top)/(H*.43)));
     t.style.letterSpacing=(-.05*q).toFixed(4)+'em';ar.style.width=(300-150*q).toFixed(1)+'px';
     const on=q>.5;c.classList.toggle('on',on);v.textContent=on?'-5%':'0%'};
   addEventListener('scroll',()=>{if(!raf)raf=requestAnimationFrame(upd)},{passive:true});upd()})();
@@ -5507,6 +5535,13 @@ if(!reduce)setInterval(()=>{if(hold||view!=='elementos'||document.hidden)return;
     [S,W].forEach(r=>r.style.setProperty('--p',((r.value-r.min)/(r.max-r.min)*100)+'%'))}
   const upd=()=>{if(I.selectionStart!==I.selectionEnd){st.a=I.selectionStart;st.b=I.selectionEnd;render()}};
   ['select','mouseup','keyup','focus'].forEach(e=>I.addEventListener(e,()=>setTimeout(upd,0)));
+  /* táctil: al seleccionar con el dedo (o al tocar una palabra) se aplica la intervención */
+  document.addEventListener('selectionchange',()=>{if(document.activeElement===I)setTimeout(upd,0)});
+  ['touchend','pointerup','click'].forEach(e=>I.addEventListener(e,()=>setTimeout(()=>{
+    if(I.selectionStart!==I.selectionEnd){upd();return}
+    if(!matchMedia('(hover:none)').matches)return;
+    const x=I.value,p=I.selectionStart;let a=p,b=p;while(a>0&&/\S/.test(x[a-1]))a--;while(b<x.length&&/\S/.test(x[b]))b++;
+    const w=x.slice(a,b).replace(/[.,;:!?]+$/,'');if(w){st.a=a;st.b=a+w.length;render()}},0)));
   I.addEventListener('input',()=>{const x=I.value;if(st.b>x.length)st.b=x.length;if(st.a>=st.b){const [a,b]=sel();st.a=a;st.b=b}render()});
   S.addEventListener('input',render);W.addEventListener('input',render);
   O.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;st.mode=+b.dataset.m;$$('button',O).forEach(x=>x.classList.toggle('on',x===b));render()});
