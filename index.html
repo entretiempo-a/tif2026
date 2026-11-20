@@ -2499,6 +2499,12 @@ body.inpage .sd-wrap:not(:empty){display:none}
 .mn-bg{inset:-140px 0!important}
 .mn-panel{top:0;bottom:auto;height:100lvh;min-height:100%}
 @supports not (height:100lvh){#menu,.mn-panel{height:100vh}}
+/* prueba · menú principal móvil: todas las categorías con el tamaño y la forma de «Elementos gráficos» */
+@media (max-width:560px){
+  .row{flex-direction:column!important}
+  .row>.tile,.tile{aspect-ratio:383/165!important;flex:none!important;width:100%}
+  .tile span:not(.arrow){font-size:17px}
+}
 
 /* ═════════ SEÑALÉTICA ═════════ */
 #senaletica{background:var(--n10)}
