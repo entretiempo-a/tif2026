@@ -2482,6 +2482,19 @@ body.inpage .sd-wrap:not(:empty){display:none}
   .ds-dots{margin:auto 0 22px!important;align-self:center;justify-content:center}
 }
 
+/* v97 · La marca en uso: formatos y visor */
+.mu-fi{aspect-ratio:1036/472!important;cursor:zoom-in;border-radius:14px;overflow:hidden}
+.mu-fi img{object-fit:contain!important;object-position:center!important;transform:none!important;background:#111}
+.mu-px img,.mu-cx img,.mu-st img,.mu-cv img,.mu-po>img,.mu-pc img{cursor:zoom-in}
+.mu-lb{position:fixed;inset:0;z-index:200;background:rgba(20,21,23,.94);display:none;align-items:center;justify-content:center;padding:18px;cursor:zoom-out}
+.mu-lb.on{display:flex}
+.mu-lb img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;border-radius:10px}
+.mu-lb button{position:absolute;top:14px;right:16px;color:#fff;font-size:34px;line-height:1}
+@media (max-width:560px){
+  .mu-tb .r.h+.r{border-top:0!important}
+  .mu-tb{padding-top:8px}
+}
+
 /* ═════════ SEÑALÉTICA ═════════ */
 #senaletica{background:var(--n10)}
 .hero.se .blob.a{background:#ff3a30;opacity:.55}.hero.se .blob.b{background:#7a1010;opacity:.25}
@@ -5706,6 +5719,9 @@ const RM=reduce&&!matchMedia('(hover:none)').matches;
 (()=>{const fi=$('.mu-fi');if(!fi)return;const lb=document.createElement('div');lb.className='mu-lb';lb.innerHTML='<img alt=""><button aria-label="Cerrar">×</button>';document.body.appendChild(lb);
   const close=()=>lb.classList.remove('on');lb.addEventListener('click',close);addEventListener('keydown',e=>{if(e.key==='Escape')close()});
   fi.addEventListener('click',()=>{const im=$('img.on',fi);if(!im)return;$('img',lb).src=im.src;$('img',lb).alt=im.alt;lb.classList.add('on')})})();
+
+/* todas las imágenes de piezas se abren a pantalla completa al tocarlas */
+document.addEventListener('click',e=>{const im=e.target.closest('.mu-px img,.mu-cx img,.mu-st img,.mu-cv img,.mu-po>img,.mu-pc img');if(!im)return;const lb=$('.mu-lb');if(!lb)return;$('img',lb).src=im.currentSrc||im.src;$('img',lb).alt=im.alt;lb.classList.add('on')});
 
 /* arranque */
 const route=()=>{const h=location.hash.slice(1);return PAGES[h]?h:'home'};
